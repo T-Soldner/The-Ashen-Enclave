@@ -21,14 +21,123 @@ class CfgPatches
 		skipWhenMissingDependencies = 1;
 	};
 };
-class CfgWeapons
-{
+class CfgWeapons {
+	//Armor inherts
 	class tgf_armour_light_armour;
-	class tae_armor_havoc: tgf_armour_light_armour
-	{
+	class tgf_armour_medium_armour;
+	class tgf_armour_super_light_armour;
+	class tgf_armour_heavy_armour;
+	class tgf_armour_battle_armour;
+	class tgf_armour_war_chief_armour;
+	class tgf_armour_arbiter_armour;
+	
+	//actual Armor
+	class tae_armor_traditional : tgf_armour_light_armour {
 		scope = 2;
-		displayName = "Havoc's Mandalorian Armour";
-		descriptionShort = "Havoc's Mandalorian Armour";
-		hiddenSelectionsTextures[] = {"TAEArmor\data\havocretard1.paa","TAEArmor\data\havocretard2.paa"};
+		displayName = "Traditional Mandalorian Armour";
+		descriptionShort = "Traditional Mandalorian Armour";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\traditional1.paa","TAEArmor\data\traditional2.paa"};
+	};
+	class tae_armor_medium : tgf_armour_medium_armour {
+		scope = 1;
+		displayName = "Medium Mandalorian Armour";
+		descriptionShort = "Medium Mandalorian Armour";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\medium1.paa","TAEArmor\data\medium2.paa"};
+	};
+	class tae_armor_recon : tgf_armour_super_light_armour {
+		scope = 1;
+		displayName = "Recon Mandalorian Armour";
+		descriptionShort = "Recon Mandalorian Armour";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\recon1.paa","TAEArmor\data\recon2.paa"};
+	};
+	class tae_armor_heavy : tgf_armour_heavy_armour {
+		scope = 1;
+		displayName = "Heavy Mandalorian Armour";
+		descriptionShort = "Heavy Mandalorian Armour";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\heavy1.paa","TAEArmor\data\heavy2.paa"};
+	};
+	class tae_armor_battle : tgf_armour_battle_armour {
+		scope = 1;
+		displayName = "Battle Mandalorian Armour";
+		descriptionShort = "Battle Mandalorian Armour";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\battle1.paa","TAEArmor\data\battle2.paa"};
+	};
+	class tae_armor_war_chief : tgf_armour_battle_armour {
+		scope = 1;
+		displayName = "War Chief Mandalorian Armour";
+		descriptionShort = "War Chief Mandalorian Armour";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\warchief1.paa","TAEArmor\data\warchief2.paa"};
+	};
+	class tae_armor_arbiter : tgf_armour_battle_armour {
+		scope = 1;
+		displayName = "Arbiter Mandalorian Armour";
+		descriptionShort = "Arbiter Mandalorian Armour";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\arbiter1.paa","TAEArmor\data\arbiter2.paa"};
+	};
+
+	//helmet inherts
+	class tgf_helmets_battle_master;
+	class tgf_helmets_gunslinger;
+	class tgf_helmets_warlord;
+	class tgf_helmets_viper;
+	class tgf_helmets_heavy;
+	class tgf_helmets_pilot;
+	class tgf_helmets_traditional;
+	class tgf_helmets_shrike;
+	class tgf_helmets_arbiter;
+	class tgf_helmets_war_chief;
+	
+	//actual armor
+	class tae_helmet_traditional : tgf_helmets_traditional { 
+		scope = 2;
+		displayname = "Mandalorian traditional Helmet";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\traditionalhelmet.paa","\z\tgf\addons\helmets\forgemaster\data\camo2_co.paa"};
+	};
+	class tae_helmet_battle_master : tgf_helmets_battle_master { 
+		scope = 1;
+		displayname = "Mandalorian Battle Master Helmet";
+	};
+	class tae_helmet_gunslinger : tgf_helmets_gunslinger { 
+		scope = 1;
+		displayname = "Mandalorian Gunslinger Helmet";
+	};
+	class tae_helmet_warlord : tgf_helmets_warlord { 
+		scope = 1;
+		displayname = "Mandalorian Warlord Helmet";
+	};
+	class tae_helmet_viper : tgf_helmets_viper { 
+		scope = 1;
+		displayname = "Mandalorian Viper Helmet";
+	};
+	class tae_helmet_heavy : tgf_helmets_heavy { 
+		scope = 1;
+		displayname = "Mandalorian Heavy Helmet";
+	};
+	class tae_helmet_pilot : tgf_helmets_pilot { 
+		scope = 1;
+		displayname = "Mandalorian Pilot Helmet";
+	};
+	class tae_helmet_shrike : tgf_helmets_shrike { 
+		scope = 1;
+		displayname = "Mandalorian Shrike Helmet";
+	};
+	class tae_helmet_arbiter : tgf_helmets_arbiter { 
+		scope = 1;
+		displayname = "Mandalorian Arbiter Helmet";
+	};
+	class tae_helmet_war_chief : tgf_helmets_war_chief { 
+		scope = 1;
+		displayname = "Mandalorian War Chief Helmet";
 	};
 };
+class CfgVehicles {
+	class tgf_backpacks_JT12;
+	
+	class tae_hondo_JT12 : tgf_backpacks_JT12 {
+		scope = 2;
+		displayName = "Hondo's JT-12 Jetpack";
+		descriptionShort = "Hondo's JT-12 Jetpack";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\hondojt12.paa"};
+	};
+};
+
