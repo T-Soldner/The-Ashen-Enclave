@@ -103,7 +103,7 @@ class RscDisplayMain: RscStandardDisplay
 			y="SafeZoneY";
 			h="SafeZoneH";
 			w="SafeZoneW";
-			text="\TAECore\textures\Mainmenu.paa";
+			text="\TAECore\textures\screen.paa";
 		};
 	};
 };
@@ -123,7 +123,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\loading.paa";
+					text="\TAECore\textures\screen.paa";
 				};
 			};
 		};
@@ -138,7 +138,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\loading.paa";
+					text="\TAECore\textures\screen.paa";
 				};
 			};
 		};
@@ -153,7 +153,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\Mainmenu.paa";
+					text="\TAECore\textures\screen.paa";
 				};
 			};
 		};
@@ -168,7 +168,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\loading.paa";
+					text="\TAECore\textures\screen.paa";
 				};
 			};
 		};
@@ -183,7 +183,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\Mainmenu.paa";
+					text="\TAECore\textures\screen.paa";
 				};
 			};
 		};
@@ -200,7 +200,7 @@ class RscDisplayLoadMission: RscStandardDisplay
 			y="SafeZoneY";
 			h="SafeZoneH";
 			w="SafeZoneW";
-			text="\TAECore\textures\loading.paa";
+			text="\TAECore\textures\screen.paa";
 		};
 	};
 };
@@ -215,7 +215,7 @@ class RscDisplayStart: RscStandardDisplay
 			y="SafeZoneY";
 			h="SafeZoneH";
 			w="SafeZoneW";
-			text="\TAECore\textures\loading.paa";
+			text="\TAECore\textures\screen.paa";
 		};
 	};
 };
@@ -229,7 +229,7 @@ class RscDisplayClientWait: RscDisplayMPPlayers
 		y="SafeZoneY";
 		h="SafeZoneH";
 		w="SafeZoneW";
-		text="\TAECore\textures\Mainmenu.paa";
+		text="\TAECore\textures\screen.paa";
 	};
 };
 class RscDisplayClient: RscStandardDisplay
@@ -243,7 +243,7 @@ class RscDisplayClient: RscStandardDisplay
 			y="SafeZoneY";
 			h="SafeZoneH";
 			w="SafeZoneW";
-			text="\TAECore\textures\Mainmenu.paa";
+			text="\TAECore\textures\screen.paa";
 		};
 	};
 };
