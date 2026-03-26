@@ -130,14 +130,3 @@ class CfgWeapons {
 		displayname = "Mandalorian War Chief Helmet";
 	};
 };
-class CfgVehicles {
-	class tgf_backpacks_JT12;
-	
-	class tae_hondo_JT12 : tgf_backpacks_JT12 {
-		scope = 2;
-		displayName = "Hondo's JT-12 Jetpack";
-		descriptionShort = "Hondo's JT-12 Jetpack";
-		hiddenSelectionsTextures[] = {"TAEArmor\data\hondojt12.paa"};
-	};
-};
-
