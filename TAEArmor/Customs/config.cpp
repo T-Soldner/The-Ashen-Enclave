@@ -45,3 +45,14 @@ class CfgWeapons
 		hiddenSelectionsTextures[] = {"TAEArmor\data\hondohelmet.paa","\z\tgf\addons\helmets\forgemaster\data\camo2_co.paa"};
 	};
 };
+
+class CfgVehicles {
+	class tgf_backpacks_JT12_LR;
+	
+	class tae_hondo_JT12 : tgf_backpacks_JT12_LR {
+		scope = 2;
+		displayName = "Hondo's JT-12 Jetpack";
+		descriptionShort = "Hondo's JT-12 Jetpack";
+		hiddenSelectionsTextures[] = {"TAEArmor\data\hondojt12.paa"};
+	};
+};
