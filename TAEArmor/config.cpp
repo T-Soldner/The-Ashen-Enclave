@@ -30,6 +30,8 @@ class CfgWeapons {
 	class tgf_armour_battle_armour;
 	class tgf_armour_war_chief_armour;
 	class tgf_armour_arbiter_armour;
+	class ls_mandalorianVest_standard;
+	class ItemInfo;
 	
 	//actual Armor
 	class tae_armor_traditional : tgf_armour_light_armour {
@@ -74,6 +76,13 @@ class CfgWeapons {
 		descriptionShort = "Arbiter Mandalorian Armour";
 		hiddenSelectionsTextures[] = {"TAEArmor\data\arbiter1.paa","TAEArmor\data\arbiter2.paa"};
 	};
+	class tae_armor_acklay : ls_mandalorianVest_standard {
+		author = "Soldner";
+		displayName = "Clan Acklay Armor";
+		scope = 2;
+		scopeArsenal = 2;
+		hiddenSelectionsTextures[] = {"TAEArmor\data\acklay_vest_co.paa"};
+	};
 
 	//helmet inherts
 	class tgf_helmets_battle_master;
@@ -86,6 +95,7 @@ class CfgWeapons {
 	class tgf_helmets_shrike;
 	class tgf_helmets_arbiter;
 	class tgf_helmets_war_chief;
+	class ls_mandalorianHelmet_traditional;
 	
 	//actual armor
 	class tae_helmet_traditional : tgf_helmets_traditional { 
@@ -128,5 +138,15 @@ class CfgWeapons {
 	class tae_helmet_war_chief : tgf_helmets_war_chief { 
 		scope = 1;
 		displayname = "Mandalorian War Chief Helmet";
+	};
+	class tae_helmet_acklay : ls_mandalorianHelmet_traditional { 
+		author = "Soldner";
+		displayName = "Clan Acklay Helmet";
+		hiddenSelections[] = {"camo1","visor","neckTex"};
+		hiddenSelectionsTextures[] = {
+			"TAEArmor\data\acklay_helmet_co.paa",
+			"TAEArmor\data\acklay_visor_co.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
+		};
 	};
 };
