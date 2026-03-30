@@ -226,6 +226,44 @@ class CfgWeapons {
 			hiddenSelections[] = {"camo1"};
 		};
 	};
+
+	//Nox
+	class tae_nox_armor : tae_armor_arbiter {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		displayName = "Nox's Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEArmor\data\nox1.paa",
+			"TAEArmor\data\nox2.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEArmor\data\nox1.paa",
+				"TAEArmor\data\nox2.paa"
+			};
+		};
+	};
+	class tae_hondo_helmet : tae_helmet_warlord {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		displayName = "Nox's Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEArmor\data\noxhelmet.paa",
+			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+			"TAEArmor\data\noxhelmet.paa",
+			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+			};
+		};
+	};
 };
 
 class CfgVehicles {
