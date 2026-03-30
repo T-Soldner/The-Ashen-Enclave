@@ -13,7 +13,9 @@ class CfgPatches {
 			"tae_hondo_helmet",
 			"tae_helmet_acklay",
 			"tae_armor_acklay",
-			"tae_acklay_rangefinder"
+			"tae_acklay_rangefinder",
+			"tae_nox_helmet",
+			"tae_nox_armor"
 		};
 	};
 };
@@ -246,7 +248,7 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_hondo_helmet : tae_helmet_warlord {
+	class tae_nox_helmet : tae_helmet_warlord {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
