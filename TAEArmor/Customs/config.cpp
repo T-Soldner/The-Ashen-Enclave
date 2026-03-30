@@ -231,9 +231,9 @@ class CfgWeapons {
 
 	//Nox
 	class tae_nox_armor : tae_armor_arbiter {
-		scope = 2;
-		scopeArsenal = 2;
-		scopeCurator = 2;
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
 		displayName = "Nox's Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -249,9 +249,9 @@ class CfgWeapons {
 		};
 	};
 	class tae_nox_helmet : tae_helmet_warlord {
-		scope = 2;
-		scopeArsenal = 2;
-		scopeCurator = 2;
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
 		displayName = "Nox's Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
