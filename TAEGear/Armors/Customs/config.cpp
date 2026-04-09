@@ -375,9 +375,9 @@ class CfgWeapons {
 
 	//Teka
 	class tae_teka_armor : tae_armor_medium {
-		scope = 2;
-		scopeArsenal = 2;
-		scopeCurator = 2;
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
 		author = "Nova";
 		displayName = "House Karr Medium Armor (Foundling)";
 		hiddenSelections[] = {"camo1","camo2"};

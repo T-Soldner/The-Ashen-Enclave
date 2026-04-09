@@ -434,9 +434,9 @@ class CfgWeapons {
 
 	//Teka
 	class tae_teka_helmet : tae_helmet_pilot {
-		scope = 2;
-		scopeArsenal = 2;
-		scopeCurator = 2;
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
 		displayName = "Teka's Helmet";
 		hiddenSelections[] = {"camo1","camo2","camo"};
 		hiddenSelectionsTextures[] = {"TAEGear\data\Teka_Helmet_CO.paa","TAEGear\data\Teka_Visor_CO.paa","TAEGear\data\Teka_Helmet_Lights_CO.paa"};
