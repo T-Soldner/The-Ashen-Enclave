@@ -440,11 +440,11 @@ class CfgWeapons {
 		displayName = "Teka's Helmet";
 		hiddenSelections[] = {"camo1","camo2","camo"};
 		hiddenSelectionsTextures[] = {"TAEGear\data\Teka_Helmet_CO.paa","TAEGear\data\Teka_Visor_CO.paa","TAEGear\data\Teka_Helmet_Lights_CO.paa"};
-		//hiddenselectionsmaterials[] = {"","","\a3\characters_f_bootcamp\common\data\vrarmoremmisive.rvmat"};
+		hiddenselectionsmaterials[] = {"TAEGear\data\Teka_Helmet_CO.rvmat","TAEGear\data\Teka_Visor.rvmat","TAEGear\data\Teka_Helmet_Lights.rvmat"};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2","camo"};
 			hiddenSelectionsTextures[] = {"TAEGear\data\Teka_Helmet_CO.paa","TAEGear\data\Teka_Visor_CO.paa","TAEGear\data\Teka_Helmet_Lights_CO.paa"};
-			//hiddenselectionsmaterials[] = {"","","\a3\characters_f_bootcamp\common\data\vrarmoremmisive.rvmat"};
+			hiddenselectionsmaterials[] = {"TAEGear\data\Teka_Helmet_CO.rvmat","TAEGear\data\Teka_Visor.rvmat","TAEGear\data\Teka_Helmet_Lights.rvmat"};
 		};
 	};
 };

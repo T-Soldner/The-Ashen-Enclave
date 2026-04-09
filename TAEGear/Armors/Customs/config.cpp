@@ -374,7 +374,6 @@ class CfgWeapons {
 	};
 
 	//Teka
-	
 	class tae_teka_armor : tae_armor_medium {
 		scope = 2;
 		scopeArsenal = 2;
@@ -383,16 +382,18 @@ class CfgWeapons {
 		displayName = "House Karr Medium Armor (Foundling)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Med_Teka_Armor_CO.paa",
-			"TAEGear\data\Med_Teka_Brace_CO.paa"
+			"TAEGear\data\Med_Armor_Teka_CO.paa",
+			"TAEGear\data\Med_Brace_Teka_CO.paa"
 		};
+		hiddenselectionsmaterials[] = {"TAEGear\data\Med_Teka_Armor.rvmat","TAEGear\data\Med_Teka_Brace.rvmat"};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Med_Teka_Armor_CO.paa",
-				"TAEGear\data\Med_Teka_Brace_CO.paa"
+				"TAEGear\data\Med_Armor_Teka_CO.paa",
+				"TAEGear\data\Med_Brace_Teka_CO.paa"
 			};
+			hiddenselectionsmaterials[] = {"TAEGear\data\Med_Teka_Armor.rvmat","TAEGear\data\Med_Teka_Brace.rvmat"};
 		};
 	};
 };
