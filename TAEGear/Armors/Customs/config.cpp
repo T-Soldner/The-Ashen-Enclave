@@ -65,9 +65,12 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo" };
+				values[] = { "Hondo","Teka" };
 				class Hondo {
 					label = "Hondo";
+				};
+				class Teka {
+					label = "Teka";
 				};
 			};
 		};
@@ -128,7 +131,11 @@ class XtdGearInfos {
 		//Freelancer
 		class tae_hondo_armor {
 			model	= "TAE_freelancer_vests";
-			owner	= "Standard";
+			owner	= "Hondo";
+		};
+		class tae_teka_armor {
+			model	= "TAE_freelancer_vests";
+			owner	= "Teka";
 		};
 		//Acklay
 		class tae_armor_acklay {
@@ -362,6 +369,29 @@ class CfgWeapons {
 				"TAEGear\data\Arb_Armor_Nox.paa",
 				"TAEGear\data\Arb_Brace_Nox.paa",
 				"TAEGear\data\Arb_Gaunt_Nox.paa"
+			};
+		};
+	};
+
+	//Teka
+	
+	class tae_teka_armor : tae_armor_medium {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Nova";
+		displayName = "House Karr Medium Armor (Foundling)";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Med_Teka_Armor_CO.paa",
+			"TAEGear\data\Med_Teka_Brace_CO.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Med_Teka_Armor_CO.paa",
+				"TAEGear\data\Med_Teka_Brace_CO.paa"
 			};
 		};
 	};

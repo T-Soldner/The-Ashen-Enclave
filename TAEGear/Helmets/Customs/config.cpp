@@ -73,10 +73,13 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo" };
+				values[] = { "Hondo","Teka" };
 
 				class Hondo {
 					label = "Hondo";
+				};
+				class Teka {
+					label = "Teka";
 				};
 			};
 		};
@@ -143,6 +146,10 @@ class XtdGearInfos {
 		class tae_hondo_helmet {
 			model = "TAE_freelancer_helmets";
 			owner = "Hondo";
+		};
+		class tae_teka_helmet {
+			model = "TAE_freelancer_helmets";
+			owner = "Teka";
 		};
 
 		// Acklay
@@ -422,6 +429,22 @@ class CfgWeapons {
 			"TAEGear\data\noxhelmet.paa",
 			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
 			};
+		};
+	};
+
+	//Teka
+	class tae_teka_helmet : tae_helmet_pilot {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		displayName = "Teka's Helmet";
+		hiddenSelections[] = {"camo1","camo2","camo"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Teka_Helmet_CO.paa","TAEGear\data\Teka_Visor_CO.paa","TAEGear\data\Teka_Helmet_Lights_CO.paa"};
+		//hiddenselectionsmaterials[] = {"","","\a3\characters_f_bootcamp\common\data\vrarmoremmisive.rvmat"};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2","camo"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Teka_Helmet_CO.paa","TAEGear\data\Teka_Visor_CO.paa","TAEGear\data\Teka_Helmet_Lights_CO.paa"};
+			//hiddenselectionsmaterials[] = {"","","\a3\characters_f_bootcamp\common\data\vrarmoremmisive.rvmat"};
 		};
 	};
 };
