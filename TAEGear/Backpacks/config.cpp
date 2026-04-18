@@ -30,6 +30,13 @@ class CfgVehicles {
 		displayName = "Edonn's Z-6 Jetpack";
 		descriptionShort = "Edonn's Z-6 Jetpack";
 		hiddenSelectionsTextures[] = {"TAEGear\data\Edonn_Z6_CO.paa"};
+		tf_isolatedAmount = 0.65;
+		tf_encryptionCode = "tf_west_radio_code";
+		tf_dialog = "anarc210_radio_dialog";
+		tf_subtype = "digital_lr";
+		tf_range = 25000;
+		tf_dialogUpdate = "[""%1""] call TFAR_fnc_updateLRDialogToChannel;";
+		tf_hasLRradio = 1;
 	};
 	
 	
