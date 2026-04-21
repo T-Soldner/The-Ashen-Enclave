@@ -14,11 +14,11 @@ class CfgPatches {
 	};
 };
 
+class CowsSlot;
+
 class CfgWeapons {
 	class InventoryOpticsItem_Base_F;
 	class WeaponSlotsInfo;
-	class CowsSlot;
-	class ItemInfo;
 
 	class IDA_TargetingScope;
 	class IDA_IQA11;
