@@ -11,6 +11,10 @@ class CfgPatches {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_armor_medium_mv",
 			"tae_karr_armor_nite_owl_fd",
+			"tae_karr_armor_nite_owl_mr",
+			"tae_karr_armor_nite_owl_ma",
+			"tae_karr_armor_nite_owl_mm",
+			"tae_karr_armor_nite_owl_mv",
 			"tae_hondo_armor",
 			"tae_armor_acklay",
 			"tae_edonn_armor",
@@ -31,19 +35,19 @@ class XtdGearModels {
 				label = "Role";
 				values[] = { "Foundling","Recruit","Apprentice","Standard","Veteran" };
 				class Foundling {
-					label = "FD";
+					label = "Foundling";
 				};
 				class Recruit {
-					label = "MR";
+					label = "Recruit";
 				};
 				class Apprentice {
-					label = "MA";
+					label = "Apprentice";
 				};
 				class Standard {
-					label = "MM";
+					label = "Mandalorian";
 				};
 				class Veteran {
-					label = "MV";
+					label = "Veteran";
 				};
 			};
 			class armor {
@@ -123,9 +127,30 @@ class XtdGearInfos {
 			role	= "Veteran";
 			armor 	= "Traditional";
 		};
+		//Nite Owl
 		class tae_karr_armor_niteowl_fd {
 			model	= "TAE_standard_vests";
 			role	= "Foundling";
+			armor 	= "Niteowl";
+		};
+		class tae_karr_armor_niteowl_mr {
+			model	= "TAE_standard_vests";
+			role	= "Recruit";
+			armor 	= "Niteowl";
+		};
+		class tae_karr_armor_niteowl_ma {
+			model	= "TAE_standard_vests";
+			role	= "Apprentice";
+			armor 	= "Niteowl";
+		};
+		class tae_karr_armor_niteowl_mm {
+			model	= "TAE_standard_vests";
+			role	= "Standard";
+			armor 	= "Niteowl";
+		};
+		class tae_karr_armor_niteowl_mv {
+			model	= "TAE_standard_vests";
+			role	= "Veteran";
 			armor 	= "Niteowl";
 		};
 		//Freelancer
@@ -168,7 +193,7 @@ class CfgWeapons {
 	class tae_armor_ls_traditional;
 	class tae_nite_owl_armor;
 	
-	//House Karr
+	//House Karr Medium
 	class tae_karr_armor_medium_fd : tae_armor_medium {
 		scope = 2;
 		scopeArsenal = 2;
@@ -269,6 +294,7 @@ class CfgWeapons {
 			};
 		};
 	};
+	//House Karr Nite Owl
 	class tae_karr_armor_niteowl_fd : tae_nite_owl_armor {
 		scope = 2;
 		scopeArsenal = 2;
@@ -277,15 +303,95 @@ class CfgWeapons {
 		displayName = "House Karr Nite Owl Armor (Foundling)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\niteowl1.paa",
-			"TAEGear\data\niteowl2.paa"
+			"TAEGear\data\Nite_Armor_FND.paa",
+			"TAEGear\data\Nite_Brace_FND.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\niteowl1.paa",
-				"TAEGear\data\niteowl2.paa"
+				"TAEGear\data\Nite_Armor_FND.paa",
+				"TAEGear\data\Nite_Brace_FND.paa"
+			};
+		};
+	};
+	class tae_karr_armor_niteowl_mr : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Soldner";
+		displayName = "House Karr Nite Owl Armor (Mandalorian Recruit)";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Armor_MR.paa",
+			"TAEGear\data\Nite_Brace_FND.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Armor_MR.paa",
+				"TAEGear\data\Nite_Brace_FND.paa"
+			};
+		};
+	};
+	class tae_karr_armor_niteowl_ma : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Soldner";
+		displayName = "House Karr Nite Owl Armor (Mandalorian Apprentice)";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Armor_MA.paa",
+			"TAEGear\data\Nite_Brace_FND.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Armor_MA.paa",
+				"TAEGear\data\Nite_Brace_FND.paa"
+			};
+		};
+	};
+	class tae_karr_armor_niteowl_mm : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Soldner";
+		displayName = "House Karr Nite Owl Armor (Mandalorian)";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Armor_MM.paa",
+			"TAEGear\data\Nite_Brace_FND.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Armor_MM.paa",
+				"TAEGear\data\Nite_Brace_FND.paa"
+			};
+		};
+	};
+	class tae_karr_armor_niteowl_mv : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Soldner";
+		displayName = "House Karr Nite Owl Armor (Mandalorian Veteran)";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Armor_MV.paa",
+			"TAEGear\data\Nite_Brace_FND.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Armor_MV.paa",
+				"TAEGear\data\Nite_Brace_FND.paa"
 			};
 		};
 	};

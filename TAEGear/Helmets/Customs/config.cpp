@@ -48,19 +48,19 @@ class XtdGearModels {
 				values[] = { "Foundling", "Recruit", "Apprentice", "Standard", "Veteran" };
 
 				class Foundling {
-					label = "FD";
+					label = "Foundling";
 				};
 				class Recruit {
-					label = "MR";
+					label = "Recruit";
 				};
 				class Apprentice {
-					label = "MA";
+					label = "Apprentice";
 				};
 				class Standard {
-					label = "MM";
+					label = "Mandalorian";
 				};
 				class Veteran {
-					label = "MV";
+					label = "Veteran";
 				};
 			};
 		};
@@ -110,7 +110,7 @@ class XtdGearModels {
 
 class XtdGearInfos {
 	class CfgWeapons {
-		// Standard
+		// Karr Medium
 		class tae_karr_helmet_fd {
 			model = "TAE_standard_helmets";
 			role = "Foundling";
@@ -136,9 +136,30 @@ class XtdGearInfos {
 			role = "Veteran";
 			helmet = "Traditional";
 		};
+		// Nite Owl
 		class tae_karr_helmet_niteowl_fd {
 			model = "TAE_standard_helmets";
 			role = "Foundling";
+			helmet = "Niteowl";
+		};
+		class tae_karr_helmet_niteowl_mr {
+			model = "TAE_standard_helmets";
+			role = "Recruit";
+			helmet = "Niteowl";
+		};
+		class tae_karr_helmet_niteowl_ma {
+			model = "TAE_standard_helmets";
+			role = "Apprentice";
+			helmet = "Niteowl";
+		};
+		class tae_karr_helmet_niteowl_mm {
+			model = "TAE_standard_helmets";
+			role = "Standard";
+			helmet = "Niteowl";
+		};
+		class tae_karr_helmet_niteowl_mv {
+			model = "TAE_standard_helmets";
+			role = "Veteran";
 			helmet = "Niteowl";
 		};
 
@@ -191,7 +212,7 @@ class CfgWeapons {
 	//nvg inherit
 	class tae_ls_mandalorian_rangefinder;
 	
-	//House Karr
+	//House Karr Mediunm
 	class tae_karr_helmet_fd : tae_helmet_traditional {
 		scope = 2;
 		scopeArsenal = 2;
@@ -292,6 +313,7 @@ class CfgWeapons {
 			};
 		};
 	};
+	//House Karr Nite Owl
 	class tae_karr_helmet_niteowl_fd : tae_helmet_nite_owl {
 		scope = 2;
 		scopeArsenal = 2;
@@ -299,14 +321,90 @@ class CfgWeapons {
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\niteowlhelmet.paa",
+			"TAEGear\data\Nite_Helm_FND.paa",
 			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\niteowlhelmet.paa",
+				"TAEGear\data\Nite_Helm_FND.paa",
+				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+			};
+		};
+	};
+	class tae_karr_helmet_niteowl_mr : tae_helmet_nite_owl {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Nite Owl Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Helm_MR.paa",
+			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Helm_MR.paa",
+				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+			};
+		};
+	};
+	class tae_karr_helmet_niteowl_ma : tae_helmet_nite_owl {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Nite Owl Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Helm_MA.paa",
+			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Helm_MA.paa",
+				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+			};
+		};
+	};
+	class tae_karr_helmet_niteowl_mm : tae_helmet_nite_owl {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Nite Owl Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Helm_MM.paa",
+			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Helm_MM.paa",
+				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+			};
+		};
+	};
+	class tae_karr_helmet_niteowl_mv : tae_helmet_nite_owl {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Nite Owl Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Helm_MV.paa",
+			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Helm_MV.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
