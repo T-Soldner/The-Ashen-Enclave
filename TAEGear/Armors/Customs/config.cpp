@@ -97,6 +97,19 @@ class XtdGearModels {
 				};
 			};
 		};
+		class TAE_foxx_vests {
+			label = "Clan Foxx Vests";
+			author = "TAE Aux Mod Team";
+			options[] = { "owner" };
+			class owner {
+				alwaysSelectable = 1;
+				label = "Owner";
+				values[] = { "Standard","Edonn","Nox" };
+				class Standard {
+					label = "Standard";
+				};
+			};
+		};
 	};
 };
 class XtdGearInfos {
@@ -127,6 +140,7 @@ class XtdGearInfos {
 			role	= "Veteran";
 			armor 	= "Traditional";
 		};
+		
 		//Nite Owl
 		class tae_karr_armor_niteowl_fd {
 			model	= "TAE_standard_vests";
@@ -153,6 +167,7 @@ class XtdGearInfos {
 			role	= "Veteran";
 			armor 	= "Niteowl";
 		};
+		
 		//Freelancer
 		class tae_hondo_armor {
 			model	= "TAE_freelancer_vests";
@@ -162,6 +177,7 @@ class XtdGearInfos {
 			model	= "TAE_freelancer_vests";
 			owner	= "Teka";
 		};
+		
 		//Acklay
 		class tae_armor_acklay {
 			model	= "TAE_acklay_vests";
@@ -175,6 +191,13 @@ class XtdGearInfos {
 			model	= "TAE_acklay_vests";
 			owner	= "Nox";
 		};
+		
+		//Foxx
+		class tae_armor_foxx {
+			model	= "TAE_foxx_vests";
+			owner	= "Standard";
+			
+		};
 	};
 };
 
@@ -182,7 +205,7 @@ class CfgWeapons {
 	class ItemInfo;
 	class VestItem;
 	
-	//Armor inherits
+	// Armor inherits
 	class tae_armor_traditional;
 	class tae_armor_medium;
 	class tae_armor_recon;
@@ -193,7 +216,8 @@ class CfgWeapons {
 	class tae_armor_ls_traditional;
 	class tae_nite_owl_armor;
 	
-	//House Karr Medium
+	// Freelancer Vests
+	// House Karr Medium
 	class tae_karr_armor_medium_fd : tae_armor_medium {
 		scope = 2;
 		scopeArsenal = 2;
@@ -294,7 +318,7 @@ class CfgWeapons {
 			};
 		};
 	};
-	//House Karr Nite Owl
+	// House Karr Nite Owl
 	class tae_karr_armor_niteowl_fd : tae_nite_owl_armor {
 		scope = 2;
 		scopeArsenal = 2;
@@ -396,7 +420,7 @@ class CfgWeapons {
 		};
 	};
 
-	//Hondo
+	// Hondo
 	class tae_hondo_armor : tae_armor_medium {
 		scope = 2;
 		scopeArsenal = 2;
@@ -418,7 +442,29 @@ class CfgWeapons {
 		};
 	};
 	
-	//Clan Acklay
+	// Teka
+	class tae_teka_armor : tae_armor_medium {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Teka";
+		displayName = "House Karr Medium Armor (Foundling)";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Med_Armor_Teka.paa",
+			"TAEGear\data\Med_Brace_Teka.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Med_Armor_Teka.paa",
+				"TAEGear\data\Med_Brace_Teka.paa"
+			};
+		};
+	};
+	
+	// Clan Acklay
 	class tae_armor_acklay : tae_armor_ls_traditional {
 		scope = 2;
 		scopeArsenal = 2;
@@ -437,7 +483,7 @@ class CfgWeapons {
 		};
 	};
 	
-	//Edonn
+	// Edonn
 	class tae_edonn_armor : tae_armor_ls_traditional {
 		scope = 2;
 		scopeArsenal = 2;
@@ -446,17 +492,17 @@ class CfgWeapons {
 		displayName = "Edonn's Armor";
 		hiddenSelections[] = {"camo1"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Edonn_Vest_co.paa"
+			"TAEGear\data\LS_Armor_Edonn.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Edonn_Vest_co.paa"
+				"TAEGear\data\LS_Armor_Edonn.paa"
 			};
 		};
 	};
 	
-	//Nox
+	// Nox
 	class tae_nox_armor : tae_armor_arbiter {
 		scope = 1;
 		scopeArsenal = 1;
@@ -479,27 +525,25 @@ class CfgWeapons {
 		};
 	};
 
-	//Teka
-	class tae_teka_armor : tae_armor_medium {
-		scope = 1;
-		scopeArsenal = 1;
-		scopeCurator = 1;
-		author = "Nova";
-		displayName = "House Karr Medium Armor (Foundling)";
+	// Clan Foxx
+	class tae_armor_foxx : tae_armor_medium {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Juno Foxx";
+		displayName = "Clan Foxx Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Med_Armor_Teka_CO.paa",
-			"TAEGear\data\Med_Brace_Teka_CO.paa"
+			"TAEGear\data\Med_Armor_Foxx.paa",
+			"TAEGear\data\Med_Brace_Foxx.paa"
 		};
-		hiddenselectionsmaterials[] = {"TAEGear\data\Med_Teka_Armor.rvmat","TAEGear\data\Med_Teka_Brace.rvmat"};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Med_Armor_Teka_CO.paa",
-				"TAEGear\data\Med_Brace_Teka_CO.paa"
+				"TAEGear\data\Med_Armor_Foxx.paa",
+				"TAEGear\data\Med_Brace_Foxx.paa"
 			};
-			hiddenselectionsmaterials[] = {"TAEGear\data\Med_Teka_Armor.rvmat","TAEGear\data\Med_Teka_Brace.rvmat"};
 		};
 	};
 };
