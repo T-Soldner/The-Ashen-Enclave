@@ -92,7 +92,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Edonn", "Nox" };
+				values[] = { "Standard", "Edonn", "Nox", "Dengar" };
 
 				class Standard {
 					label = "Standard";
@@ -102,6 +102,9 @@ class XtdGearModels {
 				};
 				class Nox {
 					label = "Nox";
+				};
+				class Dengar {
+					label = "Dengar";
 				};
 			};
 		};
@@ -201,6 +204,10 @@ class XtdGearInfos {
 		class tae_nox_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Nox";
+		};
+		class tae_dengar_helmet {
+			model = "TAE_acklay_helmets";
+			owner = "Dengar";
 		};
 		
 		// Clan Foxx
@@ -545,26 +552,30 @@ class CfgWeapons {
 		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
 		class ItemInfo: ItemInfo {
 			uniformModel = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_on_r.p3d";
+			hiddenSelectionsTextures[] = { "TAEGear\data\LS_DIN_Rangefinder_Edonn.paa" };
 			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		};
 	};
 	
 	// Nox
-	class tae_nox_helmet : tae_helmet_warlord {
-		scope = 1;
-		scopeArsenal = 1;
-		scopeCurator = 1;
-		displayName = "Nox's Helmet";
+	
+	// Dengar
+	class tae_dengar_helmet : tae_helmet_viper {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Hondo";
+		displayName = "Stasik's Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\noxhelmet.paa",
-			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+			"TAEGear\data\Vpr_Helmet_Stasik.paa",
+			"TAEGear\data\Vpr_Visor_Stasik.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-			"TAEGear\data\noxhelmet.paa",
-			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+				"TAEGear\data\Vpr_Helmet_Stasik.paa",
+				"TAEGear\data\Vpr_Visor_Stasik.paa"
 			};
 		};
 	};

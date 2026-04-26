@@ -503,27 +503,6 @@ class CfgWeapons {
 	};
 	
 	// Nox
-	class tae_nox_armor : tae_armor_arbiter {
-		scope = 1;
-		scopeArsenal = 1;
-		scopeCurator = 1;
-		author = "Nox";
-		displayName = "Nox's Armor";
-		hiddenSelections[] = {"camo1","camo2","camo3"};
-		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Arb_Armor_Nox.paa",
-			"TAEGear\data\Arb_Brace_Nox.paa",
-			"TAEGear\data\Arb_Gaunt_Nox.paa"
-		};
-		class ItemInfo : ItemInfo {
-			hiddenSelections[] = {"camo1","camo2","camo3"};
-			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Arb_Armor_Nox.paa",
-				"TAEGear\data\Arb_Brace_Nox.paa",
-				"TAEGear\data\Arb_Gaunt_Nox.paa"
-			};
-		};
-	};
 
 	// Clan Foxx
 	class tae_armor_foxx : tae_armor_medium {
