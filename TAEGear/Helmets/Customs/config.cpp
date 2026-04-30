@@ -12,11 +12,13 @@ class CfgPatches {
 			"tae_karr_helmet_mv",
 			"tae_karr_helmet_niteowl_fd",
 			"tae_hondo_helmet",
+			"tae_teka_helmet",
 			"tae_acklay_helmet",
 			"tae_acklay_rangefinder",
 			"tae_edonn_helmet",
 			"tae_edonn_rangefinder",
-			"tae_nox_helmet"
+			"tae_nox_helmet",
+			"tae_foxx_helmet"
 		};
 	};
 };
@@ -212,7 +214,7 @@ class XtdGearInfos {
 		
 		// Clan Foxx
 		class tae_foxx_helmet {
-			model = "TAE_fox_helmets";
+			model = "TAE_foxx_helmets";
 			owner = "Standard";
 		};
 	};

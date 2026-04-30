@@ -16,9 +16,11 @@ class CfgPatches {
 			"tae_karr_armor_nite_owl_mm",
 			"tae_karr_armor_nite_owl_mv",
 			"tae_hondo_armor",
+			"tae_teka_armor",
 			"tae_armor_acklay",
 			"tae_edonn_armor",
-			"tae_nox_armor"
+			"tae_nox_armor",
+			"tae_armor_foxx"
 		};
 	};
 };
