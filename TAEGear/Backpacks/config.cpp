@@ -254,9 +254,9 @@ class CfgVehicles {
 		tf_subtype = "digital_lr";
 	};
 	
-	class tae_hondo_JT12_LR : tae_jetpack_JT12_LR {
+	class tae_hondo_Z12_LR : tae_jetpack_z12_LR {
 		scope = 2;
-		displayName = "Hondo's JT-12 Jetpack";
+		displayName = "Hondo's Z-12 Jetpack";
 		descriptionShort = "Hondo's JT-12 Jetpack";
 		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12RTO\pack_co.paa"};
 		//hiddenSelectionsTextures[] = {"TAEGear\data\JT12_Hondo.paa"}; OLD
