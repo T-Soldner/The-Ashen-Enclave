@@ -158,7 +158,7 @@ class XtdGearInfos {
 			lr = "Yes";
 		};
 
-		class tae_hondo_JT12_LR {
+		class tae_hondo_Z12_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Hondo";
 		};
