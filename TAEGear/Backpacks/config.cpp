@@ -60,8 +60,8 @@ Determines the size of the fuel can in Magical Fuel Units (corresponds to jetpac
 
 class XtdGearModels {
 	class CfgVehicles {
-		class TAE_standard_Backpacks {
-			label = "Standard Backpacks";
+		class TAE_standard_Jetpacks {
+			label = "Standard Jetpacks";
 			author = "TAE Aux Mod Team";
 			options[] = { "role", "lr" };
 
@@ -97,6 +97,44 @@ class XtdGearModels {
 				};
 			};
 		};
+		
+		class TAE_standard_Backpacks {
+			label = "Standard Backpacks";
+			author = "TAE Aux Mod Team";
+			options[] = { "role", "Sex" };
+
+			class role {
+				alwaysSelectable = 1;
+				label = "Role";
+				values[] = { "Standard", "Communications", "Engineer" };
+
+				class Standard {
+					label = "Standard";
+				};
+
+				class Communications {
+					label = "Comms";
+				};
+
+				class Engineer {
+					label = "Engineer";
+				};
+			};
+
+			class Sex {
+				alwaysSelectable = 1;
+				label = "Sex";
+				values[] = { "Male", "Female" };
+
+				class Male {
+					label = "Male";
+				};
+
+				class Female {
+					label = "Female";
+				};
+			};
+		};
 
 		class TAE_custom_Backpacks {
 			label = "Custom Backpacks";
@@ -122,47 +160,75 @@ class XtdGearModels {
 
 class XtdGearInfos {
 	class CfgVehicles {
+		//Jetpacks
 		class tae_jetpack_Z6 {
-			model = "TAE_standard_Backpacks";
+			model = "TAE_standard_Jetpacks";
 			role = "Z6";
 			lr = "No";
 		};
-
 		class tae_jetpack_Z6_LR {
-			model = "TAE_standard_Backpacks";
+			model = "TAE_standard_Jetpacks";
 			role = "Z6";
 			lr = "Yes";
 		};
-
 		class tae_jetpack_z12 {
-			model = "TAE_standard_Backpacks";
+			model = "TAE_standard_Jetpacks";
 			role = "Z12";
 			lr = "No";
 		};
-
 		class tae_jetpack_z12_LR {
-			model = "TAE_standard_Backpacks";
+			model = "TAE_standard_Jetpacks";
 			role = "Z12";
 			lr = "Yes";
 		};
-
 		class tae_jetpack_JT12 {
-			model = "TAE_standard_Backpacks";
+			model = "TAE_standard_Jetpacks";
 			role = "JT12";
 			lr = "No";
 		};
-
 		class tae_jetpack_JT12_LR {
-			model = "TAE_standard_Backpacks";
+			model = "TAE_standard_Jetpacks";
 			role = "JT12";
 			lr = "Yes";
 		};
-
+		
+		//Backpacks
+		class tae_modular_pack {
+			model = "TAE_standard_Backpacks";
+			role = "Standard";
+			Sex = "Male";
+		};
+		class tae_modular_pack_female {
+			model = "TAE_standard_Backpacks";
+			role = "Standard";
+			Sex = "Female";
+		};
+		class tae_modular_pack_lr {
+			model = "TAE_standard_Backpacks";
+			role = "Communications";
+			Sex = "Male";
+		};
+		class tae_modular_pack_lr_female {
+			model = "TAE_standard_Backpacks";
+			role = "Communications";
+			Sex = "Female";
+		};
+		class tae_modular_pack_engi {
+			model = "TAE_standard_Backpacks";
+			role = "Engineer";
+			Sex = "Male";
+		};
+		class tae_modular_pack_engi_female {
+			model = "TAE_standard_Backpacks";
+			role = "Engineer";
+			Sex = "Female";
+		};
+		
+		//customs
 		class tae_hondo_Z12_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Hondo";
 		};
-
 		class tae_edonn_JT12_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Edonn";
@@ -172,7 +238,6 @@ class XtdGearInfos {
 
 
 class CfgVehicles {
-	//Jennas jumppacks test
 	class Bag_Base;
 	class tae_jetpack : Bag_Base {
 		scope = 1;
@@ -254,6 +319,41 @@ class CfgVehicles {
 		tf_subtype = "digital_lr";
 	};
 	
+	//Normal Backpacks
+	class tgf_backpacks_modular_pack;
+	class tgf_backpacks_modular_pack_female;
+	class tgf_backpacks_modular_pack_lr;
+	class tgf_backpacks_modular_pack_lr_female;
+	class tgf_backpacks_modular_pack_engi;
+	class tgf_backpacks_modular_pack_engi_female;
+	
+	
+	class tae_modular_pack : tgf_backpacks_modular_pack {
+		scope = 2;
+		maximumload = 400;
+	};
+	class tae_modular_pack_female : tgf_backpacks_modular_pack_female {
+		scope = 2;
+		maximumload = 400;
+	};
+	class tae_modular_pack_lr : tgf_backpacks_modular_pack_lr {
+		scope = 2;
+		maximumload = 400;
+	};
+	class tae_modular_pack_lr_female : tgf_backpacks_modular_pack_lr_female {
+		scope = 2;
+		maximumload = 400;
+	};
+	class tae_modular_pack_engi : tgf_backpacks_modular_pack_engi {
+		scope = 2;
+		maximumload = 400;
+	};
+	class tae_modular_pack_engi_female : tgf_backpacks_modular_pack_engi_female {
+		scope = 2;
+		maximumload = 400;
+	};
+	
+	//Custom Packs
 	class tae_hondo_Z12_LR : tae_jetpack_z12_LR {
 		scope = 2;
 		displayName = "Hondo's Z-12 Jetpack";
