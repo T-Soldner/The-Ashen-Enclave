@@ -236,7 +236,6 @@ class XtdGearInfos {
 	};
 };
 
-
 class CfgVehicles {
 	class Bag_Base;
 	class tae_jetpack : Bag_Base {
@@ -365,7 +364,6 @@ class CfgVehicles {
 		scope = 2;
 		displayName = "Edonn's JT-12 Jetpack";
 		descriptionShort = "Edonn's JT-12 Jetpack";
-		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12RTO\pack_co.paa"};
-		//hiddenSelectionsTextures[] = {"TAEGear\data\JT12_Edonn"}; OLD
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_pack_Edonn"};
 	};
 };
