@@ -248,7 +248,7 @@ class CfgVehicles {
 		jen_jetpacks_core_acceleration = 2.5;
 		jen_jetpacks_core_drag = 5;
 		jen_jetpacks_core_fuelCoef = 3;
-		jen_jetpacks_core_heatCoef = 1;
+		jen_jetpacks_core_heatCoef = 2;
 		jen_jetpacks_core_coolCoef = 1;
 		jen_jetpacks_core_ascensionCoef = 1.1;
 		jen_jetpacks_core_jumpCoef = 1;
@@ -357,8 +357,7 @@ class CfgVehicles {
 		scope = 2;
 		displayName = "Hondo's Z-12 Jetpack";
 		descriptionShort = "Hondo's JT-12 Jetpack";
-		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12RTO\pack_co.paa"};
-		//hiddenSelectionsTextures[] = {"TAEGear\data\JT12_Hondo.paa"}; OLD
+		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_Hondo.paa"};
 	};
 	class tae_edonn_JT12_LR : tae_jetpack_JT12_LR {
 		scope = 2;
