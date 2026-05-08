@@ -279,37 +279,10 @@ class CfgVehicles {
 				};
 				factions[] = {};
 			};
-
-			class Jaro {
-				displayName = "Jaro";
-				author = "House Kandosii";
-				textures[] = {
-					"knd_vehicles_komrk\tx\Jaro\Fore_co.paa",
-					"knd_astromechs\tx\newrepublic\chassis\chassis_co.paa",
-					"",
-					"",
-					"",
-					"",
-					"",
-					"knd_astromechs\tx\newrepublic\e7\e7_co.paa",
-					"knd_astromechs\tx\bb2\camo1_co.paa",
-					"",
-					"knd_astromechs\tx\bb2\camo3_co.paa",
-					"knd_astromechs\tx\bb2\bb2_co.paa",
-					"",
-					"",
-					"",
-					"",
-					"knd_vehicles_komrk\tx\Jaro\aft_co.paa",
-					"knd_vehicles_komrk\tx\Jaro\wing_co.paa"
-				};
-				factions[] = {};
-			};
 		};
 
 		textureList[] = {
-			"base", 0,
-			"Jaro", 1
+			"base", 1
 		};
 
 		class Components: Components {
