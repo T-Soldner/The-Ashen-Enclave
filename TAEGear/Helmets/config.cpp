@@ -378,6 +378,21 @@ class CfgWeapons {
 		};
 	};
 	
+	class tgf_nvg_heavy_nv;
+	class tae_nvg_heavy_nv: tgf_nvg_heavy_nv {
+		dlc = "The Ashen Enclave AUX Mod";
+		scope = 0;
+		displayName = "Heavy Mandalorian NV Attachment";
+		descriptionShort = "Heavy Mandalorian NV Attachment";
+		model = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
+		hiddenSelectionsTextures[] = {"\z\tgf\addons\nvg\heavy_nv\data\camo1_co.paa"};
+		picture = "\z\tgf\addons\nvg\heavy_nv\data\heavy_nv.paa";
+		class ItemInfo: ItemInfo {
+			uniformModel = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
+			modelOff = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
+		};
+	};
+	
 	//442 commmando visor
 	class NVGoggles;
 	class ItemInfo;

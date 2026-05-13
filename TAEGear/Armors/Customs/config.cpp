@@ -20,6 +20,7 @@ class CfgPatches {
 			"tae_armor_acklay",
 			"tae_edonn_armor",
 			"tae_nox_armor",
+			"tae_jimothy_armor",
 			"tae_armor_foxx"
 		};
 	};
@@ -87,7 +88,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Edonn","Nox" };
+				values[] = { "Standard","Edonn","Nox","Jimothy" };
 				class Standard {
 					label = "Standard";
 				};
@@ -96,6 +97,9 @@ class XtdGearModels {
 				};
 				class Nox {
 					label = "Nox";
+				};
+				class Jimothy {
+					label = "Jimothy";
 				};
 			};
 		};
@@ -106,7 +110,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Edonn","Nox" };
+				values[] = { "Standard" };
 				class Standard {
 					label = "Standard";
 				};
@@ -192,6 +196,10 @@ class XtdGearInfos {
 		class tae_nox_armor {
 			model	= "TAE_acklay_vests";
 			owner	= "Nox";
+		};
+		class tae_jimothy_armor {
+			model	= "TAE_acklay_vests";
+			owner	= "Jimothy";
 		};
 		
 		//Foxx
@@ -505,6 +513,48 @@ class CfgWeapons {
 	};
 	
 	// Nox
+	class tae_nox_armor : tae_armor_heavy {
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
+		author = "Nox";
+		displayName = "Nox's Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Heav_Armor_Nox.paa",
+			"TAEGear\data\Heav_Brace_Nox.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Heav_Armor_Nox.paa",
+				"TAEGear\data\Heav_Brace_Nox.paa"
+			};
+		};
+	};
+	
+	//Jimothy
+	class tae_jimothy_armor : tae_armor_heavy {
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
+		author = "Jimothy";
+		displayName = "Jimothy's Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Heav_Armor_Jimothy.paa",
+			"TAEGear\data\Heav_Brace_Jimothy.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Heav_Armor_Jimothy.paa",
+				"TAEGear\data\Heav_Brace_Jimothy.paa"
+			};
+		};
+	};
 
 	// Clan Foxx
 	class tae_armor_foxx : tae_armor_medium {

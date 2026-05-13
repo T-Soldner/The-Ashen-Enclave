@@ -18,6 +18,8 @@ class CfgPatches {
 			"tae_edonn_helmet",
 			"tae_edonn_rangefinder",
 			"tae_nox_helmet",
+			"tae_jimothy_helmet",
+			"tae_jimothy_rangefinder",
 			"tae_foxx_helmet"
 		};
 	};
@@ -94,7 +96,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Edonn", "Nox", "Dengar" };
+				values[] = { "Standard", "Edonn", "Dengar", "Nox", "Jimothy" };
 
 				class Standard {
 					label = "Standard";
@@ -102,11 +104,14 @@ class XtdGearModels {
 				class Edonn {
 					label = "Edonn";
 				};
+				class Dengar {
+					label = "Dengar";
+				};
 				class Nox {
 					label = "Nox";
 				};
-				class Dengar {
-					label = "Dengar";
+				class Jimothy {
+					label = "Jimothy";
 				};
 			};
 		};
@@ -203,13 +208,17 @@ class XtdGearInfos {
 			model = "TAE_acklay_helmets";
 			owner = "Edonn";
 		};
+		class tae_dengar_helmet {
+			model = "TAE_acklay_helmets";
+			owner = "Dengar";
+		};
 		class tae_nox_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Nox";
 		};
-		class tae_dengar_helmet {
+		class tae_jimothy_helmet {
 			model = "TAE_acklay_helmets";
-			owner = "Dengar";
+			owner = "Jimothy";
 		};
 		
 		// Clan Foxx
@@ -242,6 +251,7 @@ class CfgWeapons {
 	
 	// nvg inherit
 	class tae_ls_mandalorian_rangefinder;
+	class tae_nvg_heavy_nv;
 	
 	// FreeLancers
 	// House Karr Mediunm
@@ -560,6 +570,60 @@ class CfgWeapons {
 	};
 	
 	// Nox
+	class tae_nox_helmet : tae_helmet_warlord {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Nox";
+		displayName = "Nox's Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\War_Helmet_nox.paa",
+			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\War_Helmet_nox.paa",
+				"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+			};
+		};
+	};
+	
+	
+	// Jimothy
+	class tae_jimothy_helmet : tae_helmet_heavy {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Jimothy";
+		displayName = "Jimothy's Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Heav_Helmet_Jimothy.paa",
+			"TAEGear\data\Heav_Visor_Jimothy.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Heav_Helmet_Jimothy.paa",
+				"TAEGear\data\Heav_Visor_Jimothy.paa"
+			};
+		};
+	};
+	class tae_jimothy_rangefinder : tae_nvg_heavy_nv {
+		dlc = "The Ashen Enclave AUX Mod";
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Jimothy";
+		hiddenSelectionsTextures[] = {"TAEGear\data\Heav_NVG_Jimothy.paa"};
+		class ItemInfo: ItemInfo {
+			uniformModel = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
+			modelOff = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
+		hiddenSelectionsTextures[] = {"TAEGear\data\Heav_NVG_Jimothy.paa"};
+		};
+	};
 	
 	// Dengar
 	class tae_dengar_helmet : tae_helmet_viper {

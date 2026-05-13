@@ -139,7 +139,7 @@ class XtdGearModels {
 		class TAE_custom_Backpacks {
 			label = "Custom Backpacks";
 			author = "TAE Aux Mod Team";
-			options[] = { "owner" };
+			options[] = { "owner","LR" };
 
 			class owner {
 				alwaysSelectable = 1;
@@ -152,6 +152,19 @@ class XtdGearModels {
 
 				class Edonn {
 					label = "Edonn";
+				};
+			};
+			class LR {
+				alwaysSelectable = 1;
+				label = "LR";
+				values[] = { "Yes", "No" };
+
+				class Yes {
+					label = "Yes";
+				};
+
+				class No {
+					label = "No";
 				};
 			};
 		};
@@ -228,10 +241,17 @@ class XtdGearInfos {
 		class tae_hondo_Z12_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Hondo";
+			LR    = "Yes";
 		};
 		class tae_edonn_JT12_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Edonn";
+			LR 	  = "Yes";
+		};
+		class tae_edonn_JT12 {
+			model = "TAE_custom_Backpacks";
+			owner = "Edonn";
+			LR 	  = "No";
 		};
 	};
 };
@@ -360,6 +380,12 @@ class CfgVehicles {
 		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_Hondo.paa"};
 	};
 	class tae_edonn_JT12_LR : tae_jetpack_JT12_LR {
+		scope = 2;
+		displayName = "Edonn's JT-12 Jetpack LR";
+		descriptionShort = "Edonn's JT-12 Jetpack LR";
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_pack_Edonn"};
+	};
+	class tae_edonn_JT12 : tae_jetpack_JT12 {
 		scope = 2;
 		displayName = "Edonn's JT-12 Jetpack";
 		descriptionShort = "Edonn's JT-12 Jetpack";
