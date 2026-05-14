@@ -96,10 +96,13 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Edonn", "Dengar", "Nox", "Jimothy" };
+				values[] = { "Standard","Niteowl", "Edonn", "Dengar", "Nox", "Jimothy" };
 
 				class Standard {
 					label = "Standard";
+				};
+				class Niteowl {
+					label = "Nite owl";
 				};
 				class Edonn {
 					label = "Edonn";
@@ -203,6 +206,10 @@ class XtdGearInfos {
 		class tae_acklay_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Standard";
+		};
+		class tae_acklay_helmet_niteowl {
+			model = "TAE_acklay_helmets";
+			owner = "Niteowl";
 		};
 		class tae_edonn_helmet {
 			model = "TAE_acklay_helmets";
@@ -528,6 +535,26 @@ class CfgWeapons {
 			uniformModel = "\ls\core\addons\characters_mandalorian\equipment\nvgs\rangefinder\ls_mandalorian_rangefinder_nvg_on.p3d";
 			modelOff = "\ls\core\addons\characters_mandalorian\equipment\nvgs\rangefinder\ls_mandalorian_rangefinder_nvg_off.p3d";
 			hiddenSelections[] = {"camo1"};
+		};
+	};
+	
+	class tae_acklay_helmet_niteowl : tae_helmet_nite_owl {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		displayName = "Clan Acklay Nite Owl Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Helm_Acklay.paa",
+			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Helm_Acklay.paa",
+				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+			};
 		};
 	};
 	

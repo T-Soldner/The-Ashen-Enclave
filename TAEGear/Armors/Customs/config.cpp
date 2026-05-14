@@ -88,9 +88,12 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Edonn","Nox","Jimothy" };
+				values[] = { "Standard","Niteowl","Edonn","Nox","Jimothy" };
 				class Standard {
 					label = "Standard";
+				};
+				class Niteowl {
+					label = "Nite owl";
 				};
 				class Edonn {
 					label = "Edonn";
@@ -188,6 +191,10 @@ class XtdGearInfos {
 		class tae_armor_acklay {
 			model	= "TAE_acklay_vests";
 			owner	= "Standard";
+		};
+		class tae_acklay_armor_niteowl {
+			model	= "TAE_acklay_vests";
+			owner	= "Niteowl";
 		};
 		class tae_edonn_armor {
 			model	= "TAE_acklay_vests";
@@ -492,7 +499,27 @@ class CfgWeapons {
 			};
 		};
 	};
-	
+	class tae_acklay_armor_niteowl : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Soldner";
+		displayName = "House Karr Nite Owl Armor (Mandalorian Veteran)";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nite_Armor_Acklay.paa",
+			"TAEGear\data\Nite_Brace_FND.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nite_Armor_Acklay.paa",
+				"TAEGear\data\Nite_Brace_FND.paa"
+			};
+		};
+	};
+
 	// Edonn
 	class tae_edonn_armor : tae_armor_ls_traditional {
 		scope = 2;
