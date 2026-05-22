@@ -395,7 +395,6 @@ class CfgWeapons {
 	
 	//442 commmando visor
 	class NVGoggles;
-	class ItemInfo;
 
 	class tae_442_mando_visor: NVGoggles {
 		author = "The Ashen Enclave";

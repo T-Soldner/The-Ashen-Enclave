@@ -277,7 +277,7 @@ class CfgVehicles {
 		displayName = "TAE base";
 		picture = "\knd_jetpacks\data\JT12_icon_co.paa";
 		maximumload = 300;
-		mass = 50;
+		mass = 100;
 		jen_jetpacks_core_isJetpack = 1;
 		jen_jetpacks_core_acceleration = 2.5;
 		jen_jetpacks_core_drag = 5;

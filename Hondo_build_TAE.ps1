@@ -19,7 +19,8 @@ $addons = @(
     "TAEGear",
     "TAEUnits",
     "TAEObjects",
-    "TAEVehicles"
+    "TAEVehicles",
+	"TAEUniforms"
 )
 
 # Make sure output folders exist

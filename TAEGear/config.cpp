@@ -19,9 +19,3 @@ class CfgPatches {
 		skipWhenMissingDependencies = 1;
 	};
 };
-
-#include "Armors\config.cpp"
-#include "Armors\Customs\config.cpp"
-#include "Backpacks\config.cpp"
-#include "Helmets\config.cpp"
-#include "Helmets\Customs\config.cpp"

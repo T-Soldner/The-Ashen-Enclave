@@ -43,7 +43,7 @@ class CfgWeapons {
 		class ItemInfo: VestItem {
 			Uniformmodel = "\z\tgf\addons\armour\light_armour\light_armour.p3d";
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {
@@ -107,7 +107,7 @@ class CfgWeapons {
 			Uniformmodel = "\z\tgf\addons\armour\medium_armour\medium_armour.p3d";
 			
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {
@@ -171,7 +171,7 @@ class CfgWeapons {
 			Uniformmodel = "\z\tgf\addons\armour\super_light_armour\super_light_armour.p3d";
 			
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {
@@ -234,7 +234,7 @@ class CfgWeapons {
 		class ItemInfo: VestItem {
 			Uniformmodel = "\z\tgf\addons\armour\heavy_armour\heavy_armour.p3d";
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {
@@ -297,7 +297,7 @@ class CfgWeapons {
 		class ItemInfo: VestItem {
 			Uniformmodel = "\z\tgf\addons\armour\battle_armour\battle_armour.p3d";
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {
@@ -360,7 +360,7 @@ class CfgWeapons {
 		class ItemInfo: VestItem {
 			Uniformmodel = "\z\tgf\addons\armour\war_chief_armour\war_chief_armour.p3d";
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {
@@ -423,7 +423,7 @@ class CfgWeapons {
 		class ItemInfo: VestItem {
 			Uniformmodel = "\z\tgf\addons\armour\arbiter_armour\arbiter_armour.p3d";
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {
@@ -486,7 +486,7 @@ class CfgWeapons {
 		class ItemInfo: VestItem {
 			uniformModel = "\ls\core\addons\characters_mandalorian\vests\standard\ls_vest_mandalorian.p3d";
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {
@@ -549,7 +549,7 @@ class CfgWeapons {
 		class ItemInfo: VestItem {
 			Uniformmodel = "\z\tgf\addons\armour\nite_owl_armour\nite_owl_armour.p3d";
 			containerClass = "Supply300";
-			mass = 20;
+			mass = 400;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
 			class HitpointsprotectionInfo {

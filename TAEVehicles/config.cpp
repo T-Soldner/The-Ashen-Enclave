@@ -477,9 +477,42 @@ class CfgVehicles {
 						};
 					};
 				};
+				class bays {
+					class BayCenter {
+						bayOpenTime = 1;
+						openBayWhenWeaponSelected = 1;
+						autoCloseWhenEmptyDelay = 2;
+					};
+				};
 			};
 		};
 
+		class UserActions {
+			class OpenDoor {
+				displayName = "Open Drop Bay";
+				source = "user";
+				radius = 5;
+				onlyForPlayer = 1;
+				condition = "((player == currentPilot this) AND (alive this) AND ((this animationSourcePhase ""bay.1"") isEqualTo 0) AND ((this animationSourcePhase ""pylonIsEmpty.1"") isEqualTo 1))";
+				statement = "['knd_komrk_bay',[this,true]] call CBA_fnc_globalEvent;";
+				position = "";
+			};
+
+			class CloseDoor {
+				displayName = "Close Drop Bay";
+				source = "user";
+				radius = 5;
+				onlyForPlayer = 1;
+				condition = "((player == currentPilot this) AND (alive this) AND ((this animationSourcePhase ""bay.1"") isEqualTo 1) AND ((this animationSourcePhase ""pylonIsEmpty.1"") isEqualTo 1))";
+				statement = "['knd_komrk_bay',[this,false]] call CBA_fnc_globalEvent;";
+				position = "";
+			};
+
+			class throwPeopleOut: CloseDoor {
+				displayName = "Eject Passengers";
+				statement = "this call knd_fnc_ejectCargoBay; ['knd_komrk_bay',[this,false]] call CBA_fnc_globalEvent;";
+			};
+		};
 		class ace_cargo {
 			class cargo {
 				class knd_resupply_jetpack {
