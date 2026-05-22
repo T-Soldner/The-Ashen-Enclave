@@ -68,7 +68,7 @@ class XtdGearModels {
 			class role {
 				alwaysSelectable = 1;
 				label = "Role";
-				values[] = { "Z6", "Z12", "JT12" };
+				values[] = { "Z6", "Z12", "JT12","JT13" };
 
 				class Z6 {
 					label = "Z-6";
@@ -80,6 +80,10 @@ class XtdGearModels {
 
 				class JT12 {
 					label = "JT-12";
+				};
+
+				class JT13 {
+					label = "JT-13";
 				};
 			};
 
@@ -204,6 +208,16 @@ class XtdGearInfos {
 			role = "JT12";
 			lr = "Yes";
 		};
+		class tae_jetpack_JT13 {
+			model = "TAE_standard_Jetpacks";
+			role = "JT13";
+			lr = "No";
+		};
+		class tae_jetpack_JT13_LR {
+			model = "TAE_standard_Jetpacks";
+			role = "JT13";
+			lr = "Yes";
+		};
 		
 		//Backpacks
 		class tae_modular_pack {
@@ -243,12 +257,12 @@ class XtdGearInfos {
 			owner = "Hondo";
 			LR    = "Yes";
 		};
-		class tae_edonn_JT12_LR {
+		class tae_edonn_JT13_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Edonn";
 			LR 	  = "Yes";
 		};
-		class tae_edonn_JT12 {
+		class tae_edonn_JT13 {
 			model = "TAE_custom_Backpacks";
 			owner = "Edonn";
 			LR 	  = "No";
@@ -337,6 +351,27 @@ class CfgVehicles {
 		tf_range = 10000;
 		tf_subtype = "digital_lr";
 	};
+	class tae_jetpack_JT13 : tae_jetpack {
+		displayName = "House Karr JT-13 Jetpack";
+		scope = 2;
+		picture = "\knd_jetpacks\data\JT13_icon_co.paa";
+		author = "Maxim + Jenna";
+		model = "\knd_jetpacks\data\jt13\jt13.p3d";
+		hiddenselections[] = {"rocket","pack"};
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt13\rocket_co.paa","\knd_jetpacks\data\jt13\pack_co.paa"};
+	};
+	class tae_jetpack_JT13_LR : tae_jetpack_JT13 {
+		displayName = "House Karr JT-13 LR Jetpack";
+		model = "\knd_jetpacks\data\jt13RTO\jt13RTO.p3d";
+		hiddenselections[] = {"rocket","pack"};
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt13\rocket_co.paa","\knd_jetpacks\data\jt13RTO\pack_co.paa"};
+		tf_dialog = "bussole_radio_dialog";
+		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
+		tf_encryptionCode = "tf_independent_radio_code";
+		tf_hasLRradio = 1;
+		tf_range = 10000;
+		tf_subtype = "digital_lr";
+	};
 	
 	//Normal Backpacks
 	class tgf_backpacks_modular_pack;
@@ -379,16 +414,16 @@ class CfgVehicles {
 		descriptionShort = "Hondo's JT-12 Jetpack";
 		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_Hondo.paa"};
 	};
-	class tae_edonn_JT12_LR : tae_jetpack_JT12_LR {
+	class tae_edonn_JT13_LR : tae_jetpack_JT12_LR {
 		scope = 2;
-		displayName = "Edonn's JT-12 Jetpack LR";
-		descriptionShort = "Edonn's JT-12 Jetpack LR";
-		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_pack_Edonn"};
+		displayName = "Edonn's JT-13 Jetpack LR";
+		descriptionShort = "Edonn's JT-13 Jetpack LR";
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt13\rocket_co.paa","TAEGear\data\JT13_pack_Edonn.paa"};
 	};
-	class tae_edonn_JT12 : tae_jetpack_JT12 {
+	class tae_edonn_JT13 : tae_jetpack_JT13 {
 		scope = 2;
-		displayName = "Edonn's JT-12 Jetpack";
-		descriptionShort = "Edonn's JT-12 Jetpack";
-		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_pack_Edonn"};
+		displayName = "Edonn's JT-13 Jetpack";
+		descriptionShort = "Edonn's JT-13 Jetpack";
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt13\rocket_co.paa","TAEGear\data\JT13_pack_Edonn.paa"};
 	};
 };
