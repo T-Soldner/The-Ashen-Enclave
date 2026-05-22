@@ -127,10 +127,13 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard" };
+				values[] = { "Standard","Bean" };
 
 				class Standard {
 					label = "Standard";
+				};
+				class Bean {
+					label = "Bean";
 				};
 			};
 		};
@@ -232,6 +235,10 @@ class XtdGearInfos {
 		class tae_foxx_helmet {
 			model = "TAE_foxx_helmets";
 			owner = "Standard";
+		};
+		class tae_bean_helmet {
+			model = "TAE_foxx_helmets";
+			owner = "Bean";
 		};
 	};
 };
@@ -691,6 +698,26 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Trad_Helm_Foxx.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+			};
+		};
+	};
+	class tae_bean_helmet : tae_helmet_war_chief{
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Juno";
+		displayName = "Clan Foxx Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\WAR_Helm_Bean.paa",
+			"\z\tgf\addons\helmets\war_chief\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\WAR_Helm_Bean.paa",
+				"\z\tgf\addons\helmets\war_chief\data\camo2_co.paa"
 			};
 		};
 	};
