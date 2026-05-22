@@ -25,3 +25,4 @@ class CfgPatches {
 #include "Backpacks\config.cpp"
 #include "Helmets\config.cpp"
 #include "Helmets\Customs\config.cpp"
+#include "Uniforms\config.cpp"

@@ -414,16 +414,16 @@ class CfgVehicles {
 		descriptionShort = "Hondo's JT-12 Jetpack";
 		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_Hondo.paa"};
 	};
-	class tae_edonn_JT13_LR : tae_jetpack_JT12_LR {
+	class tae_edonn_JT13_LR : tae_jetpack_JT13_LR {
 		scope = 2;
 		displayName = "Edonn's JT-13 Jetpack LR";
 		descriptionShort = "Edonn's JT-13 Jetpack LR";
-		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt13\rocket_co.paa","TAEGear\data\JT13_pack_Edonn.paa"};
+		hiddenselectionstextures[] = {"TAEGear\data\JT13_pack_Edonn.paa"};
 	};
 	class tae_edonn_JT13 : tae_jetpack_JT13 {
 		scope = 2;
 		displayName = "Edonn's JT-13 Jetpack";
 		descriptionShort = "Edonn's JT-13 Jetpack";
-		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt13\rocket_co.paa","TAEGear\data\JT13_pack_Edonn.paa"};
+		hiddenselectionstextures[] = {"TAEGear\data\JT13_pack_Edonn.paa"};
 	};
 };
