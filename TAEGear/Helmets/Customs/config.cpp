@@ -11,16 +11,23 @@ class CfgPatches {
 			"tae_karr_helmet_mm",
 			"tae_karr_helmet_mv",
 			"tae_karr_helmet_niteowl_fd",
+			"tae_karr_helmet_niteowl_mr",
+			"tae_karr_helmet_niteowl_ma",
+			"tae_karr_helmet_niteowl_mm",
+			"tae_karr_helmet_niteowl_mv",
 			"tae_hondo_helmet",
 			"tae_teka_helmet",
 			"tae_acklay_helmet",
 			"tae_acklay_rangefinder",
+			"tae_acklay_helmet_niteowl",
 			"tae_edonn_helmet",
 			"tae_edonn_rangefinder",
 			"tae_nox_helmet",
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
-			"tae_foxx_helmet"
+			"tae_dengar_helmet",
+			"tae_foxx_helmet",
+			"tae_bean_helmet"
 		};
 	};
 };

@@ -220,8 +220,6 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "Veteran";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Veteran_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Veteran_picture_ca.paa";
 		backpack = "tae_modular_pack_lr";
 
 		class EventHandlers {
@@ -234,8 +232,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Engineer";
 		icon = "iconManEngineer";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Engineer_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Engineer_picture_ca.paa";
 		backpack = "tae_modular_pack_engi";
 
 		engineer = 1;
@@ -276,8 +272,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Medic";
 		icon = "iconManMedic";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Medic_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Medic_picture_ca.paa";
 		backpack = "tae_modular_pack";
 
 		attendant = 1;
@@ -315,8 +309,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Marksman";
 		icon = "iconManRecon";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Marksman_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Marksman_picture_ca.paa";
 		backpack = "tae_modular_pack";
 
 		weapons[] = {
@@ -405,8 +397,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "AT/AA";
 		icon = "iconManAT";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_AT_AA_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_AT_AA_picture_ca.paa";
 		backpack = "tae_modular_pack";
 
 		weapons[] = {
@@ -501,8 +491,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Grenadier";
 		icon = "iconManExplosive";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Grenadier_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Grenadier_picture_ca.paa";
 		backpack = "tae_modular_pack";
 
 		weapons[] = {
@@ -607,8 +595,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "CQC Specialist";
 		icon = "iconMan";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_CQC_Specialist_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_CQC_Specialist_picture_ca.paa";
 		backpack = "tae_modular_pack";
 
 		weapons[] = {
@@ -709,8 +695,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Heavy Weapons";
 		icon = "iconManMG";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Heavy_Weapons_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Heavy_Weapons_picture_ca.paa";
 		backpack = "tae_modular_pack";
 
 		weapons[] = {
@@ -805,8 +789,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Sniper";
 		icon = "iconManRecon";
-		editorPreview = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Sniper_preview.jpg";
-		picture = "\TAEUnits_HouseKarr\data\ui\TAE_Unit_Sniper_picture_ca.paa";
 		backpack = "tae_modular_pack";
 
 		weapons[] = {
