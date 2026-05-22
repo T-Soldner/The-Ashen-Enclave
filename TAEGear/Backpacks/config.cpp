@@ -357,14 +357,14 @@ class CfgVehicles {
 		picture = "\knd_jetpacks\data\JT13_icon_co.paa";
 		author = "Maxim + Jenna";
 		model = "\knd_jetpacks\data\jt13\jt13.p3d";
-		hiddenselections[] = {"rocket","pack"};
-		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt13\rocket_co.paa","\knd_jetpacks\data\jt13\pack_co.paa"};
+		hiddenselections[] = {"camo1"};
+		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13\camo1_co.paa"};
 	};
 	class tae_jetpack_JT13_LR : tae_jetpack_JT13 {
 		displayName = "House Karr JT-13 LR Jetpack";
 		model = "\knd_jetpacks\data\jt13RTO\jt13RTO.p3d";
-		hiddenselections[] = {"rocket","pack"};
-		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt13\rocket_co.paa","\knd_jetpacks\data\jt13RTO\pack_co.paa"};
+		hiddenselections[] = {"camo1"};
+		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13RTO\camo1_co.paa"};
 		tf_dialog = "bussole_radio_dialog";
 		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 		tf_encryptionCode = "tf_independent_radio_code";
