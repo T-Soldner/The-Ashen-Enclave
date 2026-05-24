@@ -5,13 +5,14 @@ class CfgPatches {
 		requiredAddons[] = { "knd_jetpacks" };
 		units[] = { 
 			"tae_jetpack_Z6",
-			"tae_jetpack_Z6_LR",
 			"tae_jetpack_z12",
-			"tae_jetpack_z12_LR",
 			"tae_jetpack_JT12",
 			"tae_jetpack_JT12_LR",
-			"tae_hondo_JT12_LR",
-			"tae_edonn_JT12_LR"
+			"tae_jetpack_JT13",
+			"tae_jetpack_JT13_LR",
+			"tae_hondo_JT13_LR",
+			"tae_edonn_JT13_LR",
+			"tae_edonn_JT13"
 		};
 		weapons[] = { };
 	};
@@ -183,20 +184,10 @@ class XtdGearInfos {
 			role = "Z6";
 			lr = "No";
 		};
-		class tae_jetpack_Z6_LR {
-			model = "TAE_standard_Jetpacks";
-			role = "Z6";
-			lr = "Yes";
-		};
 		class tae_jetpack_z12 {
 			model = "TAE_standard_Jetpacks";
 			role = "Z12";
 			lr = "No";
-		};
-		class tae_jetpack_z12_LR {
-			model = "TAE_standard_Jetpacks";
-			role = "Z12";
-			lr = "Yes";
 		};
 		class tae_jetpack_JT12 {
 			model = "TAE_standard_Jetpacks";
@@ -252,7 +243,7 @@ class XtdGearInfos {
 		};
 		
 		//customs
-		class tae_hondo_Z12_LR {
+		class tae_hondo_JT13_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Hondo";
 			LR    = "Yes";
@@ -299,18 +290,6 @@ class CfgVehicles {
 		hiddenselectionstextures[] = {"knd_jetpacks\data\Z12\Rocket_co.paa","knd_jetpacks\data\Z12\pack_co.paa"};
 		knd_isRocketJetpack = 1;
 	};
-	class tae_jetpack_z12_LR : tae_jetpack_z12 {
-		displayName = "House Karr Z-12 LR Jetpack";
-		model = "knd_jetpacks\data\z12rto\pack.p3d";
-		hiddenselectionstextures[] = {"knd_jetpacks\data\Z12\Rocket_co.paa","knd_jetpacks\data\Z12RTO\pack_co.paa"};
-		tf_dialog = "bussole_radio_dialog";
-		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
-		tf_encryptionCode = "tf_independent_radio_code";
-		tf_hasLRradio = 1;
-		tf_range = 10000;
-		tf_isolatedAmount = 0.65;
-		tf_subtype = "digital_lr";
-	};	
 	class tae_jetpack_JT12 : tae_jetpack {
 		displayName = "House Karr JT-12 Jetpack";
 		scope = 2;
@@ -339,17 +318,6 @@ class CfgVehicles {
 		hiddenselections[] = {"rocket","pack"};
 		hiddenselectionstextures[] = {"knd_jetpacks\data\Z6\Rocket_co.paa","knd_jetpacks\data\Z6\pack_co.paa"};
 		knd_isRocketJetpack = 1;
-	};
-	class tae_jetpack_Z6_LR : tae_jetpack_Z6 {
-		displayName = "House Karr Z-6 LR Jetpack";
-		model = "knd_jetpacks\data\z6RTO\z6RTO.p3d";
-		hiddenselectionstextures[] = {"knd_jetpacks\data\Z6\Rocket_co.paa","knd_jetpacks\data\Z6RTO\pack_co.paa"};
-		tf_dialog = "bussole_radio_dialog";
-		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
-		tf_encryptionCode = "tf_independent_radio_code";
-		tf_hasLRradio = 1;
-		tf_range = 10000;
-		tf_subtype = "digital_lr";
 	};
 	class tae_jetpack_JT13 : tae_jetpack {
 		displayName = "House Karr JT-13 Jetpack";
@@ -408,10 +376,10 @@ class CfgVehicles {
 	};
 	
 	//Custom Packs
-	class tae_hondo_Z12_LR : tae_jetpack_z12_LR {
+	class tae_hondo_JT13_LR : tae_jetpack_JT13_LR {
 		scope = 2;
-		displayName = "Hondo's Z-12 Jetpack";
-		descriptionShort = "Hondo's JT-12 Jetpack";
+		displayName = "Hondo's JT-13 Jetpack";
+		descriptionShort = "Hondo's JT-13 Jetpack";
 		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\JT12_Hondo.paa"};
 	};
 	class tae_edonn_JT13_LR : tae_jetpack_JT13_LR {

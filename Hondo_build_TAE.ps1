@@ -15,12 +15,12 @@ $publicKey  = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSign
 
 $addons = @(
     "TAECore",
+    "TAEInsignias",
     "TAEWeapons",
     "TAEGear",
     "TAEUnits",
     "TAEObjects",
-    "TAEVehicles",
-	"TAEUniforms"
+    "TAEVehicles"
 )
 
 # Make sure output folders exist
@@ -77,6 +77,13 @@ foreach ($addon in $addons) {
 
     Write-Host "Packing $addon..." -ForegroundColor Cyan
 
+    # Clear stale output first so a failed build cannot look successful.
+    if (Test-Path $pboPath) {
+        Remove-Item -Path $pboPath -Force
+    }
+
+    Get-ChildItem -Path $outputRoot -Filter "$addon.pbo.*.bisign" -ErrorAction SilentlyContinue | Remove-Item -Force
+
     & $addonBuilder `
         "$sourcePath" `
         "$outputRoot" `
@@ -98,9 +105,6 @@ foreach ($addon in $addons) {
     }
 
     Write-Host "Finished packing $addon" -ForegroundColor Green
-
-    # Remove old bisign files for this PBO
-    Get-ChildItem -Path $outputRoot -Filter "$addon.pbo.*.bisign" -ErrorAction SilentlyContinue | Remove-Item -Force
 
     Write-Host "Signing $addon.pbo with TAEAUX.biprivatekey..." -ForegroundColor Cyan
 

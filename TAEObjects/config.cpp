@@ -4,10 +4,12 @@ class CfgPatches {
 		author = "TAE Mod Team";
 		requiredAddons[] = {
 			"A3_Weapons_F",
+			"ace_interaction",
 			"ace_arsenal",
 			"ace_dragging",
 			"ace_cargo",
 			"cba_xeh",
+			"JLTS_weapons_crates",
 			"knd_crates"
 		};
 		units[] = {
@@ -20,10 +22,23 @@ class CfgPatches {
 	};
 };
 
+class CfgEditorCategories {
+	class TAE_EdCat_HouseKarr {
+		displayName = "House Karr";
+	};
+};
+
+class CfgEditorSubcategories {
+	class TAE_EdSubcat_HouseKarr_Supplies {
+		displayName = "Supplies";
+	};
+};
+
 class CfgFunctions {
 	class TAE {
 		class Objects {
 			file = "TAEObjects\functions";
+			class applyFoundlingLoadout {};
 			class initRestrictedArsenal {};
 		};
 	};
@@ -38,27 +53,22 @@ class Extended_Init_EventHandlers {
 };
 
 class CfgVehicles {
-	class ReammoBox_F;
+	class JLTS_Ammobox_weapons_GAR;
+	class JLTS_Ammobox_explosives_GAR;
+	class JLTS_Ammobox_ammo_GAR;
 
-	class TAE_Restricted_Arsenal_Box: ReammoBox_F {
+	class TAE_Restricted_Arsenal_Box: JLTS_Ammobox_weapons_GAR {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr Restricted ACE Arsenal";
 		author = "TAE Mod Team";
-		editorCategory = "EdCat_Supplies";
-		editorSubcategory = "EdSubcat_Ammo";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Supplies";
 		side = 3;
 		armor = 4000;
-
-		model = "knd_crates\arsenalModel\THEBOX.p3d";
-		editorPreview = "knd_crates\tex\crates\thumbnail.paa";
-
-		hiddenSelections[] = {
-			"camo1"
-		};
-
 		hiddenSelectionsTextures[] = {
-			"knd_crates\tex\crates\arsenal\camo1_co.paa"
+			"\MRC\JLTS\weapons\Crates\data\crate_1_GAR_co.paa",
+			"\TAEObjects\data\screen_karr_arsenal.paa"
 		};
 
 		ace_dragging_canCarry = 0;
@@ -66,31 +76,40 @@ class CfgVehicles {
 		ace_cargo_canLoad = 0;
 		ace_cargo_size = -1;
 
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 6;
+				position = "[0,0,0.9]";
+				selection = "";
+				displayName = "Interactions";
+				condition = "true";
+
+				class TAE_TakeFoundlingLoadout {
+					displayName = "Take Foundling Loadout Kit";
+					condition = "true";
+					statement = "[_player] call TAE_fnc_applyFoundlingLoadout";
+				};
+			};
+		};
+
 		class TransportWeapons {};
 		class TransportMagazines {};
 		class TransportItems {};
 		class TransportBackpacks {};
 	};
 
-	class TAE_Ammo_Crate: ReammoBox_F {
+	class TAE_Ammo_Crate: JLTS_Ammobox_weapons_GAR {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr Ammo Crate";
 		author = "TAE Mod Team";
-		editorCategory = "EdCat_Supplies";
-		editorSubcategory = "EdSubcat_Ammo";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Supplies";
 		side = 3;
 		armor = 4000;
-
-		model = "knd_crates\cratemodel\NewCrate.p3d";
-		editorPreview = "knd_crates\tex\crates\thumbnail.paa";
-
-		hiddenSelections[] = {
-			"camo1"
-		};
-
 		hiddenSelectionsTextures[] = {
-			"knd_crates\tex\crates\ammo\camo1_co.paa"
+			"\MRC\JLTS\weapons\Crates\data\crate_1_GAR_co.paa",
+			"\TAEObjects\data\screen_karr_arsenal.paa"
 		};
 
 		ace_dragging_canCarry = 0;
@@ -445,25 +464,18 @@ class CfgVehicles {
 		class TransportBackpacks {};
 	};
 
-	class TAE_Demo_Crate: ReammoBox_F {
+	class TAE_Demo_Crate: JLTS_Ammobox_explosives_GAR {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr Grenades/Explosives Crate";
 		author = "TAE Mod Team";
-		editorCategory = "EdCat_Supplies";
-		editorSubcategory = "EdSubcat_Ammo";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Supplies";
 		side = 3;
 		armor = 4000;
-
-		model = "knd_crates\cratemodel\NewCrate.p3d";
-		editorPreview = "knd_crates\tex\crates\thumbnail.paa";
-
-		hiddenSelections[] = {
-			"camo1"
-		};
-
 		hiddenSelectionsTextures[] = {
-			"knd_crates\tex\crates\demo\camo1_co.paa"
+			"\MRC\JLTS\weapons\Crates\data\crate_1_GAR_co.paa",
+			"\TAEObjects\data\screen_karr_arsenal.paa"
 		};
 
 		ace_dragging_canCarry = 0;
@@ -610,25 +622,18 @@ class CfgVehicles {
 		class TransportBackpacks {};
 	};
 
-	class TAE_Medical_Crate: ReammoBox_F {
+	class TAE_Medical_Crate: JLTS_Ammobox_ammo_GAR {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr Medical Crate";
 		author = "TAE Mod Team";
-		editorCategory = "EdCat_Supplies";
-		editorSubcategory = "EdSubcat_Ammo";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Supplies";
 		side = 3;
 		armor = 4000;
-
-		model = "knd_crates\cratemodel\NewCrate.p3d";
-		editorPreview = "knd_crates\tex\crates\thumbnail.paa";
-
-		hiddenSelections[] = {
-			"camo1"
-		};
-
 		hiddenSelectionsTextures[] = {
-			"knd_crates\tex\crates\medical\camo1_co.paa"
+			"\MRC\JLTS\weapons\Crates\data\crate_3_GAR_co.paa",
+			"\TAEObjects\data\screen_karr_arsenal.paa"
 		};
 
 		ace_dragging_canCarry = 0;
