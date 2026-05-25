@@ -68,9 +68,9 @@ class XtdGearModels {
             class source {
                 alwaysSelectable = 1;
                 label = "Source";
-                values[] = { "TGF", "LS" };
-                class TGF { label = "TGF"; };
-                class LS { label = "LS"; };
+                values[] = { "TAE", "TAE_Mandalorian" };
+                class TAE { label = "TAE"; };
+                class TAE_Mandalorian { label = "TAE Mandalorian"; };
             };
             class type {
                 alwaysSelectable = 1;
@@ -109,168 +109,168 @@ class XtdGearInfos {
     class CfgWeapons {
         class tae_uniform_ls_mandalorian {
             model = "TAE_standard_uniforms";
-            source = "LS";
+            source = "TAE_Mandalorian";
             type = "Black";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_forgemaster {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Forgemaster";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_forgemaster_seal {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Forgemaster";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_black {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Black";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_black_seal {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Black";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_dark_blue {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "DarkBlue";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_dark_blue_seal {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "DarkBlue";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_dark_green {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "DarkGreen";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_dark_green_seal {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "DarkGreen";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_grey {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Grey";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_grey_seal {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Grey";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_orange {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Orange";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_orange_seal {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Orange";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_red {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Red";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_red_seal {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Red";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_white {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "White";
             sex = "Male";
             seal = "No";
         };
         class tae_uniform_white_seal {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "White";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_skirata {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Skirata";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_vau {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Vau";
             sex = "Male";
             seal = "Yes";
         };
         class tae_uniform_black_female {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Black";
             sex = "Female";
             seal = "No";
         };
         class tae_uniform_dark_blue_female {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "DarkBlue";
             sex = "Female";
             seal = "No";
         };
         class tae_uniform_grey_female {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Grey";
             sex = "Female";
             seal = "No";
         };
         class tae_uniform_red_female {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "Red";
             sex = "Female";
             seal = "No";
         };
         class tae_uniform_white_female {
             model = "TAE_standard_uniforms";
-            source = "TGF";
+            source = "TAE";
             type = "White";
             sex = "Female";
             seal = "No";

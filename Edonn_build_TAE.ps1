@@ -23,6 +23,8 @@ $addons = @(
     "TAEVehicles"
 )
 
+$failures = @()
+
 # Make sure output folders exist
 if (!(Test-Path $outputRoot)) {
     New-Item -ItemType Directory -Path $outputRoot -Force | Out-Null
@@ -37,14 +39,14 @@ if (!(Test-Path $addonBuilder)) {
     Write-Host "ERROR: AddonBuilder.exe not found at:" -ForegroundColor Red
     Write-Host $addonBuilder -ForegroundColor Red
     pause
-    exit
+    exit 1
 }
 
 if (!(Test-Path $dsSignFile)) {
     Write-Host "ERROR: DSSignFile.exe not found at:" -ForegroundColor Red
     Write-Host $dsSignFile -ForegroundColor Red
     pause
-    exit
+    exit 1
 }
 
 # Check private key
@@ -52,7 +54,7 @@ if (!(Test-Path $privateKey)) {
     Write-Host "ERROR: Private key not found at:" -ForegroundColor Red
     Write-Host $privateKey -ForegroundColor Red
     pause
-    exit
+    exit 1
 }
 
 # Copy public .bikey into mod Keys folder if available
@@ -71,7 +73,9 @@ foreach ($addon in $addons) {
     $pboPath    = Join-Path $outputRoot "$addon.pbo"
 
     if (!(Test-Path $sourcePath)) {
-        Write-Host "SKIPPING: $addon folder not found at $sourcePath" -ForegroundColor Yellow
+        $message = "Source folder not found for $addon at $sourcePath"
+        $failures += $message
+        Write-Host "ERROR: $message" -ForegroundColor Red
         continue
     }
 
@@ -84,21 +88,27 @@ foreach ($addon in $addons) {
 
     Get-ChildItem -Path $outputRoot -Filter "$addon.pbo.*.bisign" -ErrorAction SilentlyContinue | Remove-Item -Force
 
-    & $addonBuilder `
+    $addonBuilderOutput = & $addonBuilder `
         "$sourcePath" `
         "$outputRoot" `
         -packonly `
         -clear `
-        -prefix="$addon"
+        -prefix="$addon" 2>&1
+    $addonBuilderExitCode = $LASTEXITCODE
+    $addonBuilderOutput | ForEach-Object { Write-Host $_ }
 
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "ERROR packing $addon. Exit code: $LASTEXITCODE" -ForegroundColor Red
+    if (($addonBuilderExitCode -ne 0) -or (($addonBuilderOutput | Out-String) -match "(\[ERROR\]|Build failed)")) {
+        $message = "Packing $addon failed. Exit code: $addonBuilderExitCode"
+        $failures += $message
+        Write-Host "ERROR: $message" -ForegroundColor Red
         Write-Host ""
         continue
     }
 
     if (!(Test-Path $pboPath)) {
-        Write-Host "ERROR: Expected PBO was not found:" -ForegroundColor Red
+        $message = "Expected PBO for $addon was not found at $pboPath"
+        $failures += $message
+        Write-Host "ERROR: $message" -ForegroundColor Red
         Write-Host $pboPath -ForegroundColor Red
         Write-Host ""
         continue
@@ -115,11 +125,27 @@ foreach ($addon in $addons) {
     if ($LASTEXITCODE -eq 0) {
         Write-Host "Signed $addon.pbo" -ForegroundColor Green
     } else {
-        Write-Host "ERROR signing $addon.pbo. Exit code: $LASTEXITCODE" -ForegroundColor Red
+        $message = "Signing $addon.pbo failed. Exit code: $LASTEXITCODE"
+        $failures += $message
+        Write-Host "ERROR: $message" -ForegroundColor Red
     }
 
     Write-Host ""
 }
 
-Write-Host "Edonn build and signing complete." -ForegroundColor Green
+if ($failures.Count -gt 0) {
+    Write-Host ""
+    Write-Host "============================================================" -ForegroundColor Red
+    Write-Host "BUILD FAILED: $($failures.Count) error(s) occurred." -ForegroundColor Red
+    Write-Host "============================================================" -ForegroundColor Red
+    foreach ($failure in $failures) {
+        Write-Host " - $failure" -ForegroundColor Red
+    }
+    Write-Host "============================================================" -ForegroundColor Red
+    pause
+    exit 1
+}
+
+Write-Host "Edonn build and signing complete. No errors detected." -ForegroundColor Green
 pause
+exit 0

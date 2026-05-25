@@ -633,6 +633,9 @@ private _items = [
 	"tae_edonn_JT13_LR",
 	"tae_edonn_JT13",
 	"tae_armor_foxx",
+	"tae_varen_armor_recon",
+	"tae_varen_helmet",
+	"tae_varen_rangefinder",
 	"tae_teka_armor",
 	"tae_teka_helmet",
 	"tae_foxx_helmet",
@@ -644,4 +647,5 @@ private _items = [
 	"tae_modular_pack"
 ];
 
-[_box, _items] call ace_arsenal_fnc_initBox;
+[_box, true, true] call ace_arsenal_fnc_removeVirtualItems;
+[_box, _items, true] call ace_arsenal_fnc_initBox;

@@ -10,13 +10,24 @@ class CfgPatches {
 			"ace_cargo",
 			"cba_xeh",
 			"JLTS_weapons_crates",
+			"3AS_Prop_Flags",
+			"SFA_Structure_Bed",
 			"knd_crates"
 		};
 		units[] = {
 			"TAE_Restricted_Arsenal_Box",
 			"TAE_Ammo_Crate",
 			"TAE_Demo_Crate",
-			"TAE_Medical_Crate"
+			"TAE_Medical_Crate",
+			"TAE_Bed_Acklay",
+			"TAE_Bed_Foxx",
+			"TAE_Bed_Varen",
+			"TAE_Bed_Rook",
+			"TAE_Vexillum_Acklay",
+			"TAE_Vexillum_Foxx",
+			"TAE_Vexillum_Varen",
+			"TAE_Vexillum_Rook",
+			"TAE_Vexillum_HouseKarr"
 		};
 		weapons[] = {};
 	};
@@ -31,6 +42,14 @@ class CfgEditorCategories {
 class CfgEditorSubcategories {
 	class TAE_EdSubcat_HouseKarr_Supplies {
 		displayName = "Supplies";
+	};
+
+	class TAE_EdSubcat_HouseKarr_Vexillums {
+		displayName = "Vexillums";
+	};
+
+	class TAE_EdSubcat_HouseKarr_Furniture {
+		displayName = "Furniture";
 	};
 };
 
@@ -56,6 +75,111 @@ class CfgVehicles {
 	class JLTS_Ammobox_weapons_GAR;
 	class JLTS_Ammobox_explosives_GAR;
 	class JLTS_Ammobox_ammo_GAR;
+	class 3AS_Small_Mando_Stand;
+	class SFA_Bed_Single;
+
+	class TAE_Bed_Base: SFA_Bed_Single {
+		scope = 0;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Furniture";
+		hiddenSelections[] = {"camo1"};
+	};
+
+	class TAE_Bed_Acklay: TAE_Bed_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Acklay Bed";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\furniture\tae_bed_acklay_co.paa"
+		};
+	};
+
+	class TAE_Bed_Foxx: TAE_Bed_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Foxx Bed";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\furniture\tae_bed_foxx_co.paa"
+		};
+	};
+
+	class TAE_Bed_Varen: TAE_Bed_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Varen Bed";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\furniture\tae_bed_varen_co.paa"
+		};
+	};
+
+	class TAE_Bed_Rook: TAE_Bed_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Rook Bed";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\furniture\tae_bed_rook_co.paa"
+		};
+	};
+
+	class TAE_Vexillum_Base: 3AS_Small_Mando_Stand {
+		scope = 0;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Vexillums";
+		model = "3AS\3AS_Props\Flags\models\Small_Stand\3as_Small_Stand.p3d";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsMaterials[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum.rvmat"
+		};
+	};
+
+	class TAE_Vexillum_Acklay: TAE_Vexillum_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Acklay Vexillum";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum_acklay_co.paa"
+		};
+	};
+
+	class TAE_Vexillum_Foxx: TAE_Vexillum_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Foxx Vexillum";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum_foxx_co.paa"
+		};
+	};
+
+	class TAE_Vexillum_Varen: TAE_Vexillum_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Varen Vexillum";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum_varen_co.paa"
+		};
+	};
+
+	class TAE_Vexillum_Rook: TAE_Vexillum_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Rook Vexillum";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum_rook_co.paa"
+		};
+	};
+
+	class TAE_Vexillum_HouseKarr: TAE_Vexillum_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Command Vexillum";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum_house_karr_co.paa"
+		};
+	};
 
 	class TAE_Restricted_Arsenal_Box: JLTS_Ammobox_weapons_GAR {
 		scope = 2;
