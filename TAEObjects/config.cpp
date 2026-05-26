@@ -5,12 +5,19 @@ class CfgPatches {
 		requiredAddons[] = {
 			"A3_Weapons_F",
 			"ace_interaction",
+			"ace_interact_menu",
 			"ace_arsenal",
 			"ace_dragging",
 			"ace_cargo",
 			"cba_xeh",
 			"JLTS_weapons_crates",
+			"3AS_Props",
 			"3AS_Prop_Flags",
+			"ls_characters_mandalorian",
+			"tgf_helmets",
+			"TAEGear_Helmets_Customs",
+			"TAEGear_Armors_Customs",
+			"mti_armoury_props_locker",
 			"SFA_Structure_Bed",
 			"knd_crates"
 		};
@@ -23,11 +30,20 @@ class CfgPatches {
 			"TAE_Bed_Foxx",
 			"TAE_Bed_Varen",
 			"TAE_Bed_Rook",
+			"TAE_Bed_HouseKarr",
 			"TAE_Vexillum_Acklay",
 			"TAE_Vexillum_Foxx",
 			"TAE_Vexillum_Varen",
 			"TAE_Vexillum_Rook",
-			"TAE_Vexillum_HouseKarr"
+			"TAE_Vexillum_HouseKarr",
+			"TAE_MokTech_Locker",
+			"TAE_Wearable_Acklay_Helmet",
+			"TAE_Wearable_Foxx_Helmet",
+			"TAE_Wearable_Varen_Helmet",
+			"TAE_Wearable_Rook_Helmet",
+			"TAE_Wearable_Freelancer_Helmet",
+			"TAE_Wearable_Hondo_Helmet",
+			"TAE_Wearable_Teka_Helmet"
 		};
 		weapons[] = {};
 	};
@@ -51,6 +67,10 @@ class CfgEditorSubcategories {
 	class TAE_EdSubcat_HouseKarr_Furniture {
 		displayName = "Furniture";
 	};
+
+	class TAE_EdSubcat_HouseKarr_WearableItems {
+		displayName = "Wearable Items";
+	};
 };
 
 class CfgFunctions {
@@ -58,6 +78,7 @@ class CfgFunctions {
 		class Objects {
 			file = "TAEObjects\functions";
 			class applyFoundlingLoadout {};
+			class applyWearableLoadout {};
 			class initRestrictedArsenal {};
 		};
 	};
@@ -69,6 +90,7 @@ class Extended_Init_EventHandlers {
 			init = "_this call TAE_fnc_initRestrictedArsenal";
 		};
 	};
+
 };
 
 class CfgVehicles {
@@ -77,6 +99,8 @@ class CfgVehicles {
 	class JLTS_Ammobox_ammo_GAR;
 	class 3AS_Small_Mando_Stand;
 	class SFA_Bed_Single;
+	class ThingX;
+	class mti_armoury_props_locker_base;
 
 	class TAE_Bed_Base: SFA_Bed_Single {
 		scope = 0;
@@ -121,6 +145,312 @@ class CfgVehicles {
 		hiddenSelectionsTextures[] = {
 			"\TAEObjects\data\furniture\tae_bed_rook_co.paa"
 		};
+	};
+
+	class TAE_Bed_HouseKarr: TAE_Bed_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Bed";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\furniture\tae_bed_karr_co.paa"
+		};
+	};
+
+	class TAE_Wearable_Helmet_Base: ThingX {
+		scope = 0;
+		scopeCurator = 0;
+		displayName = "Wearable Helmet";
+		author = "TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_WearableItems";
+		model = "\ls\core\addons\characters_mandalorian\helmets\traditional\ls_helmet_mandalorian_traditional.p3d";
+		hiddenSelections[] = {"camo1","visor","neckTex"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Acklay\LS_TRAD_Helmet_Acklay.paa",
+			"\TAEGear\data\Acklay\LS_TRAD_Visor_Acklay.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
+		};
+		simulation = "thingX";
+		armor = 50;
+
+		ace_dragging_canCarry = 0;
+		ace_dragging_canDrag = 0;
+		ace_cargo_canLoad = 0;
+		ace_cargo_size = -1;
+		ace_cargo_noRename = 1;
+	};
+
+	class TAE_Wearable_Acklay_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Acklay Helmet";
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnAcklayArmor {
+					displayName = "Put On Acklay Armor";
+					condition = "true";
+					statement = "[_player,'tae_acklay_armor','tae_acklay_helmet','tae_acklay_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnEdonnArmor {
+					displayName = "Put On Edonn Armor";
+					condition = "true";
+					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tae_edonn_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnDengarArmor {
+					displayName = "Put On Dengar Armor";
+					condition = "true";
+					statement = "[_player,'tae_acklay_armor','tae_dengar_helmet','tgf_nvg_rangefinder_r','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnNoxArmor {
+					displayName = "Put On Nox Armor";
+					condition = "true";
+					statement = "[_player,'tae_acklay_armor','tae_nox_helmet','tgf_nvg_circuit','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnJimothyArmor {
+					displayName = "Put On Jimothy Armor";
+					condition = "true";
+					statement = "[_player,'tae_acklay_armor','tae_jimothy_helmet','tae_jimothy_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnNiteOwlArmor {
+					displayName = "Put On Nite Owl Armor";
+					condition = "true";
+					statement = "[_player,'tae_acklay_niteowl_armor','tae_acklay_niteowl_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_Wearable_Foxx_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Foxx Helmet";
+		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Foxx\TRAD_Helmet_Foxx.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnFoxxArmor {
+					displayName = "Put On Foxx Armor";
+					condition = "true";
+					statement = "[_player,'tae_foxx_armor','tae_foxx_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnBeanArmor {
+					displayName = "Put On Bean Armor";
+					condition = "true";
+					statement = "[_player,'tae_foxx_armor','tae_bean_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_Wearable_Varen_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Varen Helmet";
+		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Varen\TRAD_Helmet_Varen.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnVarenArmor {
+					displayName = "Put On Varen Armor";
+					condition = "true";
+					statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_varen_rangefinder','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_Wearable_Rook_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Rook Helmet";
+		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Rook\TRAD_Helmet_Rook.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnRookArmor {
+					displayName = "Put On Rook Armor";
+					condition = "true";
+					statement = "[_player,'tae_rook_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_Wearable_Freelancer_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Freelancer Helmet";
+		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Mando.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnRecruitArmor {
+					displayName = "Put On Mandalorian Recruit Armor";
+					condition = "true";
+					statement = "[_player,'tae_karr_armor_medium_mr','tae_karr_helmet_mr','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnApprenticeArmor {
+					displayName = "Put On Mandalorian Apprentice Armor";
+					condition = "true";
+					statement = "[_player,'tae_karr_armor_medium_ma','tae_karr_helmet_ma','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnMandalorianArmor {
+					displayName = "Put On Mandalorian Armor";
+					condition = "true";
+					statement = "[_player,'tae_karr_armor_medium_mm','tae_karr_helmet_mm','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnVeteranArmor {
+					displayName = "Put On Mandalorian Veteran Armor";
+					condition = "true";
+					statement = "[_player,'tae_karr_armor_medium_mv','tae_karr_helmet_mv','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_Wearable_Hondo_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Hondo Helmet";
+		model = "\z\tgf\addons\helmets\battle_master\battle_master.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Hondo\BM_Helmet_Hondo.paa",
+			"\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnHondoArmor {
+					displayName = "Put On Hondo Armor";
+					condition = "true";
+					statement = "[_player,'tae_hondo_armor','tae_hondo_helmet','','','tae_uniform_vau'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_Wearable_Teka_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Teka Helmet";
+		model = "\z\tgf\addons\helmets\pilot\pilot_helmet.p3d";
+		hiddenSelections[] = {"camo1","camo2","camo"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Teka\PLT_Helmet_Teka.paa",
+			"\TAEGear\data\Teka\PLT_Visor_Teka.paa",
+			"\TAEGear\data\Teka\PLT_Lights_Teka.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnTekaArmor {
+					displayName = "Put On Teka Armor";
+					condition = "true";
+					statement = "[_player,'tae_teka_armor','tae_teka_helmet','','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_MokTech_Locker: mti_armoury_props_locker_base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Locker";
+		author = "TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Furniture";
+		hiddenSelections[] = {"Camo1","Camo2"};
+		hiddenSelectionsmaterials[] = {
+			"\z\mti_armoury\addons\props\locker\data\base_texture\door.rvmat",
+			"\z\mti_armoury\addons\props\locker\data\base_texture\locker.rvmat"
+		};
+		hiddenSelectionsTextures[] = {
+			"\z\mti_armoury\addons\props\locker\data\base_texture\Door_CO.paa",
+			"\z\mti_armoury\addons\props\locker\data\base_texture\locker_CO.paa"
+		};
+		editorPreview = "\z\mti_armoury\addons\props\locker\data\editorpreviews\locker_base.jpg";
+
+		ace_interaction_canInteract = 0;
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				condition = "false";
+			};
+		};
+		class ACE_SelfActions {};
 	};
 
 	class TAE_Vexillum_Base: 3AS_Small_Mando_Stand {

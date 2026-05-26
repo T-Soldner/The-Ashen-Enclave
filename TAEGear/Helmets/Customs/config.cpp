@@ -19,7 +19,7 @@ class CfgPatches {
 			"tae_teka_helmet",
 			"tae_acklay_helmet",
 			"tae_acklay_rangefinder",
-			"tae_acklay_helmet_niteowl",
+			"tae_acklay_niteowl_helmet",
 			"tae_edonn_helmet",
 			"tae_edonn_rangefinder",
 			"tae_nox_helmet",
@@ -29,7 +29,8 @@ class CfgPatches {
 			"tae_foxx_helmet",
 			"tae_bean_helmet",
 			"tae_varen_helmet",
-			"tae_varen_rangefinder"
+			"tae_varen_rangefinder",
+			"tae_rook_helmet"
 		};
 	};
 };
@@ -161,6 +162,21 @@ class XtdGearModels {
 				};
 			};
 		};
+		class TAE_rook_helmets {
+			label = "Clan Rook Helmets";
+			author = "TAE Aux Mod Team";
+			options[] = { "owner" };
+
+			class owner {
+				alwaysSelectable = 1;
+				label = "Owner";
+				values[] = { "Standard" };
+
+				class Standard {
+					label = "Standard";
+				};
+			};
+		};
 		class TAE_nvgs {
 			label = "TAE NVGs";
 			author = "TAE Aux Mod Team";
@@ -169,17 +185,8 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Mandalorian", "Heavy", "Visor", "Acklay", "Edonn", "Jimothy", "Varen" };
+				values[] = { "Acklay", "Edonn", "Jimothy", "Varen" };
 
-				class Mandalorian {
-					label = "Mandalorian";
-				};
-				class Heavy {
-					label = "Heavy";
-				};
-				class Visor {
-					label = "Visor";
-				};
 				class Acklay {
 					label = "Acklay";
 				};
@@ -200,18 +207,6 @@ class XtdGearModels {
 class XtdGearInfos {
 	class CfgWeapons {
 		// TAE NVGs
-		class tae_ls_mandalorian_rangefinder {
-			model = "TAE_nvgs";
-			owner = "Mandalorian";
-		};
-		class tae_nvg_heavy_nv {
-			model = "TAE_nvgs";
-			owner = "Heavy";
-		};
-		class tae_442_mando_visor {
-			model = "TAE_nvgs";
-			owner = "Visor";
-		};
 
 		// Karr Medium
 		class tae_karr_helmet_fd {
@@ -285,7 +280,7 @@ class XtdGearInfos {
 			model = "TAE_nvgs";
 			owner = "Acklay";
 		};
-		class tae_acklay_helmet_niteowl {
+		class tae_acklay_niteowl_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Niteowl";
 		};
@@ -333,6 +328,10 @@ class XtdGearInfos {
 			model = "TAE_nvgs";
 			owner = "Varen";
 		};
+		class tae_rook_helmet {
+			model = "TAE_rook_helmets";
+			owner = "Standard";
+		};
 	};
 };
 
@@ -358,7 +357,7 @@ class CfgWeapons {
 	
 	// nvg inherit
 	class tae_ls_mandalorian_rangefinder;
-	class tae_nvg_heavy_nv;
+	class tgf_nvg_heavy_nv;
 	
 	// FreeLancers
 	// House Karr Mediunm
@@ -638,7 +637,7 @@ class CfgWeapons {
 		};
 	};
 	
-	class tae_acklay_helmet_niteowl : tae_helmet_nite_owl {
+	class tae_acklay_niteowl_helmet : tae_helmet_nite_owl {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
@@ -657,7 +656,6 @@ class CfgWeapons {
 			};
 		};
 	};
-	
 	// Edonn
 	class tae_edonn_helmet : tae_helmet_ls_dinDjarin {
 		scope = 2;
@@ -738,7 +736,7 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_jimothy_rangefinder : tae_nvg_heavy_nv {
+	class tae_jimothy_rangefinder : tgf_nvg_heavy_nv {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 2;
 		scopeArsenal = 2;
@@ -843,13 +841,37 @@ class CfgWeapons {
 		author = "TAE Mod Team";
 		displayName = "Clan Varen Rangefinder";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
+		hiddenSelections[] = {"camo1"};
 		hiddenSelectionsTextures[] = { "TAEGear\data\Varen\TRAD_Rangefinder_Varen.paa" };
 		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformModel = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_on_r.p3d";
+			hiddenSelections[] = {"camo1"};
 			hiddenSelectionsTextures[] = { "TAEGear\data\Varen\TRAD_Rangefinder_Varen.paa" };
 			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
+		};
+	};
+
+	// Clan Rook
+	class tae_rook_helmet : tae_helmet_traditional {
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
+		author = "TAE Mod Team";
+		displayName = "Clan Rook Traditional Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Rook\TRAD_Helmet_Rook.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Rook\TRAD_Helmet_Rook.paa",
+				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+			};
 		};
 	};
 };

@@ -20,7 +20,8 @@ $addons = @(
     "TAEGear",
     "TAEUnits",
     "TAEObjects",
-    "TAEVehicles"
+    "TAEVehicles",
+    "TAECompositions"
 )
 
 $failures = @()

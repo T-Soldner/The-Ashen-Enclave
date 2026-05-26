@@ -9,7 +9,7 @@ private _loadout = [
 	["LFP_westarcarabine", "", "", "LFP_westarcarabine_scopesn", ["LFP_westarcarabine_Mag", 60], [], ""],
 	[],
 	["LFP_Westar_35", "", "", "", ["LFP_Westar35_Mag", 20], [], ""],
-	["tae_uniform_black_seal", [
+	["tae_uniform_grey_seal", [
 		["MineDetector", 1],
 		["ACE_MapTools", 1],
 		["ACE_Flashlight_XL50", 1],
@@ -36,9 +36,13 @@ private _loadout = [
 		["ACE_painkillers", 2, 10]
 	]],
 	"tae_karr_helmet_fd",
-	"tgf_facewear_medium_belt",
+	"",
 	["JMSLLTE_W_TD23_white_F", "", "", "", [], [], ""],
 	["ItemMap", "ItemGPS", "ls_radios_hush98", "ItemCompass", "ItemWatch", "tgf_nvg_rangefinder_r"]
 ];
 
 _unit setUnitLoadout _loadout;
+if (uniform _unit == "") then {
+	_unit forceAddUniform "tae_uniform_grey_seal";
+};
+removeGoggles _unit;

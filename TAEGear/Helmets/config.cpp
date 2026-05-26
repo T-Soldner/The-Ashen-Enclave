@@ -2,7 +2,7 @@ class CfgPatches {
 	class TAEGear_Helmets {
 		addonRootClass = "TAEGear";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "tgf_helmets","ls_characters_mandalorian" };
+		requiredAddons[] = { "tgf_helmets", "tgf_nvg", "ls_characters_mandalorian" };
 		units[] = { };
 		weapons[] = { };
 	};
@@ -378,53 +378,24 @@ class CfgWeapons {
 		};
 	};
 	
-	class tgf_nvg_heavy_nv;
-	class tae_nvg_heavy_nv: tgf_nvg_heavy_nv {
-		dlc = "The Ashen Enclave AUX Mod";
-		scope = 0;
-		displayName = "Heavy Mandalorian NV Attachment";
-		descriptionShort = "Heavy Mandalorian NV Attachment";
-		model = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
-		hiddenSelectionsTextures[] = {"\z\tgf\addons\nvg\heavy_nv\data\camo1_co.paa"};
-		picture = "\z\tgf\addons\nvg\heavy_nv\data\heavy_nv.paa";
-		class ItemInfo: ItemInfo {
-			uniformModel = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
-			modelOff = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
-		};
-	};
-	
-	//442 commmando visor
-	class NVGoggles;
+};
 
-	class tae_442_mando_visor: NVGoggles {
-		author = "The Ashen Enclave";
+class CfgGlasses {
+	class None;
+
+	class tae_facewear_ls_neck_lining: None {
 		dlc = "The Ashen Enclave AUX Mod";
+		author = "TAE Mod Team";
 		scope = 2;
 		scopeArsenal = 2;
-		displayName = "Mandalorian Visor";
-		descriptionShort = "Mandalorian visor with integrated night vision and thermal imaging.";
-		picture = "\A3\Characters_F\data\ui\icon_g_combat_CA.paa";
-
-		model = "\kobra\442_equipment\glasses\model\commando\k_commando_glasses23.p3d";
-		hiddenSelections[] = {"sensor","visor"};
+		displayName = "TAE Neck Seal";
+		model = "\z\tgf\addons\undersuit\undersuit_male.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\kobra\442_equipment\glasses\data\commando\helmet_parts_1_co.paa",
-			"\kobra\442_equipment\glasses\data\commando\helmet_parts_1_co.paa"
+			"",
+			"\z\tgf\addons\undersuit\data\camo2_co.paa"
 		};
-
-		visionMode[] = {"Normal","NVG","TI"};
-		thermalMode[] = {0,1};
-
-		ace_nightvision_bluRadius = 0.15;
-		ace_nightvision_border = "\z\ace\addons\nightvision\data\nvg_mask_binos_4096.paa";
-		ace_nightvision_colorPreset[] = {0,{0,0,0,0},{1.1,0.8,1.9,0.9},{1,1,6,0}};
-		ace_nightvision_eyeCups = 0;
-		ace_nightvision_generation = 4;
-
-		class ItemInfo: ItemInfo {
-			mass = 10;
-			uniformModel = "\kobra\442_equipment\glasses\model\commando\k_commando_glasses23.p3d";
-			modelOff = "\kobra\442_equipment\glasses\model\commando\k_commando_glasses23.p3d";
-		};
+		identityTypes[] = {};
+		mass = 2;
 	};
 };

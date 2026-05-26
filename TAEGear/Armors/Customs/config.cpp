@@ -17,13 +17,14 @@ class CfgPatches {
 			"tae_karr_armor_niteowl_mv",
 			"tae_hondo_armor",
 			"tae_teka_armor",
-			"tae_armor_acklay",
-			"tae_acklay_armor_niteowl",
+			"tae_acklay_armor",
+			"tae_acklay_niteowl_armor",
 			"tae_edonn_armor",
 			"tae_nox_armor",
 			"tae_jimothy_armor",
-			"tae_armor_foxx",
-			"tae_varen_armor_recon"
+			"tae_foxx_armor",
+			"tae_varen_recon_armor",
+			"tae_rook_armor"
 		};
 	};
 };
@@ -134,6 +135,19 @@ class XtdGearModels {
 				};
 			};
 		};
+		class TAE_rook_vests {
+			label = "Clan Rook Vests";
+			author = "TAE Aux Mod Team";
+			options[] = { "owner" };
+			class owner {
+				alwaysSelectable = 1;
+				label = "Owner";
+				values[] = { "Standard" };
+				class Standard {
+					label = "Standard";
+				};
+			};
+		};
 	};
 };
 class XtdGearInfos {
@@ -203,11 +217,11 @@ class XtdGearInfos {
 		};
 		
 		//Acklay
-		class tae_armor_acklay {
+		class tae_acklay_armor {
 			model	= "TAE_acklay_vests";
 			owner	= "Standard";
 		};
-		class tae_acklay_armor_niteowl {
+		class tae_acklay_niteowl_armor {
 			model	= "TAE_acklay_vests";
 			owner	= "Niteowl";
 		};
@@ -225,15 +239,19 @@ class XtdGearInfos {
 		};
 		
 		//Foxx
-		class tae_armor_foxx {
+		class tae_foxx_armor {
 			model	= "TAE_foxx_vests";
 			owner	= "Standard";
 			
 		};
 
 		// Varen
-		class tae_varen_armor_recon {
+		class tae_varen_recon_armor {
 			model	= "TAE_varen_vests";
+			owner	= "Standard";
+		};
+		class tae_rook_armor {
+			model	= "TAE_rook_vests";
 			owner	= "Standard";
 		};
 	};
@@ -503,7 +521,7 @@ class CfgWeapons {
 	};
 	
 	// Clan Acklay
-	class tae_armor_acklay : tae_armor_ls_traditional {
+	class tae_acklay_armor : tae_armor_ls_traditional {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
@@ -520,7 +538,7 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_acklay_armor_niteowl : tae_nite_owl_armor {
+	class tae_acklay_niteowl_armor : tae_nite_owl_armor {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
@@ -540,7 +558,6 @@ class CfgWeapons {
 			};
 		};
 	};
-
 	// Edonn
 	class tae_edonn_armor : tae_armor_ls_traditional {
 		scope = 2;
@@ -605,7 +622,7 @@ class CfgWeapons {
 	};
 
 	// Clan Foxx
-	class tae_armor_foxx : tae_armor_medium {
+	class tae_foxx_armor : tae_armor_medium {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
@@ -625,9 +642,8 @@ class CfgWeapons {
 			};
 		};
 	};
-
 	// Clan Varen
-	class tae_varen_armor_recon : tae_armor_recon {
+	class tae_varen_recon_armor : tae_armor_recon {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
@@ -644,6 +660,27 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Varen\REC_Armor_Varen.paa",
 				"TAEGear\data\Varen\REC_Brace_Varen.paa"
+			};
+		};
+	};
+	// Clan Rook
+	class tae_rook_armor : tae_armor_battle {
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
+		author = "TAE Mod Team";
+		displayName = "Clan Rook Battle Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Rook\BAT_Armor_Rook.paa",
+			"TAEGear\data\Rook\BAT_Brace_Rook.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Rook\BAT_Armor_Rook.paa",
+				"TAEGear\data\Rook\BAT_Brace_Rook.paa"
 			};
 		};
 	};

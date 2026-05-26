@@ -4,7 +4,14 @@ class CfgPatches {
 		author = "TAE Mod Team";
 		requiredVersion = 1.0;
 		requiredAddons[] = {
-			"A3_Characters_F"
+			"A3_Characters_F",
+			"ace_common",
+			"ace_medical_treatment",
+			"TAEUniforms",
+			"TAEGear_Armors_Customs",
+			"TAEGear_Helmets_Customs",
+			"TAEGear_Backpacks",
+			"TAEWeapons"
 		};
 		units[] = {
 			"TAE_Unit_Veteran",
@@ -15,7 +22,17 @@ class CfgPatches {
 			"TAE_Unit_Grenadier",
 			"TAE_Unit_CQC_Specialist",
 			"TAE_Unit_Heavy_Weapons",
-			"TAE_Unit_Sniper"
+			"TAE_Unit_Sniper",
+			"TAE_Unit_Player_Acklay",
+			"TAE_Unit_Player_Foxx",
+			"TAE_Unit_Player_Rook",
+			"TAE_Unit_Player_Varen",
+			"TAE_Unit_Player_Foundling",
+			"TAE_Unit_Player_Freelancer",
+			"TAE_Unit_BSC_Rifleman",
+			"TAE_Unit_BSC_Heavy_Gunner",
+			"TAE_Unit_BSC_Grenadier",
+			"TAE_Unit_BSC_Missile_Specialist"
 		};
 		weapons[] = {};
 	};
@@ -27,11 +44,25 @@ class CfgFactionClasses {
 		side = 2;
 		priority = 2;
 	};
+
+	class TAE_Faction_Criminals {
+		displayName = "[TAE] Criminals";
+		side = 2;
+		priority = 2;
+	};
 };
 
 class CfgEditorSubcategories {
 	class TAE_EdSubcat_HouseKarr_Infantry {
 		displayName = "Infantry";
+	};
+
+	class TAE_EdSubcat_HouseKarr_Players {
+		displayName = "Mandalorians";
+	};
+
+	class TAE_EdSubcat_BlackSpireCartel {
+		displayName = "Black Spire Cartel";
 	};
 };
 
@@ -215,6 +246,134 @@ class CfgVehicles {
 			"MTI_catTab_tablet",
 			"ACE_IR_Strobe_Item"
 		};
+	};
+
+	class TAE_Unit_Player_Base: TAE_Unit_Base {
+		scope = 0;
+		scopeCurator = 0;
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Players";
+		displayName = "Mandalorian";
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "";
+		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
+			"NoGlasses"
+		};
+
+		weapons[] = {};
+		respawnWeapons[] = {};
+		magazines[] = {};
+		respawnMagazines[] = {};
+		items[] = {};
+		respawnItems[] = {};
+		goggles = "";
+
+		linkedItems[] = {};
+		respawnLinkedItems[] = {};
+
+		class EventHandlers {
+			init = "params ['_unit']; _unit spawn { params ['_unit']; sleep 0.1; removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit; removeUniform _unit; _unit forceAddUniform 'tae_uniform_grey_seal'; _unit linkItem 'ItemMap'; _unit linkItem 'ls_radios_hush98'; _unit setSpeaker 'ACE_NoVoice'; };";
+		};
+	};
+
+	class TAE_Unit_Player_Acklay: TAE_Unit_Player_Base {
+		scope = 2;
+		scopeCurator = 0;
+		displayName = "Acklay Member";
+		uniformClass = "tae_uniform_ls_mandalorian";
+
+		class EventHandlers {
+			init = "params ['_unit']; _unit spawn { params ['_unit']; sleep 0.1; removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit; removeUniform _unit; _unit forceAddUniform 'tae_uniform_ls_mandalorian'; _unit linkItem 'ItemMap'; _unit linkItem 'ls_radios_hush98'; _unit setSpeaker 'ACE_NoVoice'; };";
+		};
+	};
+
+	class TAE_Unit_Player_Foxx: TAE_Unit_Player_Base {
+		scope = 2;
+		scopeCurator = 0;
+		displayName = "Foxx Member";
+		uniformClass = "tae_uniform_grey_seal";
+	};
+
+	class TAE_Unit_Player_Rook: TAE_Unit_Player_Base {
+		scope = 2;
+		scopeCurator = 0;
+		displayName = "Rook Member";
+		uniformClass = "tae_uniform_grey_seal";
+	};
+
+	class TAE_Unit_Player_Varen: TAE_Unit_Player_Base {
+		scope = 2;
+		scopeCurator = 0;
+		displayName = "Varen Member";
+		uniformClass = "tae_uniform_black_seal";
+
+		class EventHandlers {
+			init = "params ['_unit']; _unit spawn { params ['_unit']; sleep 0.1; removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit; removeUniform _unit; _unit forceAddUniform 'tae_uniform_black_seal'; _unit linkItem 'ItemMap'; _unit linkItem 'ls_radios_hush98'; _unit setSpeaker 'ACE_NoVoice'; };";
+		};
+	};
+
+	class TAE_Unit_Player_Foundling: TAE_Unit_Base {
+		scope = 2;
+		scopeCurator = 0;
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Players";
+		displayName = "Foundling";
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "tae_modular_pack";
+		weapons[] = {
+			"LFP_westarcarabine",
+			"LFP_Westar_35",
+			"JMSLLTE_W_TD23_white_F",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[] = {
+			"LFP_westarcarabine",
+			"LFP_Westar_35",
+			"JMSLLTE_W_TD23_white_F",
+			"Throw",
+			"Put"
+		};
+		magazines[] = {
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag"
+		};
+		respawnMagazines[] = {
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag"
+		};
+		linkedItems[] = {
+			"tae_karr_armor_medium_fd",
+			"tae_karr_helmet_fd",
+			"ItemMap",
+			"ItemGPS",
+			"ls_radios_hush98",
+			"ItemCompass",
+			"ItemWatch",
+			"tgf_nvg_rangefinder_r"
+		};
+		respawnLinkedItems[] = {
+			"tae_karr_armor_medium_fd",
+			"tae_karr_helmet_fd",
+			"ItemMap",
+			"ItemGPS",
+			"ls_radios_hush98",
+			"ItemCompass",
+			"ItemWatch",
+			"tgf_nvg_rangefinder_r"
+		};
+		goggles = "";
+
+		class EventHandlers {
+			init = "params ['_unit']; _unit spawn { params ['_unit']; sleep 0.1; removeGoggles _unit; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['LFP_westarcarabine','','','LFP_westarcarabine_scopesn',['LFP_westarcarabine_Mag',60],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],['tae_uniform_grey_seal',[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['ACE_IR_Strobe_Item',1]]],['tae_karr_armor_medium_fd',[['LFP_westarcarabine_Mag',20,60],['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],'tae_karr_helmet_fd','',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; if (uniform _unit == '') then {_unit forceAddUniform 'tae_uniform_grey_seal';}; removeGoggles _unit; };";
+		};
+	};
+
+	class TAE_Unit_Player_Freelancer: TAE_Unit_Player_Base {
+		scope = 2;
+		scopeCurator = 0;
+		displayName = "Freelancer";
+		uniformClass = "tae_uniform_grey_seal";
 	};
 
 	class TAE_Unit_Veteran: TAE_Unit_Base {
@@ -878,6 +1037,82 @@ class CfgVehicles {
 			init = "params ['_unit']; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeSniperWeapon = selectRandom [['tae_IQA12','tae_TargetingScope_FP2','IDA_Blaster_Cell_Power5_5Rnd_Yellow',5],['IDA_Galaar90','IDA_TargetingScope','IDA_Blaster_Cell_Power5_5Rnd_Yellow',5],['IDA_773Firepuncher','IDA_TargetingScope','IDA_Blaster_Cell_Power4_10Rnd_Blue',10],['3AS_DLT19X','3AS_Imp_Optic_2','3AS_10Rnd_EM100_DLT19X_Mag',10]]; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[[(_taeSniperWeapon select 0),'','',(_taeSniperWeapon select 1),[(_taeSniperWeapon select 2),(_taeSniperWeapon select 3)],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1]]],[(_taeArmorSet select 0),[['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1],['LFP_Westar35_Mag',4,20],[(_taeSniperWeapon select 2),10,(_taeSniperWeapon select 3)]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
+	class TAE_Unit_BSC_Base: I_Soldier_F {
+		scope = 0;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		faction = "TAE_Faction_Criminals";
+		editorSubcategory = "TAE_EdSubcat_BlackSpireCartel";
+		editorPreview = "\TAEUnits\data\previews\Karr.paa";
+		side = 2;
+		genericNames = "TAE_GenericNames_HouseKarr";
+		identityTypes[] = {"LanguageENG_F","Head_NATO","NoGlasses"};
+		icon = "iconMan";
+		uniformClass = "ls_imperialUniform_army_r_black";
+		backpack = "JMSLLTE_back_rebpack_v1_black";
+		weapons[] = {"3AS_DC15S_F","JMSLLTE_dt12pistol","Throw","Put"};
+		respawnWeapons[] = {"3AS_DC15S_F","JMSLLTE_dt12pistol","Throw","Put"};
+		magazines[] = {"3AS_60Rnd_EC30_mag","JMSLLTE_DT12_50rnd_Mag"};
+		respawnMagazines[] = {"3AS_60Rnd_EC30_mag","JMSLLTE_DT12_50rnd_Mag"};
+		linkedItems[] = {"ls_imperialVest_army_light_black_h","IDA_Clone_Elite_Trooper_P2_Helmet","ItemMap","TFAR_anprc148jem","ItemCompass","ItemWatch"};
+		respawnLinkedItems[] = {"ls_imperialVest_army_light_black_h","IDA_Clone_Elite_Trooper_P2_Helmet","ItemMap","TFAR_anprc148jem","ItemCompass","ItemWatch"};
+		items[] = {"ACE_fieldDressing","ACE_packingBandage","ACE_morphine","ACE_tourniquet"};
+		respawnItems[] = {"ACE_fieldDressing","ACE_packingBandage","ACE_morphine","ACE_tourniquet"};
+	};
+
+	class TAE_Unit_BSC_Rifleman: TAE_Unit_BSC_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Cartel Rifleman";
+		role = "Rifleman";
+
+		class EventHandlers {
+			init = "params ['_unit']; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['3AS_DC15S_F','','','',['3AS_60Rnd_EC30_mag',60],[],''],[],['JMSLLTE_dt12pistol','','','',['JMSLLTE_DT12_50rnd_Mag',50],[],'']],['ls_imperialUniform_army_r_black',[['ACE_fieldDressing',1],['ACE_packingBandage',1],['ACE_morphine',1],['ACE_tourniquet',1],['JMSLLTE_thermaldetonator_HandGrenade',2,1]]],['ls_imperialVest_army_light_black_h',[['3AS_ThermalDetonator',2,1],['3AS_SmokeWhite',3,1],['JMSLLTE_DT12_50rnd_Mag',2,50],['3AS_5Rnd_Stun_Mag',2,5],['3AS_60Rnd_EC30_mag',10,60]]],['JMSLLTE_back_rebpack_v1_black',[['FirstAidKit',10]]],'IDA_Clone_Elite_Trooper_P2_Helmet','',[],['ItemMap','','TFAR_anprc148jem','ItemCompass','ItemWatch','']];";
+		};
+	};
+
+	class TAE_Unit_BSC_Heavy_Gunner: TAE_Unit_BSC_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Cartel Heavy Gunner";
+		role = "MachineGunner";
+		weapons[] = {"3AS_Z6_F","JMSLLTE_dt12pistol","Throw","Put"};
+		respawnWeapons[] = {"3AS_Z6_F","JMSLLTE_dt12pistol","Throw","Put"};
+		magazines[] = {"3AS_300Rnd_EC60_Mag","JMSLLTE_DT12_50rnd_Mag"};
+		respawnMagazines[] = {"3AS_300Rnd_EC60_Mag","JMSLLTE_DT12_50rnd_Mag"};
+
+		class EventHandlers {
+			init = "params ['_unit']; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['3AS_Z6_F','','','',['3AS_300Rnd_EC60_Mag',300],[],''],[],['JMSLLTE_dt12pistol','','','',['JMSLLTE_DT12_50rnd_Mag',50],[],'']],['ls_imperialUniform_army_r_black',[['ACE_fieldDressing',1],['ACE_packingBandage',1],['ACE_morphine',1],['ACE_tourniquet',1],['JMSLLTE_thermaldetonator_HandGrenade',2,1]]],['ls_imperialVest_army_light_black_h',[['3AS_ThermalDetonator',2,1],['3AS_SmokeWhite',3,1],['JMSLLTE_DT12_50rnd_Mag',2,50],['3AS_5Rnd_Stun_Mag',2,5],['3AS_300Rnd_EC60_Mag',2,300]]],['JMSLLTE_back_rebpack_v1_black',[['FirstAidKit',10]]],'IDA_Clone_Elite_Trooper_P2_Helmet','',[],['ItemMap','','TFAR_anprc148jem','ItemCompass','ItemWatch','']];";
+		};
+	};
+
+	class TAE_Unit_BSC_Grenadier: TAE_Unit_BSC_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Cartel Grenadier";
+		role = "Grenadier";
+		weapons[] = {"3AS_DC15S_GL","JMSLLTE_dt12pistol","Throw","Put"};
+		respawnWeapons[] = {"3AS_DC15S_GL","JMSLLTE_dt12pistol","Throw","Put"};
+
+		class EventHandlers {
+			init = "params ['_unit']; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['3AS_DC15S_GL','','','',['3AS_60Rnd_EC30_mag',60],['3AS_3Rnd_HE_Grenade_shell',3],''],[],['JMSLLTE_dt12pistol','','','',['JMSLLTE_DT12_50rnd_Mag',50],[],'']],['ls_imperialUniform_army_r_black',[['ACE_fieldDressing',1],['ACE_packingBandage',1],['ACE_morphine',1],['ACE_tourniquet',1],['JMSLLTE_thermaldetonator_HandGrenade',2,1]]],['ls_imperialVest_army_light_black_h',[['3AS_ThermalDetonator',2,1],['3AS_SmokeWhite',3,1],['JMSLLTE_DT12_50rnd_Mag',2,50],['3AS_5Rnd_Stun_Mag',2,5],['3AS_60Rnd_EC30_mag',8,60],['3AS_3Rnd_HE_Grenade_shell',4,3]]],['JMSLLTE_back_rebpack_v1_black',[['FirstAidKit',10]]],'IDA_Clone_Elite_Trooper_P2_Helmet','',[],['ItemMap','','TFAR_anprc148jem','ItemCompass','ItemWatch','']];";
+		};
+	};
+
+	class TAE_Unit_BSC_Missile_Specialist: TAE_Unit_BSC_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Cartel Missile Specialist";
+		role = "MissileSpecialist";
+		weapons[] = {"3AS_DC15S_F","3AS_PLX1_F","JMSLLTE_dt12pistol","Throw","Put"};
+		respawnWeapons[] = {"3AS_DC15S_F","3AS_PLX1_F","JMSLLTE_dt12pistol","Throw","Put"};
+		magazines[] = {"3AS_60Rnd_EC30_mag","3AS_JLTS_MK43_AT","JMSLLTE_DT12_50rnd_Mag"};
+		respawnMagazines[] = {"3AS_60Rnd_EC30_mag","3AS_JLTS_MK43_AT","JMSLLTE_DT12_50rnd_Mag"};
+
+		class EventHandlers {
+			init = "params ['_unit']; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['3AS_DC15S_F','','','',['3AS_60Rnd_EC30_mag',60],[],''],['3AS_PLX1_F','','','',['3AS_JLTS_MK43_AT',1],[],''],['JMSLLTE_dt12pistol','','','',['JMSLLTE_DT12_50rnd_Mag',50],[],'']],['ls_imperialUniform_army_r_black',[['ACE_fieldDressing',1],['ACE_packingBandage',1],['ACE_morphine',1],['ACE_tourniquet',1],['JMSLLTE_thermaldetonator_HandGrenade',2,1]]],['ls_imperialVest_army_light_black_h',[['3AS_ThermalDetonator',2,1],['3AS_SmokeWhite',3,1],['JMSLLTE_DT12_50rnd_Mag',2,50],['3AS_5Rnd_Stun_Mag',2,5],['3AS_60Rnd_EC30_mag',10,60]]],['JMSLLTE_back_rebpack_v1_black',[['FirstAidKit',10],['3AS_JLTS_MK43_AT',1,1]]],'IDA_Clone_Elite_Trooper_P2_Helmet','',[],['ItemMap','','TFAR_anprc148jem','ItemCompass','ItemWatch','']];";
+		};
+	};
 };
 
 class CfgGroups {
@@ -1013,6 +1248,102 @@ class CfgGroups {
 						vehicle = "TAE_Unit_Grenadier";
 						rank = "PRIVATE";
 						position[] = {5, -5, 0};
+					};
+				};
+			};
+
+			class Players {
+				name = "Mandalorians";
+
+				class TAE_Group_Mandalorians {
+					name = "Mandalorians";
+					side = 2;
+					faction = "TAE_Faction_HouseKarr";
+					icon = "\A3\ui_f\data\map\markers\nato\n_inf.paa";
+
+					class Unit0 {
+						side = 2;
+						vehicle = "TAE_Unit_Player_Acklay";
+						rank = "PRIVATE";
+						position[] = {0, 0, 0};
+					};
+
+					class Unit1 {
+						side = 2;
+						vehicle = "TAE_Unit_Player_Foxx";
+						rank = "PRIVATE";
+						position[] = {5, -5, 0};
+					};
+
+					class Unit2 {
+						side = 2;
+						vehicle = "TAE_Unit_Player_Rook";
+						rank = "PRIVATE";
+						position[] = {-5, -5, 0};
+					};
+
+					class Unit3 {
+						side = 2;
+						vehicle = "TAE_Unit_Player_Varen";
+						rank = "PRIVATE";
+						position[] = {10, -10, 0};
+					};
+
+					class Unit4 {
+						side = 2;
+						vehicle = "TAE_Unit_Player_Foundling";
+						rank = "PRIVATE";
+						position[] = {-10, -10, 0};
+					};
+
+					class Unit5 {
+						side = 2;
+						vehicle = "TAE_Unit_Player_Freelancer";
+						rank = "PRIVATE";
+						position[] = {-15, -15, 0};
+					};
+				};
+			};
+		};
+
+		class TAE_Faction_Criminals {
+			name = "[TAE] Criminals";
+
+			class BlackSpireCartel {
+				name = "Black Spire Cartel";
+
+				class TAE_Group_BSC_Team {
+					name = "Cartel Team";
+					side = 2;
+					faction = "TAE_Faction_Criminals";
+					icon = "\A3\ui_f\data\map\markers\nato\n_inf.paa";
+
+					class Unit0 {
+						side = 2;
+						vehicle = "TAE_Unit_BSC_Rifleman";
+						rank = "SERGEANT";
+						position[] = {0, 0, 0};
+					};
+
+					class Unit1 {
+						side = 2;
+						vehicle = "TAE_Unit_BSC_Heavy_Gunner";
+						rank = "PRIVATE";
+						position[] = {5, -5, 0};
+					};
+
+					class Unit2 {
+						side = 2;
+						vehicle = "TAE_Unit_BSC_Grenadier";
+						rank = "PRIVATE";
+						position[] = {-5, -5, 0};
+					};
+
+					class Unit3 {
+						side = 2;
+						vehicle = "TAE_Unit_BSC_Missile_Specialist";
+						rank = "PRIVATE";
+						position[] = {10, -10, 0};
 					};
 				};
 			};

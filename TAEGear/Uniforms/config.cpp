@@ -64,7 +64,7 @@ class XtdGearModels {
         class TAE_standard_uniforms {
             label = "TAE Uniforms";
             author = "TAE Aux Mod Team";
-            options[] = { "source", "type", "sex", "seal" };
+            options[] = { "source", "type", "sex" };
             class source {
                 alwaysSelectable = 1;
                 label = "Source";
@@ -93,13 +93,6 @@ class XtdGearModels {
                 values[] = { "Male", "Female" };
                 class Male { label = "Male"; };
                 class Female { label = "Female"; };
-            };
-            class seal {
-                alwaysSelectable = 1;
-                label = "Seal";
-                values[] = { "No", "Yes" };
-                class No { label = "No"; };
-                class Yes { label = "Yes"; };
             };
         };
     };
@@ -245,35 +238,35 @@ class XtdGearInfos {
             source = "TAE";
             type = "Black";
             sex = "Female";
-            seal = "No";
+            seal = "Yes";
         };
         class tae_uniform_dark_blue_female {
             model = "TAE_standard_uniforms";
             source = "TAE";
             type = "DarkBlue";
             sex = "Female";
-            seal = "No";
+            seal = "Yes";
         };
         class tae_uniform_grey_female {
             model = "TAE_standard_uniforms";
             source = "TAE";
             type = "Grey";
             sex = "Female";
-            seal = "No";
+            seal = "Yes";
         };
         class tae_uniform_red_female {
             model = "TAE_standard_uniforms";
             source = "TAE";
             type = "Red";
             sex = "Female";
-            seal = "No";
+            seal = "Yes";
         };
         class tae_uniform_white_female {
             model = "TAE_standard_uniforms";
             source = "TAE";
             type = "White";
             sex = "Female";
-            seal = "No";
+            seal = "Yes";
         };
     };
 };
@@ -4262,7 +4255,7 @@ class CfgWeapons {
     };
     class tae_uniform_forgemaster: tgf_undersuit_uniform_forgemaster {
         scope = 2;
-        scopeArsenal = 2;
+        scopeArsenal = 1;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit (Forgemaster)";
         CBRN_protectionLevel = "4 + 8";
@@ -4292,7 +4285,7 @@ class CfgWeapons {
     };
     class tae_uniform_black: tgf_undersuit_uniform_black {
         scope = 2;
-        scopeArsenal = 2;
+        scopeArsenal = 1;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit (Black)";
         CBRN_protectionLevel = "4 + 8";
@@ -4322,7 +4315,7 @@ class CfgWeapons {
     };
     class tae_uniform_dark_blue: tgf_undersuit_uniform_dark_blue {
         scope = 2;
-        scopeArsenal = 2;
+        scopeArsenal = 1;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit (Dark Blue)";
         CBRN_protectionLevel = "4 + 8";
@@ -4352,7 +4345,7 @@ class CfgWeapons {
     };
     class tae_uniform_dark_green: tgf_undersuit_uniform_dark_green {
         scope = 2;
-        scopeArsenal = 2;
+        scopeArsenal = 1;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit (Dark Green)";
         CBRN_protectionLevel = "4 + 8";
@@ -4382,7 +4375,7 @@ class CfgWeapons {
     };
     class tae_uniform_grey: tgf_undersuit_uniform_grey {
         scope = 2;
-        scopeArsenal = 2;
+        scopeArsenal = 1;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit (Grey)";
         CBRN_protectionLevel = "4 + 8";
@@ -4412,7 +4405,7 @@ class CfgWeapons {
     };
     class tae_uniform_orange: tgf_undersuit_uniform_orange {
         scope = 2;
-        scopeArsenal = 2;
+        scopeArsenal = 1;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit (Orange)";
         CBRN_protectionLevel = "4 + 8";
@@ -4442,7 +4435,7 @@ class CfgWeapons {
     };
     class tae_uniform_red: tgf_undersuit_uniform_red {
         scope = 2;
-        scopeArsenal = 2;
+        scopeArsenal = 1;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit (Red)";
         CBRN_protectionLevel = "4 + 8";
@@ -4472,7 +4465,7 @@ class CfgWeapons {
     };
     class tae_uniform_white: tgf_undersuit_uniform_white {
         scope = 2;
-        scopeArsenal = 2;
+        scopeArsenal = 1;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit (White)";
         CBRN_protectionLevel = "4 + 8";
@@ -4534,7 +4527,7 @@ class CfgWeapons {
         scope = 2;
         scopeArsenal = 2;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (Black)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Black)";
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
@@ -4549,7 +4542,7 @@ class CfgWeapons {
         scope = 2;
         scopeArsenal = 2;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (Dark Blue)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Dark Blue)";
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
@@ -4564,7 +4557,7 @@ class CfgWeapons {
         scope = 2;
         scopeArsenal = 2;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (Grey)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Grey)";
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
@@ -4579,7 +4572,7 @@ class CfgWeapons {
         scope = 2;
         scopeArsenal = 2;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (Red)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Red)";
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
@@ -4594,7 +4587,7 @@ class CfgWeapons {
         scope = 2;
         scopeArsenal = 2;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (White)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (White)";
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {

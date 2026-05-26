@@ -2,7 +2,7 @@ class CfgPatches {
 	class TAEGear_Backpacks {
 		addonRootClass = "TAEGear";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "knd_jetpacks" };
+		requiredAddons[] = { "knd_jetpacks", "tgf_backpacks" };
 		units[] = { 
 			"tae_jetpack_Z6",
 			"tae_jetpack_z12",
