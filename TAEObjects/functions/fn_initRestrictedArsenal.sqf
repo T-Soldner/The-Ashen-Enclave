@@ -331,6 +331,7 @@ private _items = [
 	"tae_uniform_black_seal",
 	"tae_uniform_dark_blue_seal",
 	"tae_uniform_dark_green_seal",
+	"tae_uniform_dark_red_seal",
 	"tae_uniform_grey_seal",
 	"tae_uniform_orange_seal",
 	"tae_uniform_red_seal",
