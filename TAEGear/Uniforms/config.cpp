@@ -8,6 +8,7 @@ class CfgPatches {
             "tae_uniform_unit_ls_mandalorian",
             "tae_uniform_unit_forgemaster_seal",
             "tae_uniform_unit_black_seal",
+            "tae_uniform_unit_brown_seal",
             "tae_uniform_unit_dark_blue_seal",
             "tae_uniform_unit_dark_green_seal",
             "tae_uniform_unit_dark_red_seal",
@@ -27,6 +28,7 @@ class CfgPatches {
             "tae_uniform_ls_mandalorian",
             "tae_uniform_forgemaster_seal",
             "tae_uniform_black_seal",
+            "tae_uniform_brown_seal",
             "tae_uniform_dark_blue_seal",
             "tae_uniform_dark_green_seal",
             "tae_uniform_dark_red_seal",
@@ -61,8 +63,9 @@ class XtdGearModels {
             class type {
                 alwaysSelectable = 1;
                 label = "Type";
-                values[] = { "Black", "DarkBlue", "DarkGreen", "DarkRed", "Forgemaster", "Grey", "Orange", "Red", "Skirata", "Vau", "White" };
+                values[] = { "Black", "Brown", "DarkBlue", "DarkGreen", "DarkRed", "Forgemaster", "Grey", "Orange", "Red", "Skirata", "Vau", "White" };
                 class Black { label = "Black"; };
+                class Brown { label = "Brown"; };
                 class DarkBlue { label = "Dark Blue"; };
                 class DarkGreen { label = "Dark Green"; };
                 class DarkRed { label = "Dark Red"; };
@@ -103,6 +106,12 @@ class XtdGearInfos {
             model = "TAE_standard_uniforms";
             source = "TGF";
             type = "Black";
+            sex = "Male";
+        };
+        class tae_uniform_brown_seal {
+            model = "TAE_standard_uniforms";
+            source = "TGF";
+            type = "Brown";
             sex = "Male";
         };
         class tae_uniform_dark_blue_seal {
@@ -1521,7 +1530,19 @@ class CfgVehicles {
         displayName = "TAE Mandalorian Undersuit with Seal (Dark Red)";
         uniformClass = "tae_uniform_dark_red_seal";
         hiddenSelectionsTextures[] = {
-            "TAEGear\Data\Uniforms\Undersuit_Dark_Red_co.paa"
+            "TAEGear\Data\Uniforms\Undersuit_Dark_Red_co.paa",
+            "\z\tgf\addons\undersuit\data\camo2_co.paa"
+        };
+    };
+    class tae_uniform_unit_brown_seal: tae_uniform_unit_red_seal {
+        scope = 1;
+        scopeCurator = 0;
+        author = "TAE Mod Team";
+        displayName = "TAE Mandalorian Undersuit with Seal (Brown)";
+        uniformClass = "tae_uniform_brown_seal";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Brown_co.paa",
+            "\z\tgf\addons\undersuit\data\camo2_co.paa"
         };
     };
     class tae_uniform_unit_white_seal: tgf_undersuit_unit_white_seal {
@@ -1691,7 +1712,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 0;
         author = "TAE Mod Team";
-        displayName = "TAE Mandalorian Undersuit (Kal Skirata)";
+        displayName = "TAE Mandalorian Undersuit with Seal (Kal Skirata)";
         uniformClass = "tae_uniform_skirata";
         class HitPoints {
             class HitFace {
@@ -1854,7 +1875,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 0;
         author = "TAE Mod Team";
-        displayName = "TAE Mandalorian Undersuit (Walon Vau)";
+        displayName = "TAE Mandalorian Undersuit with Seal (Walon Vau)";
         uniformClass = "tae_uniform_vau";
         class HitPoints {
             class HitFace {
@@ -2017,7 +2038,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 0;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (Black)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Black)";
         uniformClass = "tae_uniform_black_female";
         class HitPoints {
             class HitFace {
@@ -2180,7 +2201,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 0;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (Dark Blue)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Dark Blue)";
         uniformClass = "tae_uniform_dark_blue_female";
         class HitPoints {
             class HitFace {
@@ -2343,7 +2364,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 0;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (Grey)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Grey)";
         uniformClass = "tae_uniform_grey_female";
         class HitPoints {
             class HitFace {
@@ -2506,7 +2527,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 0;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (Red)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Red)";
         uniformClass = "tae_uniform_red_female";
         class HitPoints {
             class HitFace {
@@ -2669,7 +2690,7 @@ class CfgVehicles {
         scope = 1;
         scopeCurator = 0;
         author = "TAE Mod Team";
-        displayName = "TAE Female Mandalorian Undersuit (White)";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (White)";
         uniformClass = "tae_uniform_white_female";
         class HitPoints {
             class HitFace {
@@ -2974,8 +2995,29 @@ class CfgWeapons {
         scopeArsenal = 2;
         author = "TAE Mod Team";
         displayName = "TAE Mandalorian Undersuit with Seal (Dark Red)";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Dark_Red_co.paa",
+            "\z\tgf\addons\undersuit\data\camo2_co.paa"
+        };
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_dark_red_seal";
+            containerClass = "Supply150";
+            mass = 67;
+            uniformType = "Neopren";
+            modelSides[] = { 6 };
+        };
+    };
+    class tae_uniform_brown_seal: tae_uniform_red_seal {
+        scope = 2;
+        scopeArsenal = 2;
+        author = "TAE Mod Team";
+        displayName = "TAE Mandalorian Undersuit with Seal (Brown)";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Brown_co.paa",
+            "\z\tgf\addons\undersuit\data\camo2_co.paa"
+        };
+        class ItemInfo: ItemInfo {
+            uniformClass = "tae_uniform_unit_brown_seal";
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
@@ -3001,7 +3043,7 @@ class CfgWeapons {
         scope = 2;
         scopeArsenal = 2;
         author = "TAE Mod Team";
-        displayName = "TAE Mandalorian Undersuit (Kal Skirata)";
+        displayName = "TAE Mandalorian Undersuit with Seal (Kal Skirata)";
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
@@ -3016,7 +3058,7 @@ class CfgWeapons {
         scope = 2;
         scopeArsenal = 2;
         author = "TAE Mod Team";
-        displayName = "TAE Mandalorian Undersuit (Walon Vau)";
+        displayName = "TAE Mandalorian Undersuit with Seal (Walon Vau)";
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {

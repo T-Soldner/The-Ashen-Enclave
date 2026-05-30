@@ -329,6 +329,7 @@ private _items = [
 	"tae_uniform_ls_mandalorian",
 	"tae_uniform_forgemaster_seal",
 	"tae_uniform_black_seal",
+	"tae_uniform_brown_seal",
 	"tae_uniform_dark_blue_seal",
 	"tae_uniform_dark_green_seal",
 	"tae_uniform_dark_red_seal",
