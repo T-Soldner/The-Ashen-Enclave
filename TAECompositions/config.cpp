@@ -114,7 +114,7 @@ class Cfg3DEN {
 	class Compositions {
 		class TAE_Comp_FleetSpawn {
 			scope = 2;
-			path = "\TAECompositions\compositions\TAE_Fleet_Spawn";
+			path = "TAECompositions\compositions\TAE_Fleet_Spawn";
 			side = 8;
 			editorCategory = "TAE_EdCat_Compositions";
 			editorSubcategory = "TAE_EdSubcat_Fleet";

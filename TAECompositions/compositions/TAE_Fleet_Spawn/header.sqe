@@ -1,7 +1,7 @@
 version=54;
 name="TAE Fleet Spawn";
 author="Hondo & Soldner";
-category="ls_edsubcat_staticShips";
+category="TAE_EdSubcat_Fleet";
 requiredAddons[]=
 {
 	"ls_props_staticships",

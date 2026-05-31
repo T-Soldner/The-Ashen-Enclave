@@ -6,12 +6,12 @@
 $addonBuilder = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\AddonBuilder\AddonBuilder.exe"
 $dsSignFile   = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\DSSignFile.exe"
 
-$sourceRoot = "C:\Users\tomso\Github\The-Ashen-Enclave"
+$sourceRoot = "C:\Users\tomso\Documents\GitHub\The-Ashen-Enclave"
 $outputRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave\Addons"
 $keysRoot   = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave\Keys"
 
-$privateKey = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\Soldner.biprivatekey"
-$publicKey  = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\Soldner.bikey"
+$privateKey = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\AshenEnclave.biprivatekey"
+$publicKey  = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\AshenEnclave.bikey"
 
 $addons = @(
     "TAECore",
@@ -61,9 +61,9 @@ if (!(Test-Path $privateKey)) {
 # Copy public .bikey into mod Keys folder if available
 if (Test-Path $publicKey) {
     Copy-Item -Path $publicKey -Destination $keysRoot -Force
-    Write-Host "Copied Soldner.bikey to mod Keys folder." -ForegroundColor Green
+    Write-Host "Copied AshenEnclave.bikey to mod Keys folder." -ForegroundColor Green
 } else {
-    Write-Host "WARNING: Soldner.bikey not found. Skipping public key copy." -ForegroundColor Yellow
+    Write-Host "WARNING: AshenEnclave.bikey not found. Skipping public key copy." -ForegroundColor Yellow
     Write-Host $publicKey -ForegroundColor Yellow
 }
 
@@ -117,7 +117,7 @@ foreach ($addon in $addons) {
 
     Write-Host "Finished packing $addon" -ForegroundColor Green
 
-    Write-Host "Signing $addon.pbo with Soldner.biprivatekey..." -ForegroundColor Cyan
+    Write-Host "Signing $addon.pbo with AshenEnclave.biprivatekey..." -ForegroundColor Cyan
 
     & $dsSignFile `
         "$privateKey" `

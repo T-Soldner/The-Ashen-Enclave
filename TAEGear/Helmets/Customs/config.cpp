@@ -855,9 +855,9 @@ class CfgWeapons {
 
 	// Clan Rook
 	class tae_rook_helmet : tae_helmet_traditional {
-		scope = 1;
-		scopeArsenal = 1;
-		scopeCurator = 1;
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
 		author = "TAE Mod Team";
 		displayName = "Clan Rook Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};

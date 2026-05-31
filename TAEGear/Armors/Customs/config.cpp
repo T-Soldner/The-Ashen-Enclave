@@ -665,9 +665,9 @@ class CfgWeapons {
 	};
 	// Clan Rook
 	class tae_rook_armor : tae_armor_battle {
-		scope = 1;
-		scopeArsenal = 1;
-		scopeCurator = 1;
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
 		author = "TAE Mod Team";
 		displayName = "Clan Rook Battle Armor";
 		hiddenSelections[] = {"camo1","camo2"};
