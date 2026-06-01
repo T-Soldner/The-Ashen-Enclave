@@ -3,67 +3,127 @@
 # Edonn Version
 # ================================
 
-$addonBuilder = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\AddonBuilder\AddonBuilder.exe"
-$dsSignFile   = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\DSSignFile.exe"
+[CmdletBinding()]
+param(
+    [string]$SourceRoot,
+    [string]$ArmaRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3",
+    [string]$ArmaToolsRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools",
+    [string]$ModFolderName = "@The Ashen Enclave",
+    [string]$KeyName = "AshenEnclave",
+    [switch]$NoPause
+)
 
-$sourceRoot = "C:\Users\tomso\Documents\GitHub\The-Ashen-Enclave"
-$outputRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave\Addons"
-$keysRoot   = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave\Keys"
+$ErrorActionPreference = "Stop"
 
-$privateKey = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\AshenEnclave.biprivatekey"
-$publicKey  = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\AshenEnclave.bikey"
+$addonBuilder = Join-Path $ArmaToolsRoot "AddonBuilder\AddonBuilder.exe"
+$dsSignFile = Join-Path $ArmaToolsRoot "DSSignFile\DSSignFile.exe"
+
+$outputRoot = Join-Path $ArmaRoot "$ModFolderName\Addons"
+$keysRoot = Join-Path $ArmaRoot "$ModFolderName\Keys"
+
+$privateKey = Join-Path $ArmaToolsRoot "DSSignFile\$KeyName.biprivatekey"
+$publicKey = Join-Path $ArmaToolsRoot "DSSignFile\$KeyName.bikey"
 
 $addons = @(
     "TAECore",
     "TAEInsignias",
-    "TAEWeapons",
-    "TAEGear",
-    "TAEUnits",
-    "TAEObjects",
-    "TAEVehicles",
-    "TAECompositions"
+	"TAEWeapons",
+	"TAEGear",
+	"TAEUnits",
+	"TAEObjects",
+	"TAEVehicles"
 )
 
-$failures = @()
+$failures = New-Object System.Collections.Generic.List[string]
 
-# Make sure output folders exist
-if (!(Test-Path $outputRoot)) {
-    New-Item -ItemType Directory -Path $outputRoot -Force | Out-Null
+function Stop-Build {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Message,
+
+        [int]$ExitCode = 1
+    )
+
+    Write-Host "ERROR: $Message" -ForegroundColor Red
+    if (-not $NoPause) {
+        pause
+    }
+    exit $ExitCode
 }
 
-if (!(Test-Path $keysRoot)) {
-    New-Item -ItemType Directory -Path $keysRoot -Force | Out-Null
+function Test-RequiredPath {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Path,
+
+        [Parameter(Mandatory = $true)]
+        [string]$Description
+    )
+
+    if (-not (Test-Path -LiteralPath $Path)) {
+        Stop-Build "$Description not found at: $Path"
+    }
 }
 
-# Check required tools
-if (!(Test-Path $addonBuilder)) {
-    Write-Host "ERROR: AddonBuilder.exe not found at:" -ForegroundColor Red
-    Write-Host $addonBuilder -ForegroundColor Red
-    pause
-    exit 1
+function Invoke-NativeTool {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$FilePath,
+
+        [Parameter(Mandatory = $true)]
+        [string[]]$Arguments
+    )
+
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+
+    try {
+        $output = & $FilePath @Arguments 2>&1
+        $exitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+
+    [PSCustomObject]@{
+        ExitCode = $exitCode
+        Output = $output
+    }
 }
 
-if (!(Test-Path $dsSignFile)) {
-    Write-Host "ERROR: DSSignFile.exe not found at:" -ForegroundColor Red
-    Write-Host $dsSignFile -ForegroundColor Red
-    pause
-    exit 1
+if ([string]::IsNullOrWhiteSpace($SourceRoot)) {
+    if (-not [string]::IsNullOrWhiteSpace($PSScriptRoot)) {
+        $SourceRoot = $PSScriptRoot
+    } else {
+        $SourceRoot = (Get-Location).Path
+    }
 }
 
-# Check private key
-if (!(Test-Path $privateKey)) {
-    Write-Host "ERROR: Private key not found at:" -ForegroundColor Red
-    Write-Host $privateKey -ForegroundColor Red
-    pause
-    exit 1
+try {
+    $sourceRoot = (Resolve-Path -LiteralPath $SourceRoot).Path
+} catch {
+    Stop-Build "Source root not found at: $SourceRoot"
 }
 
-# Copy public .bikey into mod Keys folder if available
-if (Test-Path $publicKey) {
-    Copy-Item -Path $publicKey -Destination $keysRoot -Force
-    Write-Host "Copied AshenEnclave.bikey to mod Keys folder." -ForegroundColor Green
+Write-Host "============================================================" -ForegroundColor DarkGray
+Write-Host "The Ashen Enclave - Edonn Build" -ForegroundColor Cyan
+Write-Host "Source: $sourceRoot" -ForegroundColor Gray
+Write-Host "Output: $outputRoot" -ForegroundColor Gray
+Write-Host "Key: $KeyName" -ForegroundColor Gray
+Write-Host "============================================================" -ForegroundColor DarkGray
+Write-Host ""
+
+Test-RequiredPath -Path $addonBuilder -Description "AddonBuilder.exe"
+Test-RequiredPath -Path $dsSignFile -Description "DSSignFile.exe"
+Test-RequiredPath -Path $privateKey -Description "Private key"
+
+New-Item -ItemType Directory -Path $outputRoot -Force | Out-Null
+New-Item -ItemType Directory -Path $keysRoot -Force | Out-Null
+
+if (Test-Path -LiteralPath $publicKey) {
+    Copy-Item -LiteralPath $publicKey -Destination $keysRoot -Force
+    Write-Host "Copied $KeyName.bikey to mod Keys folder." -ForegroundColor Green
 } else {
-    Write-Host "WARNING: AshenEnclave.bikey not found. Skipping public key copy." -ForegroundColor Yellow
+    Write-Host "WARNING: $KeyName.bikey not found. Skipping public key copy." -ForegroundColor Yellow
     Write-Host $publicKey -ForegroundColor Yellow
 }
 
@@ -71,63 +131,66 @@ Write-Host ""
 
 foreach ($addon in $addons) {
     $sourcePath = Join-Path $sourceRoot $addon
-    $pboPath    = Join-Path $outputRoot "$addon.pbo"
+    $pboPath = Join-Path $outputRoot "$addon.pbo"
 
-    if (!(Test-Path $sourcePath)) {
+    if (-not (Test-Path -LiteralPath $sourcePath)) {
         $message = "Source folder not found for $addon at $sourcePath"
-        $failures += $message
+        $failures.Add($message)
         Write-Host "ERROR: $message" -ForegroundColor Red
+        Write-Host ""
         continue
     }
 
     Write-Host "Packing $addon..." -ForegroundColor Cyan
 
     # Clear stale output first so a failed build cannot look successful.
-    if (Test-Path $pboPath) {
-        Remove-Item -Path $pboPath -Force
+    if (Test-Path -LiteralPath $pboPath) {
+        Remove-Item -LiteralPath $pboPath -Force
     }
 
-    Get-ChildItem -Path $outputRoot -Filter "$addon.pbo.*.bisign" -ErrorAction SilentlyContinue | Remove-Item -Force
+    Get-ChildItem -LiteralPath $outputRoot -Filter "$addon.pbo.*.bisign" -ErrorAction SilentlyContinue |
+        Remove-Item -Force
 
-    $addonBuilderOutput = & $addonBuilder `
-        "$sourcePath" `
-        "$outputRoot" `
-        -packonly `
-        -clear `
-        -prefix="$addon" 2>&1
-    $addonBuilderExitCode = $LASTEXITCODE
+    $addonBuilderResult = Invoke-NativeTool -FilePath $addonBuilder -Arguments @(
+        $sourcePath,
+        $outputRoot,
+        "-packonly",
+        "-clear",
+        "-prefix=$addon"
+    )
+
+    $addonBuilderOutput = $addonBuilderResult.Output
+    $addonBuilderExitCode = $addonBuilderResult.ExitCode
     $addonBuilderOutput | ForEach-Object { Write-Host $_ }
 
     if (($addonBuilderExitCode -ne 0) -or (($addonBuilderOutput | Out-String) -match "(\[ERROR\]|Build failed)")) {
         $message = "Packing $addon failed. Exit code: $addonBuilderExitCode"
-        $failures += $message
+        $failures.Add($message)
         Write-Host "ERROR: $message" -ForegroundColor Red
         Write-Host ""
         continue
     }
 
-    if (!(Test-Path $pboPath)) {
+    if (-not (Test-Path -LiteralPath $pboPath)) {
         $message = "Expected PBO for $addon was not found at $pboPath"
-        $failures += $message
+        $failures.Add($message)
         Write-Host "ERROR: $message" -ForegroundColor Red
-        Write-Host $pboPath -ForegroundColor Red
         Write-Host ""
         continue
     }
 
     Write-Host "Finished packing $addon" -ForegroundColor Green
+    Write-Host "Signing $addon.pbo with $KeyName.biprivatekey..." -ForegroundColor Cyan
 
-    Write-Host "Signing $addon.pbo with AshenEnclave.biprivatekey..." -ForegroundColor Cyan
+    $signResult = Invoke-NativeTool -FilePath $dsSignFile -Arguments @($privateKey, $pboPath)
+    $signExitCode = $signResult.ExitCode
+    $signResult.Output | ForEach-Object { Write-Host $_ }
 
-    & $dsSignFile `
-        "$privateKey" `
-        "$pboPath"
-
-    if ($LASTEXITCODE -eq 0) {
+    if ($signExitCode -eq 0) {
         Write-Host "Signed $addon.pbo" -ForegroundColor Green
     } else {
-        $message = "Signing $addon.pbo failed. Exit code: $LASTEXITCODE"
-        $failures += $message
+        $message = "Signing $addon.pbo failed. Exit code: $signExitCode"
+        $failures.Add($message)
         Write-Host "ERROR: $message" -ForegroundColor Red
     }
 
@@ -143,10 +206,16 @@ if ($failures.Count -gt 0) {
         Write-Host " - $failure" -ForegroundColor Red
     }
     Write-Host "============================================================" -ForegroundColor Red
-    pause
+
+    if (-not $NoPause) {
+        pause
+    }
     exit 1
 }
 
 Write-Host "Edonn build and signing complete. No errors detected." -ForegroundColor Green
-pause
+
+if (-not $NoPause) {
+    pause
+}
 exit 0

@@ -7,6 +7,7 @@ class CfgPatches {
 			"A3_Characters_F",
 			"ace_common",
 			"ace_medical_treatment",
+			"cba_xeh",
 			"TAEUniforms",
 			"TAEGear_Armors_Customs",
 			"TAEGear_Helmets_Customs",
@@ -37,6 +38,8 @@ class CfgPatches {
 		weapons[] = {};
 	};
 };
+
+class CBA_Extended_EventHandlers_base;
 
 class CfgFactionClasses {
 	class TAE_Faction_HouseKarr {
@@ -121,7 +124,199 @@ class CfgWorlds {
 class CfgVehicles {
 	class I_Soldier_F;
 
-	class TAE_Unit_Base: I_Soldier_F {
+	class TAE_Unit_HitPoint_Base: I_Soldier_F {
+		scope = 0;
+		scopeCurator = 0;
+
+		class EventHandlers {
+			class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+		};
+
+		class HitPoints {
+			class HitFace {
+				armor = 5;
+				material = -1;
+				name = "face_hub";
+				passThrough = 0.8;
+				radius = 0.08;
+				explosionShielding = 0.1;
+				minimalHit = 0.01;
+			};
+			class HitNeck {
+				armor = 5;
+				material = -1;
+				name = "neck";
+				passThrough = 0.8;
+				radius = 0.1;
+				explosionShielding = 0.5;
+				minimalHit = 0.01;
+			};
+			class HitHead {
+				armor = 5;
+				material = -1;
+				name = "head";
+				passThrough = 0.8;
+				radius = 0.2;
+				explosionShielding = 0.5;
+				minimalHit = 0.01;
+				depends = "HitFace max HitNeck";
+			};
+			class ACE_HDBracket {
+				armor = 1;
+				material = -1;
+				name = "head";
+				passThrough = 0;
+				radius = 1;
+				explosionShielding = 1;
+				visual = "";
+				minimalHit = 0;
+				depends = "HitHead";
+			};
+			class HitPelvis {
+				armor = 6;
+				material = -1;
+				name = "pelvis";
+				passThrough = 0.8;
+				radius = 0.24;
+				explosionShielding = 0.1;
+				visual = "injury_body";
+				minimalHit = 0.01;
+				depends = "0";
+			};
+			class HitAbdomen {
+				armor = 6;
+				material = -1;
+				name = "spine1";
+				passThrough = 0.8;
+				radius = 0.16;
+				explosionShielding = 0.1;
+				visual = "injury_body";
+				minimalHit = 0.01;
+			};
+			class HitDiaphragm {
+				armor = 6;
+				material = -1;
+				name = "spine2";
+				passThrough = 0.8;
+				radius = 0.18;
+				explosionShielding = 0.25;
+				visual = "injury_body";
+				minimalHit = 0.01;
+			};
+			class HitChest {
+				armor = 6;
+				material = -1;
+				name = "spine3";
+				passThrough = 0.8;
+				radius = 0.18;
+				explosionShielding = 0.25;
+				visual = "injury_body";
+				minimalHit = 0.01;
+			};
+			class HitBody {
+				armor = 1000;
+				material = -1;
+				name = "body";
+				passThrough = 1;
+				radius = 0;
+				explosionShielding = 0.25;
+				visual = "injury_body";
+				minimalHit = 0.01;
+				depends = "HitPelvis max HitAbdomen max HitDiaphragm max HitChest";
+			};
+			class HitArms {
+				armor = 6;
+				material = -1;
+				name = "arms";
+				passThrough = 1;
+				radius = 0.1;
+				explosionShielding = 0.3;
+				visual = "injury_hands";
+				minimalHit = 0.01;
+				depends = "0";
+			};
+			class HitHands {
+				armor = 6;
+				material = -1;
+				name = "hands";
+				passThrough = 1;
+				radius = 0.1;
+				explosionShielding = 0.3;
+				visual = "injury_hands";
+				minimalHit = 0.01;
+				depends = "HitArms";
+			};
+			class HitLegs {
+				armor = 6;
+				material = -1;
+				name = "legs";
+				passThrough = 1;
+				radius = 0.14;
+				explosionShielding = 0.3;
+				visual = "injury_legs";
+				minimalHit = 0.01;
+				depends = "0";
+			};
+			class Incapacitated {
+				armor = 1000;
+				material = -1;
+				name = "body";
+				passThrough = 1;
+				radius = 0;
+				explosionShielding = 0.1;
+				visual = "";
+				minimalHit = 0;
+				depends = "(((Total - 0.25) max 0) + ((HitHead - 0.25) max 0) + ((HitBody - 0.25) max 0)) * 2";
+			};
+			class HitLeftArm {
+				armor = 6;
+				material = -1;
+				name = "hand_l";
+				passThrough = 1;
+				radius = 0.08;
+				explosionShielding = 0.1;
+				visual = "injury_hands";
+				minimalHit = 0.01;
+			};
+			class HitRightArm {
+				armor = 6;
+				material = -1;
+				name = "hand_r";
+				passThrough = 1;
+				radius = 0.08;
+				explosionShielding = 0.1;
+				visual = "injury_hands";
+				minimalHit = 0.01;
+			};
+			class HitLeftLeg {
+				armor = 6;
+				material = -1;
+				name = "leg_l";
+				passThrough = 1;
+				radius = 0.1;
+				explosionShielding = 0.1;
+				visual = "injury_legs";
+				minimalHit = 0.01;
+			};
+			class HitRightLeg {
+				armor = 6;
+				material = -1;
+				name = "leg_r";
+				passThrough = 1;
+				radius = 0.1;
+				explosionShielding = 0.1;
+				visual = "injury_legs";
+				minimalHit = 0.01;
+			};
+		};
+		armor = 2;
+		armorStructural = 4;
+		explosionShielding = 0.4;
+		minTotalDamageThreshold = 0.001;
+		impactDamageMultiplier = 0.5;
+	};
+
+	class TAE_Unit_Base: TAE_Unit_HitPoint_Base {
 		scope = 0;
 		scopeCurator = 0;
 		author = "TAE Mod Team";
@@ -272,7 +467,7 @@ class CfgVehicles {
 		linkedItems[] = {};
 		respawnLinkedItems[] = {};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit; removeUniform _unit; _unit forceAddUniform 'tae_uniform_grey_seal'; _unit linkItem 'ItemMap'; _unit linkItem 'ls_radios_hush98'; _unit setSpeaker 'ACE_NoVoice'; };";
 		};
 	};
@@ -283,7 +478,7 @@ class CfgVehicles {
 		displayName = "Acklay Member";
 		uniformClass = "tae_uniform_ls_mandalorian";
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit; removeUniform _unit; _unit forceAddUniform 'tae_uniform_ls_mandalorian'; _unit linkItem 'ItemMap'; _unit linkItem 'ls_radios_hush98'; _unit setSpeaker 'ACE_NoVoice'; };";
 		};
 	};
@@ -308,7 +503,7 @@ class CfgVehicles {
 		displayName = "Varen Member";
 		uniformClass = "tae_uniform_black_seal";
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; removeAllWeapons _unit; removeAllItems _unit; removeAllAssignedItems _unit; removeVest _unit; removeBackpack _unit; removeHeadgear _unit; removeGoggles _unit; removeUniform _unit; _unit forceAddUniform 'tae_uniform_black_seal'; _unit linkItem 'ItemMap'; _unit linkItem 'ls_radios_hush98'; _unit setSpeaker 'ACE_NoVoice'; };";
 		};
 	};
@@ -364,7 +559,7 @@ class CfgVehicles {
 		};
 		goggles = "";
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; removeGoggles _unit; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['LFP_westarcarabine','','','LFP_westarcarabine_scopesn',['LFP_westarcarabine_Mag',60],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],['tae_uniform_grey_seal',[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['ACE_IR_Strobe_Item',1]]],['tae_karr_armor_medium_fd',[['LFP_westarcarabine_Mag',20,60],['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],'tae_karr_helmet_fd','',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; if (uniform _unit == '') then {_unit forceAddUniform 'tae_uniform_grey_seal';}; removeGoggles _unit; };";
 		};
 	};
@@ -382,7 +577,7 @@ class CfgVehicles {
 		displayName = "Veteran";
 		backpack = "tae_modular_pack_lr";
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['LFP_westarcarabine','','','',['LFP_westarcarabine_Mag',60],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1]]],['tae_karr_armor_medium_mv',[['LFP_westarcarabine_Mag',20,60],['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1]]],['tae_modular_pack_lr',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],'tae_karr_helmet_mv','tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; _unit addPrimaryWeaponItem 'LFP_westarcarabine_scopesn'; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
@@ -397,8 +592,9 @@ class CfgVehicles {
 		engineer = 1;
 		canDeactivateMines = 1;
 		detectSkill = 80;
-		ace_isEngineer = 1;
-		ace_isEOD = 1;
+		explosiveSpecialist = 1;
+		ACE_IsEngineer = 1;
+		ACE_isEOD = 1;
 
 		linkedItems[] = {
 			"tae_karr_armor_medium_mm",
@@ -422,7 +618,7 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['LFP_westarcarabine','','','',['LFP_westarcarabine_Mag',60],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1],['ACE_M26_Clacker',1]]],[(_taeArmorSet select 0),[['LFP_westarcarabine_Mag',20,60],['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1]]],['tae_modular_pack_engi',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ToolKit',1],['ACE_painkillers',2,10],['RTX_RemoteMagazine',3,1]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; _unit addPrimaryWeaponItem 'LFP_westarcarabine_scopesn'; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
@@ -459,7 +655,7 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['LFP_westarcarabine','','','',['LFP_westarcarabine_Mag',60],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1]]],[(_taeArmorSet select 0),[['LFP_westarcarabine_Mag',20,60],['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',5],['ACE_splint',6],['ACE_salineIV_500',5],['ACE_salineIV',5],['ACE_morphine',10],['ACE_epinephrine',10],['ACE_adenosine',10],['MTI_BactaPatch',30],['MTI_BactaSpray',30],['ACE_painkillers',2,10]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; _unit addPrimaryWeaponItem 'LFP_westarcarabine_scopesn'; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
@@ -547,7 +743,7 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeMarksmanWeapon = selectRandom [['JLTS_DW32S','','JLTS_DW32S_mag',10],['JMSLLTE_T21BBlasterRifle','','JMSLLTE_T21B_7rnd_Mag',7],['JMSLLTE_a310','','JMSLLTE_A310_15rnd_Mag',15]]; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[[(_taeMarksmanWeapon select 0),'','',(_taeMarksmanWeapon select 1),[(_taeMarksmanWeapon select 2),(_taeMarksmanWeapon select 3)],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1]]],[(_taeArmorSet select 0),[['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1],[(_taeMarksmanWeapon select 2),10,(_taeMarksmanWeapon select 3)],['LFP_Westar35_Mag',5,20]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
@@ -641,7 +837,7 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['LFP_westarcarabine','','','',['LFP_westarcarabine_Mag',60],[],''],['JMSLLTE_HH12_launcher','','','',['JMSLLTE_HH12_AT_Mag',1],[],''],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1],['LFP_westarcarabine_Mag',14,60],['3AS_ThermalDetonator',4,1]]],[(_taeArmorSet select 0),[['MTI_BactaSpray',20],['MTI_BactaPatch',20],['ACE_adenosine',5],['ACE_epinephrine',5],['ACE_morphine',5],['ACE_salineIV',3],['ACE_salineIV_500',3],['ACE_splint',4],['ACE_surgicalKit',1],['ACE_tourniquet',4],['LFP_westarcarabine_Mag',6,60],['3AS_ThermalDetonator',1,1],['3AS_SmokeWhite',5,1],['ACE_painkillers',2,10]]],['tae_modular_pack',[['JMSLLTE_HH12_AT_Mag',3,1],['JMSLLTE_HH12_AA_Mag',1,1]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; _unit addPrimaryWeaponItem 'LFP_westarcarabine_scopesn'; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
@@ -745,7 +941,7 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeGrenadierWeapon = selectRandom [['IDA_E10_UGL','acc_flashlight','IDA_E11_scope','IDA_Blaster_Cell_Power3_40Rnd_Red',40,'IDA_HE_LauncherGrenade',1],['3AS_A280_GL','','','3AS_60Rnd_EM50_RedPlasma',60,'3AS_3Rnd_HE_Grenade_shell',3],['3AS_E11_GL','','','3AS_40Rnd_EM40_E11_Mag',40,'3AS_3Rnd_HE_Grenade_shell',3]]; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[[(_taeGrenadierWeapon select 0),'',(_taeGrenadierWeapon select 1),(_taeGrenadierWeapon select 2),[(_taeGrenadierWeapon select 3),(_taeGrenadierWeapon select 4)],[(_taeGrenadierWeapon select 5),(_taeGrenadierWeapon select 6)],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1]]],[(_taeArmorSet select 0),[['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1],[(_taeGrenadierWeapon select 5),5,(_taeGrenadierWeapon select 6)],[(_taeGrenadierWeapon select 3),10,(_taeGrenadierWeapon select 4)],['LFP_Westar35_Mag',4,20]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
@@ -845,7 +1041,7 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeCqcWeapon = selectRandom [['3AS_DP23_F','','3AS_10Rnd_EC30_Pellets',10],['3AS_ScatterGun_F','','3AS_8Rnd_EY30_Pellets',8],['JMSLLTE_ee4','','JMSLLTE_EE3_30rnd_Mag',30]]; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[[(_taeCqcWeapon select 0),'','',(_taeCqcWeapon select 1),[(_taeCqcWeapon select 2),(_taeCqcWeapon select 3)],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1]]],[(_taeArmorSet select 0),[['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1],['LFP_Westar35_Mag',4,20],[(_taeCqcWeapon select 2),10,(_taeCqcWeapon select 3)]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
@@ -939,7 +1135,7 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeHeavyWeapon = selectRandom [['3AS_DLT19','3AS_Imp_Optic_2','3AS_200Rnd_EM40_DLT19_Mag',200],['JMSLLTE_FWMBBlasterRifle','','JMSLLTE_FWMB_40rnd_Mag',40],['JMSLLTE_rt97cBlasterRifle','JMSLLTE_rt97c_bl_Scope','JMSLLTE_RT97C_150Rnd_Mag',150],['IDA_M41','','IDA_Blaster_Cell_Power2_100Rnd_Green',100]]; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[[(_taeHeavyWeapon select 0),'','',(_taeHeavyWeapon select 1),[(_taeHeavyWeapon select 2),(_taeHeavyWeapon select 3)],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1]]],[(_taeArmorSet select 0),[['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1],['LFP_Westar35_Mag',4,20],[(_taeHeavyWeapon select 2),10,(_taeHeavyWeapon select 3)]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
@@ -1033,11 +1229,11 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit spawn { params ['_unit']; sleep 0.1; private _taeSealUniform = selectRandom ['tae_uniform_forgemaster_seal','tae_uniform_black_seal','tae_uniform_brown_seal','tae_uniform_dark_blue_seal','tae_uniform_dark_green_seal','tae_uniform_dark_red_seal','tae_uniform_grey_seal','tae_uniform_orange_seal','tae_uniform_red_seal','tae_uniform_white_seal','tae_uniform_skirata','tae_uniform_vau']; private _taeSniperWeapon = selectRandom [['tae_IQA12','tae_TargetingScope_FP2','IDA_Blaster_Cell_Power5_5Rnd_Yellow',5],['IDA_Galaar90','IDA_TargetingScope','IDA_Blaster_Cell_Power5_5Rnd_Yellow',5],['IDA_773Firepuncher','IDA_TargetingScope','IDA_Blaster_Cell_Power4_10Rnd_Blue',10],['3AS_DLT19X','3AS_Imp_Optic_2','3AS_10Rnd_EM100_DLT19X_Mag',10]]; private _taeArmorSet = selectRandom [['tae_karr_armor_medium_mr','tae_karr_helmet_mr'],['tae_karr_armor_medium_ma','tae_karr_helmet_ma'],['tae_karr_armor_medium_mm','tae_karr_helmet_mm']]; removeUniform _unit; _unit forceAddUniform _taeSealUniform; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[[(_taeSniperWeapon select 0),'','',(_taeSniperWeapon select 1),[(_taeSniperWeapon select 2),(_taeSniperWeapon select 3)],[],''],[],['LFP_Westar_35','','','',['LFP_Westar35_Mag',20],[],'']],[_taeSealUniform,[['MineDetector',1],['ACE_MapTools',1],['ACE_Flashlight_XL50',1],['ACE_EntrenchingTool',1],['ACE_CableTie',5],['MTI_catTab_tablet',1],['ACE_IR_Strobe_Item',1]]],[(_taeArmorSet select 0),[['3AS_ThermalDetonator',5,1],['3AS_SmokeWhite',5,1],['LFP_Westar35_Mag',4,20],[(_taeSniperWeapon select 2),10,(_taeSniperWeapon select 3)]]],['tae_modular_pack',[['ACE_surgicalKit',1],['ACE_tourniquet',4],['ACE_splint',4],['ACE_salineIV_500',3],['ACE_salineIV',3],['ACE_morphine',5],['ACE_epinephrine',5],['ACE_adenosine',5],['MTI_BactaPatch',20],['MTI_BactaSpray',20],['ACE_painkillers',2,10]]],(_taeArmorSet select 1),'tgf_facewear_medium_belt',['JMSLLTE_W_TD23_white_F','','','',[],[],''],['ItemMap','ItemGPS','ls_radios_hush98','ItemCompass','ItemWatch','tgf_nvg_rangefinder_r']]; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
 		};
 	};
-	class TAE_Unit_BSC_Base: I_Soldier_F {
+	class TAE_Unit_BSC_Base: TAE_Unit_HitPoint_Base {
 		scope = 0;
 		scopeCurator = 0;
 		author = "TAE Mod Team";
@@ -1066,7 +1262,7 @@ class CfgVehicles {
 		displayName = "Cartel Rifleman";
 		role = "Rifleman";
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['3AS_DC15S_F','','','',['3AS_60Rnd_EC30_mag',60],[],''],[],['JMSLLTE_dt12pistol','','','',['JMSLLTE_DT12_50rnd_Mag',50],[],'']],['ls_imperialUniform_army_r_black',[['ACE_fieldDressing',1],['ACE_packingBandage',1],['ACE_morphine',1],['ACE_tourniquet',1],['JMSLLTE_thermaldetonator_HandGrenade',2,1]]],['ls_imperialVest_army_light_black_h',[['3AS_ThermalDetonator',2,1],['3AS_SmokeWhite',3,1],['JMSLLTE_DT12_50rnd_Mag',2,50],['3AS_5Rnd_Stun_Mag',2,5],['3AS_60Rnd_EC30_mag',10,60]]],['JMSLLTE_back_rebpack_v1_black',[['FirstAidKit',10]]],'IDA_Clone_Elite_Trooper_P2_Helmet','',[],['ItemMap','','TFAR_anprc148jem','ItemCompass','ItemWatch','']];";
 		};
 	};
@@ -1081,7 +1277,7 @@ class CfgVehicles {
 		magazines[] = {"3AS_300Rnd_EC60_Mag","JMSLLTE_DT12_50rnd_Mag"};
 		respawnMagazines[] = {"3AS_300Rnd_EC60_Mag","JMSLLTE_DT12_50rnd_Mag"};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['3AS_Z6_F','','','',['3AS_300Rnd_EC60_Mag',300],[],''],[],['JMSLLTE_dt12pistol','','','',['JMSLLTE_DT12_50rnd_Mag',50],[],'']],['ls_imperialUniform_army_r_black',[['ACE_fieldDressing',1],['ACE_packingBandage',1],['ACE_morphine',1],['ACE_tourniquet',1],['JMSLLTE_thermaldetonator_HandGrenade',2,1]]],['ls_imperialVest_army_light_black_h',[['3AS_ThermalDetonator',2,1],['3AS_SmokeWhite',3,1],['JMSLLTE_DT12_50rnd_Mag',2,50],['3AS_5Rnd_Stun_Mag',2,5],['3AS_300Rnd_EC60_Mag',2,300]]],['JMSLLTE_back_rebpack_v1_black',[['FirstAidKit',10]]],'IDA_Clone_Elite_Trooper_P2_Helmet','',[],['ItemMap','','TFAR_anprc148jem','ItemCompass','ItemWatch','']];";
 		};
 	};
@@ -1094,7 +1290,7 @@ class CfgVehicles {
 		weapons[] = {"3AS_DC15S_GL","JMSLLTE_dt12pistol","Throw","Put"};
 		respawnWeapons[] = {"3AS_DC15S_GL","JMSLLTE_dt12pistol","Throw","Put"};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['3AS_DC15S_GL','','','',['3AS_60Rnd_EC30_mag',60],['3AS_3Rnd_HE_Grenade_shell',3],''],[],['JMSLLTE_dt12pistol','','','',['JMSLLTE_DT12_50rnd_Mag',50],[],'']],['ls_imperialUniform_army_r_black',[['ACE_fieldDressing',1],['ACE_packingBandage',1],['ACE_morphine',1],['ACE_tourniquet',1],['JMSLLTE_thermaldetonator_HandGrenade',2,1]]],['ls_imperialVest_army_light_black_h',[['3AS_ThermalDetonator',2,1],['3AS_SmokeWhite',3,1],['JMSLLTE_DT12_50rnd_Mag',2,50],['3AS_5Rnd_Stun_Mag',2,5],['3AS_60Rnd_EC30_mag',8,60],['3AS_3Rnd_HE_Grenade_shell',4,3]]],['JMSLLTE_back_rebpack_v1_black',[['FirstAidKit',10]]],'IDA_Clone_Elite_Trooper_P2_Helmet','',[],['ItemMap','','TFAR_anprc148jem','ItemCompass','ItemWatch','']];";
 		};
 	};
@@ -1109,7 +1305,7 @@ class CfgVehicles {
 		magazines[] = {"3AS_60Rnd_EC30_mag","3AS_JLTS_MK43_AT","JMSLLTE_DT12_50rnd_Mag"};
 		respawnMagazines[] = {"3AS_60Rnd_EC30_mag","3AS_JLTS_MK43_AT","JMSLLTE_DT12_50rnd_Mag"};
 
-		class EventHandlers {
+		class EventHandlers: EventHandlers {
 			init = "params ['_unit']; if (!local _unit) exitWith {}; _unit setSpeaker 'ACE_NoVoice'; _unit setUnitLoadout [[['3AS_DC15S_F','','','',['3AS_60Rnd_EC30_mag',60],[],''],['3AS_PLX1_F','','','',['3AS_JLTS_MK43_AT',1],[],''],['JMSLLTE_dt12pistol','','','',['JMSLLTE_DT12_50rnd_Mag',50],[],'']],['ls_imperialUniform_army_r_black',[['ACE_fieldDressing',1],['ACE_packingBandage',1],['ACE_morphine',1],['ACE_tourniquet',1],['JMSLLTE_thermaldetonator_HandGrenade',2,1]]],['ls_imperialVest_army_light_black_h',[['3AS_ThermalDetonator',2,1],['3AS_SmokeWhite',3,1],['JMSLLTE_DT12_50rnd_Mag',2,50],['3AS_5Rnd_Stun_Mag',2,5],['3AS_60Rnd_EC30_mag',10,60]]],['JMSLLTE_back_rebpack_v1_black',[['FirstAidKit',10],['3AS_JLTS_MK43_AT',1,1]]],'IDA_Clone_Elite_Trooper_P2_Helmet','',[],['ItemMap','','TFAR_anprc148jem','ItemCompass','ItemWatch','']];";
 		};
 	};

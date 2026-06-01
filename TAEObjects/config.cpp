@@ -77,7 +77,6 @@ class CfgFunctions {
 	class TAE {
 		class Objects {
 			file = "TAEObjects\functions";
-			class applyFoundlingLoadout {};
 			class applyWearableLoadout {};
 			class initRestrictedArsenal {};
 		};
@@ -537,12 +536,6 @@ class CfgVehicles {
 				selection = "";
 				displayName = "Interactions";
 				condition = "true";
-
-				class TAE_TakeFoundlingLoadout {
-					displayName = "Take Foundling Loadout Kit";
-					condition = "true";
-					statement = "[_player] call TAE_fnc_applyFoundlingLoadout";
-				};
 			};
 		};
 
