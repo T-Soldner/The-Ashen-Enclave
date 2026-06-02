@@ -1,5 +1,5 @@
 # ================================
-# The Ashen Enclave Addon Builder + Signer
+# The Ashen Enclave Addon Builder
 # Nox's Version
 # ================================
 
@@ -9,20 +9,14 @@ param(
     [string]$ArmaRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3",
     [string]$ArmaToolsRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools",
     [string]$ModFolderName = "@The Ashen Enclave",
-    [string]$KeyName = "AshenEnclave",
     [switch]$NoPause
 )
 
 $ErrorActionPreference = "Stop"
 
 $addonBuilder = Join-Path $ArmaToolsRoot "AddonBuilder\AddonBuilder.exe"
-$dsSignFile = Join-Path $ArmaToolsRoot "DSSignFile\DSSignFile.exe"
 
 $outputRoot = Join-Path $ArmaRoot "$ModFolderName\Addons"
-$keysRoot = Join-Path $ArmaRoot "$ModFolderName\Keys"
-
-$privateKey = Join-Path $ArmaToolsRoot "DSSignFile\$KeyName.biprivatekey"
-$publicKey = Join-Path $ArmaToolsRoot "DSSignFile\$KeyName.bikey"
 
 $addons = @(
     "TAECore",
@@ -100,24 +94,12 @@ Write-Host "============================================================" -Foreg
 Write-Host "The Ashen Enclave - Nox's Build" -ForegroundColor Cyan
 Write-Host "Source: $sourceRoot" -ForegroundColor Gray
 Write-Host "Output: $outputRoot" -ForegroundColor Gray
-Write-Host "Key: $KeyName" -ForegroundColor Gray
 Write-Host "============================================================" -ForegroundColor DarkGray
 Write-Host ""
 
 Test-RequiredPath -Path $addonBuilder -Description "AddonBuilder.exe"
-Test-RequiredPath -Path $dsSignFile -Description "DSSignFile.exe"
-Test-RequiredPath -Path $privateKey -Description "Private key"
 
 New-Item -ItemType Directory -Path $outputRoot -Force | Out-Null
-New-Item -ItemType Directory -Path $keysRoot -Force | Out-Null
-
-if (Test-Path -LiteralPath $publicKey) {
-    Copy-Item -LiteralPath $publicKey -Destination $keysRoot -Force
-    Write-Host "Copied $KeyName.bikey to mod Keys folder." -ForegroundColor Green
-} else {
-    Write-Host "WARNING: $KeyName.bikey not found. Skipping public key copy." -ForegroundColor Yellow
-    Write-Host $publicKey -ForegroundColor Yellow
-}
 
 Write-Host ""
 
@@ -139,9 +121,6 @@ foreach ($addon in $addons) {
     if (Test-Path -LiteralPath $pboPath) {
         Remove-Item -LiteralPath $pboPath -Force
     }
-
-    Get-ChildItem -LiteralPath $outputRoot -Filter "$addon.pbo.*.bisign" -ErrorAction SilentlyContinue |
-        Remove-Item -Force
 
     $addonBuilderResult = Invoke-NativeTool -FilePath $addonBuilder -Arguments @(
         $sourcePath,
@@ -172,20 +151,6 @@ foreach ($addon in $addons) {
     }
 
     Write-Host "Finished packing $addon" -ForegroundColor Green
-    Write-Host "Signing $addon.pbo with $KeyName.biprivatekey..." -ForegroundColor Cyan
-
-    $signResult = Invoke-NativeTool -FilePath $dsSignFile -Arguments @($privateKey, $pboPath)
-    $signExitCode = $signResult.ExitCode
-    $signResult.Output | ForEach-Object { Write-Host $_ }
-
-    if ($signExitCode -eq 0) {
-        Write-Host "Signed $addon.pbo" -ForegroundColor Green
-    } else {
-        $message = "Signing $addon.pbo failed. Exit code: $signExitCode"
-        $failures.Add($message)
-        Write-Host "ERROR: $message" -ForegroundColor Red
-    }
-
     Write-Host ""
 }
 
@@ -205,7 +170,7 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Host "Nox's build and signing complete. No errors detected." -ForegroundColor Green
+Write-Host "Nox's build complete. No errors detected." -ForegroundColor Green
 
 if (-not $NoPause) {
     pause
