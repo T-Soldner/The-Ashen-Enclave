@@ -16,10 +16,24 @@ class CfgUnitInsignia {
 		textureVehicle = "";
 	};
 
+	class TAE_Insignia_Foxx {
+		displayName = "House Karr Foxx";
+		author = "TAE Mod Team";
+		texture = "\TAEInsignias\data\Foxx_logo.paa";
+		textureVehicle = "";
+	};
+
 	class TAE_Insignia_House_Karr {
 		displayName = "House Karr";
 		author = "TAE Mod Team";
 		texture = "\TAEInsignias\data\House_Karr_logo.paa";
+		textureVehicle = "";
+	};
+
+	class TAE_Insignia_Rook {
+		displayName = "House Karr Rook";
+		author = "TAE Mod Team";
+		texture = "\TAEInsignias\data\Rook_logo.paa";
 		textureVehicle = "";
 	};
 

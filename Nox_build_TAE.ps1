@@ -1,12 +1,12 @@
 # ================================
 # The Ashen Enclave Addon Builder + Signer
-# Edonn Version
+# Nox's Version
 # ================================
 
 [CmdletBinding()]
 param(
-    [string]$SourceRoot,
-    [string]$ArmaRoot = "D:\SteamLibrary\steamapps\common\Arma 3",
+    [string]$SourceRoot = "C:\Users\chase\Documents\GitHub\The-Ashen-Enclave",
+    [string]$ArmaRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3",
     [string]$ArmaToolsRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools",
     [string]$ModFolderName = "@The Ashen Enclave",
     [string]$KeyName = "AshenEnclave",
@@ -27,11 +27,11 @@ $publicKey = Join-Path $ArmaToolsRoot "DSSignFile\$KeyName.bikey"
 $addons = @(
     "TAECore",
     "TAEInsignias",
-	"TAEWeapons",
-	"TAEGear",
-	"TAEUnits",
-	"TAEObjects",
-	"TAEVehicles"
+    "TAEWeapons",
+    "TAEGear",
+    "TAEUnits",
+    "TAEObjects",
+    "TAEVehicles"
 )
 
 $failures = New-Object System.Collections.Generic.List[string]
@@ -90,14 +90,6 @@ function Invoke-NativeTool {
     }
 }
 
-if ([string]::IsNullOrWhiteSpace($SourceRoot)) {
-    if (-not [string]::IsNullOrWhiteSpace($PSScriptRoot)) {
-        $SourceRoot = $PSScriptRoot
-    } else {
-        $SourceRoot = (Get-Location).Path
-    }
-}
-
 try {
     $sourceRoot = (Resolve-Path -LiteralPath $SourceRoot).Path
 } catch {
@@ -105,7 +97,7 @@ try {
 }
 
 Write-Host "============================================================" -ForegroundColor DarkGray
-Write-Host "The Ashen Enclave - Edonn Build" -ForegroundColor Cyan
+Write-Host "The Ashen Enclave - Nox's Build" -ForegroundColor Cyan
 Write-Host "Source: $sourceRoot" -ForegroundColor Gray
 Write-Host "Output: $outputRoot" -ForegroundColor Gray
 Write-Host "Key: $KeyName" -ForegroundColor Gray
@@ -213,7 +205,7 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Host "Edonn build and signing complete. No errors detected." -ForegroundColor Green
+Write-Host "Nox's build and signing complete. No errors detected." -ForegroundColor Green
 
 if (-not $NoPause) {
     pause

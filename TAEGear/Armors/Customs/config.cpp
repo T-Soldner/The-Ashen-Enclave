@@ -75,12 +75,15 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Teka" };
+				values[] = { "Hondo","Teka","Nox" };
 				class Hondo {
 					label = "Hondo";
 				};
 				class Teka {
 					label = "Teka";
+				};
+				class Nox {
+					label = "Nox";
 				};
 			};
 		};
@@ -91,7 +94,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl","Edonn","Nox","Jimothy" };
+				values[] = { "Standard","Niteowl","Edonn","Jimothy" };
 				class Standard {
 					label = "Standard";
 				};
@@ -100,9 +103,6 @@ class XtdGearModels {
 				};
 				class Edonn {
 					label = "Edonn";
-				};
-				class Nox {
-					label = "Nox";
 				};
 				class Jimothy {
 					label = "Jimothy";
@@ -215,6 +215,10 @@ class XtdGearInfos {
 			model	= "TAE_freelancer_vests";
 			owner	= "Teka";
 		};
+		class tae_nox_armor {
+			model	= "TAE_freelancer_vests";
+			owner	= "Nox";
+		};
 		
 		//Acklay
 		class tae_acklay_armor {
@@ -228,10 +232,6 @@ class XtdGearInfos {
 		class tae_edonn_armor {
 			model	= "TAE_acklay_vests";
 			owner	= "Edonn";
-		};
-		class tae_nox_armor {
-			model	= "TAE_acklay_vests";
-			owner	= "Nox";
 		};
 		class tae_jimothy_armor {
 			model	= "TAE_acklay_vests";

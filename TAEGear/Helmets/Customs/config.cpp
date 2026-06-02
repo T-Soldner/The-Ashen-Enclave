@@ -87,13 +87,16 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Teka" };
+				values[] = { "Hondo","Teka","Nox" };
 
 				class Hondo {
 					label = "Hondo";
 				};
 				class Teka {
 					label = "Teka";
+				};
+				class Nox {
+					label = "Nox";
 				};
 			};
 		};
@@ -106,7 +109,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl", "Edonn", "Dengar", "Nox", "Jimothy" };
+				values[] = { "Standard","Niteowl", "Edonn", "Dengar", "Jimothy" };
 
 				class Standard {
 					label = "Standard";
@@ -119,9 +122,6 @@ class XtdGearModels {
 				};
 				class Dengar {
 					label = "Dengar";
-				};
-				class Nox {
-					label = "Nox";
 				};
 				class Jimothy {
 					label = "Jimothy";
@@ -270,6 +270,10 @@ class XtdGearInfos {
 			model = "TAE_freelancer_helmets";
 			owner = "Teka";
 		};
+		class tae_nox_helmet {
+			model = "TAE_freelancer_helmets";
+			owner = "Nox";
+		};
 
 		// Clan Acklay
 		class tae_acklay_helmet {
@@ -295,10 +299,6 @@ class XtdGearInfos {
 		class tae_dengar_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Dengar";
-		};
-		class tae_nox_helmet {
-			model = "TAE_acklay_helmets";
-			owner = "Nox";
 		};
 		class tae_jimothy_helmet {
 			model = "TAE_acklay_helmets";

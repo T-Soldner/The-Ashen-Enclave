@@ -42,6 +42,7 @@ class CfgPatches {
 			"TAE_Wearable_Varen_Helmet",
 			"TAE_Wearable_Rook_Helmet",
 			"TAE_Wearable_Freelancer_Helmet",
+			"TAE_Wearable_Nox_Helmet",
 			"TAE_Wearable_Hondo_Helmet",
 			"TAE_Wearable_Teka_Helmet"
 		};
@@ -210,12 +211,6 @@ class CfgVehicles {
 					statement = "[_player,'tae_acklay_armor','tae_dengar_helmet','tgf_nvg_rangefinder_r','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
-				class TAE_PutOnNoxArmor {
-					displayName = "Put On Nox Armor";
-					condition = "true";
-					statement = "[_player,'tae_acklay_armor','tae_nox_helmet','tgf_nvg_circuit','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
-				};
-
 				class TAE_PutOnJimothyArmor {
 					displayName = "Put On Jimothy Armor";
 					condition = "true";
@@ -287,7 +282,7 @@ class CfgVehicles {
 				class TAE_PutOnVarenArmor {
 					displayName = "Put On Varen Armor";
 					condition = "true";
-					statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_varen_rangefinder','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_varen_rangefinder','','tae_uniform_dark_red_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};
@@ -367,6 +362,34 @@ class CfgVehicles {
 		};
 	};
 
+	class TAE_Wearable_Nox_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Nox Helmet";
+		model = "\z\tgf\addons\helmets\warlord\warlord_helmet.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Nox\WAR_Helmet_Nox.paa",
+			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnNoxArmor {
+					displayName = "Put On Nox Armor";
+					condition = "true";
+					statement = "[_player,'tae_karr_armor_medium_ma','tae_nox_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
 	class TAE_Wearable_Hondo_Helmet: TAE_Wearable_Helmet_Base {
 		scope = 2;
 		scopeCurator = 2;
@@ -420,6 +443,12 @@ class CfgVehicles {
 					condition = "true";
 					statement = "[_player,'tae_teka_armor','tae_teka_helmet','','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
 				};
+
+				class TAE_PutOnPilotArmor {
+					displayName = "Put On Pilot Armor";
+					condition = "true";
+					statement = "[_player,'tae_karr_armor_medium_mr','tgf_helmets_pilot','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
 			};
 		};
 	};
@@ -432,17 +461,19 @@ class CfgVehicles {
 		editorCategory = "TAE_EdCat_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Furniture";
 		hiddenSelections[] = {"Camo1","Camo2"};
-		hiddenSelectionsmaterials[] = {
-			"\z\mti_armoury\addons\props\locker\data\base_texture\door.rvmat",
+		hiddenSelectionsMaterials[] = {
+			"",
 			"\z\mti_armoury\addons\props\locker\data\base_texture\locker.rvmat"
 		};
 		hiddenSelectionsTextures[] = {
-			"\z\mti_armoury\addons\props\locker\data\base_texture\Door_CO.paa",
+			"",
 			"\z\mti_armoury\addons\props\locker\data\base_texture\locker_CO.paa"
 		};
 		editorPreview = "\z\mti_armoury\addons\props\locker\data\editorpreviews\locker_base.jpg";
 
 		ace_interaction_canInteract = 0;
+
+		class UserActions {};
 
 		class ACE_Actions {
 			class ACE_MainActions {
@@ -610,6 +641,10 @@ class CfgVehicles {
 			class _xx_IDA_Blaster_Cell_Power5_5Rnd_Green {
 				magazine = "IDA_Blaster_Cell_Power5_5Rnd_Green";
 				count = 30;
+			};
+			class _xx_IDA_PLX1_Rocket {
+				magazine = "IDA_PLX1_Rocket";
+				count = 10;
 			};
 
 			class _xx_3AS_14rnd_EM10_Mag {

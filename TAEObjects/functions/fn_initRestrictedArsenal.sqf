@@ -346,6 +346,7 @@ private _items = [
 	"IDA_HE_RifleGrenade",
 	"IDA_Blaster_Cell_Power2_20Rnd_Blue",
 	"IDA_PLX1",
+	"IDA_PLX1_Rocket",
 	"tae_uniform_ls_mandalorian",
 	"tae_uniform_forgemaster_seal",
 	"tae_uniform_black_seal",
@@ -610,6 +611,7 @@ private _items = [
 	"1Rnd_RC40_SmokeRed_shell_RF",
 	"3Rnd_UGL_FlareCIR_F",
 	"3Rnd_SmokeOrange_Grenade_shell",
+	"knd_jetpacks_fuelCan",
 	"tae_jetpack_Z6",
 	"tae_jetpack_z12",
 	"tae_jetpack_JT13_LR",
@@ -630,8 +632,10 @@ private _items = [
 	"tae_modular_pack"
 ];
 
-[_box, true, true] call ace_arsenal_fnc_removeVirtualItems;
-[_box, _items, true] call ace_arsenal_fnc_initBox;
+if (isServer) then {
+	[_box, true, true] call ace_arsenal_fnc_removeVirtualItems;
+	[_box, _items, true] call ace_arsenal_fnc_initBox;
+};
 
 [_box] spawn {
 	params ["_box"];
