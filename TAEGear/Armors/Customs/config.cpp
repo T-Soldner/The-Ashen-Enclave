@@ -579,9 +579,9 @@ class CfgWeapons {
 	
 	// Nox
 	class tae_nox_armor : tae_armor_heavy {
-		scope = 2;
-		scopeArsenal = 2;
-		scopeCurator = 2;
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
 		author = "Nox";
 		displayName = "Nox's Armor";
 		hiddenSelections[] = {"camo1","camo2"};

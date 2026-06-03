@@ -39,8 +39,6 @@ class CfgPatches {
 	};
 };
 
-class CBA_Extended_EventHandlers_base;
-
 class CfgFactionClasses {
 	class TAE_Faction_HouseKarr {
 		displayName = "House Karr";
@@ -121,22 +119,24 @@ class CfgWorlds {
 	};
 };
 
-class CfgVehicles {
-	class I_Soldier_F;
+class CfgGlasses {
+	class None;
 
-	class TAE_Unit_HitPoint_Base: I_Soldier_F {
+	class TAE_NoFacewear: None {
+		scope = 1;
+		displayName = "TAE No Facewear";
+		model = "";
+		identityTypes[] = {"TAE_NoFacewear"};
+	};
+};
+
+class CfgVehicles {
+	class tae_uniform_unit_grey_seal;
+
+	class TAE_Unit_HitPoint_Base: tae_uniform_unit_grey_seal {
 		scope = 0;
 		scopeCurator = 0;
-
-		ALiVE_orbatCreator_loadout[] = {};
-		ALiVE_orbatCreator_owned = 1;
-
-		class EventHandlers {
-			class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
-			class ALiVE_orbatCreator {
-				init = "if (local (_this select 0)) then {_onSpawn = {_this = _this select 0; sleep 0.2; _backpack = getText (configFile >> 'CfgVehicles' >> (typeOf _this) >> 'backpack'); waitUntil {sleep 0.2; backpack _this == _backpack}; if !(_this getVariable ['ALiVE_OverrideLoadout', false]) then {_loadout = getArray (configFile >> 'CfgVehicles' >> (typeOf _this) >> 'ALiVE_orbatCreator_loadout'); if (count _loadout > 0) then {_this setUnitLoadout _loadout; reload _this};}; _this setSpeaker 'ACE_NoVoice';}; _this spawn _onSpawn; (_this select 0) addMPEventHandler ['MPRespawn', _onSpawn];};";
-			};
-		};
+		goggles = "TAE_NoFacewear";
 
 		class HitPoints {
 			class HitFace {
@@ -335,12 +335,12 @@ class CfgVehicles {
 		identityTypes[] = {
 			"LanguageENG_F",
 			"Head_NATO",
-			"G_NATO_default"
+			"TAE_NoFacewear"
 		};
 
 		icon = "iconMan";
 		uniformClass = "tae_uniform_grey_seal";
-		goggles = "tgf_facewear_medium_belt";
+		goggles = "TAE_NoFacewear";
 
 		weapons[] = {
 			"LFP_westarcarabine",
@@ -454,62 +454,118 @@ class CfgVehicles {
 		scopeCurator = 0;
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Players";
 		displayName = "Mandalorian";
-		uniformClass = "tae_uniform_grey_seal";
-		backpack = "";
 		identityTypes[] = {
-			"LanguageENG_F",
-			"Head_NATO",
-			"NoGlasses"
+			"TAE_NoFacewear"
 		};
 
+
+
+		goggles = "TAE_NoFacewear";
+		uniformClass = "tae_uniform_grey_seal";
 		weapons[] = {};
 		respawnWeapons[] = {};
 		magazines[] = {};
 		respawnMagazines[] = {};
-		items[] = {};
-		respawnItems[] = {};
-		goggles = "";
-
 		linkedItems[] = {
-			"ItemMap"
+			"ItemMap",
+			"ls_radios_hush98"
 		};
 		respawnLinkedItems[] = {
-			"ItemMap"
+			"ItemMap",
+			"ls_radios_hush98"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{},{},{},{"tae_uniform_grey_seal",{}},{},{},"","",{},{"ItemMap","","ls_radios_hush98","","",""}};
+		items[] = {};
+		respawnItems[] = {};
 	};
 
 	class TAE_Unit_Player_Acklay: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
 		displayName = "Acklay Member";
-		uniformClass = "tae_uniform_ls_mandalorian";
 
-		ALiVE_orbatCreator_loadout[] = {{},{},{},{"tae_uniform_ls_mandalorian",{}},{},{},"","",{},{"ItemMap","","ls_radios_hush98","","",""}};
+		identityTypes[] = {
+			"TAE_NoFacewear"
+		};
+		goggles = "TAE_NoFacewear";
+		uniformClass = "tae_uniform_ls_mandalorian";
+		weapons[] = {};
+		respawnWeapons[] = {};
+		magazines[] = {};
+		respawnMagazines[] = {};
+		linkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		respawnLinkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		items[] = {};
+		respawnItems[] = {};
 	};
 
 	class TAE_Unit_Player_Foxx: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
 		displayName = "Foxx Member";
+		identityTypes[] = {
+			"TAE_NoFacewear"
+		};
+		goggles = "TAE_NoFacewear";
 		uniformClass = "tae_uniform_grey_seal";
+		linkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		respawnLinkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
 	};
 
 	class TAE_Unit_Player_Rook: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
 		displayName = "Rook Member";
+		identityTypes[] = {
+			"TAE_NoFacewear"
+		};
+		goggles = "TAE_NoFacewear";
 		uniformClass = "tae_uniform_grey_seal";
+		linkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		respawnLinkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
 	};
 
 	class TAE_Unit_Player_Varen: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
 		displayName = "Varen Member";
-		uniformClass = "tae_uniform_black_seal";
 
-		ALiVE_orbatCreator_loadout[] = {{},{},{},{"tae_uniform_black_seal",{}},{},{},"","",{},{"ItemMap","","ls_radios_hush98","","",""}};
+		identityTypes[] = {
+			"TAE_NoFacewear"
+		};
+		goggles = "TAE_NoFacewear";
+		uniformClass = "tae_uniform_black_seal";
+		weapons[] = {};
+		respawnWeapons[] = {};
+		magazines[] = {};
+		respawnMagazines[] = {};
+		linkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		respawnLinkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		items[] = {};
+		respawnItems[] = {};
 	};
 
 	class TAE_Unit_Player_Foundling: TAE_Unit_Base {
@@ -517,6 +573,11 @@ class CfgVehicles {
 		scopeCurator = 0;
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Players";
 		displayName = "Foundling";
+
+		identityTypes[] = {
+			"TAE_NoFacewear"
+		};
+		goggles = "TAE_NoFacewear";
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack";
 		weapons[] = {
@@ -535,13 +596,74 @@ class CfgVehicles {
 		};
 		magazines[] = {
 			"LFP_westarcarabine_Mag",
-			"LFP_Westar35_Mag"
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite"
 		};
 		respawnMagazines[] = {
 			"LFP_westarcarabine_Mag",
-			"LFP_Westar35_Mag"
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite"
 		};
 		linkedItems[] = {
+			"LFP_westarcarabine_scopesn",
 			"tae_karr_armor_medium_fd",
 			"tae_karr_helmet_fd",
 			"ItemMap",
@@ -552,6 +674,7 @@ class CfgVehicles {
 			"tgf_nvg_rangefinder_r"
 		};
 		respawnLinkedItems[] = {
+			"LFP_westarcarabine_scopesn",
 			"tae_karr_armor_medium_fd",
 			"tae_karr_helmet_fd",
 			"ItemMap",
@@ -561,25 +684,475 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-		goggles = "";
-
-		ALiVE_orbatCreator_loadout[] = {{{"LFP_westarcarabine","","","LFP_westarcarabine_scopesn",{"LFP_westarcarabine_Mag",60},{},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"ACE_IR_Strobe_Item",1}}},{"tae_karr_armor_medium_fd",{{"LFP_westarcarabine_Mag",20,60},{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1}}},{"tae_modular_pack",{{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"ACE_splint",4},{"ACE_salineIV_500",3},{"ACE_salineIV",3},{"ACE_morphine",5},{"ACE_epinephrine",5},{"ACE_adenosine",5},{"MTI_BactaPatch",20},{"MTI_BactaSpray",20},{"ACE_painkillers",2,10}}},"tae_karr_helmet_fd","",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 
 	class TAE_Unit_Player_Freelancer: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
 		displayName = "Freelancer";
+		identityTypes[] = {
+			"TAE_NoFacewear"
+		};
+		goggles = "TAE_NoFacewear";
 		uniformClass = "tae_uniform_grey_seal";
+		linkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		respawnLinkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
 	};
 
 	class TAE_Unit_Veteran: TAE_Unit_Base {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "Veteran";
-		backpack = "tae_modular_pack_lr";
 
-		ALiVE_orbatCreator_loadout[] = {{{"LFP_westarcarabine","","","",{"LFP_westarcarabine_Mag",60},{},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1}}},{"tae_karr_armor_medium_mv",{{"LFP_westarcarabine_Mag",20,60},{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1}}},{"tae_modular_pack_lr",{{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"ACE_splint",4},{"ACE_salineIV_500",3},{"ACE_salineIV",3},{"ACE_morphine",5},{"ACE_epinephrine",5},{"ACE_adenosine",5},{"MTI_BactaPatch",20},{"MTI_BactaSpray",20},{"ACE_painkillers",2,10}}},"tae_karr_helmet_mv","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "tae_modular_pack_lr";
+		goggles = "TAE_NoFacewear";
+		weapons[] = {
+			"LFP_westarcarabine",
+			"LFP_Westar_35",
+			"JMSLLTE_W_TD23_white_F",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[] = {
+			"LFP_westarcarabine",
+			"LFP_Westar_35",
+			"JMSLLTE_W_TD23_white_F",
+			"Throw",
+			"Put"
+		};
+		magazines[] = {
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite"
+		};
+		respawnMagazines[] = {
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite"
+		};
+		linkedItems[] = {
+			"tae_karr_armor_medium_mv",
+			"tae_karr_helmet_mv",
+			"ItemMap",
+			"ItemGPS",
+			"ls_radios_hush98",
+			"ItemCompass",
+			"ItemWatch",
+			"tgf_nvg_rangefinder_r"
+		};
+		respawnLinkedItems[] = {
+			"tae_karr_armor_medium_mv",
+			"tae_karr_helmet_mv",
+			"ItemMap",
+			"ItemGPS",
+			"ls_radios_hush98",
+			"ItemCompass",
+			"ItemWatch",
+			"tgf_nvg_rangefinder_r"
+		};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 
 	class TAE_Unit_Engineer: TAE_Unit_Base {
@@ -587,7 +1160,6 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Engineer";
 		icon = "iconManEngineer";
-		backpack = "tae_modular_pack_engi";
 
 		engineer = 1;
 		canDeactivateMines = 1;
@@ -596,6 +1168,93 @@ class CfgVehicles {
 		ACE_IsEngineer = 1;
 		ACE_isEOD = 1;
 
+
+
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "tae_modular_pack_engi";
+		goggles = "TAE_NoFacewear";
+		weapons[] = {
+			"LFP_westarcarabine",
+			"LFP_Westar_35",
+			"JMSLLTE_W_TD23_white_F",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[] = {
+			"LFP_westarcarabine",
+			"LFP_Westar_35",
+			"JMSLLTE_W_TD23_white_F",
+			"Throw",
+			"Put"
+		};
+		magazines[] = {
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite"
+		};
+		respawnMagazines[] = {
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite"
+		};
 		linkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -606,7 +1265,6 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
 		respawnLinkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -617,8 +1275,186 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{{"LFP_westarcarabine","","","",{"LFP_westarcarabine_Mag",60},{},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1},{"ACE_M26_Clacker",1}}},{"tae_karr_armor_medium_mm",{{"LFP_westarcarabine_Mag",20,60},{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1}}},{"tae_modular_pack_engi",{{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"ACE_splint",4},{"ACE_salineIV_500",3},{"ACE_salineIV",3},{"ACE_morphine",5},{"ACE_epinephrine",5},{"ACE_adenosine",5},{"MTI_BactaPatch",20},{"MTI_BactaSpray",20},{"ToolKit",1},{"ACE_painkillers",2,10},{"RTX_RemoteMagazine",3,1}}},"tae_karr_helmet_mm","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_M26_Clacker",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ToolKit",
+			"ACE_painkillers",
+			"ACE_painkillers",
+			"RTX_RemoteMagazine",
+			"RTX_RemoteMagazine",
+			"RTX_RemoteMagazine"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_M26_Clacker",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ToolKit",
+			"ACE_painkillers",
+			"ACE_painkillers",
+			"RTX_RemoteMagazine",
+			"RTX_RemoteMagazine",
+			"RTX_RemoteMagazine"
+		};
 	};
 
 	class TAE_Unit_Medic: TAE_Unit_Base {
@@ -626,11 +1462,97 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Medic";
 		icon = "iconManMedic";
-		backpack = "tae_modular_pack";
 
 		attendant = 1;
 		ace_medical_medicClass = 1;
 
+
+
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "tae_modular_pack";
+		goggles = "TAE_NoFacewear";
+		weapons[] = {
+			"LFP_westarcarabine",
+			"LFP_Westar_35",
+			"JMSLLTE_W_TD23_white_F",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[] = {
+			"LFP_westarcarabine",
+			"LFP_Westar_35",
+			"JMSLLTE_W_TD23_white_F",
+			"Throw",
+			"Put"
+		};
+		magazines[] = {
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite"
+		};
+		respawnMagazines[] = {
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite"
+		};
 		linkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -641,7 +1563,6 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
 		respawnLinkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -652,8 +1573,260 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{{"LFP_westarcarabine","","","",{"LFP_westarcarabine_Mag",60},{},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1}}},{"tae_karr_armor_medium_mm",{{"LFP_westarcarabine_Mag",20,60},{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1}}},{"tae_modular_pack",{{"ACE_surgicalKit",1},{"ACE_tourniquet",5},{"ACE_splint",6},{"ACE_salineIV_500",5},{"ACE_salineIV",5},{"ACE_morphine",10},{"ACE_epinephrine",10},{"ACE_adenosine",10},{"MTI_BactaPatch",30},{"MTI_BactaSpray",30},{"ACE_painkillers",2,10}}},"tae_karr_helmet_mm","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 
 	class TAE_Unit_Marksman: TAE_Unit_Base {
@@ -661,30 +1834,32 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Marksman";
 		icon = "iconManRecon";
+
+
+
+
+
+
+
+		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack";
-
+		goggles = "TAE_NoFacewear";
 		weapons[] = {
-			"JMSLLTE_T21BBlasterRifle",
+			"JLTS_DW32S",
 			"LFP_Westar_35",
 			"JMSLLTE_W_TD23_white_F",
 			"Throw",
 			"Put"
 		};
-
 		respawnWeapons[] = {
-			"JMSLLTE_T21BBlasterRifle",
+			"JLTS_DW32S",
 			"LFP_Westar_35",
 			"JMSLLTE_W_TD23_white_F",
 			"Throw",
 			"Put"
 		};
-
 		magazines[] = {
-			"JMSLLTE_T21B_7rnd_Mag",
-			"JMSLLTE_T21B_7rnd_Mag",
-			"JMSLLTE_T21B_7rnd_Mag",
-			"JMSLLTE_T21B_7rnd_Mag",
-			"JMSLLTE_T21B_7rnd_Mag",
+			"JLTS_DW32S_mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -695,15 +1870,25 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag"
 		};
-
 		respawnMagazines[] = {
-			"JMSLLTE_T21B_7rnd_Mag",
-			"JMSLLTE_T21B_7rnd_Mag",
-			"JMSLLTE_T21B_7rnd_Mag",
-			"JMSLLTE_T21B_7rnd_Mag",
-			"JMSLLTE_T21B_7rnd_Mag",
+			"JLTS_DW32S_mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -714,9 +1899,23 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag"
 		};
-
 		linkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -727,7 +1926,6 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
 		respawnLinkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -738,8 +1936,176 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{{"JLTS_DW32S","","","",{"JLTS_DW32S_mag",10},{},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1}}},{"tae_karr_armor_medium_mm",{{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1},{"JLTS_DW32S_mag",10,10},{"LFP_Westar35_Mag",5,20}}},{"tae_modular_pack",{{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"ACE_splint",4},{"ACE_salineIV_500",3},{"ACE_salineIV",3},{"ACE_morphine",5},{"ACE_epinephrine",5},{"ACE_adenosine",5},{"MTI_BactaPatch",20},{"MTI_BactaSpray",20},{"ACE_painkillers",2,10}}},"tae_karr_helmet_mm","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 
 	class TAE_Unit_AT_AA: TAE_Unit_Base {
@@ -747,8 +2113,16 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "AT/AA";
 		icon = "iconManAT";
-		backpack = "tae_modular_pack";
 
+
+
+
+
+
+
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "tae_modular_pack";
+		goggles = "TAE_NoFacewear";
 		weapons[] = {
 			"LFP_westarcarabine",
 			"JMSLLTE_HH12_launcher",
@@ -757,7 +2131,6 @@ class CfgVehicles {
 			"Throw",
 			"Put"
 		};
-
 		respawnWeapons[] = {
 			"LFP_westarcarabine",
 			"JMSLLTE_HH12_launcher",
@@ -766,49 +2139,84 @@ class CfgVehicles {
 			"Throw",
 			"Put"
 		};
-
 		magazines[] = {
 			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_Westar35_Mag",
 			"JMSLLTE_HH12_AT_Mag",
-			"JMSLLTE_HH12_AA_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"JMSLLTE_HH12_AT_Mag",
+			"JMSLLTE_HH12_AT_Mag",
+			"JMSLLTE_HH12_AT_Mag",
+			"JMSLLTE_HH12_AA_Mag"
 		};
-
 		respawnMagazines[] = {
 			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_Westar35_Mag",
 			"JMSLLTE_HH12_AT_Mag",
-			"JMSLLTE_HH12_AA_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"JMSLLTE_HH12_AT_Mag",
+			"JMSLLTE_HH12_AT_Mag",
+			"JMSLLTE_HH12_AT_Mag",
+			"JMSLLTE_HH12_AA_Mag"
 		};
-
 		linkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -819,7 +2227,6 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
 		respawnLinkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -830,8 +2237,176 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{{"LFP_westarcarabine","","","",{"LFP_westarcarabine_Mag",60},{},""},{"JMSLLTE_HH12_launcher","","","",{"JMSLLTE_HH12_AT_Mag",1},{},""},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1},{"LFP_westarcarabine_Mag",14,60},{"3AS_ThermalDetonator",4,1}}},{"tae_karr_armor_medium_mm",{{"MTI_BactaSpray",20},{"MTI_BactaPatch",20},{"ACE_adenosine",5},{"ACE_epinephrine",5},{"ACE_morphine",5},{"ACE_salineIV",3},{"ACE_salineIV_500",3},{"ACE_splint",4},{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"LFP_westarcarabine_Mag",6,60},{"3AS_ThermalDetonator",1,1},{"3AS_SmokeWhite",5,1},{"ACE_painkillers",2,10}}},{"tae_modular_pack",{{"JMSLLTE_HH12_AT_Mag",3,1},{"JMSLLTE_HH12_AA_Mag",1,1}}},"tae_karr_helmet_mm","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 
 	class TAE_Unit_Grenadier: TAE_Unit_Base {
@@ -839,8 +2414,16 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Grenadier";
 		icon = "iconManExplosive";
-		backpack = "tae_modular_pack";
 
+
+
+
+
+
+
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "tae_modular_pack";
+		goggles = "TAE_NoFacewear";
 		weapons[] = {
 			"IDA_E10_UGL",
 			"LFP_Westar_35",
@@ -848,7 +2431,6 @@ class CfgVehicles {
 			"Throw",
 			"Put"
 		};
-
 		respawnWeapons[] = {
 			"IDA_E10_UGL",
 			"LFP_Westar_35",
@@ -856,21 +2438,9 @@ class CfgVehicles {
 			"Throw",
 			"Put"
 		};
-
 		magazines[] = {
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
-			"IDA_Blaster_Cell_Power3_40Rnd_Red",
-			"IDA_Blaster_Cell_Power3_40Rnd_Red",
-			"IDA_Blaster_Cell_Power3_40Rnd_Red",
-			"IDA_Blaster_Cell_Power3_40Rnd_Red",
 			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -881,23 +2451,30 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"IDA_HE_LauncherGrenade",
+			"IDA_HE_LauncherGrenade",
+			"IDA_HE_LauncherGrenade",
+			"IDA_HE_LauncherGrenade",
+			"IDA_HE_LauncherGrenade",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag"
 		};
-
 		respawnMagazines[] = {
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
-			"IDA_Blaster_Cell_Power3_40Rnd_Red",
-			"IDA_Blaster_Cell_Power3_40Rnd_Red",
-			"IDA_Blaster_Cell_Power3_40Rnd_Red",
-			"IDA_Blaster_Cell_Power3_40Rnd_Red",
 			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -908,10 +2485,30 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"IDA_HE_LauncherGrenade",
+			"IDA_HE_LauncherGrenade",
+			"IDA_HE_LauncherGrenade",
+			"IDA_HE_LauncherGrenade",
+			"IDA_HE_LauncherGrenade",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"IDA_Blaster_Cell_Power3_40Rnd_Red",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag"
 		};
-
 		linkedItems[] = {
+			"acc_flashlight",
+			"IDA_E11_scope",
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
 			"ItemMap",
@@ -921,8 +2518,9 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
 		respawnLinkedItems[] = {
+			"acc_flashlight",
+			"IDA_E11_scope",
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
 			"ItemMap",
@@ -932,8 +2530,176 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{{"IDA_E10_UGL","","acc_flashlight","IDA_E11_scope",{"IDA_Blaster_Cell_Power3_40Rnd_Red",40},{"IDA_HE_LauncherGrenade",1},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1}}},{"tae_karr_armor_medium_mm",{{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1},{"IDA_HE_LauncherGrenade",5,1},{"IDA_Blaster_Cell_Power3_40Rnd_Red",10,40},{"LFP_Westar35_Mag",4,20}}},{"tae_modular_pack",{{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"ACE_splint",4},{"ACE_salineIV_500",3},{"ACE_salineIV",3},{"ACE_morphine",5},{"ACE_epinephrine",5},{"ACE_adenosine",5},{"MTI_BactaPatch",20},{"MTI_BactaSpray",20},{"ACE_painkillers",2,10}}},"tae_karr_helmet_mm","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 
 	class TAE_Unit_CQC_Specialist: TAE_Unit_Base {
@@ -941,8 +2707,16 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "CQC Specialist";
 		icon = "iconMan";
-		backpack = "tae_modular_pack";
 
+
+
+
+
+
+
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "tae_modular_pack";
+		goggles = "TAE_NoFacewear";
 		weapons[] = {
 			"3AS_DP23_F",
 			"LFP_Westar_35",
@@ -950,7 +2724,6 @@ class CfgVehicles {
 			"Throw",
 			"Put"
 		};
-
 		respawnWeapons[] = {
 			"3AS_DP23_F",
 			"LFP_Westar_35",
@@ -958,19 +2731,8 @@ class CfgVehicles {
 			"Throw",
 			"Put"
 		};
-
 		magazines[] = {
 			"3AS_10Rnd_EC30_Pellets",
-			"3AS_10Rnd_EC30_Pellets",
-			"3AS_10Rnd_EC30_Pellets",
-			"3AS_10Rnd_EC30_Pellets",
-			"3AS_10Rnd_ESlug_Mag",
-			"3AS_10Rnd_ESlug_Mag",
-			"3AS_10Rnd_ESlug_Mag",
-			"3AS_10Rnd_ESlug_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -981,21 +2743,14 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag"
 		};
-
 		respawnMagazines[] = {
 			"3AS_10Rnd_EC30_Pellets",
-			"3AS_10Rnd_EC30_Pellets",
-			"3AS_10Rnd_EC30_Pellets",
-			"3AS_10Rnd_EC30_Pellets",
-			"3AS_10Rnd_ESlug_Mag",
-			"3AS_10Rnd_ESlug_Mag",
-			"3AS_10Rnd_ESlug_Mag",
-			"3AS_10Rnd_ESlug_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1006,9 +2761,12 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag"
 		};
-
 		linkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -1019,7 +2777,6 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
 		respawnLinkedItems[] = {
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
@@ -1030,8 +2787,196 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{{"3AS_DP23_F","","","",{"3AS_10Rnd_EC30_Pellets",10},{},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1}}},{"tae_karr_armor_medium_mm",{{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1},{"LFP_Westar35_Mag",4,20},{"3AS_10Rnd_EC30_Pellets",10,10}}},{"tae_modular_pack",{{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"ACE_splint",4},{"ACE_salineIV_500",3},{"ACE_salineIV",3},{"ACE_morphine",5},{"ACE_epinephrine",5},{"ACE_adenosine",5},{"MTI_BactaPatch",20},{"MTI_BactaSpray",20},{"ACE_painkillers",2,10}}},"tae_karr_helmet_mm","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 
 	class TAE_Unit_Heavy_Weapons: TAE_Unit_Base {
@@ -1039,8 +2984,16 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Heavy Weapons";
 		icon = "iconManMG";
-		backpack = "tae_modular_pack";
 
+
+
+
+
+
+
+		uniformClass = "tae_uniform_grey_seal";
+		backpack = "tae_modular_pack";
+		goggles = "TAE_NoFacewear";
 		weapons[] = {
 			"3AS_DLT19",
 			"LFP_Westar_35",
@@ -1048,7 +3001,6 @@ class CfgVehicles {
 			"Throw",
 			"Put"
 		};
-
 		respawnWeapons[] = {
 			"3AS_DLT19",
 			"LFP_Westar_35",
@@ -1056,16 +3008,8 @@ class CfgVehicles {
 			"Throw",
 			"Put"
 		};
-
 		magazines[] = {
 			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1076,18 +3020,24 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag"
 		};
-
 		respawnMagazines[] = {
 			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1098,10 +3048,24 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag"
 		};
-
 		linkedItems[] = {
+			"3AS_Imp_Optic_2",
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
 			"ItemMap",
@@ -1111,8 +3075,8 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
 		respawnLinkedItems[] = {
+			"3AS_Imp_Optic_2",
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
 			"ItemMap",
@@ -1122,8 +3086,176 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{{"3AS_DLT19","","","3AS_Imp_Optic_2",{"3AS_200Rnd_EM40_DLT19_Mag",200},{},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1}}},{"tae_karr_armor_medium_mm",{{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1},{"LFP_Westar35_Mag",4,20},{"3AS_200Rnd_EM40_DLT19_Mag",10,200}}},{"tae_modular_pack",{{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"ACE_splint",4},{"ACE_salineIV_500",3},{"ACE_salineIV",3},{"ACE_morphine",5},{"ACE_epinephrine",5},{"ACE_adenosine",5},{"MTI_BactaPatch",20},{"MTI_BactaSpray",20},{"ACE_painkillers",2,10}}},"tae_karr_helmet_mm","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 
 	class TAE_Unit_Sniper: TAE_Unit_Base {
@@ -1131,33 +3263,32 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Sniper";
 		icon = "iconManRecon";
+
+
+
+
+
+
+
+		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack";
-
+		goggles = "TAE_NoFacewear";
 		weapons[] = {
-			"IDA_Galaar90",
+			"tae_IQA12",
 			"LFP_Westar_35",
 			"JMSLLTE_W_TD23_white_F",
 			"Throw",
 			"Put"
 		};
-
 		respawnWeapons[] = {
-			"IDA_Galaar90",
+			"tae_IQA12",
 			"LFP_Westar_35",
 			"JMSLLTE_W_TD23_white_F",
 			"Throw",
 			"Put"
 		};
-
 		magazines[] = {
 			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1168,18 +3299,24 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow"
 		};
-
 		respawnMagazines[] = {
 			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1190,10 +3327,24 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite"
+			"3AS_SmokeWhite",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"IDA_Blaster_Cell_Power5_5Rnd_Yellow"
 		};
-
 		linkedItems[] = {
+			"tae_TargetingScope_FP2",
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
 			"ItemMap",
@@ -1203,8 +3354,8 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
 		respawnLinkedItems[] = {
+			"tae_TargetingScope_FP2",
 			"tae_karr_armor_medium_mm",
 			"tae_karr_helmet_mm",
 			"ItemMap",
@@ -1214,8 +3365,176 @@ class CfgVehicles {
 			"ItemWatch",
 			"tgf_nvg_rangefinder_r"
 		};
-
-		ALiVE_orbatCreator_loadout[] = {{{"tae_IQA12","","","tae_TargetingScope_FP2",{"IDA_Blaster_Cell_Power5_5Rnd_Yellow",5},{},""},{},{"LFP_Westar_35","","","",{"LFP_Westar35_Mag",20},{},""}},{"tae_uniform_grey_seal",{{"MineDetector",1},{"ACE_MapTools",1},{"ACE_Flashlight_XL50",1},{"ACE_EntrenchingTool",1},{"ACE_CableTie",5},{"MTI_catTab_tablet",1},{"ACE_IR_Strobe_Item",1}}},{"tae_karr_armor_medium_mm",{{"3AS_ThermalDetonator",5,1},{"3AS_SmokeWhite",5,1},{"LFP_Westar35_Mag",4,20},{"IDA_Blaster_Cell_Power5_5Rnd_Yellow",10,5}}},{"tae_modular_pack",{{"ACE_surgicalKit",1},{"ACE_tourniquet",4},{"ACE_splint",4},{"ACE_salineIV_500",3},{"ACE_salineIV",3},{"ACE_morphine",5},{"ACE_epinephrine",5},{"ACE_adenosine",5},{"MTI_BactaPatch",20},{"MTI_BactaSpray",20},{"ACE_painkillers",2,10}}},"tae_karr_helmet_mm","tgf_facewear_medium_belt",{"JMSLLTE_W_TD23_white_F","","","",{},{},""},{"ItemMap","ItemGPS","ls_radios_hush98","ItemCompass","ItemWatch","tgf_nvg_rangefinder_r"}};
+		items[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
+		respawnItems[] = {
+			"MineDetector",
+			"ACE_MapTools",
+			"ACE_Flashlight_XL50",
+			"ACE_EntrenchingTool",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"ACE_CableTie",
+			"MTI_catTab_tablet",
+			"ACE_IR_Strobe_Item",
+			"ACE_surgicalKit",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_tourniquet",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_splint",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV_500",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_salineIV",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_morphine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_epinephrine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"ACE_adenosine",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaPatch",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"MTI_BactaSpray",
+			"ACE_painkillers",
+			"ACE_painkillers"
+		};
 	};
 	class TAE_Unit_BSC_Base: TAE_Unit_HitPoint_Base {
 		scope = 0;
@@ -1226,7 +3545,7 @@ class CfgVehicles {
 		editorPreview = "\TAEUnits\data\previews\Karr.paa";
 		side = 2;
 		genericNames = "TAE_GenericNames_HouseKarr";
-		identityTypes[] = {"LanguageENG_F","Head_NATO","NoGlasses"};
+		identityTypes[] = {"LanguageENG_F","Head_NATO","TAE_NoFacewear"};
 		icon = "iconMan";
 		uniformClass = "ls_imperialUniform_army_r_black";
 		backpack = "JMSLLTE_back_rebpack_v1_black";
@@ -1246,7 +3565,118 @@ class CfgVehicles {
 		displayName = "Cartel Rifleman";
 		role = "Rifleman";
 
-		ALiVE_orbatCreator_loadout[] = {{{"3AS_DC15S_F","","","",{"3AS_60Rnd_EC30_mag",60},{},""},{},{"JMSLLTE_dt12pistol","","","",{"JMSLLTE_DT12_50rnd_Mag",50},{},""}},{"ls_imperialUniform_army_r_black",{{"ACE_fieldDressing",1},{"ACE_packingBandage",1},{"ACE_morphine",1},{"ACE_tourniquet",1},{"JMSLLTE_thermaldetonator_HandGrenade",2,1}}},{"ls_imperialVest_army_light_black_h",{{"3AS_ThermalDetonator",2,1},{"3AS_SmokeWhite",3,1},{"JMSLLTE_DT12_50rnd_Mag",2,50},{"3AS_5Rnd_Stun_Mag",2,5},{"3AS_60Rnd_EC30_mag",10,60}}},{"JMSLLTE_back_rebpack_v1_black",{{"FirstAidKit",10}}},"IDA_Clone_Elite_Trooper_P2_Helmet","",{},{"ItemMap","","TFAR_anprc148jem","ItemCompass","ItemWatch",""}};
+		uniformClass = "ls_imperialUniform_army_r_black";
+		backpack = "JMSLLTE_back_rebpack_v1_black";
+		weapons[] = {
+			"3AS_DC15S_F",
+			"JMSLLTE_dt12pistol",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[] = {
+			"3AS_DC15S_F",
+			"JMSLLTE_dt12pistol",
+			"Throw",
+			"Put"
+		};
+		magazines[] = {
+			"3AS_60Rnd_EC30_mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag"
+		};
+		respawnMagazines[] = {
+			"3AS_60Rnd_EC30_mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag"
+		};
+		linkedItems[] = {
+			"ls_imperialVest_army_light_black_h",
+			"IDA_Clone_Elite_Trooper_P2_Helmet",
+			"ItemMap",
+			"TFAR_anprc148jem",
+			"ItemCompass",
+			"ItemWatch"
+		};
+		respawnLinkedItems[] = {
+			"ls_imperialVest_army_light_black_h",
+			"IDA_Clone_Elite_Trooper_P2_Helmet",
+			"ItemMap",
+			"TFAR_anprc148jem",
+			"ItemCompass",
+			"ItemWatch"
+		};
+		items[] = {
+			"ACE_fieldDressing",
+			"ACE_packingBandage",
+			"ACE_morphine",
+			"ACE_tourniquet",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit"
+		};
+		respawnItems[] = {
+			"ACE_fieldDressing",
+			"ACE_packingBandage",
+			"ACE_morphine",
+			"ACE_tourniquet",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit"
+		};
 	};
 
 	class TAE_Unit_BSC_Heavy_Gunner: TAE_Unit_BSC_Base {
@@ -1254,12 +3684,103 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Cartel Heavy Gunner";
 		role = "MachineGunner";
-		weapons[] = {"3AS_Z6_F","JMSLLTE_dt12pistol","Throw","Put"};
-		respawnWeapons[] = {"3AS_Z6_F","JMSLLTE_dt12pistol","Throw","Put"};
-		magazines[] = {"3AS_300Rnd_EC60_Mag","JMSLLTE_DT12_50rnd_Mag"};
-		respawnMagazines[] = {"3AS_300Rnd_EC60_Mag","JMSLLTE_DT12_50rnd_Mag"};
 
-		ALiVE_orbatCreator_loadout[] = {{{"3AS_Z6_F","","","",{"3AS_300Rnd_EC60_Mag",300},{},""},{},{"JMSLLTE_dt12pistol","","","",{"JMSLLTE_DT12_50rnd_Mag",50},{},""}},{"ls_imperialUniform_army_r_black",{{"ACE_fieldDressing",1},{"ACE_packingBandage",1},{"ACE_morphine",1},{"ACE_tourniquet",1},{"JMSLLTE_thermaldetonator_HandGrenade",2,1}}},{"ls_imperialVest_army_light_black_h",{{"3AS_ThermalDetonator",2,1},{"3AS_SmokeWhite",3,1},{"JMSLLTE_DT12_50rnd_Mag",2,50},{"3AS_5Rnd_Stun_Mag",2,5},{"3AS_300Rnd_EC60_Mag",2,300}}},{"JMSLLTE_back_rebpack_v1_black",{{"FirstAidKit",10}}},"IDA_Clone_Elite_Trooper_P2_Helmet","",{},{"ItemMap","","TFAR_anprc148jem","ItemCompass","ItemWatch",""}};
+		uniformClass = "ls_imperialUniform_army_r_black";
+		backpack = "JMSLLTE_back_rebpack_v1_black";
+		weapons[] = {
+			"3AS_Z6_F",
+			"JMSLLTE_dt12pistol",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[] = {
+			"3AS_Z6_F",
+			"JMSLLTE_dt12pistol",
+			"Throw",
+			"Put"
+		};
+		magazines[] = {
+			"3AS_300Rnd_EC60_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_300Rnd_EC60_Mag",
+			"3AS_300Rnd_EC60_Mag"
+		};
+		respawnMagazines[] = {
+			"3AS_300Rnd_EC60_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_300Rnd_EC60_Mag",
+			"3AS_300Rnd_EC60_Mag"
+		};
+		linkedItems[] = {
+			"ls_imperialVest_army_light_black_h",
+			"IDA_Clone_Elite_Trooper_P2_Helmet",
+			"ItemMap",
+			"TFAR_anprc148jem",
+			"ItemCompass",
+			"ItemWatch"
+		};
+		respawnLinkedItems[] = {
+			"ls_imperialVest_army_light_black_h",
+			"IDA_Clone_Elite_Trooper_P2_Helmet",
+			"ItemMap",
+			"TFAR_anprc148jem",
+			"ItemCompass",
+			"ItemWatch"
+		};
+		items[] = {
+			"ACE_fieldDressing",
+			"ACE_packingBandage",
+			"ACE_morphine",
+			"ACE_tourniquet",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit"
+		};
+		respawnItems[] = {
+			"ACE_fieldDressing",
+			"ACE_packingBandage",
+			"ACE_morphine",
+			"ACE_tourniquet",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit"
+		};
 	};
 
 	class TAE_Unit_BSC_Grenadier: TAE_Unit_BSC_Base {
@@ -1267,10 +3788,125 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Cartel Grenadier";
 		role = "Grenadier";
-		weapons[] = {"3AS_DC15S_GL","JMSLLTE_dt12pistol","Throw","Put"};
-		respawnWeapons[] = {"3AS_DC15S_GL","JMSLLTE_dt12pistol","Throw","Put"};
 
-		ALiVE_orbatCreator_loadout[] = {{{"3AS_DC15S_GL","","","",{"3AS_60Rnd_EC30_mag",60},{"3AS_3Rnd_HE_Grenade_shell",3},""},{},{"JMSLLTE_dt12pistol","","","",{"JMSLLTE_DT12_50rnd_Mag",50},{},""}},{"ls_imperialUniform_army_r_black",{{"ACE_fieldDressing",1},{"ACE_packingBandage",1},{"ACE_morphine",1},{"ACE_tourniquet",1},{"JMSLLTE_thermaldetonator_HandGrenade",2,1}}},{"ls_imperialVest_army_light_black_h",{{"3AS_ThermalDetonator",2,1},{"3AS_SmokeWhite",3,1},{"JMSLLTE_DT12_50rnd_Mag",2,50},{"3AS_5Rnd_Stun_Mag",2,5},{"3AS_60Rnd_EC30_mag",8,60},{"3AS_3Rnd_HE_Grenade_shell",4,3}}},{"JMSLLTE_back_rebpack_v1_black",{{"FirstAidKit",10}}},"IDA_Clone_Elite_Trooper_P2_Helmet","",{},{"ItemMap","","TFAR_anprc148jem","ItemCompass","ItemWatch",""}};
+		uniformClass = "ls_imperialUniform_army_r_black";
+		backpack = "JMSLLTE_back_rebpack_v1_black";
+		weapons[] = {
+			"3AS_DC15S_GL",
+			"JMSLLTE_dt12pistol",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[] = {
+			"3AS_DC15S_GL",
+			"JMSLLTE_dt12pistol",
+			"Throw",
+			"Put"
+		};
+		magazines[] = {
+			"3AS_60Rnd_EC30_mag",
+			"3AS_3Rnd_HE_Grenade_shell",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_3Rnd_HE_Grenade_shell",
+			"3AS_3Rnd_HE_Grenade_shell",
+			"3AS_3Rnd_HE_Grenade_shell",
+			"3AS_3Rnd_HE_Grenade_shell"
+		};
+		respawnMagazines[] = {
+			"3AS_60Rnd_EC30_mag",
+			"3AS_3Rnd_HE_Grenade_shell",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_3Rnd_HE_Grenade_shell",
+			"3AS_3Rnd_HE_Grenade_shell",
+			"3AS_3Rnd_HE_Grenade_shell",
+			"3AS_3Rnd_HE_Grenade_shell"
+		};
+		linkedItems[] = {
+			"ls_imperialVest_army_light_black_h",
+			"IDA_Clone_Elite_Trooper_P2_Helmet",
+			"ItemMap",
+			"TFAR_anprc148jem",
+			"ItemCompass",
+			"ItemWatch"
+		};
+		respawnLinkedItems[] = {
+			"ls_imperialVest_army_light_black_h",
+			"IDA_Clone_Elite_Trooper_P2_Helmet",
+			"ItemMap",
+			"TFAR_anprc148jem",
+			"ItemCompass",
+			"ItemWatch"
+		};
+		items[] = {
+			"ACE_fieldDressing",
+			"ACE_packingBandage",
+			"ACE_morphine",
+			"ACE_tourniquet",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit"
+		};
+		respawnItems[] = {
+			"ACE_fieldDressing",
+			"ACE_packingBandage",
+			"ACE_morphine",
+			"ACE_tourniquet",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit"
+		};
 	};
 
 	class TAE_Unit_BSC_Missile_Specialist: TAE_Unit_BSC_Base {
@@ -1278,12 +3914,125 @@ class CfgVehicles {
 		scopeCurator = 2;
 		displayName = "Cartel Missile Specialist";
 		role = "MissileSpecialist";
-		weapons[] = {"3AS_DC15S_F","3AS_PLX1_F","JMSLLTE_dt12pistol","Throw","Put"};
-		respawnWeapons[] = {"3AS_DC15S_F","3AS_PLX1_F","JMSLLTE_dt12pistol","Throw","Put"};
-		magazines[] = {"3AS_60Rnd_EC30_mag","3AS_JLTS_MK43_AT","JMSLLTE_DT12_50rnd_Mag"};
-		respawnMagazines[] = {"3AS_60Rnd_EC30_mag","3AS_JLTS_MK43_AT","JMSLLTE_DT12_50rnd_Mag"};
 
-		ALiVE_orbatCreator_loadout[] = {{{"3AS_DC15S_F","","","",{"3AS_60Rnd_EC30_mag",60},{},""},{"3AS_PLX1_F","","","",{"3AS_JLTS_MK43_AT",1},{},""},{"JMSLLTE_dt12pistol","","","",{"JMSLLTE_DT12_50rnd_Mag",50},{},""}},{"ls_imperialUniform_army_r_black",{{"ACE_fieldDressing",1},{"ACE_packingBandage",1},{"ACE_morphine",1},{"ACE_tourniquet",1},{"JMSLLTE_thermaldetonator_HandGrenade",2,1}}},{"ls_imperialVest_army_light_black_h",{{"3AS_ThermalDetonator",2,1},{"3AS_SmokeWhite",3,1},{"JMSLLTE_DT12_50rnd_Mag",2,50},{"3AS_5Rnd_Stun_Mag",2,5},{"3AS_60Rnd_EC30_mag",10,60}}},{"JMSLLTE_back_rebpack_v1_black",{{"FirstAidKit",10},{"3AS_JLTS_MK43_AT",1,1}}},"IDA_Clone_Elite_Trooper_P2_Helmet","",{},{"ItemMap","","TFAR_anprc148jem","ItemCompass","ItemWatch",""}};
+		uniformClass = "ls_imperialUniform_army_r_black";
+		backpack = "JMSLLTE_back_rebpack_v1_black";
+		weapons[] = {
+			"3AS_DC15S_F",
+			"3AS_PLX1_F",
+			"JMSLLTE_dt12pistol",
+			"Throw",
+			"Put"
+		};
+		respawnWeapons[] = {
+			"3AS_DC15S_F",
+			"3AS_PLX1_F",
+			"JMSLLTE_dt12pistol",
+			"Throw",
+			"Put"
+		};
+		magazines[] = {
+			"3AS_60Rnd_EC30_mag",
+			"3AS_JLTS_MK43_AT",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag"
+		};
+		respawnMagazines[] = {
+			"3AS_60Rnd_EC30_mag",
+			"3AS_JLTS_MK43_AT",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"JMSLLTE_thermaldetonator_HandGrenade",
+			"3AS_ThermalDetonator",
+			"3AS_ThermalDetonator",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"3AS_SmokeWhite",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"JMSLLTE_DT12_50rnd_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_5Rnd_Stun_Mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag",
+			"3AS_60Rnd_EC30_mag"
+		};
+		linkedItems[] = {
+			"ls_imperialVest_army_light_black_h",
+			"IDA_Clone_Elite_Trooper_P2_Helmet",
+			"ItemMap",
+			"TFAR_anprc148jem",
+			"ItemCompass",
+			"ItemWatch"
+		};
+		respawnLinkedItems[] = {
+			"ls_imperialVest_army_light_black_h",
+			"IDA_Clone_Elite_Trooper_P2_Helmet",
+			"ItemMap",
+			"TFAR_anprc148jem",
+			"ItemCompass",
+			"ItemWatch"
+		};
+		items[] = {
+			"ACE_fieldDressing",
+			"ACE_packingBandage",
+			"ACE_morphine",
+			"ACE_tourniquet",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"3AS_JLTS_MK43_AT"
+		};
+		respawnItems[] = {
+			"ACE_fieldDressing",
+			"ACE_packingBandage",
+			"ACE_morphine",
+			"ACE_tourniquet",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"FirstAidKit",
+			"3AS_JLTS_MK43_AT"
+		};
 	};
 };
 
