@@ -17,6 +17,7 @@ class CfgPatches {
 			"tae_karr_helmet_niteowl_mv",
 			"tae_hondo_helmet",
 			"tae_teka_helmet",
+			"tae_shyyyo_helmet",
 			"tae_acklay_helmet",
 			"tae_acklay_rangefinder",
 			"tae_acklay_niteowl_helmet",
@@ -87,16 +88,32 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Teka","Nox" };
+				values[] = { "Hondo","Nox" };
 
 				class Hondo {
 					label = "Hondo";
 				};
+				class Nox {
+					label = "Nox";
+				};
+			};
+		};
+
+		class TAE_pilot_helmets {
+			label = "Pilot Helmets";
+			author = "TAE Aux Mod Team";
+			options[] = { "owner" };
+
+			class owner {
+				alwaysSelectable = 1;
+				label = "Owner";
+				values[] = { "Teka","Shyyyo" };
+
 				class Teka {
 					label = "Teka";
 				};
-				class Nox {
-					label = "Nox";
+				class Shyyyo {
+					label = "Shyyyo";
 				};
 			};
 		};
@@ -267,8 +284,12 @@ class XtdGearInfos {
 			owner = "Hondo";
 		};
 		class tae_teka_helmet {
-			model = "TAE_freelancer_helmets";
+			model = "TAE_pilot_helmets";
 			owner = "Teka";
+		};
+		class tae_shyyyo_helmet {
+			model = "TAE_pilot_helmets";
+			owner = "Shyyyo";
 		};
 		class tae_nox_helmet {
 			model = "TAE_freelancer_helmets";
@@ -594,6 +615,19 @@ class CfgWeapons {
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2","camo"};
 			hiddenSelectionsTextures[] = {"TAEGear\data\Teka\PLT_Helmet_Teka.paa","TAEGear\data\Teka\PLT_Visor_Teka.paa","TAEGear\data\Teka\PLT_Lights_Teka.paa"};
+		};
+	};
+	class tae_shyyyo_helmet : tae_helmet_pilot {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Shyyyo";
+		displayName = "Shyyyo Pilot Helmet";
+		hiddenSelections[] = {"camo1","camo2","camo"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Visor_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Lights_Shyyyo.paa"};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2","camo"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Visor_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Lights_Shyyyo.paa"};
 		};
 	};
 	

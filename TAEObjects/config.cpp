@@ -421,13 +421,13 @@ class CfgVehicles {
 	class TAE_Wearable_Teka_Helmet: TAE_Wearable_Helmet_Base {
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "Teka Helmet";
+		displayName = "Shyyyo Pilot Helmet";
 		model = "\z\tgf\addons\helmets\pilot\pilot_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2","camo"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Teka\PLT_Helmet_Teka.paa",
-			"\TAEGear\data\Teka\PLT_Visor_Teka.paa",
-			"\TAEGear\data\Teka\PLT_Lights_Teka.paa"
+			"\TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo.paa",
+			"\TAEGear\data\Shyyyo\PLT_Visor_Shyyyo.paa",
+			"\TAEGear\data\Shyyyo\PLT_Lights_Shyyyo.paa"
 		};
 
 		class ACE_Actions {
@@ -444,10 +444,10 @@ class CfgVehicles {
 					statement = "[_player,'tae_teka_armor','tae_teka_helmet','','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
-				class TAE_PutOnPilotArmor {
-					displayName = "Put On Pilot Armor";
+				class TAE_PutOnShyyyoArmor {
+					displayName = "Put On Shyyyo Armor";
 					condition = "true";
-					statement = "[_player,'tae_karr_armor_medium_mr','tgf_helmets_pilot','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_shyyyo_recon_armor','tae_shyyyo_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};

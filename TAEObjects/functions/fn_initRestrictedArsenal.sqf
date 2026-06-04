@@ -556,6 +556,8 @@ private _items = [
 	"tae_hondo_helmet",
 	"tae_teka_armor",
 	"tae_teka_helmet",
+	"tae_shyyyo_recon_armor",
+	"tae_shyyyo_helmet",
 	"tae_edonn_armor",
 	"tae_foxx_armor",
 	"tae_rook_armor",

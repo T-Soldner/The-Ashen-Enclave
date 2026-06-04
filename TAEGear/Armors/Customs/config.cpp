@@ -17,6 +17,7 @@ class CfgPatches {
 			"tae_karr_armor_niteowl_mv",
 			"tae_hondo_armor",
 			"tae_teka_armor",
+			"tae_shyyyo_recon_armor",
 			"tae_acklay_armor",
 			"tae_acklay_niteowl_armor",
 			"tae_edonn_armor",
@@ -75,15 +76,28 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Teka","Nox" };
+				values[] = { "Hondo","Nox" };
 				class Hondo {
 					label = "Hondo";
 				};
+				class Nox {
+					label = "Nox";
+				};
+			};
+		};
+		class TAE_pilot_vests {
+			label = "Pilot Vests";
+			author = "TAE Aux Mod Team";
+			options[] = { "owner" };
+			class owner {
+				alwaysSelectable = 1;
+				label = "Owner";
+				values[] = { "Teka","Shyyyo" };
 				class Teka {
 					label = "Teka";
 				};
-				class Nox {
-					label = "Nox";
+				class Shyyyo {
+					label = "Shyyyo";
 				};
 			};
 		};
@@ -94,9 +108,9 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl","Edonn","Jimothy" };
-				class Standard {
-					label = "Standard";
+				values[] = { "Acklay","Niteowl","Edonn","Jimothy" };
+				class Acklay {
+					label = "Clan Acklay LS";
 				};
 				class Niteowl {
 					label = "Nite owl";
@@ -212,8 +226,12 @@ class XtdGearInfos {
 			owner	= "Hondo";
 		};
 		class tae_teka_armor {
-			model	= "TAE_freelancer_vests";
+			model	= "TAE_pilot_vests";
 			owner	= "Teka";
+		};
+		class tae_shyyyo_recon_armor {
+			model	= "TAE_pilot_vests";
+			owner	= "Shyyyo";
 		};
 		class tae_nox_armor {
 			model	= "TAE_freelancer_vests";
@@ -223,7 +241,7 @@ class XtdGearInfos {
 		//Acklay
 		class tae_acklay_armor {
 			model	= "TAE_acklay_vests";
-			owner	= "Standard";
+			owner	= "Acklay";
 		};
 		class tae_acklay_niteowl_armor {
 			model	= "TAE_acklay_vests";
@@ -516,6 +534,26 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Teka\MED_Armor_Teka.paa",
 				"TAEGear\data\Teka\MED_Brace_Teka.paa"
+			};
+		};
+	};
+	class tae_shyyyo_recon_armor : tae_armor_recon {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Shyyyo";
+		displayName = "Shyyyo Recon Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Shyyyo\REC_Armor_Shyyyo.paa",
+			"TAEGear\data\Shyyyo\REC_Brace_Shyyyo.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Shyyyo\REC_Armor_Shyyyo.paa",
+				"TAEGear\data\Shyyyo\REC_Brace_Shyyyo.paa"
 			};
 		};
 	};
