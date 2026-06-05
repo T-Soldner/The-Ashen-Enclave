@@ -17,6 +17,7 @@ class CfgPatches {
 			"tgf_helmets",
 			"TAEGear_Helmets_Customs",
 			"TAEGear_Armors_Customs",
+			"TAEDrones",
 			"mti_armoury_props_locker",
 			"SFA_Structure_Bed",
 			"knd_crates"

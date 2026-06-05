@@ -1,0 +1,13 @@
+name                    = "The Ashen Enclave TFAR Setter";
+author                  = "Chatter and M3ales; TAE Mod Team";
+tooltipOwned            = "The Ashen Enclave TFAR Setter";
+picture                 = "ATSR_Logo.paa";
+logoSmall               = "ATSR_Logo.paa";
+logo                    = "ATSR_Logo.paa";
+logoOver                = "ATSR_Logo.paa";
+hideName                = 0;
+hidePicture             = 0;
+actionName              = "Github";
+action                  = "https://github.com/chatterchats/ASTRS";
+description             = "TAE-packaged version of ASTRS by Chatter and M3ales, adapted for the TFAR beta tfar_core dependency.";
+overview                = "Save and load TFAR radio settings through ACE Self Interactions. Based on MIT-licensed ASTRS by Chatter and M3ales.";

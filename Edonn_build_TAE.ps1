@@ -7,7 +7,7 @@
 param(
     [string]$SourceRoot,
     [string]$ArmaRoot = "D:\SteamLibrary\steamapps\common\Arma 3",
-    [string]$ArmaToolsRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools",
+    [string]$ArmaToolsRoot = "D:\SteamLibrary\steamapps\common\Arma 3 Tools",
     [string]$ModFolderName = "@The Ashen Enclave",
     [string]$KeyName = "AshenEnclave",
     [switch]$NoPause
@@ -29,6 +29,9 @@ $addons = @(
     "TAEInsignias",
 	"TAEWeapons",
 	"TAEGear",
+	"TAEDrones",
+	"TAEASTRS",
+	"TAEJLTSCompat",
 	"TAEUnits",
 	"TAEObjects",
 	"TAEVehicles"

@@ -23,6 +23,9 @@ $addons = @(
     "TAEInsignias",
     "TAEWeapons",
     "TAEGear",
+    "TAEDrones",
+    "TAEASTRS",
+    "TAEJLTSCompat",
     "TAEUnits",
     "TAEObjects",
     "TAEVehicles"
