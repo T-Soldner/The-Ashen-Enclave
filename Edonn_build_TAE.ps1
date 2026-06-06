@@ -9,6 +9,8 @@ param(
     [string]$ArmaRoot = "D:\SteamLibrary\steamapps\common\Arma 3",
     [string]$ArmaToolsRoot = "D:\SteamLibrary\steamapps\common\Arma 3 Tools",
     [string]$ModFolderName = "@The Ashen Enclave",
+    [string]$SoldnerMusicSourceRoot = "D:\GitHub\Soldner-Music-Mod",
+    [string]$SoldnerMusicModFolderName = "@Soldner's Music Mod",
     [string]$KeyName = "AshenEnclave",
     [switch]$NoPause
 )
@@ -20,6 +22,8 @@ $dsSignFile = Join-Path $ArmaToolsRoot "DSSignFile\DSSignFile.exe"
 
 $outputRoot = Join-Path $ArmaRoot "$ModFolderName\Addons"
 $keysRoot = Join-Path $ArmaRoot "$ModFolderName\Keys"
+$soldnerMusicOutputRoot = Join-Path $ArmaRoot "$SoldnerMusicModFolderName\Addons"
+$soldnerMusicKeysRoot = Join-Path $ArmaRoot "$SoldnerMusicModFolderName\Keys"
 
 $privateKey = Join-Path $ArmaToolsRoot "DSSignFile\$KeyName.biprivatekey"
 $publicKey = Join-Path $ArmaToolsRoot "DSSignFile\$KeyName.bikey"
@@ -35,6 +39,11 @@ $addons = @(
 	"TAEUnits",
 	"TAEObjects",
 	"TAEVehicles"
+)
+
+$soldnerMusicAddons = @(
+    "SoldnerMusic",
+    "SoldnerMusicCore"
 )
 
 $failures = New-Object System.Collections.Generic.List[string]
@@ -107,10 +116,18 @@ try {
     Stop-Build "Source root not found at: $SourceRoot"
 }
 
+try {
+    $soldnerMusicSourceRoot = (Resolve-Path -LiteralPath $SoldnerMusicSourceRoot).Path
+} catch {
+    Stop-Build "Soldner music source root not found at: $SoldnerMusicSourceRoot"
+}
+
 Write-Host "============================================================" -ForegroundColor DarkGray
 Write-Host "The Ashen Enclave - Edonn Build" -ForegroundColor Cyan
 Write-Host "Source: $sourceRoot" -ForegroundColor Gray
 Write-Host "Output: $outputRoot" -ForegroundColor Gray
+Write-Host "Soldner Music Source: $soldnerMusicSourceRoot" -ForegroundColor Gray
+Write-Host "Soldner Music Output: $soldnerMusicOutputRoot" -ForegroundColor Gray
 Write-Host "Key: $KeyName" -ForegroundColor Gray
 Write-Host "============================================================" -ForegroundColor DarkGray
 Write-Host ""
@@ -121,10 +138,14 @@ Test-RequiredPath -Path $privateKey -Description "Private key"
 
 New-Item -ItemType Directory -Path $outputRoot -Force | Out-Null
 New-Item -ItemType Directory -Path $keysRoot -Force | Out-Null
+New-Item -ItemType Directory -Path $soldnerMusicOutputRoot -Force | Out-Null
+New-Item -ItemType Directory -Path $soldnerMusicKeysRoot -Force | Out-Null
 
 if (Test-Path -LiteralPath $publicKey) {
     Copy-Item -LiteralPath $publicKey -Destination $keysRoot -Force
     Write-Host "Copied $KeyName.bikey to mod Keys folder." -ForegroundColor Green
+    Copy-Item -LiteralPath $publicKey -Destination $soldnerMusicKeysRoot -Force
+    Write-Host "Copied $KeyName.bikey to Soldner music Keys folder." -ForegroundColor Green
 } else {
     Write-Host "WARNING: $KeyName.bikey not found. Skipping public key copy." -ForegroundColor Yellow
     Write-Host $publicKey -ForegroundColor Yellow
@@ -157,7 +178,6 @@ foreach ($addon in $addons) {
     $addonBuilderResult = Invoke-NativeTool -FilePath $addonBuilder -Arguments @(
         $sourcePath,
         $outputRoot,
-        "-packonly",
         "-clear",
         "-prefix=$addon"
     )
@@ -183,6 +203,74 @@ foreach ($addon in $addons) {
     }
 
     Write-Host "Finished packing $addon" -ForegroundColor Green
+    Write-Host "Signing $addon.pbo with $KeyName.biprivatekey..." -ForegroundColor Cyan
+
+    $signResult = Invoke-NativeTool -FilePath $dsSignFile -Arguments @($privateKey, $pboPath)
+    $signExitCode = $signResult.ExitCode
+    $signResult.Output | ForEach-Object { Write-Host $_ }
+
+    if ($signExitCode -eq 0) {
+        Write-Host "Signed $addon.pbo" -ForegroundColor Green
+    } else {
+        $message = "Signing $addon.pbo failed. Exit code: $signExitCode"
+        $failures.Add($message)
+        Write-Host "ERROR: $message" -ForegroundColor Red
+    }
+
+    Write-Host ""
+}
+
+foreach ($addon in $soldnerMusicAddons) {
+    $sourcePath = Join-Path $soldnerMusicSourceRoot $addon
+    $pboPath = Join-Path $soldnerMusicOutputRoot "$addon.pbo"
+
+    if (-not (Test-Path -LiteralPath $sourcePath)) {
+        $message = "Source folder not found for $addon at $sourcePath"
+        $failures.Add($message)
+        Write-Host "ERROR: $message" -ForegroundColor Red
+        Write-Host ""
+        continue
+    }
+
+    Write-Host "Packing $addon for Soldner music mod without binarization..." -ForegroundColor Cyan
+
+    # Clear stale output first so a failed build cannot look successful.
+    if (Test-Path -LiteralPath $pboPath) {
+        Remove-Item -LiteralPath $pboPath -Force
+    }
+
+    Get-ChildItem -LiteralPath $soldnerMusicOutputRoot -Filter "$addon.pbo.*.bisign" -ErrorAction SilentlyContinue |
+        Remove-Item -Force
+
+    $addonBuilderResult = Invoke-NativeTool -FilePath $addonBuilder -Arguments @(
+        $sourcePath,
+        $soldnerMusicOutputRoot,
+        "-packonly",
+        "-clear",
+        "-prefix=$addon"
+    )
+
+    $addonBuilderOutput = $addonBuilderResult.Output
+    $addonBuilderExitCode = $addonBuilderResult.ExitCode
+    $addonBuilderOutput | ForEach-Object { Write-Host $_ }
+
+    if (($addonBuilderExitCode -ne 0) -or (($addonBuilderOutput | Out-String) -match "(\[ERROR\]|Build failed)")) {
+        $message = "Packing $addon failed. Exit code: $addonBuilderExitCode"
+        $failures.Add($message)
+        Write-Host "ERROR: $message" -ForegroundColor Red
+        Write-Host ""
+        continue
+    }
+
+    if (-not (Test-Path -LiteralPath $pboPath)) {
+        $message = "Expected PBO for $addon was not found at $pboPath"
+        $failures.Add($message)
+        Write-Host "ERROR: $message" -ForegroundColor Red
+        Write-Host ""
+        continue
+    }
+
+    Write-Host "Finished packing $addon without binarization" -ForegroundColor Green
     Write-Host "Signing $addon.pbo with $KeyName.biprivatekey..." -ForegroundColor Cyan
 
     $signResult = Invoke-NativeTool -FilePath $dsSignFile -Arguments @($privateKey, $pboPath)

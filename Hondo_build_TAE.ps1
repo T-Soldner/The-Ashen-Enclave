@@ -94,7 +94,6 @@ foreach ($addon in $addons) {
     $addonBuilderOutput = & $addonBuilder `
         "$sourcePath" `
         "$outputRoot" `
-        -packonly `
         -clear `
         -prefix="$addon" 2>&1
     $addonBuilderExitCode = $LASTEXITCODE

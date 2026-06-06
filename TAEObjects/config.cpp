@@ -32,11 +32,13 @@ class CfgPatches {
 			"TAE_Bed_Varen",
 			"TAE_Bed_Rook",
 			"TAE_Bed_HouseKarr",
+			"TAE_Bed_Shyyyo",
 			"TAE_Vexillum_Acklay",
 			"TAE_Vexillum_Foxx",
 			"TAE_Vexillum_Varen",
 			"TAE_Vexillum_Rook",
 			"TAE_Vexillum_HouseKarr",
+			"TAE_Vexillum_Shyyyo",
 			"TAE_MokTech_Locker",
 			"TAE_Wearable_Acklay_Helmet",
 			"TAE_Wearable_Foxx_Helmet",
@@ -53,7 +55,7 @@ class CfgPatches {
 
 class CfgEditorCategories {
 	class TAE_EdCat_HouseKarr {
-		displayName = "House Karr";
+		displayName = "[TAE] House Karr Objects";
 	};
 };
 
@@ -154,6 +156,15 @@ class CfgVehicles {
 		displayName = "House Karr Bed";
 		hiddenSelectionsTextures[] = {
 			"\TAEObjects\data\furniture\tae_bed_karr_co.paa"
+		};
+	};
+
+	class TAE_Bed_Shyyyo: TAE_Bed_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Shyyyo Bed";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\furniture\tae_bed_shyyyo_co.paa"
 		};
 	};
 
@@ -539,6 +550,15 @@ class CfgVehicles {
 		displayName = "House Karr Command Vexillum";
 		hiddenSelectionsTextures[] = {
 			"\TAEObjects\data\vexillums\tae_vexillum_house_karr_co.paa"
+		};
+	};
+
+	class TAE_Vexillum_Shyyyo: TAE_Vexillum_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Shyyyo Vexillum";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum_shyyyo_co.paa"
 		};
 	};
 

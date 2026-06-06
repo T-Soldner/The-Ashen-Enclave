@@ -128,7 +128,6 @@ foreach ($addon in $addons) {
     $addonBuilderResult = Invoke-NativeTool -FilePath $addonBuilder -Arguments @(
         $sourcePath,
         $outputRoot,
-        "-packonly",
         "-clear",
         "-prefix=$addon"
     )
