@@ -116,6 +116,8 @@ try {
     Stop-Build "Source root not found at: $SourceRoot"
 }
 
+$runtimeIncludeList = Join-Path $sourceRoot "TAE_build_include.lst"
+
 try {
     $soldnerMusicSourceRoot = (Resolve-Path -LiteralPath $SoldnerMusicSourceRoot).Path
 } catch {
@@ -135,6 +137,7 @@ Write-Host ""
 Test-RequiredPath -Path $addonBuilder -Description "AddonBuilder.exe"
 Test-RequiredPath -Path $dsSignFile -Description "DSSignFile.exe"
 Test-RequiredPath -Path $privateKey -Description "Private key"
+Test-RequiredPath -Path $runtimeIncludeList -Description "TAE runtime asset include list"
 
 New-Item -ItemType Directory -Path $outputRoot -Force | Out-Null
 New-Item -ItemType Directory -Path $keysRoot -Force | Out-Null
@@ -179,6 +182,7 @@ foreach ($addon in $addons) {
         $sourcePath,
         $outputRoot,
         "-clear",
+        "-include=$runtimeIncludeList",
         "-prefix=$addon"
     )
 

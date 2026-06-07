@@ -9,6 +9,7 @@ $dsSignFile   = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSi
 $sourceRoot = "C:\Users\Shmavoc\OneDrive\Documents\Github\The-Ashen-Enclave"
 $outputRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave\Addons"
 $keysRoot   = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave\Keys"
+$runtimeIncludeList = Join-Path $sourceRoot "TAE_build_include.lst"
 
 $privateKey = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\TAEAUX.biprivatekey"
 $publicKey  = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\TAEAUX.bikey"
@@ -60,6 +61,13 @@ if (!(Test-Path $privateKey)) {
     exit 1
 }
 
+if (!(Test-Path $runtimeIncludeList)) {
+    Write-Host "ERROR: TAE runtime asset include list not found at:" -ForegroundColor Red
+    Write-Host $runtimeIncludeList -ForegroundColor Red
+    pause
+    exit 1
+}
+
 # Copy public .bikey into mod Keys folder if available
 if (Test-Path $publicKey) {
     Copy-Item -Path $publicKey -Destination $keysRoot -Force
@@ -95,6 +103,7 @@ foreach ($addon in $addons) {
         "$sourcePath" `
         "$outputRoot" `
         -clear `
+        -include="$runtimeIncludeList" `
         -prefix="$addon" 2>&1
     $addonBuilderExitCode = $LASTEXITCODE
     $addonBuilderOutput | ForEach-Object { Write-Host $_ }

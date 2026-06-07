@@ -180,6 +180,8 @@ class CfgMagazines {
 	};
 };
 
+class SensorTemplateActiveRadar;
+
 class CfgVehicles {
 	class knd_KomrkFighter_VTOL_Dynamic_F;
 	class ls_vehicle_z98;
@@ -187,10 +189,8 @@ class CfgVehicles {
 	class TAE_KomrkFighter_Transport_base: knd_KomrkFighter_VTOL_Dynamic_F {
 		scope = 0;
 		scopeCurator = 0;
-
-		class Components {
-			class TransportPylonsComponent;
-		};
+		lockDetectionSystem = 30;
+		incomingMissileDetectionSystem = 26;
 	};
 
 	class TAE_KomrkFighter_Transport: TAE_KomrkFighter_Transport_base {
@@ -285,8 +285,10 @@ class CfgVehicles {
 			"base", 1
 		};
 
-		class Components: Components {
-			class TransportPylonsComponent: TransportPylonsComponent {
+		class Components {
+			class TransportCountermeasuresComponent {};
+
+			class TransportPylonsComponent {
 				UIPicture = "\knd_vehicles_komrk\tx\3den_CA.paa";
 
 				class pylons {
@@ -485,6 +487,62 @@ class CfgVehicles {
 					};
 				};
 			};
+
+			class VehicleSystemsDisplayManagerComponentLeft {
+				componentType = "VehicleSystemsDisplayManager";
+				left = 1;
+				defaultDisplay = "SensorDisplay";
+
+				class Components {
+					class EmptyDisplay {
+						componentType = "EmptyDisplayComponent";
+					};
+
+					class SensorDisplay {
+						componentType = "SensorsDisplayComponent";
+						range[] = {4000, 8000};
+						resource = "RscCustomInfoSensors";
+					};
+				};
+			};
+
+			class VehicleSystemsDisplayManagerComponentRight {
+				componentType = "VehicleSystemsDisplayManager";
+				right = 1;
+				defaultDisplay = "SensorDisplay";
+
+				class Components {
+					class EmptyDisplay {
+						componentType = "EmptyDisplayComponent";
+					};
+
+					class SensorDisplay {
+						componentType = "SensorsDisplayComponent";
+						range[] = {4000, 8000};
+						resource = "RscCustomInfoSensors";
+					};
+				};
+			};
+
+			class SensorsManagerComponent {
+				class Components {
+					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+						class AirTarget {
+							minRange = 0;
+							maxRange = 8000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+
+						class GroundTarget {
+							minRange = 0;
+							maxRange = 8000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+					};
+				};
+			};
 		};
 
 		class UserActions {
@@ -541,10 +599,11 @@ class CfgVehicles {
 	class TAE_Z98_Headhunter_base: ls_vehicle_z98 {
 		scope = 0;
 		scopeCurator = 0;
-
-		class Components {
-			class TransportPylonsComponent;
-		};
+		lockDetectionSystem = 30;
+		incomingMissileDetectionSystem = 26;
+		aileronSensitivity = 0.7;
+		aileronControlsSensitivityCoef = 2.8;
+		elevatorSensitivity = 1.1;
 	};
 
 	class TAE_Z98_Headhunter: TAE_Z98_Headhunter_base {
@@ -621,8 +680,10 @@ class CfgVehicles {
 			"base", 1
 		};
 
-		class Components: Components {
-			class TransportPylonsComponent: TransportPylonsComponent {
+		class Components {
+			class TransportCountermeasuresComponent {};
+
+			class TransportPylonsComponent {
 				UIPicture = "\ls\core\addons\vehicles_z98\data\ui\z98_3den_ca.paa";
 
 				class pylons {
@@ -762,6 +823,62 @@ class CfgVehicles {
 							"TAE_Z98_mag_Shinies_Light",
 							"TAE_Z98_mag_Lightning",
 							"TAE_Z98_mag_Lightning"
+						};
+					};
+				};
+			};
+
+			class VehicleSystemsDisplayManagerComponentLeft {
+				componentType = "VehicleSystemsDisplayManager";
+				left = 1;
+				defaultDisplay = "SensorDisplay";
+
+				class Components {
+					class EmptyDisplay {
+						componentType = "EmptyDisplayComponent";
+					};
+
+					class SensorDisplay {
+						componentType = "SensorsDisplayComponent";
+						range[] = {8000, 16000, 32000};
+						resource = "RscCustomInfoSensors";
+					};
+				};
+			};
+
+			class VehicleSystemsDisplayManagerComponentRight {
+				componentType = "VehicleSystemsDisplayManager";
+				right = 1;
+				defaultDisplay = "SensorDisplay";
+
+				class Components {
+					class EmptyDisplay {
+						componentType = "EmptyDisplayComponent";
+					};
+
+					class SensorDisplay {
+						componentType = "SensorsDisplayComponent";
+						range[] = {8000, 16000, 32000};
+						resource = "RscCustomInfoSensors";
+					};
+				};
+			};
+
+			class SensorsManagerComponent {
+				class Components {
+					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+						class AirTarget {
+							minRange = 0;
+							maxRange = 32000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+
+						class GroundTarget {
+							minRange = 0;
+							maxRange = 8000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
 						};
 					};
 				};

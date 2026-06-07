@@ -1,11 +1,12 @@
 class CfgPatches {
 	class TAEUnits_HouseKarr {
-		name = "House Karr";
+		name = "[TAE] House Karr";
 		author = "TAE Mod Team";
 		requiredVersion = 1.0;
 		requiredAddons[] = {
 			"A3_Characters_F",
 			"ace_common",
+			"ace_medical_damage",
 			"ace_medical_treatment",
 			"cba_xeh",
 			"TAEUniforms",
@@ -39,9 +40,20 @@ class CfgPatches {
 	};
 };
 
+class CfgFunctions {
+	class TAE {
+		class Units {
+			file = "TAEUnits\functions";
+			class initMedicalDiagnostics {
+				postInit = 1;
+			};
+		};
+	};
+};
+
 class CfgFactionClasses {
 	class TAE_Faction_HouseKarr {
-		displayName = "House Karr";
+		displayName = "[TAE] House Karr";
 		side = 2;
 		priority = 2;
 	};
@@ -140,7 +152,7 @@ class CfgVehicles {
 
 		class HitPoints {
 			class HitFace {
-				armor = 5;
+				armor = 1;
 				material = -1;
 				name = "face_hub";
 				passThrough = 0.8;
@@ -149,7 +161,7 @@ class CfgVehicles {
 				minimalHit = 0.01;
 			};
 			class HitNeck {
-				armor = 5;
+				armor = 1;
 				material = -1;
 				name = "neck";
 				passThrough = 0.8;
@@ -158,7 +170,7 @@ class CfgVehicles {
 				minimalHit = 0.01;
 			};
 			class HitHead {
-				armor = 5;
+				armor = 1;
 				material = -1;
 				name = "head";
 				passThrough = 0.8;
@@ -184,38 +196,38 @@ class CfgVehicles {
 				name = "pelvis";
 				passThrough = 0.8;
 				radius = 0.24;
-				explosionShielding = 0.1;
+				explosionShielding = 1;
 				visual = "injury_body";
 				minimalHit = 0.01;
 				depends = "0";
 			};
 			class HitAbdomen {
-				armor = 6;
+				armor = 1;
 				material = -1;
 				name = "spine1";
 				passThrough = 0.8;
 				radius = 0.16;
-				explosionShielding = 0.1;
+				explosionShielding = 1;
 				visual = "injury_body";
 				minimalHit = 0.01;
 			};
 			class HitDiaphragm {
-				armor = 6;
+				armor = 1;
 				material = -1;
 				name = "spine2";
 				passThrough = 0.8;
 				radius = 0.18;
-				explosionShielding = 0.25;
+				explosionShielding = 2.4;
 				visual = "injury_body";
 				minimalHit = 0.01;
 			};
 			class HitChest {
-				armor = 6;
+				armor = 1;
 				material = -1;
 				name = "spine3";
 				passThrough = 0.8;
 				radius = 0.18;
-				explosionShielding = 0.25;
+				explosionShielding = 2.4;
 				visual = "injury_body";
 				minimalHit = 0.01;
 			};
@@ -225,13 +237,13 @@ class CfgVehicles {
 				name = "body";
 				passThrough = 1;
 				radius = 0;
-				explosionShielding = 0.25;
+				explosionShielding = 2.4;
 				visual = "injury_body";
 				minimalHit = 0.01;
 				depends = "HitPelvis max HitAbdomen max HitDiaphragm max HitChest";
 			};
 			class HitArms {
-				armor = 6;
+				armor = 5;
 				material = -1;
 				name = "arms";
 				passThrough = 1;
@@ -242,7 +254,7 @@ class CfgVehicles {
 				depends = "0";
 			};
 			class HitHands {
-				armor = 6;
+				armor = 5;
 				material = -1;
 				name = "hands";
 				passThrough = 1;
@@ -253,7 +265,7 @@ class CfgVehicles {
 				depends = "HitArms";
 			};
 			class HitLegs {
-				armor = 6;
+				armor = 5;
 				material = -1;
 				name = "legs";
 				passThrough = 1;
@@ -269,50 +281,36 @@ class CfgVehicles {
 				name = "body";
 				passThrough = 1;
 				radius = 0;
-				explosionShielding = 0.1;
+				explosionShielding = 1;
 				visual = "";
 				minimalHit = 0;
 				depends = "(((Total - 0.25) max 0) + ((HitHead - 0.25) max 0) + ((HitBody - 0.25) max 0)) * 2";
 			};
 			class HitLeftArm {
-				armor = 6;
+				armor = 5;
 				material = -1;
 				name = "hand_l";
 				passThrough = 1;
 				radius = 0.08;
-				explosionShielding = 0.1;
+				explosionShielding = 0.3;
 				visual = "injury_hands";
 				minimalHit = 0.01;
 			};
-			class HitRightArm {
-				armor = 6;
-				material = -1;
+			class HitRightArm: HitLeftArm {
 				name = "hand_r";
-				passThrough = 1;
-				radius = 0.08;
-				explosionShielding = 0.1;
-				visual = "injury_hands";
-				minimalHit = 0.01;
 			};
 			class HitLeftLeg {
-				armor = 6;
+				armor = 5;
 				material = -1;
 				name = "leg_l";
 				passThrough = 1;
 				radius = 0.1;
-				explosionShielding = 0.1;
+				explosionShielding = 0.3;
 				visual = "injury_legs";
 				minimalHit = 0.01;
 			};
-			class HitRightLeg {
-				armor = 6;
-				material = -1;
+			class HitRightLeg: HitLeftLeg {
 				name = "leg_r";
-				passThrough = 1;
-				radius = 0.1;
-				explosionShielding = 0.1;
-				visual = "injury_legs";
-				minimalHit = 0.01;
 			};
 		};
 		armor = 2;
@@ -4041,7 +4039,7 @@ class CfgGroups {
 		name = "Independent";
 
 		class TAE_Faction_HouseKarr {
-			name = "House Karr";
+			name = "[TAE] House Karr";
 
 			class Infantry {
 				name = "Infantry";

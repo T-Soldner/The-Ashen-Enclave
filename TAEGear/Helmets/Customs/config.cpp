@@ -2,7 +2,7 @@ class CfgPatches {
 	class TAEGear_Helmets_Customs {
 		addonRootClass = "TAEGear_Helmets";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "TAEGear_Helmets" };
+		requiredAddons[] = { "TAEGear_Helmets", "ls_characters_clone_legacy" };
 		units[] = { };
 		weapons[] = {
 			"tae_karr_helmet_fd",
@@ -719,6 +719,10 @@ class CfgWeapons {
 		author = "Soldner";
 		displayName = "Edonn's Rangefinder";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
+		modelOptics = "\ls\core\addons\characters_clone_legacy\equipment\nvgs\rangefinder\lsd_gar_rangefinder_optic.p3d";
+		ace_nightvision_border = "\ls\core\addons\characters_clone_legacy\equipment\nvgs\rangefinder\data\optic_ca.paa";
+		visionMode[] = { "Normal", "NVG", "TI" };
+		ls_equipment_rangefinderDisplay = "ls_RscCloneRangefinder";
 		hiddenSelectionsTextures[] = { "TAEGear\data\Edonn\LS_DIN_Rangefinder_Edonn.paa" };
 		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
 		class ItemInfo: ItemInfo {

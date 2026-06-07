@@ -10,6 +10,7 @@ class CfgPatches {
 			"cba_xeh",
 			"ace_common",
 			"ace_interact_menu",
+			"TAEUnits_HouseKarr",
 			"mti_armoury_drones_blasterturret",
 			"mti_armoury_drones_paap",
 			"mti_armoury_drones_prowler"
@@ -139,12 +140,6 @@ class CfgWeapons {
 	};
 };
 
-class CfgEditorCategories {
-	class TAE_EdCat_HouseKarr {
-		displayName = "House Karr";
-	};
-};
-
 class CfgEditorSubcategories {
 	class TAE_EdSubcat_HouseKarr_Drones {
 		displayName = "Drones";
@@ -215,8 +210,7 @@ class CfgVehicles {
 		author = "TAE Mod Team";
 		displayName = "Blaster Turret";
 		side = 2;
-		faction = "IND_F";
-		editorCategory = "TAE_EdCat_HouseKarr";
+		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Drones";
 		crew = "tae_autonomous_turret_ai";
 		typicalCargo[] = {"tae_autonomous_turret_ai"};
@@ -230,8 +224,7 @@ class CfgVehicles {
 		author = "TAE Mod Team";
 		displayName = "Autonomous AA Turret";
 		side = 2;
-		faction = "IND_F";
-		editorCategory = "TAE_EdCat_HouseKarr";
+		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Drones";
 		crew = "tae_autonomous_turret_ai";
 		typicalCargo[] = {"tae_autonomous_turret_ai"};
@@ -245,8 +238,7 @@ class CfgVehicles {
 		author = "TAE Mod Team";
 		displayName = "Autonomous AT Turret";
 		side = 2;
-		faction = "IND_F";
-		editorCategory = "TAE_EdCat_HouseKarr";
+		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Drones";
 		crew = "tae_autonomous_turret_ai";
 		typicalCargo[] = {"tae_autonomous_turret_ai"};
@@ -260,8 +252,7 @@ class CfgVehicles {
 		author = "TAE Mod Team";
 		displayName = "Seeker Droid";
 		side = 2;
-		faction = "IND_F";
-		editorCategory = "TAE_EdCat_HouseKarr";
+		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Drones";
 		crew = "tae_seeker_droid_ai";
 		typicalCargo[] = {"tae_seeker_droid_ai"};
