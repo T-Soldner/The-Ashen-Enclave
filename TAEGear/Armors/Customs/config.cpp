@@ -20,6 +20,7 @@ class CfgPatches {
 			"tae_shyyyo_recon_armor",
 			"tae_acklay_armor",
 			"tae_acklay_niteowl_armor",
+			"tae_stasik_armor",
 			"tae_edonn_armor",
 			"tae_nox_armor",
 			"tae_jimothy_armor",
@@ -108,12 +109,15 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Acklay","Niteowl","Edonn","Jimothy" };
+				values[] = { "Acklay","Niteowl","Stasik","Edonn","Jimothy" };
 				class Acklay {
 					label = "Clan Acklay LS";
 				};
 				class Niteowl {
 					label = "Nite owl";
+				};
+				class Stasik {
+					label = "Stasik";
 				};
 				class Edonn {
 					label = "Edonn";
@@ -246,6 +250,10 @@ class XtdGearInfos {
 		class tae_acklay_niteowl_armor {
 			model	= "TAE_acklay_vests";
 			owner	= "Niteowl";
+		};
+		class tae_stasik_armor {
+			model	= "TAE_acklay_vests";
+			owner	= "Stasik";
 		};
 		class tae_edonn_armor {
 			model	= "TAE_acklay_vests";
@@ -593,6 +601,26 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Acklay\NITE_Armor_Acklay.paa",
 				"TAEGear\data\HouseKarr\NiteOwl\NITE_Brace_FND.paa"
+			};
+		};
+	};
+	class tae_stasik_armor : tae_armor_traditional {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Stasik's Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Stasik\TRAD_Armor_Stasik.paa",
+			"TAEGear\data\Stasik\TRAD_Brace_Stasik.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Stasik\TRAD_Armor_Stasik.paa",
+				"TAEGear\data\Stasik\TRAD_Brace_Stasik.paa"
 			};
 		};
 	};

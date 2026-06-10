@@ -6,7 +6,6 @@ class CfgPatches {
 		requiredAddons[] = {
 			"A3_Characters_F",
 			"ace_common",
-			"ace_medical_damage",
 			"ace_medical_treatment",
 			"cba_xeh",
 			"TAEUniforms",
@@ -37,17 +36,6 @@ class CfgPatches {
 			"TAE_Unit_BSC_Missile_Specialist"
 		};
 		weapons[] = {};
-	};
-};
-
-class CfgFunctions {
-	class TAE {
-		class Units {
-			file = "TAEUnits\functions";
-			class initMedicalDiagnostics {
-				postInit = 1;
-			};
-		};
 	};
 };
 

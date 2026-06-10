@@ -2,7 +2,7 @@ class CfgPatches {
 	class TAEGear_Backpacks {
 		addonRootClass = "TAEGear";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "knd_jetpacks", "tgf_backpacks" };
+		requiredAddons[] = { "knd_jetpacks", "tgf_backpacks", "JLTS_optionals_TFARBeta_compat" };
 		units[] = { 
 			"tae_jetpack_Z6",
 			"tae_jetpack_z12",
@@ -304,7 +304,7 @@ class CfgVehicles {
 		model = "\knd_jetpacks\data\jt12RTO\jt12RTO.p3d";
 		hiddenselections[] = {"rocket","pack"};
 		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12RTO\pack_co.paa"};
-		tf_dialog = "bussole_radio_dialog";
+		tf_dialog = "JLTS_clone_rto_radio_dialog";
 		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 		tf_encryptionCode = "tf_independent_radio_code";
 		tf_hasLRradio = 1;
@@ -333,7 +333,7 @@ class CfgVehicles {
 		model = "\knd_jetpacks\data\jt13RTO\jt13RTO.p3d";
 		hiddenselections[] = {"camo1"};
 		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13RTO\camo1_co.paa"};
-		tf_dialog = "bussole_radio_dialog";
+		tf_dialog = "JLTS_clone_rto_radio_dialog";
 		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 		tf_encryptionCode = "tf_independent_radio_code";
 		tf_hasLRradio = 1;
@@ -361,10 +361,12 @@ class CfgVehicles {
 	class tae_modular_pack_lr : tgf_backpacks_modular_pack_lr {
 		scope = 2;
 		maximumload = 400;
+		tf_dialog = "JLTS_clone_rto_radio_dialog";
 	};
 	class tae_modular_pack_lr_female : tgf_backpacks_modular_pack_lr_female {
 		scope = 2;
 		maximumload = 400;
+		tf_dialog = "JLTS_clone_rto_radio_dialog";
 	};
 	class tae_modular_pack_engi : tgf_backpacks_modular_pack_engi {
 		scope = 2;

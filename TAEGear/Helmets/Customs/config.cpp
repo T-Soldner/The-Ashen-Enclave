@@ -26,7 +26,7 @@ class CfgPatches {
 			"tae_nox_helmet",
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
-			"tae_dengar_helmet",
+			"tae_stasik_helmet",
 			"tae_foxx_helmet",
 			"tae_bean_helmet",
 			"tae_varen_helmet",
@@ -126,7 +126,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl", "Edonn", "Dengar", "Jimothy" };
+				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy" };
 
 				class Standard {
 					label = "Standard";
@@ -137,8 +137,8 @@ class XtdGearModels {
 				class Edonn {
 					label = "Edonn";
 				};
-				class Dengar {
-					label = "Dengar";
+				class Stasik {
+					label = "Stasik";
 				};
 				class Jimothy {
 					label = "Jimothy";
@@ -317,9 +317,9 @@ class XtdGearInfos {
 			model = "TAE_nvgs";
 			owner = "Edonn";
 		};
-		class tae_dengar_helmet {
+		class tae_stasik_helmet {
 			model = "TAE_acklay_helmets";
-			owner = "Dengar";
+			owner = "Stasik";
 		};
 		class tae_jimothy_helmet {
 			model = "TAE_acklay_helmets";
@@ -788,8 +788,8 @@ class CfgWeapons {
 		};
 	};
 	
-	// Dengar
-	class tae_dengar_helmet : tae_helmet_viper {
+	// Stasik
+	class tae_stasik_helmet : tae_helmet_viper {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
