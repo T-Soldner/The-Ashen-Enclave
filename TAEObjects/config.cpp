@@ -217,10 +217,10 @@ class CfgVehicles {
 					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tae_edonn_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
-				class TAE_PutOnDengarArmor {
-					displayName = "Put On Dengar Armor";
+				class TAE_PutOnStasikArmor {
+					displayName = "Put On Stasik Armor";
 					condition = "true";
-					statement = "[_player,'tae_acklay_armor','tae_dengar_helmet','tgf_nvg_rangefinder_r','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_stasik_armor','tae_stasik_helmet','tgf_nvg_rangefinder_r','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnJimothyArmor {
