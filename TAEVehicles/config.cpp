@@ -181,6 +181,8 @@ class CfgMagazines {
 };
 
 class SensorTemplateActiveRadar;
+class DefaultVehicleSystemsDisplayManagerLeft;
+class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
 	class knd_KomrkFighter_VTOL_Dynamic_F;
@@ -488,10 +490,10 @@ class CfgVehicles {
 				};
 			};
 
-			class VehicleSystemsDisplayManagerComponentLeft {
+			class VehicleSystemsDisplayManagerComponentLeft: DefaultVehicleSystemsDisplayManagerLeft {
 				componentType = "VehicleSystemsDisplayManager";
 				left = 1;
-				defaultDisplay = "SensorDisplay";
+				defaultDisplay = "EmptyDisplay";
 
 				class Components {
 					class EmptyDisplay {
@@ -506,7 +508,7 @@ class CfgVehicles {
 				};
 			};
 
-			class VehicleSystemsDisplayManagerComponentRight {
+			class VehicleSystemsDisplayManagerComponentRight: DefaultVehicleSystemsDisplayManagerRight {
 				componentType = "VehicleSystemsDisplayManager";
 				right = 1;
 				defaultDisplay = "SensorDisplay";
@@ -828,10 +830,10 @@ class CfgVehicles {
 				};
 			};
 
-			class VehicleSystemsDisplayManagerComponentLeft {
+			class VehicleSystemsDisplayManagerComponentLeft: DefaultVehicleSystemsDisplayManagerLeft {
 				componentType = "VehicleSystemsDisplayManager";
 				left = 1;
-				defaultDisplay = "SensorDisplay";
+				defaultDisplay = "EmptyDisplay";
 
 				class Components {
 					class EmptyDisplay {
@@ -846,7 +848,7 @@ class CfgVehicles {
 				};
 			};
 
-			class VehicleSystemsDisplayManagerComponentRight {
+			class VehicleSystemsDisplayManagerComponentRight: DefaultVehicleSystemsDisplayManagerRight {
 				componentType = "VehicleSystemsDisplayManager";
 				right = 1;
 				defaultDisplay = "SensorDisplay";

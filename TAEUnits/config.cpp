@@ -8,6 +8,7 @@ class CfgPatches {
 			"ace_common",
 			"ace_medical_treatment",
 			"cba_xeh",
+			"ls_common",
 			"TAEUniforms",
 			"TAEGear_Armors_Customs",
 			"TAEGear_Helmets_Customs",
@@ -28,6 +29,7 @@ class CfgPatches {
 			"TAE_Unit_Player_Foxx",
 			"TAE_Unit_Player_Rook",
 			"TAE_Unit_Player_Varen",
+			"TAE_Unit_Player_Shyyyo",
 			"TAE_Unit_Player_Foundling",
 			"TAE_Unit_Player_Freelancer",
 			"TAE_Unit_BSC_Rifleman",
@@ -552,6 +554,18 @@ class CfgVehicles {
 		};
 		items[] = {};
 		respawnItems[] = {};
+	};
+
+	class TAE_Unit_Player_Shyyyo: TAE_Unit_Player_Base {
+		scope = 2;
+		scopeCurator = 0;
+		displayName = "Shyyyo";
+		role = "Crewman";
+		icon = "ls_iconManPilot";
+		nameSound = "veh_infantry_pilot_s";
+		textPlural = "$STR_A3_nameSound_veh_infantry_pilot_p";
+		textSingular = "$STR_A3_nameSound_veh_infantry_pilot_s";
+		ls_common_pilot = 1;
 	};
 
 	class TAE_Unit_Player_Foundling: TAE_Unit_Base {
@@ -4208,6 +4222,13 @@ class CfgGroups {
 						vehicle = "TAE_Unit_Player_Freelancer";
 						rank = "PRIVATE";
 						position[] = {-15, -15, 0};
+					};
+
+					class Unit6 {
+						side = 2;
+						vehicle = "TAE_Unit_Player_Shyyyo";
+						rank = "PRIVATE";
+						position[] = {15, -15, 0};
 					};
 				};
 			};
