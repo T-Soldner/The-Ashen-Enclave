@@ -26,6 +26,7 @@ class CfgPatches {
 			"tae_nox_helmet",
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
+			"tae_frenk_helmet",
 			"tae_stasik_helmet",
 			"tae_foxx_helmet",
 			"tae_bean_helmet",
@@ -128,7 +129,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy" };
+				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy", "Frenk" };
 
 				class Standard {
 					label = "Standard";
@@ -144,6 +145,9 @@ class XtdGearModels {
 				};
 				class Jimothy {
 					label = "Jimothy";
+				};
+				class Frenk {
+					label = "Frenk";
 				};
 			};
 		};
@@ -336,6 +340,10 @@ class XtdGearInfos {
 		class tae_jimothy_rangefinder {
 			model = "TAE_nvgs";
 			owner = "Jimothy";
+		};
+		class tae_frenk_helmet {
+			model = "TAE_acklay_helmets";
+			owner = "Frenk";
 		};
 		
 		// Clan Foxx
@@ -801,6 +809,27 @@ class CfgWeapons {
 			uniformModel = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
 			modelOff = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
 		hiddenSelectionsTextures[] = {"TAEGear\data\Jimothy\HEAV_NVG_Jimothy.paa"};
+		};
+	};
+
+	// Frenk
+	class tae_frenk_helmet : tae_helmet_gunslinger {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Frenk's Gunslinger Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Frenk\GUN_Helmet_Frenk.paa",
+			"TAEGear\data\Frenk\GUN_Visor_Frenk.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Frenk\GUN_Helmet_Frenk.paa",
+				"TAEGear\data\Frenk\GUN_Visor_Frenk.paa"
+			};
 		};
 	};
 	
