@@ -26,12 +26,15 @@ class CfgPatches {
 			"tae_nox_helmet",
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
+			"tae_frenk_helmet",
 			"tae_stasik_helmet",
 			"tae_foxx_helmet",
 			"tae_bean_helmet",
 			"tae_varen_helmet",
 			"tae_varen_rangefinder",
-			"tae_rook_helmet"
+			"tae_rook_helmet",
+			"tae_hades_helmet",
+			"tae_andora_helmet"
 		};
 	};
 };
@@ -126,7 +129,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy" };
+				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy", "Frenk" };
 
 				class Standard {
 					label = "Standard";
@@ -142,6 +145,9 @@ class XtdGearModels {
 				};
 				class Jimothy {
 					label = "Jimothy";
+				};
+				class Frenk {
+					label = "Frenk";
 				};
 			};
 		};
@@ -187,10 +193,16 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard" };
+				values[] = { "Standard", "Hades", "Andora" };
 
 				class Standard {
 					label = "Standard";
+				};
+				class Hades {
+					label = "Hades";
+				};
+				class Andora {
+					label = "Andora";
 				};
 			};
 		};
@@ -329,6 +341,10 @@ class XtdGearInfos {
 			model = "TAE_nvgs";
 			owner = "Jimothy";
 		};
+		class tae_frenk_helmet {
+			model = "TAE_acklay_helmets";
+			owner = "Frenk";
+		};
 		
 		// Clan Foxx
 		class tae_foxx_helmet {
@@ -352,6 +368,14 @@ class XtdGearInfos {
 		class tae_rook_helmet {
 			model = "TAE_rook_helmets";
 			owner = "Standard";
+		};
+		class tae_hades_helmet {
+			model = "TAE_rook_helmets";
+			owner = "Hades";
+		};
+		class tae_andora_helmet {
+			model = "TAE_rook_helmets";
+			owner = "Andora";
 		};
 	};
 };
@@ -787,6 +811,27 @@ class CfgWeapons {
 		hiddenSelectionsTextures[] = {"TAEGear\data\Jimothy\HEAV_NVG_Jimothy.paa"};
 		};
 	};
+
+	// Frenk
+	class tae_frenk_helmet : tae_helmet_gunslinger {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Frenk's Gunslinger Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Frenk\GUN_Helmet_Frenk.paa",
+			"TAEGear\data\Frenk\GUN_Visor_Frenk.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Frenk\GUN_Helmet_Frenk.paa",
+				"TAEGear\data\Frenk\GUN_Visor_Frenk.paa"
+			};
+		};
+	};
 	
 	// Stasik
 	class tae_stasik_helmet : tae_helmet_viper {
@@ -909,6 +954,46 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Rook\TRAD_Helmet_Rook.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+			};
+		};
+	};
+	class tae_hades_helmet : tae_helmet_arbiter {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Hades' Arbiter Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Hades\ARB_Helmet_Hades.paa",
+			"TAEGear\data\Hades\ARB_Visor_Hades.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Hades\ARB_Helmet_Hades.paa",
+				"TAEGear\data\Hades\ARB_Visor_Hades.paa"
+			};
+		};
+	};
+	class tae_andora_helmet : tae_helmet_nite_owl {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Andora's Nite Owl Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Andora\NITE_Helmet_Andora.paa",
+			"TAEGear\data\Andora\NITE_Visor_Andora.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Andora\NITE_Helmet_Andora.paa",
+				"TAEGear\data\Andora\NITE_Visor_Andora.paa"
 			};
 		};
 	};

@@ -1,4 +1,5 @@
-psds/
 *.psd
 *.psb
+!Ashen Enclave PSDs/
+!Ashen Enclave PSDs/**
 .codex_tmp/

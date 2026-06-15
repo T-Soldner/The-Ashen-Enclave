@@ -77,12 +77,9 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Nox" };
+				values[] = { "Hondo" };
 				class Hondo {
 					label = "Hondo";
-				};
-				class Nox {
-					label = "Nox";
 				};
 			};
 		};
@@ -237,11 +234,6 @@ class XtdGearInfos {
 			model	= "TAE_pilot_vests";
 			owner	= "Shyyyo";
 		};
-		class tae_nox_armor {
-			model	= "TAE_freelancer_vests";
-			owner	= "Nox";
-		};
-		
 		//Acklay
 		class tae_acklay_armor {
 			model	= "TAE_acklay_vests";

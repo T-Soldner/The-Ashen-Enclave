@@ -1,3 +1,5 @@
+#define TAE_SPLASH_ONLOAD onLoad = "private _screen = uiNamespace getVariable ['TAE_sessionSplash','']; if (_screen isEqualTo '') then {_screen = selectRandom ['\TAECore\textures\screen.paa']; uiNamespace setVariable ['TAE_sessionSplash',_screen];}; (_this select 0) ctrlSetText _screen;"
+
 class CfgPatches
 {
 	class TAECore
@@ -99,6 +101,7 @@ class RscDisplayMain: RscStandardDisplay
 		class LoadingPic: RscPicture
 		{
 			idc=1;
+			TAE_SPLASH_ONLOAD
 			x="SafeZoneX";
 			y="SafeZoneY";
 			h="SafeZoneH";
@@ -119,6 +122,7 @@ class RscDisplayLoading
 				class LoadingPic: RscPicture
 				{
 					idc=1;
+					TAE_SPLASH_ONLOAD
 					x="SafeZoneX";
 					y="SafeZoneY";
 					h="SafeZoneH";
@@ -196,6 +200,7 @@ class RscDisplayLoadMission: RscStandardDisplay
 		class LoadingPic: RscPicture
 		{
 			idc=1;
+			TAE_SPLASH_ONLOAD
 			x="SafeZoneX";
 			y="SafeZoneY";
 			h="SafeZoneH";
@@ -211,6 +216,7 @@ class RscDisplayStart: RscStandardDisplay
 		class LoadingPic: RscPicture
 		{
 			idc=1;
+			TAE_SPLASH_ONLOAD
 			x="SafeZoneX";
 			y="SafeZoneY";
 			h="SafeZoneH";
@@ -225,6 +231,7 @@ class RscDisplayClientWait: RscDisplayMPPlayers
 	class LoadingPic: RscPicture
 	{
 		idc=1;
+		TAE_SPLASH_ONLOAD
 		x="SafeZoneX";
 		y="SafeZoneY";
 		h="SafeZoneH";
@@ -239,6 +246,7 @@ class RscDisplayClient: RscStandardDisplay
 		class LoadingPic: RscPicture
 		{
 			idc=1;
+			TAE_SPLASH_ONLOAD
 			x="SafeZoneX";
 			y="SafeZoneY";
 			h="SafeZoneH";
