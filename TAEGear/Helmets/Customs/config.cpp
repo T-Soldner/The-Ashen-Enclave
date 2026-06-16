@@ -1027,6 +1027,19 @@ class CfgWeapons {
 		scopeCurator = 2;
 		author = "TAE Mod Team";
 		displayName = "Goostivool's Executioner Helmet";
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",
+			"TAEGear\data\Goostivool\Executioner_Visor_Goostivool.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",
+				"TAEGear\data\Goostivool\Executioner_Visor_Goostivool.paa",
+				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
+			};
+		};
 	};
 	class tae_shen_helmet : tae_helmet_gunslinger {
 		scope = 2;
