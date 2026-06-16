@@ -16,6 +16,7 @@ $ErrorActionPreference = "Stop"
 
 $addonBuilder = Join-Path $ArmaToolsRoot "AddonBuilder\AddonBuilder.exe"
 
+$modRoot = Join-Path $ArmaRoot $ModFolderName
 $outputRoot = Join-Path $ArmaRoot "$ModFolderName\Addons"
 
 $addons = @(
@@ -87,6 +88,24 @@ function Invoke-NativeTool {
     }
 }
 
+function Copy-ModStuff {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$SourcePath,
+
+        [Parameter(Mandatory = $true)]
+        [string]$DestinationPath
+    )
+
+    Test-RequiredPath -Path $SourcePath -Description "Mod Stuff folder"
+    New-Item -ItemType Directory -Path $DestinationPath -Force | Out-Null
+
+    Get-ChildItem -LiteralPath $SourcePath -File | ForEach-Object {
+        Copy-Item -LiteralPath $_.FullName -Destination $DestinationPath -Force
+        Write-Host "Copied Mod Stuff\$($_.Name) to $DestinationPath" -ForegroundColor Green
+    }
+}
+
 try {
     $sourceRoot = (Resolve-Path -LiteralPath $SourceRoot).Path
 } catch {
@@ -94,6 +113,7 @@ try {
 }
 
 $runtimeIncludeList = Join-Path $sourceRoot "TAE_build_include.lst"
+$modStuffRoot = Join-Path $sourceRoot "Mod Stuff"
 
 Write-Host "============================================================" -ForegroundColor DarkGray
 Write-Host "The Ashen Enclave - Nox's Build" -ForegroundColor Cyan
@@ -104,6 +124,8 @@ Write-Host ""
 
 Test-RequiredPath -Path $addonBuilder -Description "AddonBuilder.exe"
 Test-RequiredPath -Path $runtimeIncludeList -Description "TAE runtime asset include list"
+
+Copy-ModStuff -SourcePath $modStuffRoot -DestinationPath $modRoot
 
 New-Item -ItemType Directory -Path $outputRoot -Force | Out-Null
 

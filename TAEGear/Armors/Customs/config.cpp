@@ -24,6 +24,7 @@ class CfgPatches {
 			"tae_edonn_armor",
 			"tae_nox_armor",
 			"tae_jimothy_armor",
+			"tae_frenk_armor",
 			"tae_foxx_armor",
 			"tae_varen_recon_armor",
 			"tae_rook_armor"
@@ -106,9 +107,9 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Acklay","Niteowl","Stasik","Edonn","Jimothy" };
+				values[] = { "Acklay","Niteowl","Stasik","Edonn" };
 				class Acklay {
-					label = "Clan Acklay LS";
+					label = "Standard";
 				};
 				class Niteowl {
 					label = "Nite owl";
@@ -118,9 +119,6 @@ class XtdGearModels {
 				};
 				class Edonn {
 					label = "Edonn";
-				};
-				class Jimothy {
-					label = "Jimothy";
 				};
 			};
 		};
@@ -250,10 +248,6 @@ class XtdGearInfos {
 		class tae_edonn_armor {
 			model	= "TAE_acklay_vests";
 			owner	= "Edonn";
-		};
-		class tae_jimothy_armor {
-			model	= "TAE_acklay_vests";
-			owner	= "Jimothy";
 		};
 		
 		//Foxx
@@ -397,7 +391,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Armor (Foundling)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -417,7 +411,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Armor (Mandalorian Recruit)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -437,7 +431,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Armor (Mandalorian Apprentice)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -457,7 +451,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Armor (Mandalorian)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -477,7 +471,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Armor (Mandalorian Veteran)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -541,7 +535,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Shyyyo";
+		author = "Hondo";
 		displayName = "Shyyyo Recon Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -563,7 +557,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "Clan Acklay Armor";
 		hiddenSelections[] = {"camo1"};
 		hiddenSelectionsTextures[] = {
@@ -580,7 +574,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Armor (Mandalorian Veteran)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -600,7 +594,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Hondo";
 		displayName = "Stasik's Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -621,7 +615,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "Edonn's Armor";
 		hiddenSelections[] = {"camo1"};
 		hiddenSelectionsTextures[] = {
@@ -631,6 +625,28 @@ class CfgWeapons {
 			hiddenSelections[] = {"camo1"};
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Edonn\LS_Armor_Edonn.paa"
+			};
+		};
+	};
+
+	// Frenk
+	class tae_frenk_armor : tae_armor_arbiter {
+		scope = 1;
+		scopeArsenal = 1;
+		scopeCurator = 1;
+		author = "Jimothy";
+		displayName = "Frenk's Arbiter Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Frenk\ARB_Armor_Frenk.paa",
+			"TAEGear\data\Frenk\ARB_Brace_Frenk.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Frenk\ARB_Armor_Frenk.paa",
+				"TAEGear\data\Frenk\ARB_Brace_Frenk.paa"
 			};
 		};
 	};
@@ -684,7 +700,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Juno Foxx";
+		author = "Juno";
 		displayName = "Clan Foxx Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -705,7 +721,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Valeria";
 		displayName = "Clan Varen Recon Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -726,7 +742,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Nox";
 		displayName = "Clan Rook Battle Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {

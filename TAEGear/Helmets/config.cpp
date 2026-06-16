@@ -386,8 +386,8 @@ class CfgGlasses {
 	class tae_facewear_ls_neck_lining: None {
 		dlc = "The Ashen Enclave AUX Mod";
 		author = "TAE Mod Team";
-		scope = 1;
-		scopeArsenal = 1;
+		scope = 2;
+		scopeArsenal = 2;
 		displayName = "TAE Neck Seal";
 		model = "\z\tgf\addons\undersuit\undersuit_male.p3d";
 		hiddenSelections[] = {"camo1","camo2"};

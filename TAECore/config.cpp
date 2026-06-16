@@ -1,4 +1,4 @@
-#define TAE_SPLASH_ONLOAD onLoad = "private _screen = uiNamespace getVariable ['TAE_sessionSplash','']; if (_screen isEqualTo '') then {_screen = selectRandom ['\TAECore\textures\screen.paa']; uiNamespace setVariable ['TAE_sessionSplash',_screen];}; (_this select 0) ctrlSetText _screen;"
+#define TAE_SPLASH_ONLOAD onLoad = "private _screen = uiNamespace getVariable ['TAE_sessionSplash','']; if (_screen isEqualTo '') then {_screen = selectRandom ['\TAECore\textures\screen.paa','\TAECore\textures\screen2.paa']; uiNamespace setVariable ['TAE_sessionSplash',_screen];}; (_this select 0) ctrlSetText _screen;"
 
 class CfgPatches
 {
