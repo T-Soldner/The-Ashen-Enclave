@@ -414,6 +414,7 @@ class CfgWeapons {
 	class tae_helmet_ls_traditional;
 	class tae_helmet_nite_owl;
 	class tae_helmet_ls_dinDjarin;
+	class tae_helmet_ls_executioner;
 	class tgf_nvg_rangefinder_r;
 	
 	// nvg inherit
@@ -1020,25 +1021,12 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_goostivool_helmet : tae_helmet_traditional {
+	class tae_goostivool_helmet : tae_helmet_ls_executioner {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "TAE Mod Team";
-		displayName = "Goostivool's Traditional Helmet";
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Goostivool\TRAD_Helmet_Goostivool.paa",
-			"TAEGear\data\Goostivool\TRAD_Visor_Goostivool.paa"
-		};
-
-		class ItemInfo : ItemInfo {
-			hiddenSelections[] = {"camo1","camo2"};
-			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Goostivool\TRAD_Helmet_Goostivool.paa",
-				"TAEGear\data\Goostivool\TRAD_Visor_Goostivool.paa"
-			};
-		};
+		displayName = "Goostivool's Executioner Helmet";
 	};
 	class tae_shen_helmet : tae_helmet_gunslinger {
 		scope = 2;
