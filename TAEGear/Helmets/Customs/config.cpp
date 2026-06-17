@@ -225,13 +225,13 @@ class XtdGearModels {
 				values[] = { "Acklay", "Edonn", "Jimothy", "Varen" };
 
 				class Acklay {
-					label = "Acklay";
+					label = "LS Grey";
 				};
 				class Edonn {
 					label = "Dark Grey";
 				};
 				class Jimothy {
-					label = "Jimothy";
+					label = "Heavy Grey";
 				};
 				class Varen {
 					label = "Varen";
@@ -1029,14 +1029,14 @@ class CfgWeapons {
 		displayName = "Goostivool's Executioner Helmet";
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",
-			"TAEGear\data\Goostivool\Executioner_Visor_Goostivool.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",
-				"TAEGear\data\Goostivool\Executioner_Visor_Goostivool.paa",
+				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
 			};
 		};

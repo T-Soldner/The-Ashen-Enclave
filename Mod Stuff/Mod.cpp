@@ -1,5 +1,5 @@
 /// Name of your mod
-name = "The Ashen Enclave AUX Mod";
+name = "The Ashen Enclave";
 /// Picture displayed from the expansions menu/ Optimal size is 2048x1024, other sizes work too
 picture = "Picture.paa";
 /// Display next to the item added by the mod
