@@ -480,7 +480,7 @@ class CfgWeapons {
 	};
 	class tae_armor_ls_traditional : ls_mandalorianVest_standard {
 		dlc = "The Ashen Enclave AUX Mod";
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "Traditional Mandalorian Armor (LS)";
 		scope = 0;
 		class ItemInfo: VestItem {

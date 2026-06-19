@@ -26,6 +26,7 @@ class CfgWeapons {
 	class ls_mandalorianHelmet_traditional;
 	class tgf_helmets_nite_owl;
 	class ls_mandalorianHelmet_dinDjarin;
+	class ls_mandalorianHelmet_executioner;
 	
 	//actual armor
 	class tae_helmet_traditional : tgf_helmets_traditional { 
@@ -357,6 +358,32 @@ class CfgWeapons {
 			};
 		};
 	};
+	class tae_helmet_ls_executioner : ls_mandalorianHelmet_executioner {
+		dlc = "The Ashen Enclave AUX Mod";
+		scope = 0;
+		displayName = "Mandalorian Executioner Helmet (LS)";
+		class ItemInfo : HeadgearItem {
+			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\executioner\ls_helmet_mandalorian_executioner.p3d";
+			hiddenSelections[] = {"camo1","visor","neckTex"};
+			class HitpointsProtectionInfo {
+				class Face {
+					armor = 15;
+					hitpointName = "HitFace";
+					passThrough = 0.3;
+				};
+				class Head {
+					armor = 15;
+					hitPointName = "HitHead";
+					passThrough = 0.3;
+				};
+				class Neck {
+					armor = 15;
+					hitpointName = "HitNeck";
+					passThrough = 0.3;
+				};
+			};
+		};
+	};
 	
 	//NVG
 	class ls_mandalorian_rangefinder;
@@ -386,8 +413,8 @@ class CfgGlasses {
 	class tae_facewear_ls_neck_lining: None {
 		dlc = "The Ashen Enclave AUX Mod";
 		author = "TAE Mod Team";
-		scope = 1;
-		scopeArsenal = 1;
+		scope = 2;
+		scopeArsenal = 2;
 		displayName = "TAE Neck Seal";
 		model = "\z\tgf\addons\undersuit\undersuit_male.p3d";
 		hiddenSelections[] = {"camo1","camo2"};

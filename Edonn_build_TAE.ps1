@@ -20,6 +20,7 @@ $ErrorActionPreference = "Stop"
 $addonBuilder = Join-Path $ArmaToolsRoot "AddonBuilder\AddonBuilder.exe"
 $dsSignFile = Join-Path $ArmaToolsRoot "DSSignFile\DSSignFile.exe"
 
+$modRoot = Join-Path $ArmaRoot $ModFolderName
 $outputRoot = Join-Path $ArmaRoot "$ModFolderName\Addons"
 $keysRoot = Join-Path $ArmaRoot "$ModFolderName\Keys"
 $soldnerMusicOutputRoot = Join-Path $ArmaRoot "$SoldnerMusicModFolderName\Addons"
@@ -102,6 +103,24 @@ function Invoke-NativeTool {
     }
 }
 
+function Copy-ModStuff {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$SourcePath,
+
+        [Parameter(Mandatory = $true)]
+        [string]$DestinationPath
+    )
+
+    Test-RequiredPath -Path $SourcePath -Description "Mod Stuff folder"
+    New-Item -ItemType Directory -Path $DestinationPath -Force | Out-Null
+
+    Get-ChildItem -LiteralPath $SourcePath -File | ForEach-Object {
+        Copy-Item -LiteralPath $_.FullName -Destination $DestinationPath -Force
+        Write-Host "Copied Mod Stuff\$($_.Name) to $DestinationPath" -ForegroundColor Green
+    }
+}
+
 if ([string]::IsNullOrWhiteSpace($SourceRoot)) {
     if (-not [string]::IsNullOrWhiteSpace($PSScriptRoot)) {
         $SourceRoot = $PSScriptRoot
@@ -117,6 +136,7 @@ try {
 }
 
 $runtimeIncludeList = Join-Path $sourceRoot "TAE_build_include.lst"
+$modStuffRoot = Join-Path $sourceRoot "Mod Stuff"
 
 try {
     $soldnerMusicSourceRoot = (Resolve-Path -LiteralPath $SoldnerMusicSourceRoot).Path
@@ -138,6 +158,8 @@ Test-RequiredPath -Path $addonBuilder -Description "AddonBuilder.exe"
 Test-RequiredPath -Path $dsSignFile -Description "DSSignFile.exe"
 Test-RequiredPath -Path $privateKey -Description "Private key"
 Test-RequiredPath -Path $runtimeIncludeList -Description "TAE runtime asset include list"
+
+Copy-ModStuff -SourcePath $modStuffRoot -DestinationPath $modRoot
 
 New-Item -ItemType Directory -Path $outputRoot -Force | Out-Null
 New-Item -ItemType Directory -Path $keysRoot -Force | Out-Null

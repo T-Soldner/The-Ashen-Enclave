@@ -1,7 +1,7 @@
 /// Name of your mod
-name = "The Ashen Enclave AUX Mod";
+name = "The Ashen Enclave";
 /// Picture displayed from the expansions menu/ Optimal size is 2048x1024, other sizes work too
-picture = "Logo.paa";
+picture = "Picture.paa";
 /// Display next to the item added by the mod
 logoSmall = "LogoSmall.paa";
 /// Logo displayed in the main menu
@@ -12,8 +12,10 @@ logoOver = "Logo.paa";
 action = "https://discord.gg/9zgGp5QSW7";
 // name of the action button
 actionName = "The Ashen Enclave Discord";
+/// Tool tip displayed when the mouse is over, in the main menu
+tooltip = "The Ashen Enclave AUX Mod";
 /// Tool tip displayed when the mouse is left over, in the main menu
-tooltipOwned = "";
+tooltipOwned = "The Ashen Enclave";
 /// Color used for DLC stripes and backgrounds (RGBA)
 dlcColor[] =
 {
@@ -23,7 +25,7 @@ dlcColor[] =
 	1
 };
 /// Overview text, displayed from the extension menu
-overview = "Visit  <a href='https://discord.gg/9zgGp5QSW7'>The Ashen Enclave's</a> Discord to join.</a>";
+overview = "Visit <a href='https://discord.gg/9zgGp5QSW7'>The Ashen Enclave's Discord</a> to join.";
 /// Hide the extension name
 hideName = 0;
 /// Hide the extension menu

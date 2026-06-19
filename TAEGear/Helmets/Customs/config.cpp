@@ -27,6 +27,7 @@ class CfgPatches {
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
 			"tae_frenk_helmet",
+			"tae_towi_helmet",
 			"tae_stasik_helmet",
 			"tae_foxx_helmet",
 			"tae_bean_helmet",
@@ -34,7 +35,9 @@ class CfgPatches {
 			"tae_varen_rangefinder",
 			"tae_rook_helmet",
 			"tae_hades_helmet",
-			"tae_andora_helmet"
+			"tae_andora_helmet",
+			"tae_goostivool_helmet",
+			"tae_shen_helmet"
 		};
 	};
 };
@@ -129,7 +132,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy", "Frenk" };
+				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy", "Frenk", "Towi" };
 
 				class Standard {
 					label = "Standard";
@@ -148,6 +151,9 @@ class XtdGearModels {
 				};
 				class Frenk {
 					label = "Frenk";
+				};
+				class Towi {
+					label = "Towi";
 				};
 			};
 		};
@@ -193,7 +199,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Hades", "Andora" };
+				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen" };
 
 				class Standard {
 					label = "Standard";
@@ -203,6 +209,12 @@ class XtdGearModels {
 				};
 				class Andora {
 					label = "Andora";
+				};
+				class Goostivool {
+					label = "Goostivool";
+				};
+				class Shen {
+					label = "Shen";
 				};
 			};
 		};
@@ -217,13 +229,13 @@ class XtdGearModels {
 				values[] = { "Acklay", "Edonn", "Jimothy", "Varen" };
 
 				class Acklay {
-					label = "Acklay";
+					label = "LS Grey";
 				};
 				class Edonn {
-					label = "Edonn";
+					label = "Dark Grey";
 				};
 				class Jimothy {
-					label = "Jimothy";
+					label = "Heavy Grey";
 				};
 				class Varen {
 					label = "Varen";
@@ -345,6 +357,10 @@ class XtdGearInfos {
 			model = "TAE_acklay_helmets";
 			owner = "Frenk";
 		};
+		class tae_towi_helmet {
+			model = "TAE_acklay_helmets";
+			owner = "Towi";
+		};
 		
 		// Clan Foxx
 		class tae_foxx_helmet {
@@ -377,6 +393,14 @@ class XtdGearInfos {
 			model = "TAE_rook_helmets";
 			owner = "Andora";
 		};
+		class tae_goostivool_helmet {
+			model = "TAE_rook_helmets";
+			owner = "Goostivool";
+		};
+		class tae_shen_helmet {
+			model = "TAE_rook_helmets";
+			owner = "Shen";
+		};
 	};
 };
 
@@ -398,6 +422,7 @@ class CfgWeapons {
 	class tae_helmet_ls_traditional;
 	class tae_helmet_nite_owl;
 	class tae_helmet_ls_dinDjarin;
+	class tae_helmet_ls_executioner;
 	class tgf_nvg_rangefinder_r;
 	
 	// nvg inherit
@@ -512,6 +537,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -531,6 +557,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -550,6 +577,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -569,6 +597,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -588,6 +617,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
+		author = "Edonn";
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -645,7 +675,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Shyyyo";
+		author = "Hondo";
 		displayName = "Shyyyo Pilot Helmet";
 		hiddenSelections[] = {"camo1","camo2","camo"};
 		hiddenSelectionsTextures[] = {"TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Visor_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Lights_Shyyyo.paa"};
@@ -660,7 +690,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "Clan Acklay Helmet";
 		hiddenSelections[] = {"camo1","visor","neckTex"};
 		hiddenSelectionsTextures[] = {
@@ -681,6 +711,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
+		author = "Edonn";
 		displayName = "Clan Acklay Rangefinder";
 		model = "\ls\core\addons\characters_mandalorian\equipment\nvgs\rangefinder\ls_mandalorian_rangefinder_nvg_on.p3d";
 		hiddenSelections[] = {"camo1"};
@@ -699,6 +730,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
+		author = "Edonn";
 		displayName = "Clan Acklay Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -719,7 +751,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "Edonn's Helmet";
 		hiddenSelections[] = {"camo1","visor","neckTex"};
 		hiddenSelectionsTextures[] = {
@@ -740,7 +772,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "Edonn's Rangefinder";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		modelOptics = "\ls\core\addons\characters_clone_legacy\equipment\nvgs\rangefinder\lsd_gar_rangefinder_optic.p3d";
@@ -817,7 +849,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Jimothy";
 		displayName = "Frenk's Gunslinger Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -829,6 +861,25 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Frenk\GUN_Helmet_Frenk.paa",
 				"TAEGear\data\Frenk\GUN_Visor_Frenk.paa"
+			};
+		};
+	};
+	class tae_towi_helmet : tae_helmet_arbiter {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Towi's Arbiter Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Towi\ARB_Helmet_Towi.paa",
+			"TAEGear\data\Towi\ARB_Visor_Towi.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Towi\ARB_Helmet_Towi.paa",
+				"TAEGear\data\Towi\ARB_Visor_Towi.paa"
 			};
 		};
 	};
@@ -879,7 +930,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Juno";
+		author = "Bean";
 		displayName = "Clan Foxx Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -901,7 +952,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Valeria";
 		displayName = "Clan Varen Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -921,7 +972,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Valeria";
 		displayName = "Clan Varen Rangefinder";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		hiddenSelections[] = {"camo1"};
@@ -941,7 +992,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Nox";
 		displayName = "Clan Rook Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -961,7 +1012,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Lanval";
 		displayName = "Hades' Arbiter Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -981,7 +1032,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Jimothy";
 		displayName = "Andora's Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -994,6 +1045,46 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Andora\NITE_Helmet_Andora.paa",
 				"TAEGear\data\Andora\NITE_Visor_Andora.paa"
+			};
+		};
+	};
+	class tae_goostivool_helmet : tae_helmet_ls_executioner {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Goostivool's Executioner Helmet";
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",
+				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
+				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
+			};
+		};
+	};
+	class tae_shen_helmet : tae_helmet_gunslinger {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Hondo";
+		displayName = "Shen's Gunslinger Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Shen\GUN_Helmet_Shen.paa",
+			"TAEGear\data\Shen\GUN_Visor_Shen.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Shen\GUN_Helmet_Shen.paa",
+				"TAEGear\data\Shen\GUN_Visor_Shen.paa"
 			};
 		};
 	};

@@ -27,7 +27,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		dlc = "The Ashen Enclave AUX Mod";
-		author = "Soldner";
+		author = "Edonn";
 		displayName = "FP-2 Targeting Scope";
 
 		class ItemInfo : InventoryOpticsItem_Base_F {
@@ -62,7 +62,7 @@ class CfgWeapons {
 
 	class tae_IQA12 : IDA_IQA11 {
 		dlc = "The Ashen Enclave AUX Mod";
-		author = "Soldner";
+		author = "Edonn";
 		scope = 2;
 		scopeArsenal = 2;
 		displayName = "IQA-12 Targeting Blaster";

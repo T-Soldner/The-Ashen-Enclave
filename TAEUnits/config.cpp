@@ -35,7 +35,13 @@ class CfgPatches {
 			"TAE_Unit_BSC_Rifleman",
 			"TAE_Unit_BSC_Heavy_Gunner",
 			"TAE_Unit_BSC_Grenadier",
-			"TAE_Unit_BSC_Missile_Specialist"
+			"TAE_Unit_BSC_Missile_Specialist",
+			"TAE_Unit_Nihil_Rifleman",
+			"TAE_Unit_Nihil_AT_AA",
+			"TAE_Unit_Nihil_Sniper",
+			"TAE_Unit_Nihil_Heavy",
+			"TAE_Unit_Nihil_Grenadier",
+			"TAE_Unit_Nihil_Praetorian"
 		};
 		weapons[] = {};
 	};
@@ -53,6 +59,12 @@ class CfgFactionClasses {
 		side = 2;
 		priority = 2;
 	};
+
+	class TAE_Faction_NihilRaiders {
+		displayName = "Nihil Raider";
+		side = 0;
+		priority = 2;
+	};
 };
 
 class CfgEditorSubcategories {
@@ -66,6 +78,10 @@ class CfgEditorSubcategories {
 
 	class TAE_EdSubcat_BlackSpireCartel {
 		displayName = "Black Spire Cartel";
+	};
+
+	class TAE_EdSubcat_NihilRaiders {
+		displayName = "Nihil Raiders";
 	};
 };
 
@@ -4034,9 +4050,245 @@ class CfgVehicles {
 			"3AS_JLTS_MK43_AT"
 		};
 	};
+
+	class TAE_Unit_Nihil_Base: TAE_Unit_HitPoint_Base {
+		scope = 0;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		faction = "TAE_Faction_NihilRaiders";
+		editorSubcategory = "TAE_EdSubcat_NihilRaiders";
+		editorPreview = "\TAEUnits\data\previews\Karr.paa";
+		side = 0;
+		genericNames = "TAE_GenericNames_HouseKarr";
+		identityTypes[] = {"LanguageENG_F","Head_NATO","TAE_NoFacewear"};
+		icon = "iconMan";
+		uniformClass = "JMSLLTE_ScumAlCommando_desert_F_CombatUniform";
+		weapons[] = {"SFA_CZX5_Rifle","Throw","Put"};
+		respawnWeapons[] = {"SFA_CZX5_Rifle","Throw","Put"};
+		magazines[] = {"SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag"};
+		respawnMagazines[] = {"SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag"};
+		linkedItems[] = {"JMSLLTE_CommandosVest2_armor","SFA_Rep_TechMedic_Helmet","ItemMap","ItemWatch"};
+		respawnLinkedItems[] = {"JMSLLTE_CommandosVest2_armor","SFA_Rep_TechMedic_Helmet","ItemMap","ItemWatch"};
+		items[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+		respawnItems[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+	};
+
+	class TAE_Unit_Nihil_Rifleman: TAE_Unit_Nihil_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Nihil Rifleman";
+		role = "Rifleman";
+	};
+
+	class TAE_Unit_Nihil_AT_AA: TAE_Unit_Nihil_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Nihil AT/AA";
+		role = "MissileSpecialist";
+		uniformClass = "JMSLLTE_PirShirtS2_bg_F_CombatUniform";
+		backpack = "SFA_Combat_eng_backpack";
+		weapons[] = {"SFA_CZX5_Rifle","SFA_Guided_Onslaught_Launcher","Throw","Put"};
+		respawnWeapons[] = {"SFA_CZX5_Rifle","SFA_Guided_Onslaught_Launcher","Throw","Put"};
+		magazines[] = {"SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag"};
+		respawnMagazines[] = {"SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag"};
+		linkedItems[] = {"JMSLLTE_TrooperPouch_armor","SFA_Rep_Underworld_Helmet_REM","ItemMap","ItemWatch"};
+		respawnLinkedItems[] = {"JMSLLTE_TrooperPouch_armor","SFA_Rep_Underworld_Helmet_REM","ItemMap","ItemWatch"};
+		items[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+		respawnItems[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+	};
+
+	class TAE_Unit_Nihil_Sniper: TAE_Unit_Nihil_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Nihil Sniper";
+		role = "Marksman";
+		uniformClass = "JMSLLTE_PirCapt_black_F_CombatUniform";
+		weapons[] = {"SFA_CZX5_Sniper","Throw","Put"};
+		respawnWeapons[] = {"SFA_CZX5_Sniper","Throw","Put"};
+		magazines[] = {"SFA_HP_Sniper_mag","SFA_HP_Sniper_mag","SFA_HP_Sniper_mag","SFA_HP_Sniper_mag"};
+		respawnMagazines[] = {"SFA_HP_Sniper_mag","SFA_HP_Sniper_mag","SFA_HP_Sniper_mag","SFA_HP_Sniper_mag"};
+		goggles = "G_JMSLLTE_Bandanna_jinata";
+		linkedItems[] = {"JMSLLTE_NavytrooperHolster_armor","SFA_CZ13K_Helmet_Grenadier","ItemMap","ItemWatch","ls_nvg_goggles_orange"};
+		respawnLinkedItems[] = {"JMSLLTE_NavytrooperHolster_armor","SFA_CZ13K_Helmet_Grenadier","ItemMap","ItemWatch","ls_nvg_goggles_orange"};
+		items[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+		respawnItems[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+	};
+
+	class TAE_Unit_Nihil_Heavy: TAE_Unit_Nihil_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Nihil Heavy";
+		role = "MachineGunner";
+		uniformClass = "JMSLLTE_BHcom_hax_F_CombatUniform";
+		backpack = "JMSLLTE_back_stcape";
+		weapons[] = {"SFA_Heavy_Repeating_Blaster","Throw","Put"};
+		respawnWeapons[] = {"SFA_Heavy_Repeating_Blaster","Throw","Put"};
+		magazines[] = {"SFA_DRX40_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum"};
+		respawnMagazines[] = {"SFA_DRX40_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum"};
+		linkedItems[] = {"JMSLLTE_BHcomArmor_red_armor","ItemMap","ItemWatch"};
+		respawnLinkedItems[] = {"JMSLLTE_BHcomArmor_red_armor","ItemMap","ItemWatch"};
+		items[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+		respawnItems[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+	};
+
+	class TAE_Unit_Nihil_Grenadier: TAE_Unit_Nihil_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Nihil Grenadier";
+		role = "Grenadier";
+		uniformClass = "JMSLLTE_HuttHeavy_brown_F_CombatUniform";
+		weapons[] = {"ls_weapon_mpl57","Throw","Put"};
+		respawnWeapons[] = {"ls_weapon_mpl57","Throw","Put"};
+		magazines[] = {"ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF"};
+		respawnMagazines[] = {"ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF"};
+		linkedItems[] = {"LST_DSI_Vest_V1_Armor","SFA_Combat_Eng_Helmet","ItemMap","ItemRadio","ItemCompass","ItemWatch"};
+		respawnLinkedItems[] = {"LST_DSI_Vest_V1_Armor","SFA_Combat_Eng_Helmet","ItemMap","ItemRadio","ItemCompass","ItemWatch"};
+		items[] = {"FirstAidKit","JMSLLTE_thermaldetonator_HandGrenade","JMSLLTE_thermaldetonator_HandGrenade"};
+		respawnItems[] = {"FirstAidKit","JMSLLTE_thermaldetonator_HandGrenade","JMSLLTE_thermaldetonator_HandGrenade"};
+	};
+
+	class TAE_Unit_Nihil_Praetorian: TAE_Unit_Nihil_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Nihil Praetorian";
+		role = "Rifleman";
+		uniformClass = "LST_Merc_Uniform_Assasin";
+		weapons[] = {"WBK_lightsaberOldRep_kyloStyle","Throw","Put"};
+		respawnWeapons[] = {"WBK_lightsaberOldRep_kyloStyle","Throw","Put"};
+		magazines[] = {"WBK_Cybercrystal"};
+		respawnMagazines[] = {"WBK_Cybercrystal"};
+		linkedItems[] = {"LST_Vest_Gray","LST_KredoSithHelmet","ItemMap","ItemWatch"};
+		respawnLinkedItems[] = {"LST_Vest_Gray","LST_KredoSithHelmet","ItemMap","ItemWatch"};
+		items[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+		respawnItems[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
+	};
 };
 
 class CfgGroups {
+	class East {
+		name = "OPFOR";
+
+		class TAE_Faction_NihilRaiders {
+			name = "Nihil Raider";
+
+			class Infantry {
+				name = "Infantry";
+
+				class TAE_Group_Nihil_Fireteam {
+					name = "Nihil Fireteam";
+					side = 0;
+					faction = "TAE_Faction_NihilRaiders";
+					icon = "\A3\ui_f\data\map\markers\nato\o_inf.paa";
+
+					class Unit0 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Heavy";
+						rank = "CORPORAL";
+						position[] = {0, 0, 0};
+					};
+
+					class Unit1 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Rifleman";
+						rank = "PRIVATE";
+						position[] = {5, -5, 0};
+					};
+
+					class Unit2 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Rifleman";
+						rank = "PRIVATE";
+						position[] = {-5, -5, 0};
+					};
+
+					class Unit3 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Rifleman";
+						rank = "PRIVATE";
+						position[] = {10, -10, 0};
+					};
+				};
+
+				class TAE_Group_Nihil_RaidParty {
+					name = "Nihil Raid Party";
+					side = 0;
+					faction = "TAE_Faction_NihilRaiders";
+					icon = "\A3\ui_f\data\map\markers\nato\o_inf.paa";
+
+					class Unit0 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Praetorian";
+						rank = "SERGEANT";
+						position[] = {0, 0, 0};
+					};
+
+					class Unit1 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Heavy";
+						rank = "CORPORAL";
+						position[] = {5, -5, 0};
+					};
+
+					class Unit2 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_AT_AA";
+						rank = "CORPORAL";
+						position[] = {-5, -5, 0};
+					};
+
+					class Unit3 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Sniper";
+						rank = "PRIVATE";
+						position[] = {10, -10, 0};
+					};
+
+					class Unit4 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Grenadier";
+						rank = "PRIVATE";
+						position[] = {-10, -10, 0};
+					};
+
+					class Unit5 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Rifleman";
+						rank = "PRIVATE";
+						position[] = {15, -15, 0};
+					};
+
+					class Unit6 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Rifleman";
+						rank = "PRIVATE";
+						position[] = {-15, -15, 0};
+					};
+
+					class Unit7 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Rifleman";
+						rank = "PRIVATE";
+						position[] = {20, -20, 0};
+					};
+
+					class Unit8 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Rifleman";
+						rank = "PRIVATE";
+						position[] = {-20, -20, 0};
+					};
+
+					class Unit9 {
+						side = 0;
+						vehicle = "TAE_Unit_Nihil_Rifleman";
+						rank = "PRIVATE";
+						position[] = {25, -25, 0};
+					};
+				};
+			};
+		};
+	};
+
 	class Indep {
 		name = "Independent";
 

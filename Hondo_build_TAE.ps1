@@ -7,9 +7,11 @@ $addonBuilder = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\Addo
 $dsSignFile   = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\DSSignFile.exe"
 
 $sourceRoot = "C:\Users\Shmavoc\OneDrive\Documents\Github\The-Ashen-Enclave"
+$modRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave"
 $outputRoot = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave\Addons"
 $keysRoot   = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@The Ashen Enclave\Keys"
 $runtimeIncludeList = Join-Path $sourceRoot "TAE_build_include.lst"
+$modStuffRoot = Join-Path $sourceRoot "Mod Stuff"
 
 $privateKey = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\TAEAUX.biprivatekey"
 $publicKey  = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSignFile\TAEAUX.bikey"
@@ -36,6 +38,19 @@ if (!(Test-Path $outputRoot)) {
 
 if (!(Test-Path $keysRoot)) {
     New-Item -ItemType Directory -Path $keysRoot -Force | Out-Null
+}
+
+if (!(Test-Path $modStuffRoot)) {
+    Write-Host "ERROR: Mod Stuff folder not found at:" -ForegroundColor Red
+    Write-Host $modStuffRoot -ForegroundColor Red
+    pause
+    exit 1
+}
+
+New-Item -ItemType Directory -Path $modRoot -Force | Out-Null
+Get-ChildItem -LiteralPath $modStuffRoot -File | ForEach-Object {
+    Copy-Item -LiteralPath $_.FullName -Destination $modRoot -Force
+    Write-Host "Copied Mod Stuff\$($_.Name) to $modRoot" -ForegroundColor Green
 }
 
 # Check required tools
