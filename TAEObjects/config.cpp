@@ -235,6 +235,12 @@ class CfgVehicles {
 					statement = "[_player,'tae_acklay_armor','tae_frenk_helmet','tae_acklay_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
+				class TAE_PutOnTowiArmor {
+					displayName = "Put On Towi's Armor";
+					condition = "true";
+					statement = "[_player,'tae_acklay_niteowl_armor','tae_towi_helmet','tae_acklay_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
+				};
+
 				class TAE_PutOnNiteOwlArmor {
 					displayName = "Put On Nite Owl's Armor";
 					condition = "true";

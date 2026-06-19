@@ -27,6 +27,7 @@ class CfgPatches {
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
 			"tae_frenk_helmet",
+			"tae_towi_helmet",
 			"tae_stasik_helmet",
 			"tae_foxx_helmet",
 			"tae_bean_helmet",
@@ -131,7 +132,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy", "Frenk" };
+				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy", "Frenk", "Towi" };
 
 				class Standard {
 					label = "Standard";
@@ -150,6 +151,9 @@ class XtdGearModels {
 				};
 				class Frenk {
 					label = "Frenk";
+				};
+				class Towi {
+					label = "Towi";
 				};
 			};
 		};
@@ -352,6 +356,10 @@ class XtdGearInfos {
 		class tae_frenk_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Frenk";
+		};
+		class tae_towi_helmet {
+			model = "TAE_acklay_helmets";
+			owner = "Towi";
 		};
 		
 		// Clan Foxx
@@ -853,6 +861,25 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Frenk\GUN_Helmet_Frenk.paa",
 				"TAEGear\data\Frenk\GUN_Visor_Frenk.paa"
+			};
+		};
+	};
+	class tae_towi_helmet : tae_helmet_arbiter {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Towi's Arbiter Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Towi\ARB_Helmet_Towi.paa",
+			"TAEGear\data\Towi\ARB_Visor_Towi.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Towi\ARB_Helmet_Towi.paa",
+				"TAEGear\data\Towi\ARB_Visor_Towi.paa"
 			};
 		};
 	};
