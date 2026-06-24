@@ -31,10 +31,12 @@ class CfgPatches {
 			"tae_stasik_helmet",
 			"tae_foxx_helmet",
 			"tae_bean_helmet",
+			"tae_galaxy_helmet",
 			"tae_varen_helmet",
 			"tae_varen_rangefinder",
 			"tae_rook_helmet",
 			"tae_hades_helmet",
+			"tae_grey_helmet",
 			"tae_andora_helmet",
 			"tae_goostivool_helmet",
 			"tae_shen_helmet"
@@ -166,13 +168,19 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Bean" };
+				values[] = { "Standard","Bean", "Grey", "Galaxy" };
 
 				class Standard {
 					label = "Standard";
 				};
 				class Bean {
 					label = "Bean";
+				};
+				class Grey {
+					label = "Grey";
+				};
+				class Galaxy {
+					label = "Galaxy";
 				};
 			};
 		};
@@ -371,6 +379,14 @@ class XtdGearInfos {
 			model = "TAE_foxx_helmets";
 			owner = "Bean";
 		};
+		class tae_grey_helmet {
+			model = "TAE_foxx_helmets";
+			owner = "Grey";
+		};
+		class tae_galaxy_helmet {
+			model = "TAE_foxx_helmets";
+			owner = "Galaxy";
+		};
 
 		// Clan Varen
 		class tae_varen_helmet {
@@ -412,6 +428,7 @@ class CfgWeapons {
 	class tae_helmet_traditional;
 	class tae_helmet_battle_master;
 	class tae_helmet_gunslinger;
+	class tae_helmet_gunslinger_vet;
 	class tae_helmet_warlord;
 	class tae_helmet_viper;
 	class tae_helmet_heavy;
@@ -868,7 +885,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Jimothy";
 		displayName = "Towi's Arbiter Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -1028,6 +1045,46 @@ class CfgWeapons {
 			};
 		};
 	};
+	class tae_grey_helmet : tae_helmet_gunslinger_vet {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Bean";
+		displayName = "Grey's Gunslinger Veteran Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Grey\GUNV_Helmet_Grey.paa",
+			"\z\tgf\addons\helmets\gunslinger_vet\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Grey\GUNV_Helmet_Grey.paa",
+				"\z\tgf\addons\helmets\gunslinger_vet\data\camo2_co.paa"
+			};
+		};
+	};
+	class tae_galaxy_helmet : tae_helmet_gunslinger {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Galaxy's Gunslinger Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Galaxy\GUN_Helmet_Galaxy.paa",
+			"TAEGear\data\Galaxy\GUN_Visor_Galaxy.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Galaxy\GUN_Helmet_Galaxy.paa",
+				"TAEGear\data\Galaxy\GUN_Visor_Galaxy.paa"
+			};
+		};
+	};
 	class tae_andora_helmet : tae_helmet_nite_owl {
 		scope = 2;
 		scopeArsenal = 2;
@@ -1052,7 +1109,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Nox";
 		displayName = "Goostivool's Executioner Helmet";
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",

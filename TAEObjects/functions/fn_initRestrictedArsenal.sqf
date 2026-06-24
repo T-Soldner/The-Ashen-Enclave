@@ -536,6 +536,8 @@ private _items = [
 	"tae_towi_helmet",
 	"tae_nox_helmet",
 	"tae_hades_helmet",
+	"tae_grey_helmet",
+	"tae_galaxy_helmet",
 	"tae_andora_helmet",
 	"tae_goostivool_helmet",
 	"tae_shen_helmet",
