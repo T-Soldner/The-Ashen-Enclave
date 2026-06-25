@@ -15,6 +15,7 @@ class CfgWeapons {
 	//helmet inherts
 	class tgf_helmets_battle_master;
 	class tgf_helmets_gunslinger;
+	class tgf_helmets_gunslinger_vet;
 	class tgf_helmets_warlord;
 	class tgf_helmets_viper;
 	class tgf_helmets_heavy;
@@ -84,9 +85,34 @@ class CfgWeapons {
 	class tae_helmet_gunslinger : tgf_helmets_gunslinger { 
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
-		displayname = "Mandalorian Gunslinger Helmet";
+		displayname = "Mandalorian Gunslinger Helmet (Standard)";
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\gunslinger\gunslinger.p3d";
+			class HitpointsProtectionInfo {
+				class Face {
+					armor = 15;
+					hitpointName = "HitFace";
+					passThrough = 0.3;
+				};
+				class Head {
+					armor = 15;
+					hitPointName = "HitHead";
+					passThrough = 0.3;
+				};
+				class Neck {
+					armor = 15;
+					hitpointName = "HitNeck";
+					passThrough = 0.3;
+				};
+			};
+		};
+	};
+	class tae_helmet_gunslinger_vet : tgf_helmets_gunslinger_vet {
+		dlc = "The Ashen Enclave AUX Mod";
+		scope = 0;
+		displayname = "Mandalorian Gunslinger Veteran Helmet";
+		class ItemInfo : HeadgearItem {
+			Uniformmodel = "\z\tgf\addons\helmets\gunslinger_vet\gunslinger_vet.p3d";
 			class HitpointsProtectionInfo {
 				class Face {
 					armor = 15;

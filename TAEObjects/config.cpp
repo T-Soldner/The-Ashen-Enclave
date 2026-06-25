@@ -280,6 +280,18 @@ class CfgVehicles {
 					condition = "true";
 					statement = "[_player,'tae_foxx_armor','tae_bean_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
+
+				class TAE_PutOnGreyArmor {
+					displayName = "Put On Grey's Armor";
+					condition = "true";
+					statement = "[_player,'tae_foxx_armor','tae_grey_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnGalaxyArmor {
+					displayName = "Put On Galaxy's Armor";
+					condition = "true";
+					statement = "[_player,'tae_foxx_armor','tae_galaxy_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
 			};
 		};
 	};
