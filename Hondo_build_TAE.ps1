@@ -19,6 +19,7 @@ $publicKey  = "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\DSSign
 $addons = @(
     "TAECore",
     "TAEInsignias",
+    "TAEMarkers",
     "TAEWeapons",
     "TAEGear",
     "TAEDrones",

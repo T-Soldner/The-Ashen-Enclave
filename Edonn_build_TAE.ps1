@@ -32,6 +32,7 @@ $publicKey = Join-Path $ArmaToolsRoot "DSSignFile\$KeyName.bikey"
 $addons = @(
     "TAECore",
     "TAEInsignias",
+	"TAEMarkers",
 	"TAEWeapons",
 	"TAEGear",
 	"TAEDrones",

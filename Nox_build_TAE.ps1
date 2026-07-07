@@ -22,6 +22,7 @@ $outputRoot = Join-Path $ArmaRoot "$ModFolderName\Addons"
 $addons = @(
     "TAECore",
     "TAEInsignias",
+    "TAEMarkers",
     "TAEWeapons",
     "TAEGear",
     "TAEDrones",

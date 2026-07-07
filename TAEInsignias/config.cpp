@@ -37,6 +37,13 @@ class CfgUnitInsignia {
 		textureVehicle = "";
 	};
 
+	class TAE_Insignia_Shyyyo_Flight {
+		displayName = "Shyyyo Flight";
+		author = "TAE Mod Team";
+		texture = "\TAEInsignias\data\Shyyyo_Flight_Logo.paa";
+		textureVehicle = "";
+	};
+
 	class TAE_Insignia_Varen {
 		displayName = "House Karr Varen";
 		author = "TAE Mod Team";
