@@ -18,6 +18,7 @@ class CfgPatches {
 		units[] = {
 			"TAE_Unit_Veteran",
 			"TAE_Unit_Engineer",
+			"TAE_Unit_Pilot",
 			"TAE_Unit_Medic",
 			"TAE_Unit_Marksman",
 			"TAE_Unit_AT_AA",
@@ -571,7 +572,6 @@ class CfgVehicles {
 		items[] = {};
 		respawnItems[] = {};
 	};
-
 	class TAE_Unit_Player_Shyyyo: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
@@ -582,6 +582,8 @@ class CfgVehicles {
 		textPlural = "$STR_A3_nameSound_veh_infantry_pilot_p";
 		textSingular = "$STR_A3_nameSound_veh_infantry_pilot_s";
 		ls_common_pilot = 1;
+		engineer = 1;
+		canDeactivateMines = 1;
 	};
 
 	class TAE_Unit_Player_Foundling: TAE_Unit_Base {
@@ -886,6 +888,45 @@ class CfgVehicles {
 		respawnLinkedItems[] = {
 			"ItemMap",
 			"ls_radios_hush98"
+		};
+	};
+
+	class TAE_Unit_Pilot: TAE_Unit_Player_Foundling {
+		scope = 2;
+		scopeCurator = 2;
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Infantry";
+		displayName = "Pilot";
+		role = "Crewman";
+		icon = "ls_iconManPilot";
+		nameSound = "veh_infantry_pilot_s";
+		textPlural = "$STR_A3_nameSound_veh_infantry_pilot_p";
+		textSingular = "$STR_A3_nameSound_veh_infantry_pilot_s";
+		ls_common_pilot = 1;
+		engineer = 1;
+		canDeactivateMines = 1;
+		uniformClass = "tae_uniform_black_seal";
+		backpack = "";
+		linkedItems[] = {
+			"LFP_westarcarabine_scopesn",
+			"tae_shyyyo_recon_armor",
+			"tae_shyyyo_helmet",
+			"ItemMap",
+			"ItemGPS",
+			"ls_radios_hush98",
+			"ItemCompass",
+			"ItemWatch",
+			"tgf_nvg_circuit"
+		};
+		respawnLinkedItems[] = {
+			"LFP_westarcarabine_scopesn",
+			"tae_shyyyo_recon_armor",
+			"tae_shyyyo_helmet",
+			"ItemMap",
+			"ItemGPS",
+			"ls_radios_hush98",
+			"ItemCompass",
+			"ItemWatch",
+			"tgf_nvg_circuit"
 		};
 	};
 

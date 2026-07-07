@@ -205,9 +205,9 @@ class CfgVehicles {
 		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Aircraft";
 
-		crew = "TAE_Unit_Engineer";
+		crew = "TAE_Unit_Pilot";
 		typicalCargo[] = {
-			"TAE_Unit_Engineer"
+			"TAE_Unit_Pilot"
 		};
 
 		ace_cargo_hasCargo = 1;
@@ -623,9 +623,9 @@ class CfgVehicles {
 			"CAS_Heli"
 		};
 
-		crew = "TAE_Unit_Engineer";
+		crew = "TAE_Unit_Pilot";
 		typicalCargo[] = {
-			"TAE_Unit_Engineer"
+			"TAE_Unit_Pilot"
 		};
 
 		weapons[] = {
