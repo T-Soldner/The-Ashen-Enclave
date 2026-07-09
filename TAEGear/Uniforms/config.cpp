@@ -20,6 +20,7 @@ class CfgPatches {
             "tae_uniform_unit_vau",
             "tae_uniform_unit_black_female",
             "tae_uniform_unit_dark_blue_female",
+            "tae_uniform_unit_dark_red_female",
             "tae_uniform_unit_grey_female",
             "tae_uniform_unit_red_female",
             "tae_uniform_unit_white_female"
@@ -40,6 +41,7 @@ class CfgPatches {
             "tae_uniform_vau",
             "tae_uniform_black_female",
             "tae_uniform_dark_blue_female",
+            "tae_uniform_dark_red_female",
             "tae_uniform_grey_female",
             "tae_uniform_red_female",
             "tae_uniform_white_female"
@@ -178,6 +180,12 @@ class XtdGearInfos {
             model = "TAE_standard_uniforms";
             source = "TGF";
             type = "DarkBlue";
+            sex = "Female";
+        };
+        class tae_uniform_dark_red_female {
+            model = "TAE_standard_uniforms";
+            source = "TGF";
+            type = "DarkRed";
             sex = "Female";
         };
         class tae_uniform_grey_female {
@@ -384,6 +392,22 @@ class CfgVehicles {
         explosionShielding = 0.4;
         minTotalDamageThreshold = 0.001;
         impactDamageMultiplier = 0.5;    };
+    class tae_uniform_unit_dark_red_female: tgf_undersuit_unit_red_female {
+        scope = 1;
+        scopeCurator = 0;
+        author = "Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Dark Red)";
+        uniformClass = "tae_uniform_dark_red_female";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Fem_Dark_Red_co.paa",
+            "\z\tgf\addons\undersuit\data\camo2_co.paa"
+        };
+        armor = 2;
+        armorStructural = 4;
+        explosionShielding = 0.4;
+        minTotalDamageThreshold = 0.001;
+        impactDamageMultiplier = 0.5;
+    };
     class tae_uniform_unit_grey_female: tgf_undersuit_unit_grey_female {
         scope = 1;
         scopeCurator = 0;
@@ -653,6 +677,21 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_dark_blue_female";
+            containerClass = "Supply150";
+            mass = 67;
+            uniformType = "Neopren";
+            modelSides[] = { 6 };
+        };
+    };
+    class tae_uniform_dark_red_female: tgf_undersuit_uniform_red_female {
+        scope = 2;
+        scopeArsenal = 2;
+        author = "Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Dark Red)";
+        CBRN_protectionLevel = "4 + 8";
+        ACE_GForceCoef = 0.9;
+        class ItemInfo: ItemInfo {
+            uniformClass = "tae_uniform_unit_dark_red_female";
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";

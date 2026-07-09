@@ -27,6 +27,7 @@ class CfgPatches {
 			"tae_frenk_armor",
 			"tae_foxx_armor",
 			"tae_varen_recon_armor",
+			"tae_varen_niteowl_armor",
 			"tae_rook_armor"
 		};
 	};
@@ -142,9 +143,12 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard" };
+				values[] = { "Standard","Niteowl" };
 				class Standard {
 					label = "Standard";
+				};
+				class Niteowl {
+					label = "Nite Owl";
 				};
 			};
 		};
@@ -261,6 +265,10 @@ class XtdGearInfos {
 		class tae_varen_recon_armor {
 			model	= "TAE_varen_vests";
 			owner	= "Standard";
+		};
+		class tae_varen_niteowl_armor {
+			model	= "TAE_varen_vests";
+			owner	= "Niteowl";
 		};
 		class tae_rook_armor {
 			model	= "TAE_rook_vests";
@@ -734,6 +742,26 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Varen\REC_Armor_Varen.paa",
 				"TAEGear\data\Varen\REC_Brace_Varen.paa"
+			};
+		};
+	};
+	class tae_varen_niteowl_armor : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Valeria";
+		displayName = "Clan Varen Nite Owl Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Varen\NITE_Armor_Varen.paa",
+			"TAEGear\data\Varen\NITE_Brace_Varen.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Varen\NITE_Armor_Varen.paa",
+				"TAEGear\data\Varen\NITE_Brace_Varen.paa"
 			};
 		};
 	};

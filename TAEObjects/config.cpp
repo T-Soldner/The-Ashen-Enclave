@@ -318,7 +318,7 @@ class CfgVehicles {
 				class TAE_PutOnVarenArmor {
 					displayName = "Put On Varen's Armor";
 					condition = "true";
-					statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_varen_rangefinder','','tae_uniform_dark_red_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_varen_niteowl_armor','tae_varen_helmet','','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};
