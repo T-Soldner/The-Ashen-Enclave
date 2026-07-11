@@ -308,7 +308,7 @@ class CfgVehicles {
 		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 		tf_encryptionCode = "tf_independent_radio_code";
 		tf_hasLRradio = 1;
-		tf_range = 10000;
+		tf_range = 30000;
 		tf_subtype = "digital_lr";
 	};
 	class tae_jetpack_Z6 : tae_jetpack {
@@ -337,7 +337,7 @@ class CfgVehicles {
 		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 		tf_encryptionCode = "tf_independent_radio_code";
 		tf_hasLRradio = 1;
-		tf_range = 10000;
+		tf_range = 30000;
 		tf_subtype = "digital_lr";
 	};
 	
@@ -362,11 +362,13 @@ class CfgVehicles {
 		scope = 2;
 		maximumload = 400;
 		tf_dialog = "JLTS_clone_rto_radio_dialog";
+		tf_range = 30000;
 	};
 	class tae_modular_pack_lr_female : tgf_backpacks_modular_pack_lr_female {
 		scope = 2;
 		maximumload = 400;
 		tf_dialog = "JLTS_clone_rto_radio_dialog";
+		tf_range = 30000;
 	};
 	class tae_modular_pack_engi : tgf_backpacks_modular_pack_engi {
 		scope = 2;
