@@ -193,6 +193,11 @@ class CfgVehicles {
 		scopeCurator = 0;
 		lockDetectionSystem = 30;
 		incomingMissileDetectionSystem = 26;
+		radarTargetSize = 0.6;
+		visualTargetSize = 1;
+		irTargetSize = 0.8;
+		tf_hasLRradio = 1;
+		tf_range = 100000;
 	};
 
 	class TAE_KomrkFighter_Transport: TAE_KomrkFighter_Transport_base {
@@ -603,6 +608,11 @@ class CfgVehicles {
 		scopeCurator = 0;
 		lockDetectionSystem = 30;
 		incomingMissileDetectionSystem = 26;
+		radarTargetSize = 0.3;
+		visualTargetSize = 0.7;
+		irTargetSize = 0.5;
+		tf_hasLRradio = 1;
+		tf_range = 100000;
 		aileronSensitivity = 0.7;
 		aileronControlsSensitivityCoef = 2.8;
 		elevatorSensitivity = 1.1;
