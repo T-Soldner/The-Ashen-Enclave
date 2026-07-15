@@ -33,6 +33,7 @@ class CfgPatches {
 			"tae_bean_helmet",
 			"tae_galaxy_helmet",
 			"tae_varen_helmet",
+			"tae_valeria_helmet",
 			"tae_varen_rangefinder",
 			"tae_rook_helmet",
 			"tae_hades_helmet",
@@ -192,10 +193,13 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard" };
+				values[] = { "Standard", "Valeria" };
 
 				class Standard {
 					label = "Standard";
+				};
+				class Valeria {
+					label = "Valeria";
 				};
 			};
 		};
@@ -392,6 +396,10 @@ class XtdGearInfos {
 		class tae_varen_helmet {
 			model = "TAE_varen_helmets";
 			owner = "Standard";
+		};
+		class tae_valeria_helmet {
+			model = "TAE_varen_helmets";
+			owner = "Valeria";
 		};
 		class tae_varen_rangefinder {
 			model = "TAE_nvgs";
@@ -985,6 +993,25 @@ class CfgWeapons {
 			};
 		};
 	};
+	class tae_valeria_helmet : tae_helmet_viper {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Valeria";
+		displayName = "Valeria's Viper Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Varen\VPR_Helmet_Valeria.paa",
+			"\z\tgf\addons\helmets\viper\data\camo2_co.paa"
+		};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Varen\VPR_Helmet_Valeria.paa",
+				"\z\tgf\addons\helmets\viper\data\camo2_co.paa"
+			};
+		};
+	};
 	class tae_varen_rangefinder : tgf_nvg_rangefinder_r {
 		scope = 2;
 		scopeArsenal = 2;
@@ -1112,14 +1139,14 @@ class CfgWeapons {
 		author = "Nox";
 		displayName = "Goostivool's Executioner Helmet";
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",
+			"TAEGear\data\Goostivool\EXEC_Helmet_Goostivool.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Goostivool\Executioner_Helmet_Goostivool.paa",
+				"TAEGear\data\Goostivool\EXEC_Helmet_Goostivool.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
 			};
