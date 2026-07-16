@@ -55,9 +55,9 @@ $soldnerMusicAddons = @(
 $strykerAddons = @(
     "StrykerASTRS",
     "StrykerCore",
-    "StrykerGear",
-    "StrykerSprays",
-    "StrykerVehicles"
+    "StrykerArsenal",
+    "StrykerRecovery",
+    "StrykerSprays"
 )
 
 $failures = New-Object System.Collections.Generic.List[string]
