@@ -581,6 +581,7 @@ private _items = [
 	"tae_rook_helmet",
 	"tae_varen_recon_armor",
 	"tae_varen_niteowl_armor",
+	"tae_valeria_helmet",
 	"tae_edonn_rangefinder",
 	"tae_IQA12",
 	"tae_TargetingScope_FP2",
