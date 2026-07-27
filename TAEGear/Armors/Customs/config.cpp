@@ -28,7 +28,8 @@ class CfgPatches {
 			"tae_foxx_armor",
 			"tae_varen_recon_armor",
 			"tae_varen_niteowl_armor",
-			"tae_rook_armor"
+			"tae_rook_armor",
+			"tae_andora_armor"
 		};
 	};
 };
@@ -79,9 +80,12 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo" };
+				values[] = { "Hondo", "Nox" };
 				class Hondo {
 					label = "Hondo";
+				};
+				class Nox {
+					label = "Nox";
 				};
 			};
 		};
@@ -108,7 +112,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Acklay","Niteowl","Stasik","Edonn" };
+				values[] = { "Acklay","Niteowl","Stasik","Edonn","Jimothy","Frenk" };
 				class Acklay {
 					label = "Standard";
 				};
@@ -120,6 +124,12 @@ class XtdGearModels {
 				};
 				class Edonn {
 					label = "Edonn";
+				};
+				class Jimothy {
+					label = "Jimothy";
+				};
+				class Frenk {
+					label = "Frenk";
 				};
 			};
 		};
@@ -159,9 +169,12 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard" };
+				values[] = { "Standard", "Andora" };
 				class Standard {
 					label = "Standard";
+				};
+				class Andora {
+					label = "Andora";
 				};
 			};
 		};
@@ -228,6 +241,10 @@ class XtdGearInfos {
 			model	= "TAE_freelancer_vests";
 			owner	= "Hondo";
 		};
+		class tae_nox_armor {
+			model	= "TAE_freelancer_vests";
+			owner	= "Nox";
+		};
 		class tae_teka_armor {
 			model	= "TAE_pilot_vests";
 			owner	= "Teka";
@@ -253,6 +270,14 @@ class XtdGearInfos {
 			model	= "TAE_acklay_vests";
 			owner	= "Edonn";
 		};
+		class tae_jimothy_armor {
+			model	= "TAE_acklay_vests";
+			owner	= "Jimothy";
+		};
+		class tae_frenk_armor {
+			model	= "TAE_acklay_vests";
+			owner	= "Frenk";
+		};
 		
 		//Foxx
 		class tae_foxx_armor {
@@ -273,6 +298,10 @@ class XtdGearInfos {
 		class tae_rook_armor {
 			model	= "TAE_rook_vests";
 			owner	= "Standard";
+		};
+		class tae_andora_armor {
+			model	= "TAE_rook_vests";
+			owner	= "Andora";
 		};
 	};
 };
@@ -639,9 +668,9 @@ class CfgWeapons {
 
 	// Frenk
 	class tae_frenk_armor : tae_armor_arbiter {
-		scope = 1;
-		scopeArsenal = 1;
-		scopeCurator = 1;
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
 		author = "Jimothy";
 		displayName = "Frenk's Arbiter Armor";
 		hiddenSelections[] = {"camo1","camo2"};
@@ -661,9 +690,9 @@ class CfgWeapons {
 	
 	// Nox
 	class tae_nox_armor : tae_armor_heavy {
-		scope = 1;
-		scopeArsenal = 1;
-		scopeCurator = 1;
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
 		author = "Nox";
 		displayName = "Nox's Armor";
 		hiddenSelections[] = {"camo1","camo2"};
@@ -683,9 +712,9 @@ class CfgWeapons {
 	
 	//Jimothy
 	class tae_jimothy_armor : tae_armor_heavy {
-		scope = 1;
-		scopeArsenal = 1;
-		scopeCurator = 1;
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
 		author = "Jimothy";
 		displayName = "Jimothy's Armor";
 		hiddenSelections[] = {"camo1","camo2"};
@@ -783,6 +812,26 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Rook\BAT_Armor_Rook.paa",
 				"TAEGear\data\Rook\BAT_Brace_Rook.paa"
+			};
+		};
+	};
+	class tae_andora_armor : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Jimothy";
+		displayName = "Andora's Nite Owl Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Andora\NITE_Armor_Andora.paa",
+			"TAEGear\data\Andora\NITE_Brace_Andora.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Andora\NITE_Armor_Andora.paa",
+				"TAEGear\data\Andora\NITE_Brace_Andora.paa"
 			};
 		};
 	};

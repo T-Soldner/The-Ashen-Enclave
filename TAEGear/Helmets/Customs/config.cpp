@@ -16,6 +16,7 @@ class CfgPatches {
 			"tae_karr_helmet_niteowl_mm",
 			"tae_karr_helmet_niteowl_mv",
 			"tae_hondo_helmet",
+			"tae_nova_helmet",
 			"tae_teka_helmet",
 			"tae_shyyyo_helmet",
 			"tae_acklay_helmet",
@@ -34,6 +35,7 @@ class CfgPatches {
 			"tae_galaxy_helmet",
 			"tae_varen_helmet",
 			"tae_valeria_helmet",
+			"tae_vario_helmet",
 			"tae_varen_rangefinder",
 			"tae_rook_helmet",
 			"tae_hades_helmet",
@@ -97,10 +99,13 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Nox" };
+				values[] = { "Hondo","Nova","Nox" };
 
 				class Hondo {
 					label = "Hondo";
+				};
+				class Nova {
+					label = "Nova";
 				};
 				class Nox {
 					label = "Nox";
@@ -211,7 +216,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen" };
+				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen", "Vario" };
 
 				class Standard {
 					label = "Standard";
@@ -227,6 +232,9 @@ class XtdGearModels {
 				};
 				class Shen {
 					label = "Shen";
+				};
+				class Vario {
+					label = "Vario";
 				};
 			};
 		};
@@ -318,6 +326,10 @@ class XtdGearInfos {
 		class tae_hondo_helmet {
 			model = "TAE_freelancer_helmets";
 			owner = "Hondo";
+		};
+		class tae_nova_helmet {
+			model = "TAE_freelancer_helmets";
+			owner = "Nova";
 		};
 		class tae_teka_helmet {
 			model = "TAE_pilot_helmets";
@@ -413,6 +425,10 @@ class XtdGearInfos {
 			model = "TAE_rook_helmets";
 			owner = "Hades";
 		};
+		class tae_vario_helmet {
+			model = "TAE_rook_helmets";
+			owner = "Vario";
+		};
 		class tae_andora_helmet {
 			model = "TAE_rook_helmets";
 			owner = "Andora";
@@ -448,6 +464,7 @@ class CfgWeapons {
 	class tae_helmet_nite_owl;
 	class tae_helmet_ls_dinDjarin;
 	class tae_helmet_ls_executioner;
+	class tae_helmet_ls_armorer;
 	class tgf_nvg_rangefinder_r;
 	
 	// nvg inherit
@@ -678,6 +695,28 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Hondo\BM_Helmet_Hondo.paa",
 				"\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"
+			};
+		};
+	};
+	class tae_nova_helmet : tae_helmet_ls_armorer {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Nova";
+		displayName = "Nova's Armorer Helmet";
+		hiddenSelections[] = {"camo1","visor","neckTex"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Nova\ARM_Helmet_Nova.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\armorer\data\visor_co.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\armorer\data\neck_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","visor","neckTex"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Nova\ARM_Helmet_Nova.paa",
+				"\ls\core\addons\characters_mandalorian\helmets\armorer\data\visor_co.paa",
+				"\ls\core\addons\characters_mandalorian\helmets\armorer\data\neck_co.paa"
 			};
 		};
 	};
@@ -1109,6 +1148,26 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Galaxy\GUN_Helmet_Galaxy.paa",
 				"TAEGear\data\Galaxy\GUN_Visor_Galaxy.paa"
+			};
+		};
+	};
+	class tae_vario_helmet : tae_helmet_traditional {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Nox";
+		displayName = "Vario's Traditional Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Vario\TRAD_Helmet_Vario.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Vario\TRAD_Helmet_Vario.paa",
+				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
 	};

@@ -28,6 +28,7 @@ class CfgWeapons {
 	class tgf_helmets_nite_owl;
 	class ls_mandalorianHelmet_dinDjarin;
 	class ls_mandalorianHelmet_executioner;
+	class ls_mandalorianHelmet_armorer;
 	
 	//actual armor
 	class tae_helmet_traditional : tgf_helmets_traditional { 
@@ -390,6 +391,32 @@ class CfgWeapons {
 		displayName = "Mandalorian Executioner Helmet (LS)";
 		class ItemInfo : HeadgearItem {
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\executioner\ls_helmet_mandalorian_executioner.p3d";
+			hiddenSelections[] = {"camo1","visor","neckTex"};
+			class HitpointsProtectionInfo {
+				class Face {
+					armor = 15;
+					hitpointName = "HitFace";
+					passThrough = 0.3;
+				};
+				class Head {
+					armor = 15;
+					hitPointName = "HitHead";
+					passThrough = 0.3;
+				};
+				class Neck {
+					armor = 15;
+					hitpointName = "HitNeck";
+					passThrough = 0.3;
+				};
+			};
+		};
+	};
+	class tae_helmet_ls_armorer : ls_mandalorianHelmet_armorer {
+		dlc = "The Ashen Enclave AUX Mod";
+		scope = 0;
+		displayName = "Mandalorian Armorer Helmet (LS)";
+		class ItemInfo : HeadgearItem {
+			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\armorer\ls_helmet_mandalorian_armorer.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
 			class HitpointsProtectionInfo {
 				class Face {

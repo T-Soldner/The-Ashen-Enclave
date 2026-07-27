@@ -355,10 +355,16 @@ class CfgVehicles {
 					statement = "[_player,'tae_rook_armor','tae_hades_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
+				class TAE_PutOnVarioArmor {
+					displayName = "Put On Vario's Armor";
+					condition = "true";
+					statement = "[_player,'tae_rook_armor','tae_vario_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
 				class TAE_PutOnAndoraArmor {
 					displayName = "Put On Andora's Armor";
 					condition = "true";
-					statement = "[_player,'tae_rook_armor','tae_andora_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_andora_armor','tae_andora_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnGoostivoolArmor {
@@ -429,6 +435,12 @@ class CfgVehicles {
 					displayName = "Put On Nite Owl Apprentice's Armor";
 					condition = "true";
 					statement = "[_player,'tae_karr_armor_niteowl_ma','tae_karr_helmet_niteowl_ma','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnNovaArmor {
+					displayName = "Put On Nova's Armor";
+					condition = "true";
+					statement = "[_player,'tae_karr_armor_niteowl_ma','tae_nova_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_white_female'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnNiteOwlMandalorianArmor {
@@ -891,10 +903,6 @@ class CfgVehicles {
 			};
 			class _xx_JMSLLTE_DT12_50rnd_Mag {
 				magazine = "JMSLLTE_DT12_50rnd_Mag";
-				count = 25;
-			};
-			class _xx_JMSLLTE_E22_60Rnd_Mag {
-				magazine = "JMSLLTE_E22_60Rnd_Mag";
 				count = 25;
 			};
 			class _xx_JMSLLTE_EE3_30rnd_Mag {
