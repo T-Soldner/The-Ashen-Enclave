@@ -99,13 +99,16 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Nova","Nox" };
+				values[] = { "Hondo","Nova","Edonn","Nox" };
 
 				class Hondo {
 					label = "Hondo";
 				};
 				class Nova {
 					label = "Nova";
+				};
+				class Edonn {
+					label = "Edonn";
 				};
 				class Nox {
 					label = "Nox";
@@ -140,16 +143,13 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl", "Edonn", "Stasik", "Jimothy", "Frenk", "Towi" };
+				values[] = { "Standard","Niteowl", "Stasik", "Jimothy", "Frenk", "Towi" };
 
 				class Standard {
 					label = "Standard";
 				};
 				class Niteowl {
 					label = "Nite owl";
-				};
-				class Edonn {
-					label = "Edonn";
 				};
 				class Stasik {
 					label = "Stasik";
@@ -331,6 +331,10 @@ class XtdGearInfos {
 			model = "TAE_freelancer_helmets";
 			owner = "Nova";
 		};
+		class tae_edonn_helmet {
+			model = "TAE_freelancer_helmets";
+			owner = "Edonn";
+		};
 		class tae_teka_helmet {
 			model = "TAE_pilot_helmets";
 			owner = "Teka";
@@ -356,10 +360,6 @@ class XtdGearInfos {
 		class tae_acklay_niteowl_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Niteowl";
-		};
-		class tae_edonn_helmet {
-			model = "TAE_acklay_helmets";
-			owner = "Edonn";
 		};
 		class tae_edonn_rangefinder {
 			model = "TAE_nvgs";
@@ -823,12 +823,20 @@ class CfgWeapons {
 			"TAEGear\data\Edonn\LS_DIN_Visor_Edonn.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
 		};
+		hiddenSelectionsMaterials[] = {
+			"TAEGear\data\Edonn\LS_DIN_Helmet_Edonn.rvmat",
+			"TAEGear\data\Edonn\LS_DIN_Visor_Edonn.rvmat"
+		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","visor","neckTex"};
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Edonn\LS_DIN_Helmet_Edonn.paa",
 				"TAEGear\data\Edonn\LS_DIN_Visor_Edonn.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
+			};
+			hiddenSelectionsMaterials[] = {
+				"TAEGear\data\Edonn\LS_DIN_Helmet_Edonn.rvmat",
+				"TAEGear\data\Edonn\LS_DIN_Visor_Edonn.rvmat"
 			};
 		};
 	};

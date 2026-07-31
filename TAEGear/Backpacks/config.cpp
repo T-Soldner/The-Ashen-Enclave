@@ -285,6 +285,7 @@ class CfgVehicles {
 	class tae_jetpack_z12 : tae_jetpack {
 		displayName = "House Karr Z-12 Jetpack";
 		scope = 2;
+		author = "Kandosii Mod Devs";
 		model = "knd_jetpacks\data\z12\pack.p3d";
 		hiddenselections[] = {"rocket","pack"};
 		hiddenselectionstextures[] = {"knd_jetpacks\data\Z12\Rocket_co.paa","knd_jetpacks\data\Z12\pack_co.paa"};
@@ -294,13 +295,14 @@ class CfgVehicles {
 		displayName = "House Karr JT-12 Jetpack";
 		scope = 2;
 		picture = "\knd_jetpacks\data\JT12_icon_co.paa";
-		author = "Maxim + Jenna";
+		author = "Kandosii Mod Devs";
 		model = "\knd_jetpacks\data\jt12\jt12.p3d";
 		hiddenselections[] = {"rocket","pack"};
 		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12\pack_co.paa"};
 	};
 	class tae_jetpack_JT12_LR : tae_jetpack_JT12 {
 		displayName = "House Karr JT-12 LR Jetpack";
+		author = "Kandosii Mod Devs";
 		model = "\knd_jetpacks\data\jt12RTO\jt12RTO.p3d";
 		hiddenselections[] = {"rocket","pack"};
 		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12RTO\pack_co.paa"};
@@ -314,6 +316,7 @@ class CfgVehicles {
 	class tae_jetpack_Z6 : tae_jetpack {
 		displayName = "House Karr Z-6 Jetpack";
 		scope = 2;
+		author = "Kandosii Mod Devs";
 		model = "knd_jetpacks\data\z6\z6_final.p3d";
 		hiddenselections[] = {"rocket","pack"};
 		hiddenselectionstextures[] = {"knd_jetpacks\data\Z6\Rocket_co.paa","knd_jetpacks\data\Z6\pack_co.paa"};
@@ -323,13 +326,14 @@ class CfgVehicles {
 		displayName = "House Karr JT-13 Jetpack";
 		scope = 2;
 		picture = "\knd_jetpacks\data\JT13_icon_co.paa";
-		author = "Maxim + Jenna";
+		author = "Kandosii Mod Devs";
 		model = "\knd_jetpacks\data\jt13\jt13.p3d";
 		hiddenselections[] = {"camo1"};
 		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13\camo1_co.paa"};
 	};
 	class tae_jetpack_JT13_LR : tae_jetpack_JT13 {
 		displayName = "House Karr JT-13 LR Jetpack";
+		author = "Kandosii Mod Devs";
 		model = "\knd_jetpacks\data\jt13RTO\jt13RTO.p3d";
 		hiddenselections[] = {"camo1"};
 		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13RTO\camo1_co.paa"};
@@ -382,18 +386,21 @@ class CfgVehicles {
 	//Custom Packs
 	class tae_hondo_JT13_LR : tae_jetpack_JT13_LR {
 		scope = 2;
+		author = "Kandosii and Edonn";
 		displayName = "Hondo's JT-13 Jetpack";
 		descriptionShort = "Hondo's JT-13 Jetpack";
 		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\Hondo\JT12_Pack_Hondo.paa"};
 	};
 	class tae_edonn_JT13_LR : tae_jetpack_JT13_LR {
 		scope = 2;
+		author = "Kandosii and Edonn";
 		displayName = "Edonn's JT-13 Jetpack LR";
 		descriptionShort = "Edonn's JT-13 Jetpack LR";
 		hiddenselectionstextures[] = {"TAEGear\data\Edonn\JT13_Pack_Edonn.paa"};
 	};
 	class tae_edonn_JT13 : tae_jetpack_JT13 {
 		scope = 2;
+		author = "Kandosii and Edonn";
 		displayName = "Edonn's JT-13 Jetpack";
 		descriptionShort = "Edonn's JT-13 Jetpack";
 		hiddenselectionstextures[] = {"TAEGear\data\Edonn\JT13_Pack_Edonn.paa"};

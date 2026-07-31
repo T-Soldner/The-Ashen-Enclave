@@ -80,9 +80,12 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo", "Nox" };
+				values[] = { "Hondo", "Edonn", "Nox" };
 				class Hondo {
 					label = "Hondo";
+				};
+				class Edonn {
+					label = "Edonn";
 				};
 				class Nox {
 					label = "Nox";
@@ -112,7 +115,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Acklay","Niteowl","Stasik","Edonn","Jimothy","Frenk" };
+				values[] = { "Acklay","Niteowl","Stasik","Jimothy","Frenk" };
 				class Acklay {
 					label = "Standard";
 				};
@@ -121,9 +124,6 @@ class XtdGearModels {
 				};
 				class Stasik {
 					label = "Stasik";
-				};
-				class Edonn {
-					label = "Edonn";
 				};
 				class Jimothy {
 					label = "Jimothy";
@@ -245,6 +245,10 @@ class XtdGearInfos {
 			model	= "TAE_freelancer_vests";
 			owner	= "Nox";
 		};
+		class tae_edonn_armor {
+			model	= "TAE_freelancer_vests";
+			owner	= "Edonn";
+		};
 		class tae_teka_armor {
 			model	= "TAE_pilot_vests";
 			owner	= "Teka";
@@ -265,10 +269,6 @@ class XtdGearInfos {
 		class tae_stasik_armor {
 			model	= "TAE_acklay_vests";
 			owner	= "Stasik";
-		};
-		class tae_edonn_armor {
-			model	= "TAE_acklay_vests";
-			owner	= "Edonn";
 		};
 		class tae_jimothy_armor {
 			model	= "TAE_acklay_vests";
@@ -658,10 +658,16 @@ class CfgWeapons {
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Edonn\LS_Armor_Edonn.paa"
 		};
+		hiddenSelectionsMaterials[] = {
+			"TAEGear\data\Edonn\LS_Armor_Edonn.rvmat"
+		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1"};
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Edonn\LS_Armor_Edonn.paa"
+			};
+			hiddenSelectionsMaterials[] = {
+				"TAEGear\data\Edonn\LS_Armor_Edonn.rvmat"
 			};
 		};
 	};

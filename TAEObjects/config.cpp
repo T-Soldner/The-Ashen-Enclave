@@ -211,12 +211,6 @@ class CfgVehicles {
 					statement = "[_player,'tae_acklay_armor','tae_acklay_helmet','tae_acklay_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
-				class TAE_PutOnEdonnArmor {
-					displayName = "Put On Edonn's Armor";
-					condition = "true";
-					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tae_edonn_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
-				};
-
 				class TAE_PutOnStasikArmor {
 					displayName = "Put On Stasik's Armor";
 					condition = "true";
@@ -441,6 +435,12 @@ class CfgVehicles {
 					displayName = "Put On Nova's Armor";
 					condition = "true";
 					statement = "[_player,'tae_karr_armor_niteowl_ma','tae_nova_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_white_female'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnEdonnArmor {
+					displayName = "Put On Edonn's Armor";
+					condition = "true";
+					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tae_edonn_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnNiteOwlMandalorianArmor {
