@@ -474,7 +474,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_forgemaster_seal: tgf_undersuit_uniform_forgemaster_seal {
@@ -489,7 +489,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_black_seal: tgf_undersuit_uniform_black_seal {
@@ -504,7 +504,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_blue_seal: tgf_undersuit_uniform_dark_blue_seal {
@@ -519,7 +519,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_green_seal: tgf_undersuit_uniform_dark_green_seal {
@@ -534,7 +534,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_grey_seal: tgf_undersuit_uniform_grey_seal {
@@ -549,7 +549,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_orange_seal: tgf_undersuit_uniform_orange_seal {
@@ -564,7 +564,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_red_seal: tgf_undersuit_uniform_red_seal {
@@ -579,7 +579,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_red_seal: tae_uniform_red_seal {
@@ -592,7 +592,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_brown_seal: tae_uniform_red_seal {
@@ -605,7 +605,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_white_seal: tgf_undersuit_uniform_white_seal {
@@ -620,7 +620,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_skirata: tgf_undersuit_uniform_skirata {
@@ -635,7 +635,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_vau: tgf_undersuit_uniform_vau {
@@ -650,7 +650,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_black_female: tgf_undersuit_uniform_black_female {
@@ -665,7 +665,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_blue_female: tgf_undersuit_uniform_dark_blue_female {
@@ -680,7 +680,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_red_female: tgf_undersuit_uniform_red_female {
@@ -695,7 +695,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_grey_female: tgf_undersuit_uniform_grey_female {
@@ -710,7 +710,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_red_female: tgf_undersuit_uniform_red_female {
@@ -725,7 +725,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_white_female: tgf_undersuit_uniform_white_female {
@@ -740,7 +740,7 @@ class CfgWeapons {
             containerClass = "Supply150";
             mass = 67;
             uniformType = "Neopren";
-            modelSides[] = { 6 };
+            modelSides[] = { 0, 1, 2, 3 };
         };
     };
 };

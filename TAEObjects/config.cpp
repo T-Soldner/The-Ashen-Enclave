@@ -220,13 +220,13 @@ class CfgVehicles {
 				class TAE_PutOnJimothyArmor {
 					displayName = "Put On Jimothy's Armor";
 					condition = "true";
-					statement = "[_player,'tae_acklay_armor','tae_jimothy_helmet','tae_jimothy_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_jimothy_armor','tae_jimothy_helmet','tae_jimothy_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_vau'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnFrenkArmor {
 					displayName = "Put On Frenk's Armor";
 					condition = "true";
-					statement = "[_player,'tae_acklay_armor','tae_frenk_helmet','tae_acklay_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_frenk_armor','tae_frenk_helmet','tae_acklay_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnTowiArmor {
@@ -311,6 +311,12 @@ class CfgVehicles {
 
 				class TAE_PutOnVarenArmor {
 					displayName = "Put On Varen's Armor";
+					condition = "true";
+					statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_varen_rangefinder','','tae_uniform_dark_red_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnVarenNiteOwlArmor {
+					displayName = "Put On Varen's Nite Owl Armor";
 					condition = "true";
 					statement = "[_player,'tae_varen_niteowl_armor','tae_varen_helmet','','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
 				};
@@ -480,7 +486,7 @@ class CfgVehicles {
 				class TAE_PutOnNoxArmor {
 					displayName = "Put On Nox's Armor";
 					condition = "true";
-					statement = "[_player,'tae_karr_armor_medium_ma','tae_nox_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_nox_armor','tae_nox_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};
@@ -508,7 +514,7 @@ class CfgVehicles {
 				class TAE_PutOnHondoArmor {
 					displayName = "Put On Hondo's Armor";
 					condition = "true";
-					statement = "[_player,'tae_hondo_armor','tae_hondo_helmet','','','tae_uniform_vau'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_hondo_armor','tae_hondo_helmet','','','tae_uniform_forgemaster_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};

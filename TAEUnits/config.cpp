@@ -13,7 +13,16 @@ class CfgPatches {
 			"TAEGear_Armors_Customs",
 			"TAEGear_Helmets_Customs",
 			"TAEGear_Backpacks",
-			"TAEWeapons"
+			"TAEWeapons",
+			"JMSLLTE_civs_mod",
+			"JMSLLTE_civ_vests_mod",
+			"ls_characters",
+			"ls_identities",
+			"SFA_Races",
+			"mti_factions_common",
+			"mti_factions_civilian",
+			"A3_Characters_F_Orange_Vests",
+			"xs_female_xs_f_base_head"
 		};
 		units[] = {
 			"TAE_Unit_Veteran",
@@ -42,7 +51,8 @@ class CfgPatches {
 			"TAE_Unit_Nihil_Sniper",
 			"TAE_Unit_Nihil_Heavy",
 			"TAE_Unit_Nihil_Grenadier",
-			"TAE_Unit_Nihil_Praetorian"
+			"TAE_Unit_Nihil_Praetorian",
+			"TAE_Unit_Civilian_Random"
 		};
 		weapons[] = {};
 	};
@@ -62,8 +72,14 @@ class CfgFactionClasses {
 	};
 
 	class TAE_Faction_NihilRaiders {
-		displayName = "Nihil Raider";
+		displayName = "[TAE] Nihil Raider";
 		side = 0;
+		priority = 2;
+	};
+
+	class TAE_Faction_Civilians {
+		displayName = "[TAE] Civilians";
+		side = 3;
 		priority = 2;
 	};
 };
@@ -83,6 +99,27 @@ class CfgEditorSubcategories {
 
 	class TAE_EdSubcat_NihilRaiders {
 		displayName = "Nihil Raiders";
+	};
+
+	class TAE_EdSubcat_Civilians {
+		displayName = "Civilians";
+	};
+};
+
+class CfgFunctions {
+	class TAE {
+		class Units {
+			file = "TAEUnits\functions";
+			class randomizeCivilian {};
+		};
+	};
+};
+
+class Extended_Init_EventHandlers {
+	class TAE_Unit_Civilian_Random {
+		class TAE_randomizeCivilian {
+			init = "_this call TAE_fnc_randomizeCivilian";
+		};
 	};
 };
 
@@ -145,12 +182,13 @@ class CfgGlasses {
 		scope = 1;
 		displayName = "TAE No Facewear";
 		model = "";
-		identityTypes[] = {"TAE_NoFacewear"};
+		identityTypes[] = {"TAE_NoFacewear",1};
 	};
 };
 
 class CfgVehicles {
 	class tae_uniform_unit_grey_seal;
+	class JMSLLTE_c_jumpsuit_blue_F;
 
 	class TAE_Unit_HitPoint_Base: tae_uniform_unit_grey_seal {
 		scope = 0;
@@ -460,6 +498,8 @@ class CfgVehicles {
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Players";
 		displayName = "Mandalorian";
 		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
 			"TAE_NoFacewear"
 		};
 
@@ -489,6 +529,8 @@ class CfgVehicles {
 		displayName = "Acklay Member";
 
 		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
 			"TAE_NoFacewear"
 		};
 		goggles = "TAE_NoFacewear";
@@ -514,6 +556,8 @@ class CfgVehicles {
 		scopeCurator = 0;
 		displayName = "Foxx Member";
 		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
 			"TAE_NoFacewear"
 		};
 		goggles = "TAE_NoFacewear";
@@ -533,6 +577,8 @@ class CfgVehicles {
 		scopeCurator = 0;
 		displayName = "Rook Member";
 		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
 			"TAE_NoFacewear"
 		};
 		goggles = "TAE_NoFacewear";
@@ -553,6 +599,8 @@ class CfgVehicles {
 		displayName = "Varen Member";
 
 		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
 			"TAE_NoFacewear"
 		};
 		goggles = "TAE_NoFacewear";
@@ -593,6 +641,8 @@ class CfgVehicles {
 		displayName = "Foundling";
 
 		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
 			"TAE_NoFacewear"
 		};
 		goggles = "TAE_NoFacewear";
@@ -877,6 +927,8 @@ class CfgVehicles {
 		scopeCurator = 0;
 		displayName = "Freelancer";
 		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
 			"TAE_NoFacewear"
 		};
 		goggles = "TAE_NoFacewear";
@@ -4203,6 +4255,29 @@ class CfgVehicles {
 		items[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
 		respawnItems[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
 	};
+
+	class TAE_Unit_Civilian_Random: JMSLLTE_c_jumpsuit_blue_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Civilian (Random)";
+		faction = "TAE_Faction_Civilians";
+		editorSubcategory = "TAE_EdSubcat_Civilians";
+		editorPreview = "\TAEUnits\data\previews\Karr.paa";
+		side = 3;
+		identityTypes[] = {"LanguageENG_F","Head_NATO","NoGlasses"};
+		icon = "iconMan";
+		uniformClass = "JMSLLTE_c_jumpsuit_blue_F_CombatUniform";
+		weapons[] = {};
+		respawnWeapons[] = {};
+		magazines[] = {};
+		respawnMagazines[] = {};
+		linkedItems[] = {};
+		respawnLinkedItems[] = {};
+		items[] = {};
+		respawnItems[] = {};
+
+	};
 };
 
 class CfgGroups {
@@ -4210,7 +4285,7 @@ class CfgGroups {
 		name = "OPFOR";
 
 		class TAE_Faction_NihilRaiders {
-			name = "Nihil Raider";
+			name = "[TAE] Nihil Raider";
 
 			class Infantry {
 				name = "Infantry";
@@ -4565,6 +4640,32 @@ class CfgGroups {
 						vehicle = "TAE_Unit_BSC_Missile_Specialist";
 						rank = "PRIVATE";
 						position[] = {10, -10, 0};
+					};
+				};
+			};
+		};
+	};
+
+	class Civilian {
+		name = "Civilian";
+
+		class TAE_Faction_Civilians {
+			name = "[TAE] Civilians";
+
+			class Civilians {
+				name = "Civilians";
+
+				class TAE_Group_Civilian_Random {
+					name = "Civilian (Random)";
+					side = 3;
+					faction = "TAE_Faction_Civilians";
+					icon = "\A3\ui_f\data\map\markers\nato\c_unknown.paa";
+
+					class Unit0 {
+						side = 3;
+						vehicle = "TAE_Unit_Civilian_Random";
+						rank = "PRIVATE";
+						position[] = {0, 0, 0};
 					};
 				};
 			};

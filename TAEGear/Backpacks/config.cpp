@@ -144,7 +144,7 @@ class XtdGearModels {
 		class TAE_custom_Backpacks {
 			label = "Custom Backpacks";
 			author = "TAE Aux Mod Team";
-			options[] = { "owner","LR" };
+			options[] = { "owner", "LR" };
 
 			class owner {
 				alwaysSelectable = 1;
@@ -159,6 +159,7 @@ class XtdGearModels {
 					label = "Edonn";
 				};
 			};
+
 			class LR {
 				alwaysSelectable = 1;
 				label = "LR";
@@ -173,6 +174,7 @@ class XtdGearModels {
 				};
 			};
 		};
+
 	};
 };
 
@@ -241,23 +243,24 @@ class XtdGearInfos {
 			role = "Engineer";
 			Sex = "Female";
 		};
-		
-		//customs
+
+		//Custom Backpacks
 		class tae_hondo_JT13_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Hondo";
-			LR    = "Yes";
+			LR = "Yes";
 		};
 		class tae_edonn_JT13_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Edonn";
-			LR 	  = "Yes";
+			LR = "Yes";
 		};
 		class tae_edonn_JT13 {
 			model = "TAE_custom_Backpacks";
 			owner = "Edonn";
-			LR 	  = "No";
+			LR = "No";
 		};
+
 	};
 };
 
@@ -366,13 +369,21 @@ class CfgVehicles {
 		scope = 2;
 		maximumload = 400;
 		tf_dialog = "JLTS_clone_rto_radio_dialog";
+		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
+		tf_encryptionCode = "tf_independent_radio_code";
+		tf_hasLRradio = 1;
 		tf_range = 30000;
+		tf_subtype = "digital_lr";
 	};
 	class tae_modular_pack_lr_female : tgf_backpacks_modular_pack_lr_female {
 		scope = 2;
 		maximumload = 400;
 		tf_dialog = "JLTS_clone_rto_radio_dialog";
+		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
+		tf_encryptionCode = "tf_independent_radio_code";
+		tf_hasLRradio = 1;
 		tf_range = 30000;
+		tf_subtype = "digital_lr";
 	};
 	class tae_modular_pack_engi : tgf_backpacks_modular_pack_engi {
 		scope = 2;
@@ -383,20 +394,19 @@ class CfgVehicles {
 		maximumload = 400;
 	};
 	
-	//Custom Packs
+	// Custom Packs
 	class tae_hondo_JT13_LR : tae_jetpack_JT13_LR {
 		scope = 2;
 		author = "Kandosii and Edonn";
 		displayName = "Hondo's JT-13 Jetpack";
 		descriptionShort = "Hondo's JT-13 Jetpack";
-		//hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","TAEGear\data\Hondo\JT12_Pack_Hondo.paa"};
 	};
 	class tae_edonn_JT13_LR : tae_jetpack_JT13_LR {
 		scope = 2;
 		author = "Kandosii and Edonn";
 		displayName = "Edonn's JT-13 Jetpack LR";
 		descriptionShort = "Edonn's JT-13 Jetpack LR";
-		hiddenselectionstextures[] = {"TAEGear\data\Edonn\JT13_Pack_Edonn.paa"};
+		hiddenselectionstextures[] = {"TAEGear\data\Edonn\JT13_RTO_Pack_Edonn.paa"};
 	};
 	class tae_edonn_JT13 : tae_jetpack_JT13 {
 		scope = 2;
