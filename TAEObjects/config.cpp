@@ -47,6 +47,7 @@ class CfgPatches {
 			"TAE_Wearable_Freelancer_Helmet",
 			"TAE_Wearable_Nox_Helmet",
 			"TAE_Wearable_Hondo_Helmet",
+			"TAE_Wearable_Edonn_Helmet",
 			"TAE_Wearable_Teka_Helmet"
 		};
 		weapons[] = {};
@@ -443,12 +444,6 @@ class CfgVehicles {
 					statement = "[_player,'tae_karr_armor_niteowl_ma','tae_nova_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_white_female'] call TAE_fnc_applyWearableLoadout";
 				};
 
-				class TAE_PutOnEdonnArmor {
-					displayName = "Put On Edonn's Armor";
-					condition = "true";
-					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tae_edonn_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
-				};
-
 				class TAE_PutOnNiteOwlMandalorianArmor {
 					displayName = "Put On Nite Owl's Armor";
 					condition = "true";
@@ -515,6 +510,39 @@ class CfgVehicles {
 					displayName = "Put On Hondo's Armor";
 					condition = "true";
 					statement = "[_player,'tae_hondo_armor','tae_hondo_helmet','','','tae_uniform_forgemaster_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_Wearable_Edonn_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Edonn Helmet";
+		model = "\ls\core\addons\characters_mandalorian\helmets\dinDjarin\ls_helmet_mandalorian_dinDjarin.p3d";
+		hiddenSelections[] = {"camo1","visor","neckTex"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Edonn\LS_DIN_Helmet_Edonn.paa",
+			"\TAEGear\data\Edonn\LS_DIN_Visor_Edonn.paa",
+			"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
+		};
+		hiddenSelectionsMaterials[] = {
+			"\TAEGear\data\Edonn\LS_DIN_Helmet_Edonn.rvmat",
+			"\TAEGear\data\Edonn\LS_DIN_Visor_Edonn.rvmat"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnEdonnArmor {
+					displayName = "Put On Edonn's Armor";
+					condition = "true";
+					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tae_edonn_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};

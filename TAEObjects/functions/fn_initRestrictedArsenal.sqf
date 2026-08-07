@@ -651,6 +651,7 @@ private _items = [
 	"tae_hondo_JT13_LR",
 	"tae_edonn_JT13_LR",
 	"tae_edonn_JT13",
+	"tae_nova_Z6",
 	"tae_varen_helmet",
 	"tae_varen_rangefinder",
 	"tae_foxx_helmet",

@@ -12,7 +12,8 @@ class CfgPatches {
 			"tae_jetpack_JT13_LR",
 			"tae_hondo_JT13_LR",
 			"tae_edonn_JT13_LR",
-			"tae_edonn_JT13"
+			"tae_edonn_JT13",
+			"tae_nova_Z6"
 		};
 		weapons[] = { };
 	};
@@ -149,7 +150,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo", "Edonn" };
+				values[] = { "Hondo", "Edonn", "Nova" };
 
 				class Hondo {
 					label = "Hondo";
@@ -157,6 +158,10 @@ class XtdGearModels {
 
 				class Edonn {
 					label = "Edonn";
+				};
+
+				class Nova {
+					label = "Nova";
 				};
 			};
 
@@ -258,6 +263,11 @@ class XtdGearInfos {
 		class tae_edonn_JT13 {
 			model = "TAE_custom_Backpacks";
 			owner = "Edonn";
+			LR = "No";
+		};
+		class tae_nova_Z6 {
+			model = "TAE_custom_Backpacks";
+			owner = "Nova";
 			LR = "No";
 		};
 
@@ -414,5 +424,15 @@ class CfgVehicles {
 		displayName = "Edonn's JT-13 Jetpack";
 		descriptionShort = "Edonn's JT-13 Jetpack";
 		hiddenselectionstextures[] = {"TAEGear\data\Edonn\JT13_Pack_Edonn.paa"};
+	};
+	class tae_nova_Z6 : tae_jetpack_Z6 {
+		scope = 2;
+		author = "Kandosii and Edonn";
+		displayName = "Nova's Z-6 Jetpack";
+		descriptionShort = "Nova's Z-6 Jetpack";
+		hiddenselectionstextures[] = {
+			"TAEGear\data\Nova\Z6_Rocket_Nova.paa",
+			"TAEGear\data\Nova\Z6_Pack_Nova.paa"
+		};
 	};
 };
