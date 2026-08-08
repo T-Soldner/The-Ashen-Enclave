@@ -410,6 +410,7 @@ class CfgVehicles {
 		author = "Kandosii and Edonn";
 		displayName = "Hondo's JT-13 Jetpack";
 		descriptionShort = "Hondo's JT-13 Jetpack";
+		hiddenselectionstextures[] = {"TAEGear\data\Hondo\JT13_RTO_Pack_Hondo.paa"};
 	};
 	class tae_edonn_JT13_LR : tae_jetpack_JT13_LR {
 		scope = 2;
