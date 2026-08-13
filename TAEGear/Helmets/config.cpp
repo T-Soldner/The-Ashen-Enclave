@@ -2,9 +2,19 @@ class CfgPatches {
 	class TAEGear_Helmets {
 		addonRootClass = "TAEGear";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "tgf_helmets", "tgf_nvg", "ls_characters_mandalorian" };
+		requiredAddons[] = { "A3_Characters_F", "tgf_helmets", "tgf_nvg", "ls_characters_mandalorian" };
 		units[] = { };
 		weapons[] = { };
+	};
+};
+class CfgFunctions {
+	class TAE {
+		class Gear {
+			file = "\TAEGear\Helmets\functions";
+			class initHelmetDivingVision {
+				postInit = 1;
+			};
+		};
 	};
 };
 class CfgWeapons {
@@ -37,6 +47,7 @@ class CfgWeapons {
 		scopeArsenal = 0;
 		scopeCurator = 0;
 		displayname = "Mandalorian Traditional Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 			class HitpointsProtectionInfo {
@@ -62,6 +73,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Battle Master Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\battle_master\battle_master.p3d";
 			class HitpointsProtectionInfo {
@@ -87,6 +99,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Gunslinger Helmet (Standard)";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\gunslinger\gunslinger.p3d";
 			class HitpointsProtectionInfo {
@@ -112,6 +125,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Gunslinger Veteran Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\gunslinger_vet\gunslinger_vet.p3d";
 			class HitpointsProtectionInfo {
@@ -137,6 +151,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Warlord Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\warlord\warlord_helmet.p3d";
 			class HitpointsProtectionInfo {
@@ -162,6 +177,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Viper Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\viper\viper_helmet.p3d";
 			class HitpointsProtectionInfo {
@@ -187,6 +203,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Heavy Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\heavy\heavy_helmet.p3d";
 			class HitpointsProtectionInfo {
@@ -212,6 +229,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Pilot Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\pilot\pilot_helmet.p3d";
 			class HitpointsProtectionInfo {
@@ -237,6 +255,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Shrike Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\shrike\shrike.p3d";
 			class HitpointsProtectionInfo {
@@ -262,6 +281,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Arbiter Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\arbiter\arbiter_helmet.p3d";
 			class HitpointsProtectionInfo {
@@ -287,6 +307,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian War Chief Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\war_chief\war_chief.p3d";
 			class HitpointsProtectionInfo {
@@ -312,6 +333,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Nite Owl Helmet";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			Uniformmodel = "\z\tgf\addons\helmets\nite_owl\nite_owl_helmet.p3d";
 			class HitpointsProtectionInfo {
@@ -337,6 +359,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayName = "Mandalorian Traditional Helmet (LS)";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\traditional\ls_helmet_mandalorian_traditional.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
@@ -363,6 +386,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayName = "Mandalorian Din Djarin Helmet (LS)";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\dinDjarin\ls_helmet_mandalorian_dinDjarin.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
@@ -389,6 +413,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayName = "Mandalorian Executioner Helmet (LS)";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\executioner\ls_helmet_mandalorian_executioner.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
@@ -415,6 +440,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayName = "Mandalorian Armorer Helmet (LS)";
+		TAE_underwaterVision = 1;
 		class ItemInfo : HeadgearItem {
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\armorer\ls_helmet_mandalorian_armorer.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
@@ -462,6 +488,18 @@ class CfgWeapons {
 
 class CfgGlasses {
 	class None;
+	class G_Diving;
+
+	class tae_facewear_helmet_diving_visor: G_Diving {
+		scope = 1;
+		scopeArsenal = 0;
+		displayName = "TAE Integrated Diving Visor";
+		model = "";
+		picture = "";
+		identityTypes[] = {};
+		mass = 0;
+		mode = 1;
+	};
 
 	class tae_facewear_ls_neck_lining: None {
 		dlc = "The Ashen Enclave AUX Mod";

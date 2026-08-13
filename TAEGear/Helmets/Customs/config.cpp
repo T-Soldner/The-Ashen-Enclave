@@ -20,10 +20,10 @@ class CfgPatches {
 			"tae_teka_helmet",
 			"tae_shyyyo_helmet",
 			"tae_acklay_helmet",
-			"tae_acklay_rangefinder",
+			"tae_ls_grey_rangefinder",
 			"tae_acklay_niteowl_helmet",
 			"tae_edonn_helmet",
-			"tae_edonn_rangefinder",
+			"tae_dark_grey_rangefinder",
 			"tae_nox_helmet",
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
@@ -31,12 +31,14 @@ class CfgPatches {
 			"tae_towi_helmet",
 			"tae_stasik_helmet",
 			"tae_foxx_helmet",
+			"tae_juno_helmet",
 			"tae_bean_helmet",
 			"tae_galaxy_helmet",
 			"tae_varen_helmet",
 			"tae_valeria_helmet",
 			"tae_vario_helmet",
-			"tae_varen_rangefinder",
+			"tae_dark_red_rangefinder",
+			"tae_foxx_rangefinder",
 			"tae_rook_helmet",
 			"tae_hades_helmet",
 			"tae_grey_helmet",
@@ -174,10 +176,13 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Bean", "Grey", "Galaxy" };
+				values[] = { "Standard", "Juno", "Bean", "Grey", "Galaxy" };
 
 				class Standard {
 					label = "Standard";
+				};
+				class Juno {
+					label = "Juno";
 				};
 				class Bean {
 					label = "Bean";
@@ -246,19 +251,22 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Acklay", "Edonn", "Jimothy", "Varen" };
+				values[] = { "LSGrey", "DarkGrey", "Jimothy", "DarkRed", "Foxx" };
 
-				class Acklay {
+				class LSGrey {
 					label = "LS Grey";
 				};
-				class Edonn {
+				class DarkGrey {
 					label = "Dark Grey";
 				};
 				class Jimothy {
 					label = "Heavy Grey";
 				};
-				class Varen {
-					label = "Varen";
+				class DarkRed {
+					label = "Dark Red";
+				};
+				class Foxx {
+					label = "Foxx";
 				};
 			};
 		};
@@ -353,17 +361,17 @@ class XtdGearInfos {
 			model = "TAE_acklay_helmets";
 			owner = "Standard";
 		};
-		class tae_acklay_rangefinder {
+		class tae_ls_grey_rangefinder {
 			model = "TAE_nvgs";
-			owner = "Acklay";
+			owner = "LSGrey";
 		};
 		class tae_acklay_niteowl_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Niteowl";
 		};
-		class tae_edonn_rangefinder {
+		class tae_dark_grey_rangefinder {
 			model = "TAE_nvgs";
-			owner = "Edonn";
+			owner = "DarkGrey";
 		};
 		class tae_stasik_helmet {
 			model = "TAE_acklay_helmets";
@@ -391,6 +399,10 @@ class XtdGearInfos {
 			model = "TAE_foxx_helmets";
 			owner = "Standard";
 		};
+		class tae_juno_helmet {
+			model = "TAE_foxx_helmets";
+			owner = "Juno";
+		};
 		class tae_bean_helmet {
 			model = "TAE_foxx_helmets";
 			owner = "Bean";
@@ -413,9 +425,13 @@ class XtdGearInfos {
 			model = "TAE_varen_helmets";
 			owner = "Valeria";
 		};
-		class tae_varen_rangefinder {
+		class tae_dark_red_rangefinder {
 			model = "TAE_nvgs";
-			owner = "Varen";
+			owner = "DarkRed";
+		};
+		class tae_foxx_rangefinder {
+			model = "TAE_nvgs";
+			owner = "Foxx";
 		};
 		class tae_rook_helmet {
 			model = "TAE_rook_helmets";
@@ -771,12 +787,12 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_acklay_rangefinder : tae_ls_mandalorian_rangefinder {
+	class tae_ls_grey_rangefinder : tae_ls_mandalorian_rangefinder {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Edonn";
-		displayName = "Clan Acklay Rangefinder";
+		displayName = "LS Grey";
 		model = "\ls\core\addons\characters_mandalorian\equipment\nvgs\rangefinder\ls_mandalorian_rangefinder_nvg_on.p3d";
 		hiddenSelections[] = {"camo1"};
 		hiddenSelectionsTextures[] = {"\ls\core\addons\characters_mandalorian\helmets\original\data\original_co.paa"};
@@ -840,17 +856,14 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_edonn_rangefinder : tgf_nvg_rangefinder_r {
+	class tae_dark_grey_rangefinder : tgf_nvg_rangefinder_r {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Edonn";
-		displayName = "Edonn's Rangefinder";
+		displayName = "Dark Grey";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
-		modelOptics = "\ls\core\addons\characters_clone_legacy\equipment\nvgs\rangefinder\lsd_gar_rangefinder_optic.p3d";
-		ace_nightvision_border = "\ls\core\addons\characters_clone_legacy\equipment\nvgs\rangefinder\data\optic_ca.paa";
 		visionMode[] = { "Normal", "NVG", "TI" };
-		ls_equipment_rangefinderDisplay = "ls_RscCloneRangefinder";
 		hiddenSelectionsTextures[] = { "TAEGear\data\Edonn\LS_DIN_Rangefinder_Edonn.paa" };
 		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
 		class ItemInfo: ItemInfo {
@@ -998,6 +1011,26 @@ class CfgWeapons {
 			};
 		};
 	};
+	class tae_juno_helmet : tae_helmet_arbiter {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Juno";
+		displayName = "Juno's Arbiter Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Juno\ARB_Helmet_Juno.paa",
+			"TAEGear\data\Juno\ARB_Visor_Juno.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Juno\ARB_Helmet_Juno.paa",
+				"TAEGear\data\Juno\ARB_Visor_Juno.paa"
+			};
+		};
+	};
 	class tae_bean_helmet : tae_helmet_war_chief{
 		scope = 2;
 		scopeArsenal = 2;
@@ -1059,12 +1092,12 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_varen_rangefinder : tgf_nvg_rangefinder_r {
+	class tae_dark_red_rangefinder : tgf_nvg_rangefinder_r {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Valeria";
-		displayName = "Clan Varen Rangefinder";
+		displayName = "Dark Red";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		hiddenSelections[] = {"camo1"};
 		hiddenSelectionsTextures[] = { "TAEGear\data\Varen\TRAD_Rangefinder_Varen.paa" };
@@ -1074,6 +1107,24 @@ class CfgWeapons {
 			uniformModel = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_on_r.p3d";
 			hiddenSelections[] = {"camo1"};
 			hiddenSelectionsTextures[] = { "TAEGear\data\Varen\TRAD_Rangefinder_Varen.paa" };
+			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
+		};
+	};
+	class tae_foxx_rangefinder : tgf_nvg_rangefinder_r {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Juno";
+		displayName = "Clan Foxx Rangefinder";
+		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Juno\TRAD_Rangefinder_Foxx.paa"};
+		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
+
+		class ItemInfo: ItemInfo {
+			uniformModel = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_on_r.p3d";
+			hiddenSelections[] = {"camo1"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Juno\TRAD_Rangefinder_Foxx.paa"};
 			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		};
 	};

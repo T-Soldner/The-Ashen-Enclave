@@ -444,23 +444,54 @@ class CfgVehicles {
 };
 
 class CfgWeapons {
-    class ItemInfo;
-    class ls_mandalorianUniform;
-    class tgf_undersuit_uniform_forgemaster_seal;
-    class tgf_undersuit_uniform_black_seal;
-    class tgf_undersuit_uniform_dark_blue_seal;
-    class tgf_undersuit_uniform_dark_green_seal;
-    class tgf_undersuit_uniform_grey_seal;
-    class tgf_undersuit_uniform_orange_seal;
-    class tgf_undersuit_uniform_red_seal;
-    class tgf_undersuit_uniform_white_seal;
-    class tgf_undersuit_uniform_skirata;
-    class tgf_undersuit_uniform_vau;
-    class tgf_undersuit_uniform_black_female;
-    class tgf_undersuit_uniform_dark_blue_female;
-    class tgf_undersuit_uniform_grey_female;
-    class tgf_undersuit_uniform_red_female;
-    class tgf_undersuit_uniform_white_female;
+    class ls_mandalorianUniform {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_forgemaster_seal {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_black_seal {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_dark_blue_seal {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_dark_green_seal {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_grey_seal {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_orange_seal {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_red_seal {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_white_seal {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_skirata {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_vau {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_black_female {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_dark_blue_female {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_grey_female {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_red_female {
+        class ItemInfo;
+    };
+    class tgf_undersuit_uniform_white_female {
+        class ItemInfo;
+    };
 
     class tae_uniform_ls_mandalorian: ls_mandalorianUniform {
         scope = 2;

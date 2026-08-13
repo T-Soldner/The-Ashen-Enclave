@@ -402,6 +402,7 @@ class CfgVehicles {
 		};
 
 		magazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -422,6 +423,7 @@ class CfgVehicles {
 		};
 
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -663,6 +665,7 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
@@ -697,6 +700,7 @@ class CfgVehicles {
 			"3AS_SmokeWhite"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
@@ -986,6 +990,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "Veteran";
+		icon = "iconManOfficer";
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack_lr";
@@ -1005,6 +1010,7 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
@@ -1039,6 +1045,7 @@ class CfgVehicles {
 			"3AS_SmokeWhite"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
@@ -1297,6 +1304,7 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
@@ -1331,6 +1339,7 @@ class CfgVehicles {
 			"3AS_SmokeWhite"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
@@ -1578,7 +1587,7 @@ class CfgVehicles {
 
 
 		uniformClass = "tae_uniform_grey_seal";
-		backpack = "tae_modular_pack";
+		backpack = "tae_modular_pack_medic";
 		goggles = "TAE_NoFacewear";
 		weapons[] = {
 			"LFP_westarcarabine",
@@ -1595,28 +1604,9 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1629,28 +1619,9 @@ class CfgVehicles {
 			"3AS_SmokeWhite"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1951,7 +1922,7 @@ class CfgVehicles {
 
 
 		uniformClass = "tae_uniform_grey_seal";
-		backpack = "tae_modular_pack";
+		backpack = "tae_modular_pack_marksman";
 		goggles = "TAE_NoFacewear";
 		weapons[] = {
 			"JLTS_DW32S",
@@ -1968,6 +1939,7 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
 			"JLTS_DW32S_mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -1980,16 +1952,6 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
@@ -1997,6 +1959,7 @@ class CfgVehicles {
 			"LFP_Westar35_Mag"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"JLTS_DW32S_mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -2009,16 +1972,6 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
-			"JLTS_DW32S_mag",
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
@@ -2249,6 +2202,7 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"JMSLLTE_HH12_AT_Mag",
 			"LFP_Westar35_Mag",
@@ -2288,6 +2242,7 @@ class CfgVehicles {
 			"JMSLLTE_HH12_AA_Mag"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"JMSLLTE_HH12_AT_Mag",
 			"LFP_Westar35_Mag",
@@ -2531,7 +2486,7 @@ class CfgVehicles {
 
 
 		uniformClass = "tae_uniform_grey_seal";
-		backpack = "tae_modular_pack";
+		backpack = "tae_modular_pack_grenadier";
 		goggles = "TAE_NoFacewear";
 		weapons[] = {
 			"IDA_E10_UGL",
@@ -2548,6 +2503,7 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
 			"IDA_HE_LauncherGrenade",
 			"LFP_Westar35_Mag",
@@ -2561,11 +2517,6 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
@@ -2582,6 +2533,7 @@ class CfgVehicles {
 			"LFP_Westar35_Mag"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
 			"IDA_HE_LauncherGrenade",
 			"LFP_Westar35_Mag",
@@ -2595,11 +2547,6 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
-			"IDA_HE_LauncherGrenade",
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
 			"IDA_Blaster_Cell_Power3_40Rnd_Red",
@@ -2815,7 +2762,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "CQC Specialist";
-		icon = "iconMan";
+		icon = "ls_iconManLeader";
 
 
 
@@ -2841,6 +2788,17 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
 			"3AS_10Rnd_EC30_Pellets",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -2859,6 +2817,17 @@ class CfgVehicles {
 			"LFP_Westar35_Mag"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
+			"3AS_10Rnd_EC30_Pellets",
 			"3AS_10Rnd_EC30_Pellets",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -3092,7 +3061,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "Heavy Weapons";
-		icon = "iconManMG";
+		icon = "ls_iconManSupportGunner";
 
 
 
@@ -3101,7 +3070,7 @@ class CfgVehicles {
 
 
 		uniformClass = "tae_uniform_grey_seal";
-		backpack = "tae_modular_pack";
+		backpack = "tae_modular_pack_heavy";
 		goggles = "TAE_NoFacewear";
 		weapons[] = {
 			"3AS_DLT19",
@@ -3118,6 +3087,7 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
+			"Laserbatteries",
 			"3AS_200Rnd_EM40_DLT19_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -3133,19 +3103,10 @@ class CfgVehicles {
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag"
+			"LFP_Westar35_Mag"
 		};
 		respawnMagazines[] = {
+			"Laserbatteries",
 			"3AS_200Rnd_EM40_DLT19_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -3161,17 +3122,7 @@ class CfgVehicles {
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
-			"LFP_Westar35_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag",
-			"3AS_200Rnd_EM40_DLT19_Mag"
+			"LFP_Westar35_Mag"
 		};
 		linkedItems[] = {
 			"3AS_Imp_Optic_2",
@@ -3397,7 +3348,8 @@ class CfgVehicles {
 			"Put"
 		};
 		magazines[] = {
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"Laserbatteries",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -3413,19 +3365,20 @@ class CfgVehicles {
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow"
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green"
 		};
 		respawnMagazines[] = {
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+			"Laserbatteries",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -3441,16 +3394,16 @@ class CfgVehicles {
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow",
-			"IDA_Blaster_Cell_Power5_5Rnd_Yellow"
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green",
+			"IDA_Blaster_Cell_Power5_5Rnd_Green"
 		};
 		linkedItems[] = {
 			"tae_TargetingScope_FP2",
@@ -4541,65 +4494,6 @@ class CfgGroups {
 				};
 			};
 
-			class Players {
-				name = "Mandalorians";
-
-				class TAE_Group_Mandalorians {
-					name = "Mandalorians";
-					side = 2;
-					faction = "TAE_Faction_HouseKarr";
-					icon = "\A3\ui_f\data\map\markers\nato\n_inf.paa";
-
-					class Unit0 {
-						side = 2;
-						vehicle = "TAE_Unit_Player_Acklay";
-						rank = "PRIVATE";
-						position[] = {0, 0, 0};
-					};
-
-					class Unit1 {
-						side = 2;
-						vehicle = "TAE_Unit_Player_Foxx";
-						rank = "PRIVATE";
-						position[] = {5, -5, 0};
-					};
-
-					class Unit2 {
-						side = 2;
-						vehicle = "TAE_Unit_Player_Rook";
-						rank = "PRIVATE";
-						position[] = {-5, -5, 0};
-					};
-
-					class Unit3 {
-						side = 2;
-						vehicle = "TAE_Unit_Player_Varen";
-						rank = "PRIVATE";
-						position[] = {10, -10, 0};
-					};
-
-					class Unit4 {
-						side = 2;
-						vehicle = "TAE_Unit_Player_Foundling";
-						rank = "PRIVATE";
-						position[] = {-10, -10, 0};
-					};
-
-					class Unit5 {
-						side = 2;
-						vehicle = "TAE_Unit_Player_Freelancer";
-						rank = "PRIVATE";
-						position[] = {-15, -15, 0};
-					};
-
-					class Unit6 {
-						side = 2;
-						vehicle = "TAE_Unit_Player_Shyyyo";
-						rank = "PRIVATE";
-						position[] = {15, -15, 0};
-					};
-				};
-			};
 		};
 
 		class TAE_Faction_Criminals {

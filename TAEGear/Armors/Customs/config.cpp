@@ -26,6 +26,7 @@ class CfgPatches {
 			"tae_jimothy_armor",
 			"tae_frenk_armor",
 			"tae_foxx_armor",
+			"tae_juno_armor",
 			"tae_varen_recon_armor",
 			"tae_varen_niteowl_armor",
 			"tae_rook_armor",
@@ -140,9 +141,12 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard" };
+				values[] = { "Standard", "Juno" };
 				class Standard {
 					label = "Standard";
+				};
+				class Juno {
+					label = "Juno";
 				};
 			};
 		};
@@ -284,6 +288,10 @@ class XtdGearInfos {
 			model	= "TAE_foxx_vests";
 			owner	= "Standard";
 			
+		};
+		class tae_juno_armor {
+			model	= "TAE_foxx_vests";
+			owner	= "Juno";
 		};
 
 		// Varen
@@ -756,6 +764,26 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Foxx\MED_Armor_Foxx.paa",
 				"TAEGear\data\Foxx\MED_Brace_Foxx.paa"
+			};
+		};
+	};
+	class tae_juno_armor : tae_armor_heavy {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Juno";
+		displayName = "Juno's Heavy Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Juno\HEAV_Armor_Juno.paa",
+			"TAEGear\data\Juno\HEAV_Brace_Juno.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Juno\HEAV_Armor_Juno.paa",
+				"TAEGear\data\Juno\HEAV_Brace_Juno.paa"
 			};
 		};
 	};

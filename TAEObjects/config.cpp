@@ -209,7 +209,7 @@ class CfgVehicles {
 				class TAE_PutOnAcklayArmor {
 					displayName = "Put On Acklay's Armor";
 					condition = "true";
-					statement = "[_player,'tae_acklay_armor','tae_acklay_helmet','tae_acklay_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_acklay_armor','tae_acklay_helmet','tae_ls_grey_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnStasikArmor {
@@ -227,13 +227,13 @@ class CfgVehicles {
 				class TAE_PutOnFrenkArmor {
 					displayName = "Put On Frenk's Armor";
 					condition = "true";
-					statement = "[_player,'tae_frenk_armor','tae_frenk_helmet','tae_acklay_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_frenk_armor','tae_frenk_helmet','tae_dark_grey_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_dark_green_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnTowiArmor {
 					displayName = "Put On Towi's Armor";
 					condition = "true";
-					statement = "[_player,'tae_acklay_niteowl_armor','tae_towi_helmet','tae_acklay_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_acklay_niteowl_armor','tae_towi_helmet','tae_ls_grey_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnNiteOwlArmor {
@@ -267,25 +267,31 @@ class CfgVehicles {
 				class TAE_PutOnFoxxArmor {
 					displayName = "Put On Foxx's Armor";
 					condition = "true";
-					statement = "[_player,'tae_foxx_armor','tae_foxx_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_foxx_armor','tae_foxx_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnJunoArmor {
+					displayName = "Put On Juno's Armor";
+					condition = "true";
+					statement = "[_player,'tae_juno_armor','tae_juno_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnBeanArmor {
 					displayName = "Put On Bean's Armor";
 					condition = "true";
-					statement = "[_player,'tae_foxx_armor','tae_bean_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_foxx_armor','tae_bean_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnGreyArmor {
 					displayName = "Put On Grey's Armor";
 					condition = "true";
-					statement = "[_player,'tae_foxx_armor','tae_grey_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_foxx_armor','tae_grey_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnGalaxyArmor {
 					displayName = "Put On Galaxy's Armor";
 					condition = "true";
-					statement = "[_player,'tae_foxx_armor','tae_galaxy_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_foxx_armor','tae_galaxy_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};
@@ -313,7 +319,7 @@ class CfgVehicles {
 				class TAE_PutOnVarenArmor {
 					displayName = "Put On Varen's Armor";
 					condition = "true";
-					statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_varen_rangefinder','','tae_uniform_dark_red_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnVarenNiteOwlArmor {
@@ -542,7 +548,7 @@ class CfgVehicles {
 				class TAE_PutOnEdonnArmor {
 					displayName = "Put On Edonn's Armor";
 					condition = "true";
-					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tae_edonn_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tgf_nvg_circuit','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};
