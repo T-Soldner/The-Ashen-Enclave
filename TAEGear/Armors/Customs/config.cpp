@@ -26,11 +26,14 @@ class CfgPatches {
 			"tae_jimothy_armor",
 			"tae_frenk_armor",
 			"tae_foxx_armor",
+			"tae_galaxy_armor",
 			"tae_juno_armor",
 			"tae_varen_recon_armor",
 			"tae_varen_niteowl_armor",
 			"tae_rook_armor",
-			"tae_andora_armor"
+			"tae_hades_armor",
+			"tae_andora_armor",
+			"tae_goostivool_armor"
 		};
 	};
 };
@@ -141,12 +144,15 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Juno" };
+				values[] = { "Standard", "Juno", "Galaxy" };
 				class Standard {
 					label = "Standard";
 				};
 				class Juno {
 					label = "Juno";
+				};
+				class Galaxy {
+					label = "Galaxy";
 				};
 			};
 		};
@@ -173,12 +179,18 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Andora" };
+				values[] = { "Standard", "Hades", "Andora", "Goostivool" };
 				class Standard {
 					label = "Standard";
 				};
+				class Hades {
+					label = "Hades";
+				};
 				class Andora {
 					label = "Andora";
+				};
+				class Goostivool {
+					label = "Goostivool";
 				};
 			};
 		};
@@ -293,6 +305,10 @@ class XtdGearInfos {
 			model	= "TAE_foxx_vests";
 			owner	= "Juno";
 		};
+		class tae_galaxy_armor {
+			model	= "TAE_foxx_vests";
+			owner	= "Galaxy";
+		};
 
 		// Varen
 		class tae_varen_recon_armor {
@@ -307,9 +323,17 @@ class XtdGearInfos {
 			model	= "TAE_rook_vests";
 			owner	= "Standard";
 		};
+		class tae_hades_armor {
+			model	= "TAE_rook_vests";
+			owner	= "Hades";
+		};
 		class tae_andora_armor {
 			model	= "TAE_rook_vests";
 			owner	= "Andora";
+		};
+		class tae_goostivool_armor {
+			model	= "TAE_rook_vests";
+			owner	= "Goostivool";
 		};
 	};
 };
@@ -787,6 +811,26 @@ class CfgWeapons {
 			};
 		};
 	};
+	class tae_galaxy_armor : tae_armor_medium {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Galaxy";
+		displayName = "Galaxy's Medium Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Galaxy\MED_Armor_Galaxy.paa",
+			"TAEGear\data\Galaxy\MED_Brace_Galaxy.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Galaxy\MED_Armor_Galaxy.paa",
+				"TAEGear\data\Galaxy\MED_Brace_Galaxy.paa"
+			};
+		};
+	};
 	// Clan Varen
 	class tae_varen_recon_armor : tae_armor_recon {
 		scope = 2;
@@ -849,6 +893,26 @@ class CfgWeapons {
 			};
 		};
 	};
+	class tae_hades_armor : tae_armor_war_chief {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Lanval";
+		displayName = "Hades' War Chief Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Hades\WAR_Armor_Hades.paa",
+			"TAEGear\data\Hades\WAR_Brace_Hades.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Hades\WAR_Armor_Hades.paa",
+				"TAEGear\data\Hades\WAR_Brace_Hades.paa"
+			};
+		};
+	};
 	class tae_andora_armor : tae_nite_owl_armor {
 		scope = 2;
 		scopeArsenal = 2;
@@ -866,6 +930,24 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Andora\NITE_Armor_Andora.paa",
 				"TAEGear\data\Andora\NITE_Brace_Andora.paa"
+			};
+		};
+	};
+	class tae_goostivool_armor : tae_armor_ls_traditional {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Nox";
+		displayName = "Goostivool's Armor";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Goostivool\LS_Armor_Goostivool.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Goostivool\LS_Armor_Goostivool.paa"
 			};
 		};
 	};

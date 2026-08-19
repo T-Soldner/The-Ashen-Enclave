@@ -230,6 +230,7 @@ class CfgVehicles {
     class tae_uniform_unit_ls_mandalorian: ls_mandalorian_base {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE LS Mandalorian Undersuit";
         uniformClass = "tae_uniform_ls_mandalorian";
@@ -241,6 +242,7 @@ class CfgVehicles {
     class tae_uniform_unit_forgemaster_seal: tgf_undersuit_unit_forgemaster_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Forgemaster)";
         uniformClass = "tae_uniform_forgemaster_seal";
@@ -252,6 +254,7 @@ class CfgVehicles {
     class tae_uniform_unit_black_seal: tgf_undersuit_unit_black_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Black)";
         uniformClass = "tae_uniform_black_seal";
@@ -263,6 +266,7 @@ class CfgVehicles {
     class tae_uniform_unit_dark_blue_seal: tgf_undersuit_unit_dark_blue_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Dark Blue)";
         uniformClass = "tae_uniform_dark_blue_seal";
@@ -274,6 +278,7 @@ class CfgVehicles {
     class tae_uniform_unit_dark_green_seal: tgf_undersuit_unit_dark_green_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Dark Green)";
         uniformClass = "tae_uniform_dark_green_seal";
@@ -285,6 +290,7 @@ class CfgVehicles {
     class tae_uniform_unit_grey_seal: tgf_undersuit_unit_grey_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Grey)";
         uniformClass = "tae_uniform_grey_seal";
@@ -296,6 +302,7 @@ class CfgVehicles {
     class tae_uniform_unit_orange_seal: tgf_undersuit_unit_orange_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Orange)";
         uniformClass = "tae_uniform_orange_seal";
@@ -307,6 +314,7 @@ class CfgVehicles {
     class tae_uniform_unit_red_seal: tgf_undersuit_unit_red_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Red)";
         uniformClass = "tae_uniform_red_seal";
@@ -318,6 +326,7 @@ class CfgVehicles {
     class tae_uniform_unit_dark_red_seal: tae_uniform_unit_red_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Dark Red)";
         uniformClass = "tae_uniform_dark_red_seal";
@@ -329,6 +338,7 @@ class CfgVehicles {
     class tae_uniform_unit_brown_seal: tae_uniform_unit_red_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Brown)";
         uniformClass = "tae_uniform_brown_seal";
@@ -340,6 +350,7 @@ class CfgVehicles {
     class tae_uniform_unit_white_seal: tgf_undersuit_unit_white_seal {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (White)";
         uniformClass = "tae_uniform_white_seal";
@@ -351,6 +362,7 @@ class CfgVehicles {
     class tae_uniform_unit_skirata: tgf_undersuit_unit_skirata {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Kal Skirata)";
         uniformClass = "tae_uniform_skirata";
@@ -362,6 +374,7 @@ class CfgVehicles {
     class tae_uniform_unit_vau: tgf_undersuit_unit_vau {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Walon Vau)";
         uniformClass = "tae_uniform_vau";
@@ -373,6 +386,7 @@ class CfgVehicles {
     class tae_uniform_unit_black_female: tgf_undersuit_unit_black_female {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Female Mandalorian Undersuit with Seal (Black)";
         uniformClass = "tae_uniform_black_female";
@@ -384,6 +398,7 @@ class CfgVehicles {
     class tae_uniform_unit_dark_blue_female: tgf_undersuit_unit_dark_blue_female {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Female Mandalorian Undersuit with Seal (Dark Blue)";
         uniformClass = "tae_uniform_dark_blue_female";
@@ -395,6 +410,7 @@ class CfgVehicles {
     class tae_uniform_unit_dark_red_female: tgf_undersuit_unit_red_female {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Female Mandalorian Undersuit with Seal (Dark Red)";
         uniformClass = "tae_uniform_dark_red_female";
@@ -411,6 +427,7 @@ class CfgVehicles {
     class tae_uniform_unit_grey_female: tgf_undersuit_unit_grey_female {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Female Mandalorian Undersuit with Seal (Grey)";
         uniformClass = "tae_uniform_grey_female";
@@ -422,6 +439,7 @@ class CfgVehicles {
     class tae_uniform_unit_red_female: tgf_undersuit_unit_red_female {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Female Mandalorian Undersuit with Seal (Red)";
         uniformClass = "tae_uniform_red_female";
@@ -433,6 +451,7 @@ class CfgVehicles {
     class tae_uniform_unit_white_female: tgf_undersuit_unit_white_female {
         scope = 1;
         scopeCurator = 0;
+        modelSides[] = { 0, 1, 2, 3 };
         author = "Edonn";
         displayName = "TAE Female Mandalorian Undersuit with Seal (White)";
         uniformClass = "tae_uniform_white_female";
@@ -502,10 +521,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_ls_mandalorian";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_forgemaster_seal: tgf_undersuit_uniform_forgemaster_seal {
@@ -517,10 +535,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_forgemaster_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_black_seal: tgf_undersuit_uniform_black_seal {
@@ -532,10 +549,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_black_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_blue_seal: tgf_undersuit_uniform_dark_blue_seal {
@@ -547,10 +563,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_dark_blue_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_green_seal: tgf_undersuit_uniform_dark_green_seal {
@@ -562,10 +577,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_dark_green_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_grey_seal: tgf_undersuit_uniform_grey_seal {
@@ -577,10 +591,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_grey_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_orange_seal: tgf_undersuit_uniform_orange_seal {
@@ -592,10 +605,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_orange_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_red_seal: tgf_undersuit_uniform_red_seal {
@@ -607,10 +619,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_red_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_red_seal: tae_uniform_red_seal {
@@ -620,10 +631,9 @@ class CfgWeapons {
         displayName = "TAE Mandalorian Undersuit with Seal (Dark Red)";
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_dark_red_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_brown_seal: tae_uniform_red_seal {
@@ -633,10 +643,9 @@ class CfgWeapons {
         displayName = "TAE Mandalorian Undersuit with Seal (Brown)";
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_brown_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_white_seal: tgf_undersuit_uniform_white_seal {
@@ -648,10 +657,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_white_seal";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_skirata: tgf_undersuit_uniform_skirata {
@@ -663,10 +671,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_skirata";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_vau: tgf_undersuit_uniform_vau {
@@ -678,10 +685,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_vau";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_black_female: tgf_undersuit_uniform_black_female {
@@ -693,10 +699,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_black_female";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_blue_female: tgf_undersuit_uniform_dark_blue_female {
@@ -708,10 +713,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_dark_blue_female";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_dark_red_female: tgf_undersuit_uniform_red_female {
@@ -723,10 +727,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_dark_red_female";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_grey_female: tgf_undersuit_uniform_grey_female {
@@ -738,10 +741,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_grey_female";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_red_female: tgf_undersuit_uniform_red_female {
@@ -753,10 +755,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_red_female";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
     class tae_uniform_white_female: tgf_undersuit_uniform_white_female {
@@ -768,10 +769,9 @@ class CfgWeapons {
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
             uniformClass = "tae_uniform_unit_white_female";
-            containerClass = "Supply150";
-            mass = 67;
+            containerClass = "Supply120";
+            mass = 40;
             uniformType = "Neopren";
-            modelSides[] = { 0, 1, 2, 3 };
         };
     };
 };

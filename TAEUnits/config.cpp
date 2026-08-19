@@ -22,7 +22,14 @@ class CfgPatches {
 			"mti_factions_common",
 			"mti_factions_civilian",
 			"A3_Characters_F_Orange_Vests",
-			"xs_female_xs_f_base_head"
+			"xs_female_xs_f_base_head",
+			"JMSLLTE_Faction_name",
+			"JMSLLTE_vehgr_AA2",
+			"JMSLLTE_vehgr_ATST",
+			"JMSLLTE_vehair_Ywing",
+			"JMSLLTE_vehair_Uwing",
+			"JMSLLTE_vehair_Xwing",
+			"JMSLLTE_vehair_Awing"
 		};
 		units[] = {
 			"TAE_Unit_Veteran",
@@ -52,6 +59,23 @@ class CfgPatches {
 			"TAE_Unit_Nihil_Heavy",
 			"TAE_Unit_Nihil_Grenadier",
 			"TAE_Unit_Nihil_Praetorian",
+			"TAE_Unit_NR_Commando",
+			"TAE_Unit_NR_Sergeant",
+			"TAE_Unit_NR_Medic",
+			"TAE_Unit_NR_AT",
+			"TAE_Unit_NR_Heavy",
+			"TAE_Unit_NR_Sniper",
+			"TAE_Unit_NR_Marksman",
+			"TAE_Unit_NR_Alien_Commando",
+			"TAE_Unit_NR_Alien_Heavy",
+			"TAE_Vehicle_NR_AA2",
+			"TAE_Vehicle_NR_AA2_MkII",
+			"TAE_Vehicle_NR_ATST",
+			"TAE_Vehicle_NR_Ywing",
+			"TAE_Vehicle_NR_Uwing",
+			"TAE_Vehicle_NR_Xwing_CA2",
+			"TAE_Vehicle_NR_Xwing_T70",
+			"TAE_Vehicle_NR_Awing",
 			"TAE_Unit_Civilian_Random"
 		};
 		weapons[] = {};
@@ -77,6 +101,12 @@ class CfgFactionClasses {
 		priority = 2;
 	};
 
+	class TAE_Faction_NewRepublic {
+		displayName = "[TAE] New Republic";
+		side = 0;
+		priority = 2;
+	};
+
 	class TAE_Faction_Civilians {
 		displayName = "[TAE] Civilians";
 		side = 3;
@@ -86,11 +116,11 @@ class CfgFactionClasses {
 
 class CfgEditorSubcategories {
 	class TAE_EdSubcat_HouseKarr_Infantry {
-		displayName = "Infantry";
+		displayName = "Mandalorians";
 	};
 
 	class TAE_EdSubcat_HouseKarr_Players {
-		displayName = "Mandalorians";
+		displayName = "Players";
 	};
 
 	class TAE_EdSubcat_BlackSpireCartel {
@@ -99,6 +129,22 @@ class CfgEditorSubcategories {
 
 	class TAE_EdSubcat_NihilRaiders {
 		displayName = "Nihil Raiders";
+	};
+
+	class TAE_EdSubcat_NewRepublic_Infantry {
+		displayName = "Infantry";
+	};
+
+	class TAE_EdSubcat_NewRepublic_Speeders {
+		displayName = "Speeders";
+	};
+
+	class TAE_EdSubcat_NewRepublic_Armored {
+		displayName = "Walkers";
+	};
+
+	class TAE_EdSubcat_NewRepublic_Aircraft {
+		displayName = "Aircraft";
 	};
 
 	class TAE_EdSubcat_Civilians {
@@ -116,6 +162,12 @@ class CfgFunctions {
 };
 
 class Extended_Init_EventHandlers {
+	class TAE_Unit_Base {
+		class TAE_applyMandalorianFacewear {
+			init = "params ['_unit']; if (!local _unit) exitWith {}; if (getText (configOf _unit >> 'editorSubcategory') isEqualTo 'TAE_EdSubcat_HouseKarr_Infantry') then { _unit setVariable ['BIS_enableRandomization', false]; removeGoggles _unit; _unit addGoggles 'tgf_facewear_medium_belt'; };";
+		};
+	};
+
 	class TAE_Unit_Civilian_Random {
 		class TAE_randomizeCivilian {
 			init = "_this call TAE_fnc_randomizeCivilian";
@@ -189,6 +241,23 @@ class CfgGlasses {
 class CfgVehicles {
 	class tae_uniform_unit_grey_seal;
 	class JMSLLTE_c_jumpsuit_blue_F;
+	class JMSLLTE_scum_troop_trooper;
+	class JMSLLTE_scum_troop_serg;
+	class JMSLLTE_scum_troop_medic;
+	class JMSLLTE_scum_troop_trooperAT;
+	class JMSLLTE_scum_troop_trooperH;
+	class JMSLLTE_scum_troop_snip;
+	class JMSLLTE_scum_troop_marksman;
+	class JMSLLTE_scum_troop_al_trooper;
+	class JMSLLTE_scum_troop_al_trooperH;
+	class JMSLLTE_O_veh_AA2_reb_F;
+	class JMSLLTE_O_veh_AA2mk2_reb_F;
+	class JMSLLTE_vehgr_ATST_reb_F;
+	class JMSLLTE_YwingA4_veh_F;
+	class JMSLLTE_UwingHeli_Reb_F;
+	class JMSLLTE_XwingCA2_NR_veh_F;
+	class JMSLLTE_XwingT70_veh_F;
+	class JMSLLTE_Awing_NR_veh_F;
 
 	class TAE_Unit_HitPoint_Base: tae_uniform_unit_grey_seal {
 		scope = 0;
@@ -377,13 +446,12 @@ class CfgVehicles {
 
 		identityTypes[] = {
 			"LanguageENG_F",
-			"Head_NATO",
-			"TAE_NoFacewear"
+			"Head_NATO"
 		};
 
 		icon = "iconMan";
 		uniformClass = "tae_uniform_grey_seal";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 
 		weapons[] = {
 			"LFP_westarcarabine",
@@ -410,6 +478,8 @@ class CfgVehicles {
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -430,6 +500,8 @@ class CfgVehicles {
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -622,6 +694,7 @@ class CfgVehicles {
 		items[] = {};
 		respawnItems[] = {};
 	};
+
 	class TAE_Unit_Player_Shyyyo: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
@@ -668,6 +741,8 @@ class CfgVehicles {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -702,6 +777,8 @@ class CfgVehicles {
 		respawnMagazines[] = {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -962,6 +1039,7 @@ class CfgVehicles {
 		canDeactivateMines = 1;
 		uniformClass = "tae_uniform_black_seal";
 		backpack = "";
+		goggles = "tgf_facewear_medium_belt";
 		linkedItems[] = {
 			"LFP_westarcarabine_scopesn",
 			"tae_shyyyo_recon_armor",
@@ -994,7 +1072,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack_lr";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"LFP_westarcarabine",
 			"LFP_Westar_35",
@@ -1012,6 +1090,8 @@ class CfgVehicles {
 		magazines[] = {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -1047,6 +1127,8 @@ class CfgVehicles {
 		respawnMagazines[] = {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -1288,7 +1370,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack_engi";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"LFP_westarcarabine",
 			"LFP_Westar_35",
@@ -1307,21 +1389,8 @@ class CfgVehicles {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -1342,21 +1411,8 @@ class CfgVehicles {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"LFP_Westar35_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
-			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -1588,7 +1644,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack_medic";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"LFP_westarcarabine",
 			"LFP_Westar_35",
@@ -1606,6 +1662,13 @@ class CfgVehicles {
 		magazines[] = {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1621,6 +1684,13 @@ class CfgVehicles {
 		respawnMagazines[] = {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_westarcarabine_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
 			"3AS_ThermalDetonator",
@@ -1923,7 +1993,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack_marksman";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"JLTS_DW32S",
 			"LFP_Westar_35",
@@ -1940,6 +2010,11 @@ class CfgVehicles {
 		};
 		magazines[] = {
 			"Laserbatteries",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
 			"JLTS_DW32S_mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -1960,6 +2035,11 @@ class CfgVehicles {
 		};
 		respawnMagazines[] = {
 			"Laserbatteries",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
+			"JLTS_DW32S_mag",
 			"JLTS_DW32S_mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -2184,7 +2264,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"LFP_westarcarabine",
 			"JMSLLTE_HH12_launcher",
@@ -2205,6 +2285,8 @@ class CfgVehicles {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"JMSLLTE_HH12_AT_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -2245,6 +2327,8 @@ class CfgVehicles {
 			"Laserbatteries",
 			"LFP_westarcarabine_Mag",
 			"JMSLLTE_HH12_AT_Mag",
+			"LFP_Westar35_Mag",
+			"LFP_Westar35_Mag",
 			"LFP_Westar35_Mag",
 			"LFP_westarcarabine_Mag",
 			"LFP_westarcarabine_Mag",
@@ -2487,7 +2571,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack_grenadier";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"IDA_E10_UGL",
 			"LFP_Westar_35",
@@ -2772,7 +2856,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"3AS_DP23_F",
 			"LFP_Westar_35",
@@ -3071,7 +3155,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack_heavy";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"3AS_DLT19",
 			"LFP_Westar_35",
@@ -3088,6 +3172,9 @@ class CfgVehicles {
 		};
 		magazines[] = {
 			"Laserbatteries",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
 			"3AS_200Rnd_EM40_DLT19_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -3107,6 +3194,9 @@ class CfgVehicles {
 		};
 		respawnMagazines[] = {
 			"Laserbatteries",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
+			"3AS_200Rnd_EM40_DLT19_Mag",
 			"3AS_200Rnd_EM40_DLT19_Mag",
 			"LFP_Westar35_Mag",
 			"3AS_ThermalDetonator",
@@ -3332,7 +3422,7 @@ class CfgVehicles {
 
 		uniformClass = "tae_uniform_grey_seal";
 		backpack = "tae_modular_pack";
-		goggles = "TAE_NoFacewear";
+		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"tae_IQA12",
 			"LFP_Westar_35",
@@ -4209,6 +4299,175 @@ class CfgVehicles {
 		respawnItems[] = {"JLTS_ids_rep_civ","JLTS_credits_100","JLTS_credits_100","ACE_HandFlare_Red","3AS_ThermalDetonator"};
 	};
 
+	class TAE_Unit_NR_Commando: JMSLLTE_scum_troop_trooper {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Commando";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+	};
+
+	class TAE_Unit_NR_Sergeant: JMSLLTE_scum_troop_serg {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Sergeant";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+	};
+
+	class TAE_Unit_NR_Medic: JMSLLTE_scum_troop_medic {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Medic";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+		magazines[] = {"JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag"};
+		respawnMagazines[] = {"JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag","JMSLLTE_DH17_60Rnd_Mag"};
+	};
+
+	class TAE_Unit_NR_AT: JMSLLTE_scum_troop_trooperAT {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Commando AT";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+		magazines[] = {"JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag"};
+		respawnMagazines[] = {"JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag","JMSLLTE_DH17_30Rnd_Mag"};
+	};
+
+	class TAE_Unit_NR_Heavy: JMSLLTE_scum_troop_trooperH {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Commando Heavy";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+		magazines[] = {"JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag"};
+		respawnMagazines[] = {"JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag"};
+	};
+
+	class TAE_Unit_NR_Sniper: JMSLLTE_scum_troop_snip {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Sniper";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+		magazines[] = {"JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DL18_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag"};
+		respawnMagazines[] = {"JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DLT20a_10Rnd_Mag","JMSLLTE_DL18_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag"};
+	};
+
+	class TAE_Unit_NR_Marksman: JMSLLTE_scum_troop_marksman {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Marksman";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+		magazines[] = {"JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag"};
+		respawnMagazines[] = {"JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_A280CR_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag","JMSLLTE_DL18_20rnd_Mag"};
+	};
+
+	class TAE_Unit_NR_Alien_Commando: JMSLLTE_scum_troop_al_trooper {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Alien Commando";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+	};
+
+	class TAE_Unit_NR_Alien_Heavy: JMSLLTE_scum_troop_al_trooperH {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic Alien Commando Heavy";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Infantry";
+		magazines[] = {"JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag"};
+		respawnMagazines[] = {"JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag","JMSLLTE_RT97C_150Rnd_Mag"};
+	};
+
+	class TAE_Vehicle_NR_AA2: JMSLLTE_O_veh_AA2_reb_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Speeders";
+		crew = "TAE_Unit_NR_Commando";
+		typicalCargo[] = {"TAE_Unit_NR_Commando"};
+	};
+
+	class TAE_Vehicle_NR_AA2_MkII: JMSLLTE_O_veh_AA2mk2_reb_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Speeders";
+		crew = "TAE_Unit_NR_Commando";
+		typicalCargo[] = {"TAE_Unit_NR_Commando"};
+	};
+
+	class TAE_Vehicle_NR_ATST: JMSLLTE_vehgr_ATST_reb_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "New Republic AT-ST";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Armored";
+		crew = "TAE_Unit_NR_Commando";
+		typicalCargo[] = {"TAE_Unit_NR_Commando"};
+	};
+
+	class TAE_Vehicle_NR_Ywing: JMSLLTE_YwingA4_veh_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "BTL-A4 Y-wing Starfighter";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Aircraft";
+	};
+
+	class TAE_Vehicle_NR_Uwing: JMSLLTE_UwingHeli_Reb_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "UT-60D U-wing Dropship";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Aircraft";
+	};
+
+	class TAE_Vehicle_NR_Xwing_CA2: JMSLLTE_XwingCA2_NR_veh_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "T-65C-A2 X-wing Starfighter";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Aircraft";
+	};
+
+	class TAE_Vehicle_NR_Xwing_T70: JMSLLTE_XwingT70_veh_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "T-70 X-wing Starfighter";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Aircraft";
+	};
+
+	class TAE_Vehicle_NR_Awing: JMSLLTE_Awing_NR_veh_F {
+		scope = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "RZ-1 A-wing Interceptor";
+		faction = "TAE_Faction_NewRepublic";
+		editorSubcategory = "TAE_EdSubcat_NewRepublic_Aircraft";
+	};
+
 	class TAE_Unit_Civilian_Random: JMSLLTE_c_jumpsuit_blue_F {
 		scope = 2;
 		scopeCurator = 2;
@@ -4352,6 +4611,112 @@ class CfgGroups {
 						vehicle = "TAE_Unit_Nihil_Rifleman";
 						rank = "PRIVATE";
 						position[] = {25, -25, 0};
+					};
+				};
+			};
+		};
+
+		class TAE_Faction_NewRepublic {
+			name = "[TAE] New Republic";
+
+			class Infantry {
+				name = "Infantry";
+
+				class TAE_Group_NR_Fireteam {
+					name = "New Republic Fireteam";
+					side = 0;
+					faction = "TAE_Faction_NewRepublic";
+					icon = "\A3\ui_f\data\map\markers\nato\o_inf.paa";
+
+					class Unit0 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Sergeant";
+						rank = "SERGEANT";
+						position[] = {0, 0, 0};
+					};
+
+					class Unit1 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Commando";
+						rank = "PRIVATE";
+						position[] = {5, -5, 0};
+					};
+
+					class Unit2 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Commando";
+						rank = "PRIVATE";
+						position[] = {-5, -5, 0};
+					};
+
+					class Unit3 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Heavy";
+						rank = "PRIVATE";
+						position[] = {10, -10, 0};
+					};
+				};
+
+				class TAE_Group_NR_Squad {
+					name = "New Republic Squad";
+					side = 0;
+					faction = "TAE_Faction_NewRepublic";
+					icon = "\A3\ui_f\data\map\markers\nato\o_inf.paa";
+
+					class Unit0 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Sergeant";
+						rank = "SERGEANT";
+						position[] = {0, 0, 0};
+					};
+
+					class Unit1 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Commando";
+						rank = "CORPORAL";
+						position[] = {5, -5, 0};
+					};
+
+					class Unit2 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_AT";
+						rank = "PRIVATE";
+						position[] = {-5, -5, 0};
+					};
+
+					class Unit3 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Medic";
+						rank = "PRIVATE";
+						position[] = {10, -10, 0};
+					};
+
+					class Unit4 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Heavy";
+						rank = "PRIVATE";
+						position[] = {-10, -10, 0};
+					};
+
+					class Unit5 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Marksman";
+						rank = "PRIVATE";
+						position[] = {15, -15, 0};
+					};
+
+					class Unit6 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Sniper";
+						rank = "PRIVATE";
+						position[] = {-15, -15, 0};
+					};
+
+					class Unit7 {
+						side = 0;
+						vehicle = "TAE_Unit_NR_Alien_Commando";
+						rank = "PRIVATE";
+						position[] = {20, -20, 0};
 					};
 				};
 			};

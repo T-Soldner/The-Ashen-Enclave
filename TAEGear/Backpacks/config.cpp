@@ -2,7 +2,7 @@ class CfgPatches {
 	class TAEGear_Backpacks {
 		addonRootClass = "TAEGear";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "knd_jetpacks", "tgf_backpacks", "JLTS_optionals_TFARBeta_compat", "IDA_Ammo", "3AS_Weapons", "JLTS_weapons_DW32S" };
+		requiredAddons[] = { "jen_jetpacks_core", "knd_jetpacks", "knd_rotarycanon", "tgf_backpacks", "JLTS_optionals_TFARBeta_compat", "IDA_Ammo", "3AS_Weapons", "JLTS_weapons_DW32S" };
 		units[] = { 
 			"tae_jetpack_Z6",
 			"tae_jetpack_z12",
@@ -10,6 +10,9 @@ class CfgPatches {
 			"tae_jetpack_JT12_LR",
 			"tae_jetpack_JT13",
 			"tae_jetpack_JT13_LR",
+			"tae_jetpack_JT70",
+			"tae_jetpack_JT70_LR",
+			"tae_jetpack_Z4",
 			"tae_hondo_JT13_LR",
 			"tae_edonn_JT13_LR",
 			"tae_edonn_JT13",
@@ -70,7 +73,7 @@ class XtdGearModels {
 			class role {
 				alwaysSelectable = 1;
 				label = "Role";
-				values[] = { "Z6", "Z12", "JT12","JT13" };
+				values[] = { "JT13", "JT12", "JT70", "Z6", "Z12", "Z4" };
 
 				class Z6 {
 					label = "Z-6";
@@ -86,6 +89,14 @@ class XtdGearModels {
 
 				class JT13 {
 					label = "JT-13";
+				};
+
+				class JT70 {
+					label = "MS-EJT4";
+				};
+
+				class Z4 {
+					label = "Z-4";
 				};
 			};
 
@@ -216,6 +227,21 @@ class XtdGearInfos {
 			role = "JT13";
 			lr = "Yes";
 		};
+		class tae_jetpack_JT70 {
+			model = "TAE_standard_Jetpacks";
+			role = "JT70";
+			lr = "No";
+		};
+		class tae_jetpack_JT70_LR {
+			model = "TAE_standard_Jetpacks";
+			role = "JT70";
+			lr = "Yes";
+		};
+		class tae_jetpack_Z4 {
+			model = "TAE_standard_Jetpacks";
+			role = "Z4";
+			lr = "No";
+		};
 		
 		//Backpacks
 		class tae_modular_pack {
@@ -276,65 +302,17 @@ class XtdGearInfos {
 
 class CfgVehicles {
 	class Bag_Base;
+	class KND_RotaryBackpack;
 	class tae_jetpack : Bag_Base {
 		scope = 1;
 		displayName = "TAE base";
 		picture = "\knd_jetpacks\data\JT12_icon_co.paa";
-		maximumload = 300;
-		mass = 100;
+		maximumload = 240;
+		mass = 60;
 		jen_jetpacks_core_isJetpack = 1;
-		jen_jetpacks_core_acceleration = 2.5;
-		jen_jetpacks_core_drag = 5;
-		jen_jetpacks_core_fuelCoef = 3;
-		jen_jetpacks_core_heatCoef = 2;
-		jen_jetpacks_core_coolCoef = 1;
-		jen_jetpacks_core_ascensionCoef = 1.1;
-		jen_jetpacks_core_jumpCoef = 1;
-		jen_jetpacks_core_fuelCapacity = 150;
-		jen_jetpacks_core_strafeCoef = 0.7;
 	};
 	
 	// Base Jetpacks
-	class tae_jetpack_z12 : tae_jetpack {
-		displayName = "House Karr Z-12 Jetpack";
-		scope = 2;
-		author = "Kandosii Mod Devs and Edonn";
-		model = "knd_jetpacks\data\z12\pack.p3d";
-		hiddenselections[] = {"rocket","pack"};
-		hiddenselectionstextures[] = {"knd_jetpacks\data\Z12\Rocket_co.paa","knd_jetpacks\data\Z12\pack_co.paa"};
-		knd_isRocketJetpack = 1;
-	};
-	class tae_jetpack_JT12 : tae_jetpack {
-		displayName = "House Karr JT-12 Jetpack";
-		scope = 2;
-		picture = "\knd_jetpacks\data\JT12_icon_co.paa";
-		author = "Kandosii Mod Devs and Edonn";
-		model = "\knd_jetpacks\data\jt12\jt12.p3d";
-		hiddenselections[] = {"rocket","pack"};
-		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12\pack_co.paa"};
-	};
-	class tae_jetpack_JT12_LR : tae_jetpack_JT12 {
-		displayName = "House Karr JT-12 LR Jetpack";
-		author = "Kandosii Mod Devs and Edonn";
-		model = "\knd_jetpacks\data\jt12RTO\jt12RTO.p3d";
-		hiddenselections[] = {"rocket","pack"};
-		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12RTO\pack_co.paa"};
-		tf_dialog = "JLTS_clone_rto_radio_dialog";
-		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
-		tf_encryptionCode = "tf_independent_radio_code";
-		tf_hasLRradio = 1;
-		tf_range = 30000;
-		tf_subtype = "digital_lr";
-	};
-	class tae_jetpack_Z6 : tae_jetpack {
-		displayName = "House Karr Z-6 Jetpack";
-		scope = 2;
-		author = "Kandosii Mod Devs and Edonn";
-		model = "knd_jetpacks\data\z6\z6_final.p3d";
-		hiddenselections[] = {"rocket","pack"};
-		hiddenselectionstextures[] = {"knd_jetpacks\data\Z6\Rocket_co.paa","knd_jetpacks\data\Z6\pack_co.paa"};
-		knd_isRocketJetpack = 1;
-	};
 	class tae_jetpack_JT13 : tae_jetpack {
 		displayName = "House Karr JT-13 Jetpack";
 		scope = 2;
@@ -343,6 +321,16 @@ class CfgVehicles {
 		model = "\knd_jetpacks\data\jt13\jt13.p3d";
 		hiddenselections[] = {"camo1"};
 		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13\camo1_co.paa"};
+		maximumload = 160;
+		jen_jetpacks_core_acceleration = 4;
+		jen_jetpacks_core_drag = 6;
+		jen_jetpacks_core_fuelCoef = 5;
+		jen_jetpacks_core_heatCoef = 3;
+		jen_jetpacks_core_coolCoef = 1.5;
+		jen_jetpacks_core_ascensionCoef = 1.3;
+		jen_jetpacks_core_jumpCoef = 1.2;
+		jen_jetpacks_core_fuelCapacity = 130;
+		jen_jetpacks_core_strafeCoef = 1;
 	};
 	class tae_jetpack_JT13_LR : tae_jetpack_JT13 {
 		displayName = "House Karr JT-13 LR Jetpack";
@@ -357,6 +345,127 @@ class CfgVehicles {
 		tf_range = 30000;
 		tf_subtype = "digital_lr";
 	};
+	class tae_jetpack_JT12 : tae_jetpack {
+		displayName = "House Karr JT-12 Jetpack";
+		scope = 2;
+		picture = "\knd_jetpacks\data\JT12_icon_co.paa";
+		author = "Kandosii Mod Devs and Edonn";
+		model = "\knd_jetpacks\data\jt12\jt12.p3d";
+		hiddenselections[] = {"rocket","pack"};
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12\pack_co.paa"};
+		maximumload = 240;
+		jen_jetpacks_core_acceleration = 2.5;
+		jen_jetpacks_core_drag = 5;
+		jen_jetpacks_core_fuelCoef = 3;
+		jen_jetpacks_core_heatCoef = 2;
+		jen_jetpacks_core_coolCoef = 1;
+		jen_jetpacks_core_ascensionCoef = 1.1;
+		jen_jetpacks_core_jumpCoef = 1;
+		jen_jetpacks_core_fuelCapacity = 150;
+		jen_jetpacks_core_strafeCoef = 0.7;
+	};
+	class tae_jetpack_JT12_LR : tae_jetpack_JT12 {
+		displayName = "House Karr JT-12 LR Jetpack";
+		author = "Kandosii Mod Devs and Edonn";
+		model = "\knd_jetpacks\data\jt12RTO\jt12RTO.p3d";
+		hiddenselections[] = {"rocket","pack"};
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\jt12\rocket_co.paa","\knd_jetpacks\data\jt12RTO\pack_co.paa"};
+		tf_dialog = "JLTS_clone_rto_radio_dialog";
+		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
+		tf_encryptionCode = "tf_independent_radio_code";
+		tf_hasLRradio = 1;
+		tf_range = 30000;
+		tf_subtype = "digital_lr";
+	};
+	class tae_jetpack_JT70 : KND_RotaryBackpack {
+		displayName = "House Karr MS-EJT4 Jetpack";
+		scope = 2;
+		picture = "\knd_rotary\data\backpack_picture_co.paa";
+		author = "Kandosii Mod Devs and Edonn";
+		model = "\knd_rotary\backpack\knd_rotarybackpack.p3d";
+		hiddenselections[] = {"camo1","camo2"};
+		hiddenselectionstextures[] = {
+			"\knd_rotary\backpack\rotarybackpack_co.paa",
+			"\knd_rotary\backpack\rotarybackpack_co.paa"
+		};
+		maximumload = 320;
+		mass = 60;
+		jen_jetpacks_core_acceleration = 1.9;
+		jen_jetpacks_core_drag = 5.5;
+		jen_jetpacks_core_fuelCoef = 1.25;
+		jen_jetpacks_core_heatCoef = 0.75;
+		jen_jetpacks_core_coolCoef = 1.5;
+		jen_jetpacks_core_ascensionCoef = 0.9;
+		jen_jetpacks_core_jumpCoef = 1;
+		jen_jetpacks_core_fuelCapacity = 275;
+		jen_jetpacks_core_strafeCoef = 0.45;
+	};
+	class tae_jetpack_JT70_LR : tae_jetpack_JT70 {
+		displayName = "House Karr MS-EJT4 LR Jetpack";
+		tf_dialog = "JLTS_clone_rto_radio_dialog";
+		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
+		tf_encryptionCode = "tf_independent_radio_code";
+		tf_hasLRradio = 1;
+		tf_range = 30000;
+		tf_subtype = "digital_lr";
+	};
+	class tae_jetpack_Z6 : tae_jetpack {
+		displayName = "House Karr Z-6 Jetpack";
+		scope = 2;
+		author = "Kandosii Mod Devs and Edonn";
+		model = "knd_jetpacks\data\z6\z6_final.p3d";
+		hiddenselections[] = {"rocket","pack"};
+		hiddenselectionstextures[] = {"knd_jetpacks\data\Z6\Rocket_co.paa","knd_jetpacks\data\Z6\pack_co.paa"};
+		maximumload = 176;
+		jen_jetpacks_core_acceleration = 3.4;
+		jen_jetpacks_core_drag = 6.25;
+		jen_jetpacks_core_fuelCoef = 5.5;
+		jen_jetpacks_core_heatCoef = 3.2;
+		jen_jetpacks_core_coolCoef = 1.3;
+		jen_jetpacks_core_ascensionCoef = 1.15;
+		jen_jetpacks_core_jumpCoef = 1.1;
+		jen_jetpacks_core_fuelCapacity = 120;
+		jen_jetpacks_core_strafeCoef = 0.8;
+		knd_isRocketJetpack = 1;
+	};
+	class tae_jetpack_z12 : tae_jetpack {
+		displayName = "House Karr Z-12 Jetpack";
+		scope = 2;
+		author = "Kandosii Mod Devs and Edonn";
+		model = "knd_jetpacks\data\z12\pack.p3d";
+		hiddenselections[] = {"rocket","pack"};
+		hiddenselectionstextures[] = {"knd_jetpacks\data\Z12\Rocket_co.paa","knd_jetpacks\data\Z12\pack_co.paa"};
+		maximumload = 224;
+		jen_jetpacks_core_acceleration = 2.2;
+		jen_jetpacks_core_drag = 5.5;
+		jen_jetpacks_core_fuelCoef = 3.5;
+		jen_jetpacks_core_heatCoef = 2.2;
+		jen_jetpacks_core_coolCoef = 1;
+		jen_jetpacks_core_ascensionCoef = 1;
+		jen_jetpacks_core_jumpCoef = 0.9;
+		jen_jetpacks_core_fuelCapacity = 190;
+		jen_jetpacks_core_strafeCoef = 0.55;
+		knd_isRocketJetpack = 1;
+	};
+	class tae_jetpack_Z4 : tae_jetpack {
+		displayName = "House Karr Z-4 Jetpack";
+		scope = 2;
+		author = "Kandosii Mod Devs and Edonn";
+		model = "\knd_jetpacks\data\PV\pissviszla.p3d";
+		hiddenselections[] = {"rocket","pack"};
+		hiddenselectionstextures[] = {"\knd_jetpacks\data\PV\rocket_co.paa","\knd_jetpacks\data\PV\pack_co.paa"};
+		maximumload = 256;
+		jen_jetpacks_core_acceleration = 1.6;
+		jen_jetpacks_core_drag = 6;
+		jen_jetpacks_core_fuelCoef = 1.5;
+		jen_jetpacks_core_heatCoef = 1;
+		jen_jetpacks_core_coolCoef = 1.3;
+		jen_jetpacks_core_ascensionCoef = 0.8;
+		jen_jetpacks_core_jumpCoef = 0.9;
+		jen_jetpacks_core_fuelCapacity = 250;
+		jen_jetpacks_core_strafeCoef = 0.3;
+		knd_isRocketJetpack = 1;
+	};
 	
 	//Normal Backpacks
 	class tgf_backpacks_modular_pack;
@@ -370,6 +479,7 @@ class CfgVehicles {
 	class tae_modular_pack : tgf_backpacks_modular_pack {
 		scope = 2;
 		maximumload = 400;
+		mass = 60;
 	};
 	class tae_modular_pack_grenadier : tae_modular_pack {
 		scope = 1;
@@ -419,10 +529,12 @@ class CfgVehicles {
 	class tae_modular_pack_female : tgf_backpacks_modular_pack_female {
 		scope = 2;
 		maximumload = 400;
+		mass = 60;
 	};
 	class tae_modular_pack_lr : tgf_backpacks_modular_pack_lr {
 		scope = 2;
 		maximumload = 400;
+		mass = 60;
 		tf_dialog = "JLTS_clone_rto_radio_dialog";
 		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 		tf_encryptionCode = "tf_independent_radio_code";
@@ -433,6 +545,7 @@ class CfgVehicles {
 	class tae_modular_pack_lr_female : tgf_backpacks_modular_pack_lr_female {
 		scope = 2;
 		maximumload = 400;
+		mass = 60;
 		tf_dialog = "JLTS_clone_rto_radio_dialog";
 		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 		tf_encryptionCode = "tf_independent_radio_code";
@@ -443,10 +556,12 @@ class CfgVehicles {
 	class tae_modular_pack_engi : tgf_backpacks_modular_pack_engi {
 		scope = 2;
 		maximumload = 400;
+		mass = 60;
 	};
 	class tae_modular_pack_engi_female : tgf_backpacks_modular_pack_engi_female {
 		scope = 2;
 		maximumload = 400;
+		mass = 60;
 	};
 	
 	// Custom Packs
