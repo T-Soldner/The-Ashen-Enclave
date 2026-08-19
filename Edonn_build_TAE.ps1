@@ -40,6 +40,7 @@ $addons = @(
 	"TAEWeapons",
 	"TAEGear",
 	"TAEDrones",
+	"adv_aceCPR",
 	"TAEASTRS",
 	"TAEJLTSCompat",
 	"TAEUnits",

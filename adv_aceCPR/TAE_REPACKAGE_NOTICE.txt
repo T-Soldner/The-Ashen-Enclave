@@ -1,0 +1,21 @@
+ADV ACE CPR is redistributed as part of The Ashen Enclave AUX Mod.
+
+Original addon: ADV ACE CPR
+Original author: Belbo / Adrian ([SeL] Belbo)
+ACE medical rewrite update: pike713 / Logan Pike
+Upstream source: https://github.com/pike713/ADV_Medical/tree/master/adv_aceCPR
+Imported upstream commit: 3a2920f3e0246e08b24d44a60a2e4e53c4b8983a
+TAE import date: 2026-08-17
+
+The Ashen Enclave build scripts package and sign this addon for distribution
+with the noncommercial TAE mod. TAE made the following compatibility changes
+on 2026-08-17:
+
+- Declared the current ACE medical component and CBA XEH load dependencies.
+- Replaced the outdated medication-array reader with ACE's medication status API.
+- Replaced direct wound-bleeding variable access with ACE's blood-loss API.
+- Fixed a local scope error in blood-loss probability diagnostics.
+
+This addon is distributed under the terms in licence.txt. The defibrillator
+media has additional attribution and noncommercial terms documented in
+ui/defib.license.txt. Both notices must remain with redistributed copies.

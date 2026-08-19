@@ -7,11 +7,14 @@ class CfgPatches {
 			"ace_interaction",
 			"ace_interact_menu",
 			"ace_arsenal",
+			"ace_medical_treatment",
 			"ace_dragging",
 			"ace_cargo",
 			"cba_xeh",
 			"JLTS_weapons_crates",
 			"3AS_Props",
+			"3AS_Prop_Droids",
+			"3as_GNK_Prop",
 			"3AS_Prop_Flags",
 			"ls_characters_mandalorian",
 			"tgf_helmets",
@@ -24,6 +27,8 @@ class CfgPatches {
 		};
 		units[] = {
 			"TAE_Restricted_Arsenal_Box",
+			"TAE_Specialization_Gonk_Droid",
+			"TAE_Medical_Droid",
 			"TAE_Ammo_Crate",
 			"TAE_Demo_Crate",
 			"TAE_Medical_Crate",
@@ -61,6 +66,10 @@ class CfgEditorCategories {
 };
 
 class CfgEditorSubcategories {
+	class TAE_EdSubcat_HouseKarr_ArsenalServices {
+		displayName = "Arsenal and Services";
+	};
+
 	class TAE_EdSubcat_HouseKarr_Supplies {
 		displayName = "Supplies";
 	};
@@ -83,7 +92,9 @@ class CfgFunctions {
 		class Objects {
 			file = "TAEObjects\functions";
 			class applyWearableLoadout {};
+			class fullHealPlayer {};
 			class initRestrictedArsenal {};
+			class setPlayerPermissions {};
 		};
 	};
 };
@@ -105,6 +116,70 @@ class CfgVehicles {
 	class SFA_Bed_Single;
 	class ThingX;
 	class mti_armoury_props_locker_base;
+	class 3as_GNK;
+	class Land_3AS_Medical_Droid;
+
+	class TAE_Specialization_Gonk_Droid: 3as_GNK {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Specialization Gonk Droid";
+		author = "TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_ArsenalServices";
+		side = 3;
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				displayName = "Specialization Permissions";
+				condition = "alive _player";
+				distance = 3;
+				position = "[0,0,0.5]";
+
+				class TAE_GrantEngineerPermissions {
+					displayName = "Receive Engineer and Explosives Permissions";
+					condition = "alive _player";
+					statement = "[_player, 'engineer'] call TAE_fnc_setPlayerPermissions";
+				};
+
+				class TAE_GrantMedicalPermissions {
+					displayName = "Receive Medical Permissions";
+					condition = "alive _player";
+					statement = "[_player, 'medic'] call TAE_fnc_setPlayerPermissions";
+				};
+
+				class TAE_RemoveAllPermissions {
+					displayName = "Remove All Permissions";
+					condition = "alive _player";
+					statement = "[_player, 'none'] call TAE_fnc_setPlayerPermissions";
+				};
+			};
+		};
+	};
+
+	class TAE_Medical_Droid: Land_3AS_Medical_Droid {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Medical Droid";
+		author = "TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_ArsenalServices";
+		side = 3;
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				displayName = "Medical Droid";
+				condition = "alive _player";
+				distance = 3;
+				position = "[0,0,0.5]";
+
+				class TAE_FullHeal {
+					displayName = "Full Heal";
+					condition = "alive _player";
+					statement = "[_player] call TAE_fnc_fullHealPlayer";
+				};
+			};
+		};
+	};
 
 	class TAE_Bed_Base: SFA_Bed_Single {
 		scope = 0;
@@ -291,7 +366,7 @@ class CfgVehicles {
 				class TAE_PutOnGalaxyArmor {
 					displayName = "Put On Galaxy's Armor";
 					condition = "true";
-					statement = "[_player,'tae_foxx_armor','tae_galaxy_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_galaxy_armor','tae_galaxy_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};
@@ -359,7 +434,7 @@ class CfgVehicles {
 				class TAE_PutOnHadesArmor {
 					displayName = "Put On Hades' Armor";
 					condition = "true";
-					statement = "[_player,'tae_rook_armor','tae_hades_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_hades_armor','tae_hades_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnVarioArmor {
@@ -377,7 +452,7 @@ class CfgVehicles {
 				class TAE_PutOnGoostivoolArmor {
 					displayName = "Put On Goostivool's Armor";
 					condition = "true";
-					statement = "[_player,'tae_rook_armor','tae_goostivool_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_goostivool_armor','tae_goostivool_helmet','tgf_nvg_rangefinder_r','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnShenArmor {
@@ -692,7 +767,7 @@ class CfgVehicles {
 		displayName = "House Karr Restricted ACE Arsenal";
 		author = "TAE Mod Team";
 		editorCategory = "TAE_EdCat_HouseKarr";
-		editorSubcategory = "TAE_EdSubcat_HouseKarr_Supplies";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_ArsenalServices";
 		side = 3;
 		armor = 4000;
 		hiddenSelectionsTextures[] = {
@@ -754,336 +829,22 @@ class CfgVehicles {
 
 		class TransportWeapons {};
 
-		class TransportMagazines {
-			class _xx_IDA_Blaster_Cell_Power4_10Rnd_Blue {
-				magazine = "IDA_Blaster_Cell_Power4_10Rnd_Blue";
-				count = 30;
-			};
-			class _xx_IDA_Blaster_Cell_Power3_40Rnd_Red {
-				magazine = "IDA_Blaster_Cell_Power3_40Rnd_Red";
-				count = 40;
-			};
-			class _xx_IDA_Blaster_Cell_Power3_40Rnd_Yellow {
-				magazine = "IDA_Blaster_Cell_Power3_40Rnd_Yellow";
-				count = 40;
-			};
-			class _xx_IDA_Blaster_Cell_Power3_60Rnd_Red {
-				magazine = "IDA_Blaster_Cell_Power3_60Rnd_Red";
-				count = 30;
-			};
-			class _xx_IDA_Blaster_Cell_Power2_20Rnd_yellow {
-				magazine = "IDA_Blaster_Cell_Power2_20Rnd_yellow";
-				count = 30;
-			};
-			class _xx_IDA_Blaster_Cell_Power2_100Rnd_Green {
-				magazine = "IDA_Blaster_Cell_Power2_100Rnd_Green";
-				count = 20;
-			};
-			class _xx_IDA_Blaster_Cell_Power5_5Rnd_Yellow {
-				magazine = "IDA_Blaster_Cell_Power5_5Rnd_Yellow";
-				count = 30;
-			};
-			class _xx_IDA_Blaster_Cell_Power5_5Rnd_Green {
-				magazine = "IDA_Blaster_Cell_Power5_5Rnd_Green";
-				count = 30;
-			};
-			class _xx_IDA_PLX1_Rocket {
-				magazine = "IDA_PLX1_Rocket";
-				count = 10;
-			};
+		class TransportMagazines {};
 
-			class _xx_3AS_14rnd_EM10_Mag {
-				magazine = "3AS_14rnd_EM10_Mag";
-				count = 30;
-			};
-			class _xx_3AS_15Rnd_EC20_SE14R_Mag {
-				magazine = "3AS_15Rnd_EC20_SE14R_Mag";
-				count = 30;
-			};
-			class _xx_3AS_15Rnd_EM20_SE14R_Mag {
-				magazine = "3AS_15Rnd_EM20_SE14R_Mag";
-				count = 30;
-			};
-			class _xx_3AS_16Rnd_EC20_Mag {
-				magazine = "3AS_16Rnd_EC20_Mag";
-				count = 30;
-			};
-			class _xx_3AS_16Rnd_EM20_Mag {
-				magazine = "3AS_16Rnd_EM20_Mag";
-				count = 30;
-			};
-			class _xx_3AS_16Rnd_EY20_Mag {
-				magazine = "3AS_16Rnd_EY20_Mag";
-				count = 30;
-			};
-			class _xx_3AS_18Rnd_EM20_EC17_Mag {
-				magazine = "3AS_18Rnd_EM20_EC17_Mag";
-				count = 30;
-			};
-			class _xx_3AS_18Rnd_EM20_RK3_Mag {
-				magazine = "3AS_18Rnd_EM20_RK3_Mag";
-				count = 30;
-			};
-			class _xx_3AS_18Rnd_EC20_RK3_Mag {
-				magazine = "3AS_18Rnd_EC20_RK3_Mag";
-				count = 30;
-			};
-			class _xx_3AS_18Rnd_EM20_Mag {
-				magazine = "3AS_18Rnd_EM20_Mag";
-				count = 30;
-			};
-			class _xx_3AS_20Rnd_EG20_mag {
-				magazine = "3AS_20Rnd_EG20_mag";
-				count = 30;
-			};
-			class _xx_3AS_40Rnd_EM40_E11_Mag {
-				magazine = "3AS_40Rnd_EM40_E11_Mag";
-				count = 40;
-			};
-			class _xx_3AS_40Rnd_EC40_E11_Mag {
-				magazine = "3AS_40Rnd_EC40_E11_Mag";
-				count = 40;
-			};
-			class _xx_3AS_50Rnd_EM50_Mag {
-				magazine = "3AS_50Rnd_EM50_Mag";
-				count = 25;
-			};
-			class _xx_3AS_60Rnd_EM50_RedPlasma {
-				magazine = "3AS_60Rnd_EM50_RedPlasma";
-				count = 25;
-			};
-			class _xx_3AS_200Rnd_EM40_DLT19_Mag {
-				magazine = "3AS_200Rnd_EM40_DLT19_Mag";
-				count = 15;
-			};
-			class _xx_3AS_200Rnd_EC40_DLT19_Mag {
-				magazine = "3AS_200Rnd_EC40_DLT19_Mag";
-				count = 15;
-			};
-			class _xx_3AS_10Rnd_EM100_DLT19X_Mag {
-				magazine = "3AS_10Rnd_EM100_DLT19X_Mag";
-				count = 20;
-			};
-			class _xx_3AS_10Rnd_EC100_DLT19X_Mag {
-				magazine = "3AS_10Rnd_EC100_DLT19X_Mag";
-				count = 20;
-			};
-			class _xx_3AS_8Rnd_EY30_Pellets {
-				magazine = "3AS_8Rnd_EY30_Pellets";
-				count = 20;
-			};
-			class _xx_3AS_8Rnd_ESlugY_Mag {
-				magazine = "3AS_8Rnd_ESlugY_Mag";
-				count = 20;
-			};
-			class _xx_3AS_10Rnd_EC30_Pellets {
-				magazine = "3AS_10Rnd_EC30_Pellets";
-				count = 20;
-			};
-			class _xx_3AS_10Rnd_ESlug_Mag {
-				magazine = "3AS_10Rnd_ESlug_Mag";
-				count = 20;
-			};
-			class _xx_3AS_1Rnd_ESlug_Doomsday_Mag {
-				magazine = "3AS_1Rnd_ESlug_Doomsday_Mag";
-				count = 10;
-			};
-			class _xx_3AS_1Rnd_EC80_Flechette {
-				magazine = "3AS_1Rnd_EC80_Flechette";
-				count = 10;
-			};
-			class _xx_3AS_5Rnd_Stun_Mag {
-				magazine = "3AS_5Rnd_Stun_Mag";
-				count = 20;
-			};
-
-			class _xx_JMSLLTE_A180_25rnd_Mag {
-				magazine = "JMSLLTE_A180_25rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_A180_30rnd_Mag {
-				magazine = "JMSLLTE_A180_30rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_A280CR_20rnd_Mag {
-				magazine = "JMSLLTE_A280CR_20rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_A300_15rnd_Mag {
-				magazine = "JMSLLTE_A300_15rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_A300C_30rnd_Mag {
-				magazine = "JMSLLTE_A300C_30rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_A310_15rnd_Mag {
-				magazine = "JMSLLTE_A310_15rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_A475_25rnd_Mag {
-				magazine = "JMSLLTE_A475_25rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_DH17_30Rnd_Mag {
-				magazine = "JMSLLTE_DH17_30Rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_DH17_60Rnd_Mag {
-				magazine = "JMSLLTE_DH17_60Rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_DL18_20rnd_Mag {
-				magazine = "JMSLLTE_DL18_20rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_DL44_10rnd_Mag {
-				magazine = "JMSLLTE_DL44_10rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_DT12_50rnd_Mag {
-				magazine = "JMSLLTE_DT12_50rnd_Mag";
-				count = 25;
-			};
-			class _xx_JMSLLTE_EE3_30rnd_Mag {
-				magazine = "JMSLLTE_EE3_30rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_F78_50Rnd_Mag {
-				magazine = "JMSLLTE_F78_50Rnd_Mag";
-				count = 25;
-			};
-			class _xx_JMSLLTE_FWMB_40rnd_Mag {
-				magazine = "JMSLLTE_FWMB_40rnd_Mag";
-				count = 25;
-			};
-			class _xx_JMSLLTE_K16_15rnd_Mag {
-				magazine = "JMSLLTE_K16_15rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_K23_20rnd_Mag {
-				magazine = "JMSLLTE_K23_20rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_RK3_20rnd_Mag {
-				magazine = "JMSLLTE_RK3_20rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_RT97C_150Rnd_Mag {
-				magazine = "JMSLLTE_RT97C_150Rnd_Mag";
-				count = 15;
-			};
-			class _xx_JMSLLTE_SE14_30rnd_Mag {
-				magazine = "JMSLLTE_SE14_30rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_T21_25rnd_Mag {
-				magazine = "JMSLLTE_T21_25rnd_Mag";
-				count = 30;
-			};
-			class _xx_JMSLLTE_T21B_7rnd_Mag {
-				magazine = "JMSLLTE_T21B_7rnd_Mag";
-				count = 30;
-			};
-
-			class _xx_JLTS_DW32S_mag {
-				magazine = "JLTS_DW32S_mag";
-				count = 30;
-			};
-			class _xx_JLTS_E5S_mag {
-				magazine = "JLTS_E5S_mag";
-				count = 30;
-			};
-			class _xx_JLTS_RG4D_mag {
-				magazine = "JLTS_RG4D_mag";
-				count = 30;
-			};
-			class _xx_JLTS_SBB3_mag {
-				magazine = "JLTS_SBB3_mag";
-				count = 30;
-			};
-			class _xx_JLTS_stun_mag_short {
-				magazine = "JLTS_stun_mag_short";
-				count = 20;
-			};
-			class _xx_JLTS_stun_mag_long {
-				magazine = "JLTS_stun_mag_long";
-				count = 20;
-			};
-
-			class _xx_ls_magazine_zh73 {
-				magazine = "ls_magazine_zh73";
-				count = 30;
-			};
-			class _xx_ls_magazine_westar35c {
-				magazine = "ls_magazine_westar35c";
-				count = 30;
-			};
-			class _xx_ls_magazine_westar35s {
-				magazine = "ls_magazine_westar35s";
-				count = 30;
-			};
-			class _xx_ls_magazine_westar35sa {
-				magazine = "ls_magazine_westar35sa";
-				count = 30;
-			};
-			class _xx_ls_magazine_westar35s_scatter {
-				magazine = "ls_magazine_westar35s_scatter";
-				count = 20;
-			};
-
-			class _xx_LFP_Westar35_Mag {
-				magazine = "LFP_Westar35_Mag";
-				count = 30;
-			};
-			class _xx_LFP_Westar35BO_Mag {
-				magazine = "LFP_Westar35BO_Mag";
-				count = 30;
-			};
-			class _xx_LFP_westarcarabine_Mag {
-				magazine = "LFP_westarcarabine_Mag";
-				count = 30;
-			};
-			class _xx_LFP_WestarCarabineV2_Mag {
-				magazine = "LFP_WestarCarabineV2_Mag";
-				count = 30;
-			};
-			class _xx_LFP_westarsniper_mag {
-				magazine = "LFP_westarsniper_mag";
-				count = 20;
-			};
-			class _xx_LFP_WestarM5_Mag_Sniper {
-				magazine = "LFP_WestarM5_Mag_Sniper";
-				count = 20;
-			};
-			class _xx_SFA_Westar19Rifle_mag {
-				magazine = "SFA_Westar19Rifle_mag";
-				count = 30;
-			};
-
-			class _xx_knd_mag_EE2 {
-				magazine = "knd_mag_EE2";
-				count = 30;
-			};
-			class _xx_knd_mag_galaar {
-				magazine = "knd_mag_galaar";
-				count = 30;
-			};
-			class _xx_knd_mag_3GL_green {
-				magazine = "knd_mag_3GL_green";
-				count = 20;
-			};
-			class _xx_knd_mag_UGL_bactadart {
-				magazine = "knd_mag_UGL_bactadart";
-				count = 20;
-			};
-			class _xx_knd_mag_UGL_stimdart {
-				magazine = "knd_mag_UGL_stimdart";
-				count = 20;
+		class TransportItems {
+			class _xx_knd_crates_ammoTin_verySmall {
+				name = "knd_crates_ammoTin_verySmall";
+				count = 50;
+			};
+			class _xx_knd_crates_ammoTin_small {
+				name = "knd_crates_ammoTin_small";
+				count = 50;
+			};
+			class _xx_knd_crates_ammoTin_large {
+				name = "knd_crates_ammoTin_large";
+				count = 50;
 			};
 		};
-
-		class TransportItems {};
 		class TransportBackpacks {};
 	};
 
