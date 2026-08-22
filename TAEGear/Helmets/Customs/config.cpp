@@ -37,6 +37,8 @@ class CfgPatches {
 			"tae_varen_helmet",
 			"tae_valeria_helmet",
 			"tae_vario_helmet",
+			"tae_haranverd_traditional_helmet",
+			"tae_haranverd_niteowl_helmet",
 			"tae_dark_red_rangefinder",
 			"tae_foxx_rangefinder",
 			"tae_rook_helmet",
@@ -210,6 +212,24 @@ class XtdGearModels {
 				};
 				class Valeria {
 					label = "Valeria";
+				};
+			};
+		};
+		class TAE_haranverd_helmets {
+			label = "Clan Haranverd Helmets";
+			author = "TAE Aux Mod Team";
+			options[] = { "style" };
+
+			class style {
+				alwaysSelectable = 1;
+				label = "Style";
+				values[] = { "Traditional", "Niteowl" };
+
+				class Traditional {
+					label = "Traditional";
+				};
+				class Niteowl {
+					label = "Nite Owl";
 				};
 			};
 		};
@@ -424,6 +444,14 @@ class XtdGearInfos {
 		class tae_valeria_helmet {
 			model = "TAE_varen_helmets";
 			owner = "Valeria";
+		};
+		class tae_haranverd_traditional_helmet {
+			model = "TAE_haranverd_helmets";
+			style = "Traditional";
+		};
+		class tae_haranverd_niteowl_helmet {
+			model = "TAE_haranverd_helmets";
+			style = "Niteowl";
 		};
 		class tae_dark_red_rangefinder {
 			model = "TAE_nvgs";
@@ -1089,6 +1117,49 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Varen\VPR_Helmet_Valeria.paa",
 				"\z\tgf\addons\helmets\viper\data\camo2_co.paa"
+			};
+		};
+	};
+
+	// Clan Haranverd
+	class tae_haranverd_traditional_helmet : tae_helmet_traditional {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Clan Haranverd Traditional Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Haranverd\TRAD_Helmet_Haranverd.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Haranverd\TRAD_Helmet_Haranverd.paa",
+				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+			};
+		};
+	};
+
+	class tae_haranverd_niteowl_helmet : tae_helmet_nite_owl {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Clan Haranverd Nite Owl Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Haranverd\NITE_Helmet_Haranverd.paa",
+			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Haranverd\NITE_Helmet_Haranverd.paa",
+				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
 	};

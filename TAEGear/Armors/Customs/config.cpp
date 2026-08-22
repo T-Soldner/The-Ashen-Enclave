@@ -30,6 +30,8 @@ class CfgPatches {
 			"tae_juno_armor",
 			"tae_varen_recon_armor",
 			"tae_varen_niteowl_armor",
+			"tae_haranverd_traditional_armor",
+			"tae_haranverd_niteowl_armor",
 			"tae_rook_armor",
 			"tae_hades_armor",
 			"tae_andora_armor",
@@ -166,6 +168,22 @@ class XtdGearModels {
 				values[] = { "Standard","Niteowl" };
 				class Standard {
 					label = "Standard";
+				};
+				class Niteowl {
+					label = "Nite Owl";
+				};
+			};
+		};
+		class TAE_haranverd_vests {
+			label = "Clan Haranverd Vests";
+			author = "TAE Aux Mod Team";
+			options[] = { "style" };
+			class style {
+				alwaysSelectable = 1;
+				label = "Style";
+				values[] = { "Traditional", "Niteowl" };
+				class Traditional {
+					label = "Traditional";
 				};
 				class Niteowl {
 					label = "Nite Owl";
@@ -318,6 +336,14 @@ class XtdGearInfos {
 		class tae_varen_niteowl_armor {
 			model	= "TAE_varen_vests";
 			owner	= "Niteowl";
+		};
+		class tae_haranverd_traditional_armor {
+			model = "TAE_haranverd_vests";
+			style = "Traditional";
+		};
+		class tae_haranverd_niteowl_armor {
+			model = "TAE_haranverd_vests";
+			style = "Niteowl";
 		};
 		class tae_rook_armor {
 			model	= "TAE_rook_vests";
@@ -869,6 +895,49 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Varen\NITE_Armor_Varen.paa",
 				"TAEGear\data\Varen\NITE_Brace_Varen.paa"
+			};
+		};
+	};
+
+	// Clan Haranverd
+	class tae_haranverd_traditional_armor : tae_armor_traditional {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Clan Haranverd Traditional Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Haranverd\TRAD_Armor_Haranverd.paa",
+			"\z\tgf\addons\armour\light_armour\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Haranverd\TRAD_Armor_Haranverd.paa",
+				"\z\tgf\addons\armour\light_armour\data\camo2_co.paa"
+			};
+		};
+	};
+
+	class tae_haranverd_niteowl_armor : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Clan Haranverd Nite Owl Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Haranverd\NITE_Armor_Haranverd.paa",
+			"\z\tgf\addons\armour\nite_owl_armour\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Haranverd\NITE_Armor_Haranverd.paa",
+				"\z\tgf\addons\armour\nite_owl_armour\data\camo2_co.paa"
 			};
 		};
 	};

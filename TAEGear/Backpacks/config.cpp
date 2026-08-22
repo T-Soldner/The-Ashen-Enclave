@@ -10,10 +10,13 @@ class CfgPatches {
 			"tae_jetpack_JT12_LR",
 			"tae_jetpack_JT13",
 			"tae_jetpack_JT13_LR",
-			"tae_jetpack_JT70",
-			"tae_jetpack_JT70_LR",
+			"tae_jetpack_MSEJT4",
+			"tae_jetpack_MSEJT4_LR",
 			"tae_jetpack_Z4",
+			"tae_hondo_JT13",
 			"tae_hondo_JT13_LR",
+			"tae_stasik_JT12",
+			"tae_stasik_JT12_LR",
 			"tae_edonn_JT13_LR",
 			"tae_edonn_JT13",
 			"tae_nova_Z6"
@@ -73,7 +76,7 @@ class XtdGearModels {
 			class role {
 				alwaysSelectable = 1;
 				label = "Role";
-				values[] = { "JT13", "JT12", "JT70", "Z6", "Z12", "Z4" };
+				values[] = { "JT13", "JT12", "MSEJT4", "Z6", "Z12", "Z4" };
 
 				class Z6 {
 					label = "Z-6";
@@ -91,7 +94,7 @@ class XtdGearModels {
 					label = "JT-13";
 				};
 
-				class JT70 {
+				class MSEJT4 {
 					label = "MS-EJT4";
 				};
 
@@ -161,10 +164,14 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo", "Edonn", "Nova" };
+				values[] = { "Hondo", "Stasik", "Edonn", "Nova" };
 
 				class Hondo {
 					label = "Hondo";
+				};
+
+				class Stasik {
+					label = "Stasik";
 				};
 
 				class Edonn {
@@ -227,14 +234,14 @@ class XtdGearInfos {
 			role = "JT13";
 			lr = "Yes";
 		};
-		class tae_jetpack_JT70 {
+		class tae_jetpack_MSEJT4 {
 			model = "TAE_standard_Jetpacks";
-			role = "JT70";
+			role = "MSEJT4";
 			lr = "No";
 		};
-		class tae_jetpack_JT70_LR {
+		class tae_jetpack_MSEJT4_LR {
 			model = "TAE_standard_Jetpacks";
-			role = "JT70";
+			role = "MSEJT4";
 			lr = "Yes";
 		};
 		class tae_jetpack_Z4 {
@@ -276,9 +283,24 @@ class XtdGearInfos {
 		};
 
 		//Custom Backpacks
+		class tae_hondo_JT13 {
+			model = "TAE_custom_Backpacks";
+			owner = "Hondo";
+			LR = "No";
+		};
 		class tae_hondo_JT13_LR {
 			model = "TAE_custom_Backpacks";
 			owner = "Hondo";
+			LR = "Yes";
+		};
+		class tae_stasik_JT12 {
+			model = "TAE_custom_Backpacks";
+			owner = "Stasik";
+			LR = "No";
+		};
+		class tae_stasik_JT12_LR {
+			model = "TAE_custom_Backpacks";
+			owner = "Stasik";
 			LR = "Yes";
 		};
 		class tae_edonn_JT13_LR {
@@ -323,13 +345,13 @@ class CfgVehicles {
 		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13\camo1_co.paa"};
 		maximumload = 160;
 		jen_jetpacks_core_acceleration = 4;
-		jen_jetpacks_core_drag = 6;
+		jen_jetpacks_core_drag = 4.8;
 		jen_jetpacks_core_fuelCoef = 5;
 		jen_jetpacks_core_heatCoef = 3;
 		jen_jetpacks_core_coolCoef = 1.5;
 		jen_jetpacks_core_ascensionCoef = 1.3;
 		jen_jetpacks_core_jumpCoef = 1.2;
-		jen_jetpacks_core_fuelCapacity = 130;
+		jen_jetpacks_core_fuelCapacity = 104;
 		jen_jetpacks_core_strafeCoef = 1;
 	};
 	class tae_jetpack_JT13_LR : tae_jetpack_JT13 {
@@ -361,7 +383,7 @@ class CfgVehicles {
 		jen_jetpacks_core_coolCoef = 1;
 		jen_jetpacks_core_ascensionCoef = 1.1;
 		jen_jetpacks_core_jumpCoef = 1;
-		jen_jetpacks_core_fuelCapacity = 150;
+		jen_jetpacks_core_fuelCapacity = 120;
 		jen_jetpacks_core_strafeCoef = 0.7;
 	};
 	class tae_jetpack_JT12_LR : tae_jetpack_JT12 {
@@ -377,7 +399,7 @@ class CfgVehicles {
 		tf_range = 30000;
 		tf_subtype = "digital_lr";
 	};
-	class tae_jetpack_JT70 : KND_RotaryBackpack {
+	class tae_jetpack_MSEJT4 : KND_RotaryBackpack {
 		displayName = "House Karr MS-EJT4 Jetpack";
 		scope = 2;
 		picture = "\knd_rotary\data\backpack_picture_co.paa";
@@ -397,10 +419,10 @@ class CfgVehicles {
 		jen_jetpacks_core_coolCoef = 1.5;
 		jen_jetpacks_core_ascensionCoef = 0.9;
 		jen_jetpacks_core_jumpCoef = 1;
-		jen_jetpacks_core_fuelCapacity = 275;
+		jen_jetpacks_core_fuelCapacity = 220;
 		jen_jetpacks_core_strafeCoef = 0.45;
 	};
-	class tae_jetpack_JT70_LR : tae_jetpack_JT70 {
+	class tae_jetpack_MSEJT4_LR : tae_jetpack_MSEJT4 {
 		displayName = "House Karr MS-EJT4 LR Jetpack";
 		tf_dialog = "JLTS_clone_rto_radio_dialog";
 		tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
@@ -424,7 +446,7 @@ class CfgVehicles {
 		jen_jetpacks_core_coolCoef = 1.3;
 		jen_jetpacks_core_ascensionCoef = 1.15;
 		jen_jetpacks_core_jumpCoef = 1.1;
-		jen_jetpacks_core_fuelCapacity = 120;
+		jen_jetpacks_core_fuelCapacity = 96;
 		jen_jetpacks_core_strafeCoef = 0.8;
 		knd_isRocketJetpack = 1;
 	};
@@ -443,7 +465,7 @@ class CfgVehicles {
 		jen_jetpacks_core_coolCoef = 1;
 		jen_jetpacks_core_ascensionCoef = 1;
 		jen_jetpacks_core_jumpCoef = 0.9;
-		jen_jetpacks_core_fuelCapacity = 190;
+		jen_jetpacks_core_fuelCapacity = 111;
 		jen_jetpacks_core_strafeCoef = 0.55;
 		knd_isRocketJetpack = 1;
 	};
@@ -462,7 +484,7 @@ class CfgVehicles {
 		jen_jetpacks_core_coolCoef = 1.3;
 		jen_jetpacks_core_ascensionCoef = 0.8;
 		jen_jetpacks_core_jumpCoef = 0.9;
-		jen_jetpacks_core_fuelCapacity = 250;
+		jen_jetpacks_core_fuelCapacity = 200;
 		jen_jetpacks_core_strafeCoef = 0.3;
 		knd_isRocketJetpack = 1;
 	};
@@ -565,12 +587,39 @@ class CfgVehicles {
 	};
 	
 	// Custom Packs
-	class tae_hondo_JT13_LR : tae_jetpack_JT13_LR {
+	class tae_hondo_JT13 : tae_jetpack_JT13 {
 		scope = 2;
 		author = "Kandosii Mod Devs and Edonn";
 		displayName = "Hondo's JT-13 Jetpack";
 		descriptionShort = "Hondo's JT-13 Jetpack";
+		hiddenselectionstextures[] = {"TAEGear\data\Hondo\JT13_Pack_Hondo.paa"};
+	};
+	class tae_hondo_JT13_LR : tae_jetpack_JT13_LR {
+		scope = 2;
+		author = "Kandosii Mod Devs and Edonn";
+		displayName = "Hondo's JT-13 Jetpack LR";
+		descriptionShort = "Hondo's JT-13 Jetpack LR";
 		hiddenselectionstextures[] = {"TAEGear\data\Hondo\JT13_RTO_Pack_Hondo.paa"};
+	};
+	class tae_stasik_JT12 : tae_jetpack_JT12 {
+		scope = 2;
+		author = "Kandosii Mod Devs and Edonn";
+		displayName = "Stasik's JT-12 Jetpack";
+		descriptionShort = "Stasik's JT-12 Jetpack";
+		hiddenselectionstextures[] = {
+			"\knd_jetpacks\data\jt12\rocket_co.paa",
+			"TAEGear\data\Stasik\JT12_Pack_Stasik.paa"
+		};
+	};
+	class tae_stasik_JT12_LR : tae_jetpack_JT12_LR {
+		scope = 2;
+		author = "Kandosii Mod Devs and Edonn";
+		displayName = "Stasik's JT-12 Jetpack LR";
+		descriptionShort = "Stasik's JT-12 Jetpack LR";
+		hiddenselectionstextures[] = {
+			"\knd_jetpacks\data\jt12\rocket_co.paa",
+			"TAEGear\data\Stasik\JT12_RTO_Pack_Stasik.paa"
+		};
 	};
 	class tae_edonn_JT13_LR : tae_jetpack_JT13_LR {
 		scope = 2;

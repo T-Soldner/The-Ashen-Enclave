@@ -48,6 +48,7 @@ class CfgPatches {
 			"TAE_Wearable_Acklay_Helmet",
 			"TAE_Wearable_Foxx_Helmet",
 			"TAE_Wearable_Varen_Helmet",
+			"TAE_Wearable_Haranverd_Helmet",
 			"TAE_Wearable_Rook_Helmet",
 			"TAE_Wearable_Freelancer_Helmet",
 			"TAE_Wearable_Nox_Helmet",
@@ -401,6 +402,40 @@ class CfgVehicles {
 					displayName = "Put On Varen's Nite Owl Armor";
 					condition = "true";
 					statement = "[_player,'tae_varen_niteowl_armor','tae_varen_helmet','','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
+	class TAE_Wearable_Haranverd_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Clan Haranverd Helmet";
+		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"\TAEGear\data\Haranverd\TRAD_Helmet_Haranverd.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				position = "[0,0,0]";
+				distance = 2;
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnHaranverdTraditionalArmor {
+					displayName = "Put On Clan Haranverd Traditional Armor";
+					condition = "true";
+					statement = "[_player,'tae_haranverd_traditional_armor','tae_haranverd_traditional_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnHaranverdNiteOwlArmor {
+					displayName = "Put On Clan Haranverd Nite Owl Armor";
+					condition = "true";
+					statement = "[_player,'tae_haranverd_niteowl_armor','tae_haranverd_niteowl_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};

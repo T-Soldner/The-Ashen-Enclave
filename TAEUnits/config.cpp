@@ -44,6 +44,8 @@ class CfgPatches {
 			"TAE_Unit_Sniper",
 			"TAE_Unit_Player_Acklay",
 			"TAE_Unit_Player_Foxx",
+			"TAE_Unit_Player_Kyram",
+			"TAE_Unit_Player_Haranverd",
 			"TAE_Unit_Player_Rook",
 			"TAE_Unit_Player_Varen",
 			"TAE_Unit_Player_Shyyyo",
@@ -629,6 +631,48 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 0;
 		displayName = "Foxx Member";
+		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
+			"TAE_NoFacewear"
+		};
+		goggles = "TAE_NoFacewear";
+		uniformClass = "tae_uniform_grey_seal";
+		linkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		respawnLinkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+	};
+
+	class TAE_Unit_Player_Kyram: TAE_Unit_Player_Base {
+		scope = 2;
+		scopeCurator = 0;
+		displayName = "Clan Kyr'am";
+		identityTypes[] = {
+			"LanguageENG_F",
+			"Head_NATO",
+			"TAE_NoFacewear"
+		};
+		goggles = "TAE_NoFacewear";
+		uniformClass = "tae_uniform_grey_seal";
+		linkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+		respawnLinkedItems[] = {
+			"ItemMap",
+			"ls_radios_hush98"
+		};
+	};
+
+	class TAE_Unit_Player_Haranverd: TAE_Unit_Player_Base {
+		scope = 2;
+		scopeCurator = 0;
+		displayName = "Clan Haranverd";
 		identityTypes[] = {
 			"LanguageENG_F",
 			"Head_NATO",
