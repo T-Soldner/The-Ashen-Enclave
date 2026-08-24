@@ -611,7 +611,7 @@ class CfgWeapons {
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Teka";
-		displayName = "House Karr Medium Armor (Foundling)";
+		displayName = "Teka's Pilot Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Teka\MED_Armor_Teka.paa",
@@ -670,7 +670,7 @@ class CfgWeapons {
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Edonn";
-		displayName = "House Karr Nite Owl Armor (Mandalorian Veteran)";
+		displayName = "Clan Acklay Nite Owl Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Acklay\NITE_Armor_Acklay.paa",

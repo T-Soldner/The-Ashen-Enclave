@@ -10,6 +10,7 @@ class CfgPatches {
 			"ace_medical_treatment",
 			"ace_dragging",
 			"ace_cargo",
+			"ls_compat_ace_flags",
 			"cba_xeh",
 			"JLTS_weapons_crates",
 			"3AS_Props",
@@ -38,17 +39,29 @@ class CfgPatches {
 			"TAE_Bed_Rook",
 			"TAE_Bed_HouseKarr",
 			"TAE_Bed_Shyyyo",
+			"TAE_Bed_Kyram",
+			"TAE_Bed_Haranverd",
 			"TAE_Vexillum_Acklay",
 			"TAE_Vexillum_Foxx",
 			"TAE_Vexillum_Varen",
 			"TAE_Vexillum_Rook",
 			"TAE_Vexillum_HouseKarr",
 			"TAE_Vexillum_Shyyyo",
+			"TAE_Vexillum_Kyram",
+			"TAE_Vexillum_Haranverd",
+			"TAE_ClanFlag_Acklay",
+			"TAE_ClanFlag_Foxx",
+			"TAE_ClanFlag_Haranverd",
+			"TAE_ClanFlag_HouseKarr",
+			"TAE_ClanFlag_Rook",
+			"TAE_ClanFlag_Shyyyo",
+			"TAE_ClanFlag_Varen",
 			"TAE_MokTech_Locker",
 			"TAE_Wearable_Acklay_Helmet",
 			"TAE_Wearable_Foxx_Helmet",
 			"TAE_Wearable_Varen_Helmet",
 			"TAE_Wearable_Haranverd_Helmet",
+			"TAE_Wearable_Kyram_Helmet",
 			"TAE_Wearable_Rook_Helmet",
 			"TAE_Wearable_Freelancer_Helmet",
 			"TAE_Wearable_Nox_Helmet",
@@ -56,7 +69,15 @@ class CfgPatches {
 			"TAE_Wearable_Edonn_Helmet",
 			"TAE_Wearable_Teka_Helmet"
 		};
-		weapons[] = {};
+		weapons[] = {
+			"TAE_ClanFlag_Acklay_Item",
+			"TAE_ClanFlag_Foxx_Item",
+			"TAE_ClanFlag_Haranverd_Item",
+			"TAE_ClanFlag_HouseKarr_Item",
+			"TAE_ClanFlag_Rook_Item",
+			"TAE_ClanFlag_Shyyyo_Item",
+			"TAE_ClanFlag_Varen_Item"
+		};
 	};
 };
 
@@ -109,6 +130,59 @@ class Extended_Init_EventHandlers {
 
 };
 
+class CfgWeapons {
+	class ls_carrierFlag_mandalorian_item;
+
+	class TAE_ClanFlag_Acklay_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Acklay)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_acklay_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Acklay";
+	};
+
+	class TAE_ClanFlag_Foxx_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Foxx)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_foxx_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Foxx";
+	};
+
+	class TAE_ClanFlag_Haranverd_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Haranverd)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_haranverd_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Haranverd";
+	};
+
+	class TAE_ClanFlag_HouseKarr_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (House Karr)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_house_karr_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_HouseKarr";
+	};
+
+	class TAE_ClanFlag_Rook_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Rook)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_rook_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Rook";
+	};
+
+	class TAE_ClanFlag_Shyyyo_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Shyyyo)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_shyyyo_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Shyyyo";
+	};
+
+	class TAE_ClanFlag_Varen_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Varen)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_varen_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Varen";
+	};
+};
+
 class CfgVehicles {
 	class JLTS_Ammobox_weapons_GAR;
 	class JLTS_Ammobox_explosives_GAR;
@@ -119,6 +193,56 @@ class CfgVehicles {
 	class mti_armoury_props_locker_base;
 	class 3as_GNK;
 	class Land_3AS_Medical_Droid;
+	class ls_carrierFlag_mandalorian;
+
+	class TAE_ClanFlag_Acklay: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Acklay Flag";
+	};
+
+	class TAE_ClanFlag_Foxx: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Foxx Flag";
+	};
+
+	class TAE_ClanFlag_Haranverd: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Haranverd Flag";
+	};
+
+	class TAE_ClanFlag_HouseKarr: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "House Karr Flag";
+	};
+
+	class TAE_ClanFlag_Rook: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Rook Flag";
+	};
+
+	class TAE_ClanFlag_Shyyyo: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Shyyyo Flag";
+	};
+
+	class TAE_ClanFlag_Varen: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Varen Flag";
+	};
 
 	class TAE_Specialization_Gonk_Droid: 3as_GNK {
 		scope = 2;
@@ -128,33 +252,37 @@ class CfgVehicles {
 		editorCategory = "TAE_EdCat_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_ArsenalServices";
 		side = 3;
+		ace_interaction_canInteract = 1;
 
-		class ACE_Actions {
-			class ACE_MainActions {
-				displayName = "Specialization Permissions";
-				condition = "alive _player";
-				distance = 3;
-				position = "[0,0,0.5]";
+		class UserActions {
+			class TAE_GrantEngineerPermissions {
+				displayName = "<t color='#FF9F1A'>Receive Engineer and Explosives Permissions</t>";
+				position = "";
+				radius = 4;
+				onlyForPlayer = 1;
+				condition = "alive player";
+				statement = "[player, 'engineer'] call TAE_fnc_setPlayerPermissions";
+			};
 
-				class TAE_GrantEngineerPermissions {
-					displayName = "Receive Engineer and Explosives Permissions";
-					condition = "alive _player";
-					statement = "[_player, 'engineer'] call TAE_fnc_setPlayerPermissions";
-				};
+			class TAE_GrantMedicalPermissions {
+				displayName = "<t color='#4DA6FF'>Receive Medical Permissions</t>";
+				position = "";
+				radius = 4;
+				onlyForPlayer = 1;
+				condition = "alive player";
+				statement = "[player, 'medic'] call TAE_fnc_setPlayerPermissions";
+			};
 
-				class TAE_GrantMedicalPermissions {
-					displayName = "Receive Medical Permissions";
-					condition = "alive _player";
-					statement = "[_player, 'medic'] call TAE_fnc_setPlayerPermissions";
-				};
-
-				class TAE_RemoveAllPermissions {
-					displayName = "Remove All Permissions";
-					condition = "alive _player";
-					statement = "[_player, 'none'] call TAE_fnc_setPlayerPermissions";
-				};
+			class TAE_RemoveAllPermissions {
+				displayName = "<t color='#CCCCCC'>Remove All Permissions</t>";
+				position = "";
+				radius = 4;
+				onlyForPlayer = 1;
+				condition = "alive player";
+				statement = "[player, 'none'] call TAE_fnc_setPlayerPermissions";
 			};
 		};
+
 	};
 
 	class TAE_Medical_Droid: Land_3AS_Medical_Droid {
@@ -165,21 +293,19 @@ class CfgVehicles {
 		editorCategory = "TAE_EdCat_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_ArsenalServices";
 		side = 3;
+		ace_interaction_canInteract = 1;
 
-		class ACE_Actions {
-			class ACE_MainActions {
-				displayName = "Medical Droid";
-				condition = "alive _player";
-				distance = 3;
-				position = "[0,0,0.5]";
-
-				class TAE_FullHeal {
-					displayName = "Full Heal";
-					condition = "alive _player";
-					statement = "[_player] call TAE_fnc_fullHealPlayer";
-				};
+		class UserActions {
+			class TAE_FullHeal {
+				displayName = "<t color='#00FF66'>Full Heal</t>";
+				position = "";
+				radius = 4;
+				onlyForPlayer = 1;
+				condition = "alive player";
+				statement = "[player] call TAE_fnc_fullHealPlayer";
 			};
 		};
+
 	};
 
 	class TAE_Bed_Base: SFA_Bed_Single {
@@ -272,7 +398,7 @@ class CfgVehicles {
 	class TAE_Wearable_Acklay_Helmet: TAE_Wearable_Helmet_Base {
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "Acklay Helmet";
+		displayName = "Clan Acklay Helmet";
 
 		class ACE_Actions {
 			class ACE_MainActions {
@@ -297,13 +423,13 @@ class CfgVehicles {
 				class TAE_PutOnJimothyArmor {
 					displayName = "Put On Jimothy's Armor";
 					condition = "true";
-					statement = "[_player,'tae_jimothy_armor','tae_jimothy_helmet','tae_jimothy_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_vau'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_jimothy_armor','tae_jimothy_helmet','tae_jimothy_rangefinder','','tae_uniform_vau'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnFrenkArmor {
 					displayName = "Put On Frenk's Armor";
 					condition = "true";
-					statement = "[_player,'tae_frenk_armor','tae_frenk_helmet','tae_dark_grey_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_dark_green_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_frenk_armor','tae_frenk_helmet','tae_dark_grey_rangefinder','','tae_uniform_dark_green_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnTowiArmor {
@@ -324,7 +450,7 @@ class CfgVehicles {
 	class TAE_Wearable_Foxx_Helmet: TAE_Wearable_Helmet_Base {
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "Foxx Helmet";
+		displayName = "Clan Foxx Helmet";
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -376,7 +502,7 @@ class CfgVehicles {
 	class TAE_Wearable_Varen_Helmet: TAE_Wearable_Helmet_Base {
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "Varen Helmet";
+		displayName = "Clan Varen Helmet";
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -401,7 +527,13 @@ class CfgVehicles {
 				class TAE_PutOnVarenNiteOwlArmor {
 					displayName = "Put On Varen's Nite Owl Armor";
 					condition = "true";
-					statement = "[_player,'tae_varen_niteowl_armor','tae_varen_helmet','','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_varen_niteowl_armor','tae_varen_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnValeriaArmor {
+					displayName = "Put On Valeria's Armor";
+					condition = "true";
+					statement = "[_player,'tae_varen_niteowl_armor','tae_valeria_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};
@@ -420,8 +552,8 @@ class CfgVehicles {
 
 		class ACE_Actions {
 			class ACE_MainActions {
-				position = "[0,0,0]";
-				distance = 2;
+				distance = 100;
+				position = "[0,-0.3,0.8]";
 				selection = "";
 				displayName = "Helmet";
 				condition = "true";
@@ -441,10 +573,56 @@ class CfgVehicles {
 		};
 	};
 
+	class TAE_Bed_Kyram: TAE_Bed_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Kyr'am Bed";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\furniture\tae_bed_kyram_co.paa"
+		};
+	};
+
+	class TAE_Bed_Haranverd: TAE_Bed_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Haranverd Bed";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\furniture\tae_bed_haranverd_co.paa"
+		};
+	};
+
+	class TAE_Wearable_Kyram_Helmet: TAE_Wearable_Helmet_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Clan Kyr'am Helmet";
+		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"\z\tgf\addons\helmets\traditional\data\camo1_co.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ACE_Actions {
+			class ACE_MainActions {
+				distance = 100;
+				position = "[0,-0.3,0.8]";
+				selection = "";
+				displayName = "Helmet";
+				condition = "true";
+
+				class TAE_PutOnKyramArmor {
+					displayName = "Put On Clan Kyr'am Armor";
+					condition = "true";
+					statement = "[_player,'tae_armor_traditional','tae_helmet_traditional','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+				};
+			};
+		};
+	};
+
 	class TAE_Wearable_Rook_Helmet: TAE_Wearable_Helmet_Base {
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "Rook Helmet";
+		displayName = "Clan Rook Helmet";
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -793,6 +971,24 @@ class CfgVehicles {
 		displayName = "House Karr Shyyyo Vexillum";
 		hiddenSelectionsTextures[] = {
 			"\TAEObjects\data\vexillums\tae_vexillum_shyyyo_co.paa"
+		};
+	};
+
+	class TAE_Vexillum_Kyram: TAE_Vexillum_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Kyr'am Vexillum";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum_kyram_co.paa"
+		};
+	};
+
+	class TAE_Vexillum_Haranverd: TAE_Vexillum_Base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Haranverd Vexillum";
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\vexillums\tae_vexillum_haranverd_co.paa"
 		};
 	};
 

@@ -50,4 +50,18 @@ class CfgUnitInsignia {
 		texture = "\TAEInsignias\data\Varen_logo.paa";
 		textureVehicle = "";
 	};
+
+	class TAE_Insignia_Kyram {
+		displayName = "House Karr Kyr'am";
+		author = "TAE Mod Team";
+		texture = "\TAEInsignias\data\Kyram_logo.paa";
+		textureVehicle = "";
+	};
+
+	class TAE_Insignia_Haranverd {
+		displayName = "House Karr Haranverd";
+		author = "TAE Mod Team";
+		texture = "\TAEInsignias\data\Haranverd_logo.paa";
+		textureVehicle = "";
+	};
 };
