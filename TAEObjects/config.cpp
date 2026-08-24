@@ -10,6 +10,7 @@ class CfgPatches {
 			"ace_medical_treatment",
 			"ace_dragging",
 			"ace_cargo",
+			"ls_compat_ace_flags",
 			"cba_xeh",
 			"JLTS_weapons_crates",
 			"3AS_Props",
@@ -48,6 +49,13 @@ class CfgPatches {
 			"TAE_Vexillum_Shyyyo",
 			"TAE_Vexillum_Kyram",
 			"TAE_Vexillum_Haranverd",
+			"TAE_ClanFlag_Acklay",
+			"TAE_ClanFlag_Foxx",
+			"TAE_ClanFlag_Haranverd",
+			"TAE_ClanFlag_HouseKarr",
+			"TAE_ClanFlag_Rook",
+			"TAE_ClanFlag_Shyyyo",
+			"TAE_ClanFlag_Varen",
 			"TAE_MokTech_Locker",
 			"TAE_Wearable_Acklay_Helmet",
 			"TAE_Wearable_Foxx_Helmet",
@@ -61,7 +69,15 @@ class CfgPatches {
 			"TAE_Wearable_Edonn_Helmet",
 			"TAE_Wearable_Teka_Helmet"
 		};
-		weapons[] = {};
+		weapons[] = {
+			"TAE_ClanFlag_Acklay_Item",
+			"TAE_ClanFlag_Foxx_Item",
+			"TAE_ClanFlag_Haranverd_Item",
+			"TAE_ClanFlag_HouseKarr_Item",
+			"TAE_ClanFlag_Rook_Item",
+			"TAE_ClanFlag_Shyyyo_Item",
+			"TAE_ClanFlag_Varen_Item"
+		};
 	};
 };
 
@@ -114,6 +130,59 @@ class Extended_Init_EventHandlers {
 
 };
 
+class CfgWeapons {
+	class ls_carrierFlag_mandalorian_item;
+
+	class TAE_ClanFlag_Acklay_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Acklay)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_acklay_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Acklay";
+	};
+
+	class TAE_ClanFlag_Foxx_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Foxx)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_foxx_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Foxx";
+	};
+
+	class TAE_ClanFlag_Haranverd_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Haranverd)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_haranverd_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Haranverd";
+	};
+
+	class TAE_ClanFlag_HouseKarr_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (House Karr)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_house_karr_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_HouseKarr";
+	};
+
+	class TAE_ClanFlag_Rook_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Rook)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_rook_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Rook";
+	};
+
+	class TAE_ClanFlag_Shyyyo_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Shyyyo)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_shyyyo_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Shyyyo";
+	};
+
+	class TAE_ClanFlag_Varen_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Varen)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_varen_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Varen";
+	};
+};
+
 class CfgVehicles {
 	class JLTS_Ammobox_weapons_GAR;
 	class JLTS_Ammobox_explosives_GAR;
@@ -124,6 +193,56 @@ class CfgVehicles {
 	class mti_armoury_props_locker_base;
 	class 3as_GNK;
 	class Land_3AS_Medical_Droid;
+	class ls_carrierFlag_mandalorian;
+
+	class TAE_ClanFlag_Acklay: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Acklay Flag";
+	};
+
+	class TAE_ClanFlag_Foxx: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Foxx Flag";
+	};
+
+	class TAE_ClanFlag_Haranverd: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Haranverd Flag";
+	};
+
+	class TAE_ClanFlag_HouseKarr: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "House Karr Flag";
+	};
+
+	class TAE_ClanFlag_Rook: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Rook Flag";
+	};
+
+	class TAE_ClanFlag_Shyyyo: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Shyyyo Flag";
+	};
+
+	class TAE_ClanFlag_Varen: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Varen Flag";
+	};
 
 	class TAE_Specialization_Gonk_Droid: 3as_GNK {
 		scope = 2;
