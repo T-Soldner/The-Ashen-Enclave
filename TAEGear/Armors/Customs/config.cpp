@@ -837,23 +837,23 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_galaxy_armor : tae_armor_war_chief {
+	class tae_galaxy_armor : tae_armor_medium {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Galaxy";
-		displayName = "Galaxy's War Chief Armor";
+		displayName = "Galaxy's Medium Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Galaxy\WAR_Armor_Galaxy.paa",
-			"TAEGear\data\Galaxy\WAR_Brace_Galaxy.paa"
+			"TAEGear\data\Galaxy\MED_Armor_Galaxy.paa",
+			"TAEGear\data\Galaxy\MED_Brace_Galaxy.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Galaxy\WAR_Armor_Galaxy.paa",
-				"TAEGear\data\Galaxy\WAR_Brace_Galaxy.paa"
+				"TAEGear\data\Galaxy\MED_Armor_Galaxy.paa",
+				"TAEGear\data\Galaxy\MED_Brace_Galaxy.paa"
 			};
 		};
 	};
