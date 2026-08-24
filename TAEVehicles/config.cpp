@@ -6,6 +6,7 @@ class CfgPatches {
 			"A3_Data_F_Loadorder",
 			"ace_cargo",
 			"KND_Komrk",
+			"knd_vehicles_skycat",
 			"TAEObjects",
 			"TAEUnits_HouseKarr",
 			"mti_armoury_vehicles_weapons",
@@ -14,6 +15,7 @@ class CfgPatches {
 		};
 		units[] = {
 			"TAE_KomrkFighter_Transport",
+			"TAE_Skycat_Transport",
 			"TAE_Z98_Headhunter"
 		};
 		weapons[] = {
@@ -186,11 +188,13 @@ class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
 	class knd_KomrkFighter_VTOL_Dynamic_F;
+	class knd_vehicles_skycat;
 	class ls_vehicle_z98;
 
 	class TAE_KomrkFighter_Transport_base: knd_KomrkFighter_VTOL_Dynamic_F {
 		scope = 0;
 		scopeCurator = 0;
+		vtol = 2;
 		lockDetectionSystem = 30;
 		incomingMissileDetectionSystem = 26;
 		radarTargetSize = 0.6;
@@ -603,9 +607,55 @@ class CfgVehicles {
 		};
 	};
 
+	class TAE_Skycat_Transport: knd_vehicles_skycat {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr SKYCAT/I Transport";
+		author = "TAE Mod Team";
+
+		side = 2;
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Aircraft";
+
+		crew = "TAE_Unit_Pilot";
+		typicalCargo[] = {
+			"TAE_Unit_Pilot"
+		};
+
+		tf_hasLRradio = 1;
+		tf_range = 100000;
+
+		ace_cargo_hasCargo = 1;
+		ace_cargo_space = 15;
+		class ace_cargo {
+			class cargo {
+				class knd_resupply_jetpack {
+					type = "knd_resupply_jetpack";
+					amount = 1;
+				};
+
+				class TAE_Ammo_Crate {
+					type = "TAE_Ammo_Crate";
+					amount = 1;
+				};
+
+				class TAE_Demo_Crate {
+					type = "TAE_Demo_Crate";
+					amount = 1;
+				};
+
+				class TAE_Medical_Crate {
+					type = "TAE_Medical_Crate";
+					amount = 1;
+				};
+			};
+		};
+	};
+
 	class TAE_Z98_Headhunter_base: ls_vehicle_z98 {
 		scope = 0;
 		scopeCurator = 0;
+		vtol = 2;
 		lockDetectionSystem = 30;
 		incomingMissileDetectionSystem = 26;
 		radarTargetSize = 0.3;

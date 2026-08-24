@@ -611,7 +611,7 @@ class CfgWeapons {
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Teka";
-		displayName = "House Karr Medium Armor (Foundling)";
+		displayName = "Teka's Pilot Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Teka\MED_Armor_Teka.paa",
@@ -670,7 +670,7 @@ class CfgWeapons {
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Edonn";
-		displayName = "House Karr Nite Owl Armor (Mandalorian Veteran)";
+		displayName = "Clan Acklay Nite Owl Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Acklay\NITE_Armor_Acklay.paa",
@@ -837,23 +837,23 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_galaxy_armor : tae_armor_medium {
+	class tae_galaxy_armor : tae_armor_war_chief {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Galaxy";
-		displayName = "Galaxy's Medium Armor";
+		displayName = "Galaxy's War Chief Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Galaxy\MED_Armor_Galaxy.paa",
-			"TAEGear\data\Galaxy\MED_Brace_Galaxy.paa"
+			"TAEGear\data\Galaxy\WAR_Armor_Galaxy.paa",
+			"TAEGear\data\Galaxy\WAR_Brace_Galaxy.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Galaxy\MED_Armor_Galaxy.paa",
-				"TAEGear\data\Galaxy\MED_Brace_Galaxy.paa"
+				"TAEGear\data\Galaxy\WAR_Armor_Galaxy.paa",
+				"TAEGear\data\Galaxy\WAR_Brace_Galaxy.paa"
 			};
 		};
 	};

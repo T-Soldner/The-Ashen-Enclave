@@ -1064,7 +1064,7 @@ class CfgWeapons {
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Bean";
-		displayName = "Clan Foxx Helmet";
+		displayName = "Bean's War Chief Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Foxx\WAR_Helmet_Bean.paa",

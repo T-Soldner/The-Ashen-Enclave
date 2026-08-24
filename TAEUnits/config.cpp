@@ -602,7 +602,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Acklay: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Acklay Member";
+		displayName = "Clan Acklay Member";
 
 		identityTypes[] = {
 			"LanguageENG_F",
@@ -630,7 +630,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Foxx: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Foxx Member";
+		displayName = "Clan Foxx Member";
 		identityTypes[] = {
 			"LanguageENG_F",
 			"Head_NATO",
@@ -651,7 +651,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Kyram: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Clan Kyr'am";
+		displayName = "Clan Kyr'am Member";
 		identityTypes[] = {
 			"LanguageENG_F",
 			"Head_NATO",
@@ -672,7 +672,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Haranverd: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Clan Haranverd";
+		displayName = "Clan Haranverd Member";
 		identityTypes[] = {
 			"LanguageENG_F",
 			"Head_NATO",
@@ -693,7 +693,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Rook: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Rook Member";
+		displayName = "Clan Rook Member";
 		identityTypes[] = {
 			"LanguageENG_F",
 			"Head_NATO",
@@ -714,7 +714,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Varen: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Varen Member";
+		displayName = "Clan Varen Member";
 
 		identityTypes[] = {
 			"LanguageENG_F",
@@ -742,7 +742,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Shyyyo: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Shyyyo";
+		displayName = "Clan Shyyyo Member";
 		role = "Crewman";
 		icon = "ls_iconManPilot";
 		nameSound = "veh_infantry_pilot_s";
@@ -4470,6 +4470,7 @@ class CfgVehicles {
 	class TAE_Vehicle_NR_Ywing: JMSLLTE_YwingA4_veh_F {
 		scope = 2;
 		scopeCurator = 2;
+		vtol = 2;
 		author = "TAE Mod Team";
 		displayName = "BTL-A4 Y-wing Starfighter";
 		faction = "TAE_Faction_NewRepublic";
@@ -4488,6 +4489,7 @@ class CfgVehicles {
 	class TAE_Vehicle_NR_Xwing_CA2: JMSLLTE_XwingCA2_NR_veh_F {
 		scope = 2;
 		scopeCurator = 2;
+		vtol = 2;
 		author = "TAE Mod Team";
 		displayName = "T-65C-A2 X-wing Starfighter";
 		faction = "TAE_Faction_NewRepublic";
@@ -4497,6 +4499,7 @@ class CfgVehicles {
 	class TAE_Vehicle_NR_Xwing_T70: JMSLLTE_XwingT70_veh_F {
 		scope = 2;
 		scopeCurator = 2;
+		vtol = 2;
 		author = "TAE Mod Team";
 		displayName = "T-70 X-wing Starfighter";
 		faction = "TAE_Faction_NewRepublic";
@@ -4510,6 +4513,8 @@ class CfgVehicles {
 		displayName = "RZ-1 A-wing Interceptor";
 		faction = "TAE_Faction_NewRepublic";
 		editorSubcategory = "TAE_EdSubcat_NewRepublic_Aircraft";
+		vtol = 2;
+		landingSpeed = 200;
 	};
 
 	class TAE_Unit_Civilian_Random: JMSLLTE_c_jumpsuit_blue_F {
