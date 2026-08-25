@@ -36,6 +36,17 @@ class CfgEditorSubcategories {
 	};
 };
 
+class CfgFunctions {
+	class TAE {
+		class Vehicles {
+			file = "\TAEVehicles\functions";
+			class boardRecoveredPlayer {};
+			class recoverAirbornePlayers {};
+			class showRecoveryMessage {};
+		};
+	};
+};
+
 class CfgWeapons {
 	class mti_armoury_weapon_AA_Missile_Light_Pylon;
 	class mti_armoury_weapon_AA_Short_Missile_Pylon;
@@ -557,6 +568,17 @@ class CfgVehicles {
 		};
 
 		class UserActions {
+			class RecoverAirbornePlayers {
+				displayName = "Recover Airborne Personnel";
+				position = "";
+				radius = 5;
+				onlyForPlayer = 1;
+				showWindow = 0;
+				hideOnUse = 1;
+				condition = "((player isEqualTo currentPilot this) AND (alive this) AND (engineOn this) AND !(isTouchingGround this) AND (((getPosATL this) select 2) >= 5) AND (((vectorMagnitude (velocity this)) * 3.6) <= 200) AND (time >= (this getVariable ['TAE_recoveryAvailableAt',0])))";
+				statement = "[this,player] remoteExecCall ['TAE_fnc_recoverAirbornePlayers',2]";
+			};
+
 			class OpenDoor {
 				displayName = "Open Drop Bay";
 				source = "user";
