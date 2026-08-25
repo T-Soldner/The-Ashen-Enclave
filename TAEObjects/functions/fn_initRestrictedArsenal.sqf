@@ -634,6 +634,8 @@ private _items = [
 	"tae_haranverd_niteowl_armor",
 	"tae_haranverd_traditional_helmet",
 	"tae_haranverd_niteowl_helmet",
+	"tae_kyram_armor",
+	"tae_kyram_helmet",
 	"tae_valeria_helmet",
 	"tae_dark_grey_rangefinder",
 	"tae_IQA12",

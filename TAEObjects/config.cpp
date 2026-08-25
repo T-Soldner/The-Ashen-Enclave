@@ -620,7 +620,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\z\tgf\addons\helmets\traditional\data\camo1_co.paa",
+			"\TAEGear\data\Kyram\TRAD_Helmet_Kyram.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
@@ -635,7 +635,7 @@ class CfgVehicles {
 				class TAE_PutOnKyramArmor {
 					displayName = "Put On Clan Kyr'am Armor";
 					condition = "true";
-					statement = "[_player,'tae_armor_traditional','tae_helmet_traditional','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_kyram_armor','tae_kyram_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};

@@ -40,6 +40,7 @@ class CfgPatches {
 			"tae_vario_helmet",
 			"tae_haranverd_traditional_helmet",
 			"tae_haranverd_niteowl_helmet",
+			"tae_kyram_helmet",
 			"tae_dark_red_rangefinder",
 			"tae_foxx_rangefinder",
 			"tae_rook_helmet",
@@ -234,6 +235,21 @@ class XtdGearModels {
 				};
 				class Niteowl {
 					label = "Nite Owl";
+				};
+			};
+		};
+		class TAE_kyram_helmets {
+			label = "Clan Kyr'am Helmets";
+			author = "TAE Aux Mod Team";
+			options[] = { "style" };
+
+			class style {
+				alwaysSelectable = 1;
+				label = "Style";
+				values[] = { "Traditional" };
+
+				class Traditional {
+					label = "Traditional";
 				};
 			};
 		};
@@ -460,6 +476,10 @@ class XtdGearInfos {
 		class tae_haranverd_niteowl_helmet {
 			model = "TAE_haranverd_helmets";
 			style = "Niteowl";
+		};
+		class tae_kyram_helmet {
+			model = "TAE_kyram_helmets";
+			style = "Traditional";
 		};
 		class tae_dark_red_rangefinder {
 			model = "TAE_nvgs";
@@ -1188,6 +1208,28 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Haranverd\NITE_Helmet_Haranverd.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
+			};
+		};
+	};
+
+	// Clan Kyr'am
+	class tae_kyram_helmet : tae_helmet_traditional {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Clan Kyr'am Traditional Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Kyram\TRAD_Helmet_Kyram.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Kyram\TRAD_Helmet_Kyram.paa",
+				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
 	};

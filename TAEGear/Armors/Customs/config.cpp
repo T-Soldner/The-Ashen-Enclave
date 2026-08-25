@@ -32,6 +32,7 @@ class CfgPatches {
 			"tae_varen_niteowl_armor",
 			"tae_haranverd_traditional_armor",
 			"tae_haranverd_niteowl_armor",
+			"tae_kyram_armor",
 			"tae_rook_armor",
 			"tae_hades_armor",
 			"tae_andora_armor",
@@ -188,6 +189,19 @@ class XtdGearModels {
 				};
 				class Niteowl {
 					label = "Nite Owl";
+				};
+			};
+		};
+		class TAE_kyram_vests {
+			label = "Clan Kyr'am Vests";
+			author = "TAE Aux Mod Team";
+			options[] = { "style" };
+			class style {
+				alwaysSelectable = 1;
+				label = "Style";
+				values[] = { "Traditional" };
+				class Traditional {
+					label = "Traditional";
 				};
 			};
 		};
@@ -348,6 +362,10 @@ class XtdGearInfos {
 		class tae_haranverd_niteowl_armor {
 			model = "TAE_haranverd_vests";
 			style = "Niteowl";
+		};
+		class tae_kyram_armor {
+			model = "TAE_kyram_vests";
+			style = "Traditional";
 		};
 		class tae_rook_armor {
 			model	= "TAE_rook_vests";
@@ -946,6 +964,28 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Haranverd\NITE_Armor_Haranverd.paa",
 				"\z\tgf\addons\armour\nite_owl_armour\data\camo2_co.paa"
+			};
+		};
+	};
+
+	// Clan Kyr'am
+	class tae_kyram_armor : tae_armor_traditional {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "TAE Mod Team";
+		displayName = "Clan Kyr'am Traditional Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Kyram\TRAD_Armor_Kyram.paa",
+			"TAEGear\data\Kyram\TRAD_Brace_Kyram.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Kyram\TRAD_Armor_Kyram.paa",
+				"TAEGear\data\Kyram\TRAD_Brace_Kyram.paa"
 			};
 		};
 	};
