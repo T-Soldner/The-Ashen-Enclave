@@ -35,7 +35,8 @@ class CfgPatches {
 			"tae_rook_armor",
 			"tae_hades_armor",
 			"tae_andora_armor",
-			"tae_goostivool_armor"
+			"tae_goostivool_armor",
+			"tae_shen_armor"
 		};
 	};
 };
@@ -197,7 +198,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Hades", "Andora", "Goostivool" };
+				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen" };
 				class Standard {
 					label = "Standard";
 				};
@@ -209,6 +210,9 @@ class XtdGearModels {
 				};
 				class Goostivool {
 					label = "Goostivool";
+				};
+				class Shen {
+					label = "Shen";
 				};
 			};
 		};
@@ -360,6 +364,10 @@ class XtdGearInfos {
 		class tae_goostivool_armor {
 			model	= "TAE_rook_vests";
 			owner	= "Goostivool";
+		};
+		class tae_shen_armor {
+			model	= "TAE_rook_vests";
+			owner	= "Shen";
 		};
 	};
 };
@@ -1017,6 +1025,26 @@ class CfgWeapons {
 			hiddenSelections[] = {"camo1"};
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Goostivool\LS_Armor_Goostivool.paa"
+			};
+		};
+	};
+	class tae_shen_armor : tae_armor_arbiter {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Hondo";
+		displayName = "Shen's Arbiter Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Shen\ARB_Armor_Shen.paa",
+			"TAEGear\data\Shen\ARB_Brace_Shen.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Shen\ARB_Armor_Shen.paa",
+				"TAEGear\data\Shen\ARB_Brace_Shen.paa"
 			};
 		};
 	};

@@ -30,6 +30,7 @@ class CfgPatches {
 			"tae_frenk_helmet",
 			"tae_towi_helmet",
 			"tae_stasik_helmet",
+			"tae_bingo_helmet",
 			"tae_foxx_helmet",
 			"tae_juno_helmet",
 			"tae_bean_helmet",
@@ -147,7 +148,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard","Niteowl", "Stasik", "Jimothy", "Frenk", "Towi" };
+				values[] = { "Standard","Niteowl", "Stasik", "Jimothy", "Frenk", "Towi", "Bingo" };
 
 				class Standard {
 					label = "Standard";
@@ -166,6 +167,9 @@ class XtdGearModels {
 				};
 				class Towi {
 					label = "Towi";
+				};
+				class Bingo {
+					label = "Bingo";
 				};
 			};
 		};
@@ -412,6 +416,10 @@ class XtdGearInfos {
 		class tae_towi_helmet {
 			model = "TAE_acklay_helmets";
 			owner = "Towi";
+		};
+		class tae_bingo_helmet {
+			model = "TAE_acklay_helmets";
+			owner = "Bingo";
 		};
 		
 		// Clan Foxx
@@ -1014,6 +1022,26 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Stasik\VPR_Helmet_Stasik.paa",
 				"TAEGear\data\Stasik\VPR_Visor_Stasik.paa"
+			};
+		};
+	};
+	class tae_bingo_helmet : tae_helmet_viper {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Jimothy";
+		displayName = "Bingo's Viper Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Bingo\VIPR_Helmet_Bingo.paa",
+			"TAEGear\data\Bingo\VIPR_Visor_Bingo.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Bingo\VIPR_Helmet_Bingo.paa",
+				"TAEGear\data\Bingo\VIPR_Visor_Bingo.paa"
 			};
 		};
 	};

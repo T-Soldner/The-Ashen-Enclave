@@ -53,6 +53,7 @@ class CfgPatches {
 			"TAE_ClanFlag_Foxx",
 			"TAE_ClanFlag_Haranverd",
 			"TAE_ClanFlag_HouseKarr",
+			"TAE_ClanFlag_Kyram",
 			"TAE_ClanFlag_Rook",
 			"TAE_ClanFlag_Shyyyo",
 			"TAE_ClanFlag_Varen",
@@ -74,6 +75,7 @@ class CfgPatches {
 			"TAE_ClanFlag_Foxx_Item",
 			"TAE_ClanFlag_Haranverd_Item",
 			"TAE_ClanFlag_HouseKarr_Item",
+			"TAE_ClanFlag_Kyram_Item",
 			"TAE_ClanFlag_Rook_Item",
 			"TAE_ClanFlag_Shyyyo_Item",
 			"TAE_ClanFlag_Varen_Item"
@@ -161,6 +163,13 @@ class CfgWeapons {
 		ace_flags_carrier = "TAE_ClanFlag_HouseKarr";
 	};
 
+	class TAE_ClanFlag_Kyram_Item: ls_carrierFlag_mandalorian_item {
+		author = "TAE Mod Team";
+		displayName = "Flag (Clan Kyr'am)";
+		ace_flags_texture = "\TAEObjects\data\flags\flag_kyram_ca.paa";
+		ace_flags_carrier = "TAE_ClanFlag_Kyram";
+	};
+
 	class TAE_ClanFlag_Rook_Item: ls_carrierFlag_mandalorian_item {
 		author = "TAE Mod Team";
 		displayName = "Flag (Clan Rook)";
@@ -221,6 +230,13 @@ class CfgVehicles {
 		scopeCurator = 0;
 		author = "TAE Mod Team";
 		displayName = "House Karr Flag";
+	};
+
+	class TAE_ClanFlag_Kyram: ls_carrierFlag_mandalorian {
+		scope = 1;
+		scopeCurator = 0;
+		author = "TAE Mod Team";
+		displayName = "Clan Kyr'am Flag";
 	};
 
 	class TAE_ClanFlag_Rook: ls_carrierFlag_mandalorian {
@@ -436,6 +452,12 @@ class CfgVehicles {
 					displayName = "Put On Towi's Armor";
 					condition = "true";
 					statement = "[_player,'tae_acklay_niteowl_armor','tae_towi_helmet','tae_ls_grey_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
+				};
+
+				class TAE_PutOnBingoArmor {
+					displayName = "Put On Bingo's Armor";
+					condition = "true";
+					statement = "[_player,'tae_acklay_armor','tae_bingo_helmet','tgf_nvg_rangefinder_r','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnNiteOwlArmor {
@@ -671,7 +693,7 @@ class CfgVehicles {
 				class TAE_PutOnShenArmor {
 					displayName = "Put On Shen's Armor";
 					condition = "true";
-					statement = "[_player,'tae_rook_armor','tae_shen_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_shen_armor','tae_shen_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};
