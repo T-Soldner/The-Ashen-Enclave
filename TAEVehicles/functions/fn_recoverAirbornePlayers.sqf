@@ -22,7 +22,7 @@ if (
 
 private _speedKph = vectorMagnitude velocity _vehicle * 3.6;
 if (
-	!engineOn _vehicle
+	!(isEngineOn _vehicle)
 	|| {isTouchingGround _vehicle}
 	|| {(getPosATL _vehicle select 2) < 5}
 	|| {_speedKph > 200}

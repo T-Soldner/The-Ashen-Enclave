@@ -575,7 +575,7 @@ class CfgVehicles {
 				onlyForPlayer = 1;
 				showWindow = 0;
 				hideOnUse = 1;
-				condition = "((player isEqualTo currentPilot this) AND (alive this) AND (engineOn this) AND !(isTouchingGround this) AND (((getPosATL this) select 2) >= 5) AND (((vectorMagnitude (velocity this)) * 3.6) <= 200) AND (time >= (this getVariable ['TAE_recoveryAvailableAt',0])))";
+				condition = "((player isEqualTo currentPilot this) AND (alive this) AND (isEngineOn this) AND !(isTouchingGround this) AND (((getPosATL this) select 2) >= 5) AND (((vectorMagnitude (velocity this)) * 3.6) <= 200) AND (time >= (this getVariable ['TAE_recoveryAvailableAt',0])))";
 				statement = "[this,player] remoteExecCall ['TAE_fnc_recoverAirbornePlayers',2]";
 			};
 

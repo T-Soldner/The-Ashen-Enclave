@@ -20,6 +20,8 @@ private _content =
 	"<font color='#D6B85A'>Heavy Weapons - 5 points</font><br/>DLT-19, FWMB-10, RT-97C, M-41, Z-6, DC-15LE, HPB-14, JD-70 Rancor<br/><br/>" +
 	"<font color='#D6B85A'>Sniper - 5 points</font><br/>DLT-19X, 773, IQA, Galaar-90, DC-15X, NT-242, LW-7, Westar Sniper, T-21, T-21 (Legacy), T-21B<br/><br/>" +
 	"<font color='#D6B85A'>Rifleman - 0 points</font><br/>A180, A180 Stock, A180 Rifle, A280, A280C, A295, A300, A300C, E-11 variants, E-5, A475, DH-17 Rifle, DH-17, E-10, E-22, EE-3, F-78, Galaar-15, SB-B3, Westar-35C, Westar-35S, ZH-73, DC-15S, DC-15A, EE-2, EE-3B<br/><br/>" +
+	"<font color='#D6B85A'>CSW - 9 points</font><br/>Crew-Served Weapons (turrets, mortars, and similar emplacements)<br/><br/>" +
+	"<font color='#D6B85A'>SUAS - 3 points</font><br/>Small Unmanned Aircraft Systems (aerial drones)<br/><br/>" +
 	"<font color='#D6B85A'>Medic - 5 points</font><br/>In-game medical permissions";
 
 _unit createDiaryRecord [

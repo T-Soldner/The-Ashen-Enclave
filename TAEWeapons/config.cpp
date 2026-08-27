@@ -4,13 +4,65 @@ class CfgPatches {
 		author = "TAE Mod Team";
 		url = "https://discord.gg/9zgGp5QSW7";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "IDA_INDEP" };
+		requiredAddons[] = { "IDA_INDEP", "mti_armoury_weapons_hpb" };
 		units[] = {};
 		weapons[] = {
 			"tae_TargetingScope_FP2",
-			"tae_IQA12"
+			"tae_IQA12",
+			"tae_HPB14"
 		};
 		skipWhenMissingDependencies = 1;
+	};
+};
+
+class CfgAmmo {
+	class mti_armoury_ammo_hpb_base;
+	class mti_armoury_ammo_hpb_scatter;
+	class mti_armoury_ammo_Shotgun_Sub_HP;
+
+	class tae_ammo_HPB14 : mti_armoury_ammo_hpb_base {
+		hit = 4.5;
+		caliber = 2;
+		indirectHit = 0;
+		indirectHitRange = 0;
+	};
+
+	class tae_ammo_HPB14_scatter_pellet : mti_armoury_ammo_Shotgun_Sub_HP {
+		hit = 3;
+		caliber = 1;
+		indirectHit = 0;
+		indirectHitRange = 0;
+	};
+
+	class tae_ammo_HPB14_scatter : mti_armoury_ammo_hpb_scatter {
+		hit = 3;
+		caliber = 1;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		submunitionAmmo = "tae_ammo_HPB14_scatter_pellet";
+	};
+};
+
+class CfgMagazines {
+	class mti_armoury_mag_HPB;
+	class mti_armoury_mag_hpb_underbarrel;
+
+	class tae_mag_HPB14 : mti_armoury_mag_HPB {
+		author = "TAE Mod Team";
+		dlc = "The Ashen Enclave AUX Mod";
+		displayName = "HPB-14 150rnd Reduced-Power Energy Cell";
+		displayNameShort = "Reduced Power";
+		descriptionShort = "Reduced-power energy cell for the TAE HPB-14";
+		ammo = "tae_ammo_HPB14";
+	};
+
+	class tae_mag_HPB14_scatter : mti_armoury_mag_hpb_underbarrel {
+		author = "TAE Mod Team";
+		dlc = "The Ashen Enclave AUX Mod";
+		displayName = "HPB-14 10rnd Reduced-Power Scatter Cell";
+		displayNameShort = "Reduced-Power Scatter";
+		descriptionShort = "Reduced-power scatter cell for the TAE HPB-14";
+		ammo = "tae_ammo_HPB14_scatter";
 	};
 };
 
@@ -22,6 +74,10 @@ class CfgWeapons {
 
 	class IDA_TargetingScope;
 	class IDA_IQA11;
+	class mti_armoury_weapon_hpb {
+		class Standard;
+		class Heavy;
+	};
 
 	class tae_TargetingScope_FP2 : IDA_TargetingScope {
 		scope = 2;
@@ -86,6 +142,27 @@ class CfgWeapons {
 				slot = "CowsSlot";
 				item = "tae_TargetingScope_FP2";
 			};
+		};
+	};
+
+	class tae_HPB14 : mti_armoury_weapon_hpb {
+		author = "TAE Mod Team";
+		dlc = "The Ashen Enclave AUX Mod";
+		scope = 2;
+		scopeArsenal = 2;
+		displayName = "HPB-14 Heavy Blaster Rifle (Reduced Power)";
+		baseWeapon = "tae_HPB14";
+		magazines[] = {"tae_mag_HPB14"};
+		magazineWell[] = {};
+
+		class Standard : Standard {
+			magazines[] = {"tae_mag_HPB14"};
+			magazineWell[] = {};
+		};
+
+		class Heavy : Heavy {
+			magazines[] = {"tae_mag_HPB14_scatter"};
+			magazineWell[] = {};
 		};
 	};
 };
