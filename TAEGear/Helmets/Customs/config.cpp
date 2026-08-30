@@ -105,13 +105,10 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Nova","Edonn","Nox" };
+				values[] = { "Hondo","Edonn","Nox" };
 
 				class Hondo {
 					label = "Hondo";
-				};
-				class Nova {
-					label = "Nova";
 				};
 				class Edonn {
 					label = "Edonn";
@@ -241,15 +238,18 @@ class XtdGearModels {
 		class TAE_kyram_helmets {
 			label = "Clan Kyr'am Helmets";
 			author = "TAE Aux Mod Team";
-			options[] = { "style" };
+			options[] = { "owner" };
 
-			class style {
+			class owner {
 				alwaysSelectable = 1;
-				label = "Style";
-				values[] = { "Traditional" };
+				label = "Owner";
+				values[] = { "Standard", "Nova" };
 
-				class Traditional {
-					label = "Traditional";
+				class Standard {
+					label = "Standard";
+				};
+				class Nova {
+					label = "Nova";
 				};
 			};
 		};
@@ -375,10 +375,6 @@ class XtdGearInfos {
 			model = "TAE_freelancer_helmets";
 			owner = "Hondo";
 		};
-		class tae_nova_helmet {
-			model = "TAE_freelancer_helmets";
-			owner = "Nova";
-		};
 		class tae_edonn_helmet {
 			model = "TAE_freelancer_helmets";
 			owner = "Edonn";
@@ -479,7 +475,11 @@ class XtdGearInfos {
 		};
 		class tae_kyram_helmet {
 			model = "TAE_kyram_helmets";
-			style = "Traditional";
+			owner = "Standard";
+		};
+		class tae_nova_helmet {
+			model = "TAE_kyram_helmets";
+			owner = "Nova";
 		};
 		class tae_dark_red_rangefinder {
 			model = "TAE_nvgs";

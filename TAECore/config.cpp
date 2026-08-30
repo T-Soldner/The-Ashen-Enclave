@@ -4,9 +4,9 @@
 // MINOR: a new PBO or major subsystem; reset FEATURE and REVISION to 0.
 // FEATURE: substantial content in an existing PBO, such as a new vehicle, faction, or system; reset REVISION to 0.
 // REVISION: routine arsenal, texture, armor, helmet, balance, and config updates.
-#define TAE_VERSION 1.1
-#define TAE_VERSION_STR "1.1.3.0"
-#define TAE_VERSION_AR 1,1,3,0
+#define TAE_VERSION 1.2
+#define TAE_VERSION_STR "1.2.0.0"
+#define TAE_VERSION_AR 1,2,0,0
 
 class CfgPatches
 {

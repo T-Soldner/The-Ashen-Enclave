@@ -255,11 +255,21 @@ class CfgVehicles {
 	class JMSLLTE_O_veh_AA2_reb_F;
 	class JMSLLTE_O_veh_AA2mk2_reb_F;
 	class JMSLLTE_vehgr_ATST_reb_F;
-	class JMSLLTE_YwingA4_veh_F;
-	class JMSLLTE_UwingHeli_Reb_F;
-	class JMSLLTE_XwingCA2_NR_veh_F;
-	class JMSLLTE_XwingT70_veh_F;
-	class JMSLLTE_Awing_NR_veh_F;
+	class JMSLLTE_YwingA4_veh_F {
+		class Components;
+	};
+	class JMSLLTE_UwingHeli_Reb_F {
+		class Components;
+	};
+	class JMSLLTE_XwingCA2_NR_veh_F {
+		class Components;
+	};
+	class JMSLLTE_XwingT70_veh_F {
+		class Components;
+	};
+	class JMSLLTE_Awing_NR_veh_F {
+		class Components;
+	};
 
 	class TAE_Unit_HitPoint_Base: tae_uniform_unit_grey_seal {
 		scope = 0;
@@ -897,12 +907,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -981,12 +991,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -1246,12 +1256,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -1331,12 +1341,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -1515,12 +1525,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -1605,12 +1615,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -1791,16 +1801,16 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -1918,16 +1928,16 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -2143,12 +2153,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -2228,12 +2238,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -2496,12 +2506,12 @@ class CfgVehicles {
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
@@ -2581,12 +2591,12 @@ class CfgVehicles {
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
@@ -2735,12 +2745,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -2820,12 +2830,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -3024,12 +3034,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -3119,12 +3129,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -3301,12 +3311,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -3386,12 +3396,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -3582,12 +3592,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -3667,12 +3677,12 @@ class CfgVehicles {
 			"ACE_splint",
 			"ACE_splint",
 			"ACE_splint",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV_500",
-			"ACE_salineIV",
-			"ACE_salineIV",
-			"ACE_salineIV",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_500",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
+			"mti_armoury_props_medical_Bacta_Item_1000",
 			"ACE_morphine",
 			"ACE_morphine",
 			"ACE_morphine",
@@ -4470,7 +4480,12 @@ class CfgVehicles {
 	class TAE_Vehicle_NR_Ywing: JMSLLTE_YwingA4_veh_F {
 		scope = 2;
 		scopeCurator = 2;
-		vtol = 2;
+		weapons[] += {"CMFlareLauncher"};
+		magazines[] += {"240Rnd_CMFlare_Chaff_Magazine"};
+		class Components: Components {
+			class TransportCountermeasuresComponent {};
+		};
+		vtol = 4;
 		maxSpeed = 1450;
 		landingSpeed = 250;
 		stallSpeed = 190;
@@ -4514,6 +4529,12 @@ class CfgVehicles {
 	class TAE_Vehicle_NR_Uwing: JMSLLTE_UwingHeli_Reb_F {
 		scope = 2;
 		scopeCurator = 2;
+		weapons[] += {"CMFlareLauncher"};
+		magazines[] += {"240Rnd_CMFlare_Chaff_Magazine"};
+		class Components: Components {
+			class TransportCountermeasuresComponent {};
+		};
+		vtol = 4;
 		maxSpeed = 900;
 		liftForceCoef = 1.1;
 		bodyFrictionCoef = 0.55;
@@ -4529,7 +4550,12 @@ class CfgVehicles {
 	class TAE_Vehicle_NR_Xwing_CA2: JMSLLTE_XwingCA2_NR_veh_F {
 		scope = 2;
 		scopeCurator = 2;
-		vtol = 2;
+		weapons[] += {"CMFlareLauncher"};
+		magazines[] += {"240Rnd_CMFlare_Chaff_Magazine"};
+		class Components: Components {
+			class TransportCountermeasuresComponent {};
+		};
+		vtol = 4;
 		maxSpeed = 1715;
 		landingSpeed = 250;
 		stallSpeed = 190;
@@ -4573,7 +4599,12 @@ class CfgVehicles {
 	class TAE_Vehicle_NR_Xwing_T70: JMSLLTE_XwingT70_veh_F {
 		scope = 2;
 		scopeCurator = 2;
-		vtol = 2;
+		weapons[] += {"CMFlareLauncher"};
+		magazines[] += {"240Rnd_CMFlare_Chaff_Magazine"};
+		class Components: Components {
+			class TransportCountermeasuresComponent {};
+		};
+		vtol = 4;
 		maxSpeed = 1715;
 		landingSpeed = 250;
 		stallSpeed = 190;
@@ -4617,11 +4648,16 @@ class CfgVehicles {
 	class TAE_Vehicle_NR_Awing: JMSLLTE_Awing_NR_veh_F {
 		scope = 2;
 		scopeCurator = 2;
+		weapons[] += {"CMFlareLauncher"};
+		magazines[] += {"240Rnd_CMFlare_Chaff_Magazine"};
+		class Components: Components {
+			class TransportCountermeasuresComponent {};
+		};
 		author = "TAE Mod Team";
 		displayName = "RZ-1 A-wing Interceptor";
 		faction = "TAE_Faction_NewRepublic";
 		editorSubcategory = "TAE_EdSubcat_NewRepublic_Aircraft";
-		vtol = 2;
+		vtol = 4;
 		maxSpeed = 1900;
 		landingSpeed = 250;
 		stallSpeed = 190;

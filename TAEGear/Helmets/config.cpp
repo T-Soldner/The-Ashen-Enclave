@@ -48,6 +48,7 @@ class CfgWeapons {
 		scopeCurator = 0;
 		displayname = "Mandalorian Traditional Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
@@ -75,6 +76,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Battle Master Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\battle_master\battle_master.p3d";
@@ -102,6 +104,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Gunslinger Helmet (Standard)";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\gunslinger\gunslinger.p3d";
@@ -129,6 +132,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Gunslinger Veteran Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\gunslinger_vet\gunslinger_vet.p3d";
@@ -156,6 +160,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Warlord Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\warlord\warlord_helmet.p3d";
@@ -183,6 +188,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Viper Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\viper\viper_helmet.p3d";
@@ -210,6 +216,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Heavy Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\heavy\heavy_helmet.p3d";
@@ -237,6 +244,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Pilot Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\pilot\pilot_helmet.p3d";
@@ -264,6 +272,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Shrike Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\shrike\shrike.p3d";
@@ -291,6 +300,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Arbiter Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\arbiter\arbiter_helmet.p3d";
@@ -318,6 +328,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian War Chief Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\war_chief\war_chief.p3d";
@@ -345,6 +356,7 @@ class CfgWeapons {
 		scope = 0;
 		displayname = "Mandalorian Nite Owl Helmet";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\nite_owl\nite_owl_helmet.p3d";
@@ -372,6 +384,7 @@ class CfgWeapons {
 		scope = 0;
 		displayName = "Mandalorian Traditional Helmet (LS)";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\traditional\ls_helmet_mandalorian_traditional.p3d";
@@ -400,6 +413,7 @@ class CfgWeapons {
 		scope = 0;
 		displayName = "Mandalorian Din Djarin Helmet (LS)";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\dinDjarin\ls_helmet_mandalorian_dinDjarin.p3d";
@@ -428,6 +442,7 @@ class CfgWeapons {
 		scope = 0;
 		displayName = "Mandalorian Executioner Helmet (LS)";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\executioner\ls_helmet_mandalorian_executioner.p3d";
@@ -456,6 +471,7 @@ class CfgWeapons {
 		scope = 0;
 		displayName = "Mandalorian Armorer Helmet (LS)";
 		TAE_underwaterVision = 1;
+		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\armorer\ls_helmet_mandalorian_armorer.p3d";

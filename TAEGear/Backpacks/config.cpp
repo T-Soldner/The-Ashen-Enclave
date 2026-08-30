@@ -517,13 +517,7 @@ class CfgVehicles {
 	class tae_modular_pack_heavy : tae_modular_pack {
 		scope = 1;
 		scopeArsenal = 0;
-
-		class TransportMagazines {
-			class _xx_3AS_200Rnd_EM40_DLT19_Mag {
-				magazine = "3AS_200Rnd_EM40_DLT19_Mag";
-				count = 10;
-			};
-		};
+		class TransportMagazines {};
 	};
 	class tae_modular_pack_marksman : tae_modular_pack {
 		scope = 1;

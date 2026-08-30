@@ -632,11 +632,16 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnKyramArmor {
-					displayName = "Put On Clan Kyr'am Armor";
-					condition = "true";
-					statement = "[_player,'tae_kyram_armor','tae_kyram_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+                class TAE_PutOnKyramArmor {
+                    displayName = "Put On Clan Kyr'am Armor";
+                    condition = "true";
+                    statement = "[_player,'tae_kyram_armor','tae_kyram_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
+                class TAE_PutOnNovaArmor {
+                    displayName = "Put On Nova's Armor";
+                    condition = "true";
+                    statement = "[_player,'tae_karr_armor_niteowl_ma','tae_nova_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_white_female'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -754,11 +759,6 @@ class CfgVehicles {
 					statement = "[_player,'tae_karr_armor_niteowl_ma','tae_karr_helmet_niteowl_ma','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
 				};
 
-				class TAE_PutOnNovaArmor {
-					displayName = "Put On Nova's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_niteowl_ma','tae_nova_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_white_female'] call TAE_fnc_applyWearableLoadout";
-				};
 
 				class TAE_PutOnNiteOwlMandalorianArmor {
 					displayName = "Put On Nite Owl's Armor";
@@ -1256,7 +1256,20 @@ class CfgVehicles {
 			};
 		};
 
-		class TransportBackpacks {};
+		class TransportBackpacks {
+			class _xx_knd_z6rocket {
+				backpack = "knd_z6rocket";
+				count = 6;
+			};
+			class _xx_knd_z6rocket_AA {
+				backpack = "knd_z6rocket_AA";
+				count = 6;
+			};
+			class _xx_knd_z6rocket_AT {
+				backpack = "knd_z6rocket_AT";
+				count = 6;
+			};
+		};
 	};
 
 	class TAE_Medical_Crate: JLTS_Ammobox_ammo_GAR {
@@ -1318,16 +1331,16 @@ class CfgVehicles {
 				name = "ACE_painkillers";
 				count = 30;
 			};
-			class _xx_ACE_salineIV {
-				name = "ACE_salineIV";
+			class _xx_mti_armoury_props_medical_Bacta_Item_1000 {
+				name = "mti_armoury_props_medical_Bacta_Item_1000";
 				count = 20;
 			};
-			class _xx_ACE_salineIV_500 {
-				name = "ACE_salineIV_500";
+			class _xx_mti_armoury_props_medical_Bacta_Item_500 {
+				name = "mti_armoury_props_medical_Bacta_Item_500";
 				count = 30;
 			};
-			class _xx_ACE_salineIV_250 {
-				name = "ACE_salineIV_250";
+			class _xx_mti_armoury_props_medical_Bacta_Item_250 {
+				name = "mti_armoury_props_medical_Bacta_Item_250";
 				count = 30;
 			};
 			class _xx_ACE_surgicalKit {
