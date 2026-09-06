@@ -9,6 +9,7 @@ class CfgPatches {
 			"ace_medical_treatment",
 			"cba_xeh",
 			"ls_common",
+			"ls_weapons_mpl",
 			"TAEUniforms",
 			"TAEGear_Armors_Customs",
 			"TAEGear_Helmets_Customs",
@@ -4330,8 +4331,23 @@ class CfgVehicles {
 		uniformClass = "JMSLLTE_HuttHeavy_brown_F_CombatUniform";
 		weapons[] = {"ls_weapon_mpl57","Throw","Put"};
 		respawnWeapons[] = {"ls_weapon_mpl57","Throw","Put"};
-		magazines[] = {"ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF"};
-		respawnMagazines[] = {"ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF"};
+		// Updated LS MPL uses single-round magazines; retain the 30-round supply.
+		magazines[] = {
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF"
+		};
+		respawnMagazines[] = {
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF"
+		};
 		linkedItems[] = {"LST_DSI_Vest_V1_Armor","SFA_Combat_Eng_Helmet","ItemMap","ItemRadio","ItemCompass","ItemWatch"};
 		respawnLinkedItems[] = {"LST_DSI_Vest_V1_Armor","SFA_Combat_Eng_Helmet","ItemMap","ItemRadio","ItemCompass","ItemWatch"};
 		items[] = {"FirstAidKit","JMSLLTE_thermaldetonator_HandGrenade","JMSLLTE_thermaldetonator_HandGrenade"};

@@ -19,6 +19,8 @@ class CfgPatches {
 			"3as_GNK_Prop",
 			"3AS_Prop_Flags",
 			"ls_characters_mandalorian",
+			"ls_weapons_westar",
+			"ls_weapons_zh73",
 			"tgf_helmets",
 			"TAEGear_Helmets_Customs",
 			"TAEGear_Armors_Customs",
