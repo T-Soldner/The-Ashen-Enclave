@@ -12,6 +12,7 @@ class CfgPatches
 			"TAEGear_Helmets",
 			"ls_common",
 			"cba_main",
+			"cba_events",
 			"cba_xeh",
 			"cba_settings",
 			"cba_keybinding",
@@ -30,10 +31,15 @@ class CfgFunctions
 		{
 			file = "\TAEHUD\functions";
 			class hudApplyColor {};
-			class hudCycleAuxiliary {};
+			class hudBindPlayerEvents {};
+			class hudApplyPanelSettings {};
+			class hudApplyFont {};
 			class hudCycleCameraTarget {};
 			class hudDestroyCamera {};
 			class hudDrawAuxiliaryMap {};
+			class hudDrawRadar {};
+			class hudUpdateRadar {};
+			class hudClearRadar {};
 			class hudHide {};
 			class hudInitCompassControls {};
 			class hudInitClient {};
@@ -46,6 +52,9 @@ class CfgFunctions
 			class hudSetVanillaStanceInfo {};
 			class hudSetVanillaWeaponInfo {};
 			class hudToggle {};
+			class hudStartHandlers {};
+			class hudStopHandlers {};
+			class hudSyncAuxiliaryHandler {};
 			class hudUpdate {};
 			class hudUpdateAuxiliary {};
 			class hudUpdateCompass {};
@@ -230,9 +239,9 @@ class RscTitles
 				sizeEx = "safeZoneH * 0.018";
 				shadow = 0;
 				colorText[] = {0.95,0.72,0.14,0.90};
-				x = "safeZoneX + safeZoneW - (safeZoneW * 0.145)";
+				x = "safeZoneX + safeZoneW - (safeZoneW * 0.320)";
 				y = "safeZoneY + (safeZoneH * 0.040)";
-				w = "safeZoneW * 0.125";
+				w = "safeZoneW * 0.300";
 				h = "safeZoneH * 0.030";
 			};
 			class WeaponMode: WeaponName
@@ -278,13 +287,14 @@ class RscTitles
 			{
 				idc = 1126;
 				text = "NO THROWABLE";
+				style = 0;
 				font = "RobotoCondensed";
 				sizeEx = "safeZoneH * 0.013";
 				shadow = 0;
 				colorText[] = {0.75,0.78,0.80,0.86};
 				x = "safeZoneX + safeZoneW - (safeZoneW * 0.205)";
 				y = "safeZoneY + (safeZoneH * 0.179)";
-				w = "safeZoneW * 0.080";
+				w = "safeZoneW * 0.185";
 				h = "safeZoneH * 0.022";
 			};
 			class SpeedReadout: RscPicture
@@ -310,6 +320,15 @@ class RscTitles
 				w = "safeZoneW * 0.075";
 				h = "safeZoneH * 0.020";
 			};
+			class ThrowableCount: RangeReadout
+			{
+				idc = 1129;
+				text = "";
+				style = 2;
+				y = "safeZoneY + (safeZoneH * 0.170)";
+				h = "safeZoneH * 0.014";
+				sizeEx = "safeZoneH * 0.011";
+			};
 			class AuxiliaryMap: RscMapControl
 			{
 				idc = 1302;
@@ -318,6 +337,24 @@ class RscTitles
 				y = "safeZoneY + (safeZoneH * 0.835)";
 				w = "safeZoneW * 0.185";
 				h = "safeZoneH * 0.140";
+			};
+			class AuxiliaryRadar: RscMapControl
+			{
+				idc = 1306;
+				onDraw = "_this call TAE_fnc_hudDrawRadar";
+				x = "safeZoneX + safeZoneW * 0.975 - safeZoneH * 0.220 * (pixelW / pixelH)";
+				y = "safeZoneY + (safeZoneH * 0.755)";
+				w = "safeZoneH * 0.220 * (pixelW / pixelH)";
+				h = "safeZoneH * 0.220";
+				colorBackground[] = {0,0,0,0};
+				colorOutside[] = {0,0,0,0};
+				colorGrid[] = {0,0,0,0};
+				colorGridMap[] = {0,0,0,0};
+				sizeEx = 0;
+				maxSatelliteAlpha = 0;
+				alphaFadeStartScale = 0;
+				alphaFadeEndScale = 0;
+				showCountourInterval = 0;
 			};
 			class AuxiliaryCamera: RscPicture
 			{

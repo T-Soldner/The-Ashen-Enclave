@@ -5,11 +5,12 @@ if (isNull _display || {isNull _unit}) exitWith {};
 [_display] call TAE_fnc_hudUpdateSquad;
 
 private _inVehicle = (vehicle _unit) isNotEqualTo _unit;
+private _showWeapon = missionNamespace getVariable ["TAE_HUD_showWeapon", true];
 {
-	(_display displayCtrl _x) ctrlShow !_inVehicle;
-} forEach [1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1202, 1203];
+	(_display displayCtrl _x) ctrlShow (!_inVehicle && _showWeapon);
+} forEach [1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1202, 1203];
 
-if (_inVehicle) exitWith
+if (_inVehicle || {!_showWeapon}) exitWith
 {
 	[true] call TAE_fnc_hudSetVanillaWeaponInfo;
 	[true] call TAE_fnc_hudSetVanillaStanceInfo;
@@ -117,6 +118,7 @@ if (_throwableMagazine isEqualTo "") then
 {
 	(_display displayCtrl 1125) ctrlSetText "";
 	(_display displayCtrl 1126) ctrlSetText "NO THROWABLE";
+	(_display displayCtrl 1129) ctrlSetText "";
 } else
 {
 	private _throwableConfig = configFile >> "CfgMagazines" >> _throwableMagazine;
@@ -127,7 +129,8 @@ if (_throwableMagazine isEqualTo "") then
 	} count (throwables _unit);
 
 	(_display displayCtrl 1125) ctrlSetText _throwablePicture;
-	(_display displayCtrl 1126) ctrlSetText format ["%1 x%2", toUpper _throwableName, _throwableCount];
+	(_display displayCtrl 1126) ctrlSetText (toUpper _throwableName);
+	(_display displayCtrl 1129) ctrlSetText format ["x%1", _throwableCount];
 };
 
 private _weapon = currentWeapon _unit;

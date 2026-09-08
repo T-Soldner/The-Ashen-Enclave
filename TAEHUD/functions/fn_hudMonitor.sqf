@@ -18,5 +18,13 @@ if (_shouldShow) then
 	};
 } else
 {
-	[] call TAE_fnc_hudHide;
+	private _hasHandlers =
+		(uiNamespace getVariable ["TAE_HUD_updatePFH", -1]) >= 0 ||
+		{(uiNamespace getVariable ["TAE_HUD_compassPFH", -1]) >= 0} ||
+		{(uiNamespace getVariable ["TAE_HUD_auxiliaryPFH", -1]) >= 0};
+
+	if (!isNull _display || {_hasHandlers} || {uiNamespace getVariable ["TAE_HUD_visible", false]}) then
+	{
+		[] call TAE_fnc_hudHide;
+	};
 };

@@ -1,11 +1,28 @@
 params ["_display"];
 
 if (isNull _display || {isNull player}) exitWith {};
+private _showSquad = missionNamespace getVariable ["TAE_HUD_showSquad", true];
+{(_display displayCtrl _x) ctrlShow _showSquad;} forEach [1130, 1230];
+if (!_showSquad) exitWith
+{
+	for "_index" from 0 to 14 do
+	{
+		for "_offset" from 0 to 4 do
+		{
+			(_display displayCtrl (2000 + _index * 10 + _offset)) ctrlShow false;
+		};
+	};
+};
 
 private _groupUnits = units (group player);
 private _trackedUnits = _groupUnits select {_x isNotEqualTo player && {!isNull _x}};
 private _slotCount = 15;
 private _visibleCount = (count _trackedUnits) min _slotCount;
+private _compact = (missionNamespace getVariable ["TAE_HUD_squadDisplay", 0]) isEqualTo 1;
+private _nameWidth = if (_compact) then {0.040} else {0.100};
+private _distanceOffset = _nameWidth + 0.006;
+private _statusOffset = _nameWidth + 0.051;
+private _panelWidth = if (_compact) then {0.160} else {0.220};
 private _hudColor = missionNamespace getVariable ["TAE_HUD_color", [0.95, 0.72, 0.14, 0.90]];
 private _dimColor = +_hudColor;
 _dimColor set [3, ((_hudColor # 3) * 0.72) min 1];
@@ -45,7 +62,7 @@ _header ctrlSetPosition
 [
 	safeZoneX + (safeZoneW * 0.02),
 	_headerY,
-	safeZoneW * 0.22,
+	safeZoneW * _panelWidth,
 	safeZoneH * 0.024
 ];
 _header ctrlCommit 0;
@@ -55,7 +72,7 @@ _headerLine ctrlSetPosition
 [
 	safeZoneX + (safeZoneW * 0.02),
 	_headerLineY,
-	safeZoneW * 0.22,
+	safeZoneW * _panelWidth,
 	safeZoneH * 0.002
 ];
 _headerLine ctrlCommit 0;
@@ -99,8 +116,8 @@ for "_index" from 0 to (_slotCount - 1) do
 		if (_medicClass isEqualType true) then {_medicClass = [0, 1] select _medicClass;};
 		if (_engineerClass isEqualType true) then {_engineerClass = [0, 1] select _engineerClass;};
 		private _roles = [];
-		if (_medicClass >= 1) then {_roles pushBack "MEDIC";};
-		if (_engineerClass >= 1) then {_roles pushBack "ENGINEER";};
+		if (_medicClass >= 1) then {_roles pushBack (["MEDIC", "MED"] select _compact);};
+		if (_engineerClass >= 1) then {_roles pushBack (["ENGINEER", "ENG"] select _compact);};
 		private _isUnconscious = !_isDead &&
 		{
 			_unit getVariable ["ACE_isUnconscious", false] ||
@@ -136,7 +153,7 @@ for "_index" from 0 to (_slotCount - 1) do
 		[
 			_rowX + _arrowColumnWidth + (safeZoneW * 0.004),
 			_y - (safeZoneH * 0.005 * _rowScale),
-			safeZoneW * 0.10,
+			safeZoneW * _nameWidth,
 			safeZoneH * 0.021 * _rowScale
 		];
 		(_controls # 1) ctrlCommit 0;
@@ -144,7 +161,7 @@ for "_index" from 0 to (_slotCount - 1) do
 		(_controls # 2) ctrlSetFontHeight _dataFontHeight;
 		(_controls # 2) ctrlSetPosition
 		[
-			_rowX + _arrowColumnWidth + (safeZoneW * 0.106),
+			_rowX + _arrowColumnWidth + (safeZoneW * _distanceOffset),
 			_y,
 			safeZoneW * 0.043,
 			_rowHeight
@@ -154,7 +171,7 @@ for "_index" from 0 to (_slotCount - 1) do
 		(_controls # 3) ctrlSetFontHeight _dataFontHeight;
 		(_controls # 3) ctrlSetPosition
 		[
-			_rowX + _arrowColumnWidth + (safeZoneW * 0.151),
+			_rowX + _arrowColumnWidth + (safeZoneW * _statusOffset),
 			_y,
 			safeZoneW * 0.061,
 			_rowHeight
@@ -166,24 +183,34 @@ for "_index" from 0 to (_slotCount - 1) do
 		[
 			_rowX + _arrowColumnWidth + (safeZoneW * 0.004),
 			_y + (safeZoneH * 0.014 * _rowScale),
-			safeZoneW * 0.10,
+			safeZoneW * _nameWidth,
 			safeZoneH * 0.014 * _rowScale
 		];
 		(_controls # 4) ctrlCommit 0;
 
 		(_controls # 0) ctrlSetAngle [player getRelDir _unit, 0.5, 0.5];
 		(_controls # 0) ctrlSetTextColor _identityColor;
+		// AI and players without a published number stay visibly unassigned.
+		private _number = _unit getVariable ["TAE_HUD_squadNumber", 0];
+		private _label = if (_compact) then
+		{
+			if (_number in [1, 2, 3, 4, 5, 6, 7, 8]) then {str _number} else {"?"}
+		} else
+		{
+			toUpper name _unit
+		};
+		private _speakingFormat = if (_compact) then {"TX %1"} else {"TX // %1"};
 		(_controls # 1) ctrlSetText format
 		[
-			["%1", "TX // %1"] select _isSpeaking,
-			toUpper name _unit
+			["%1", _speakingFormat] select _isSpeaking,
+			_label
 		];
 		(_controls # 1) ctrlSetTextColor _identityColor;
 		(_controls # 2) ctrlSetText format ["%1 M", round (player distance _unit)];
 		(_controls # 2) ctrlSetTextColor _dimColor;
 		(_controls # 3) ctrlSetText _status;
 		(_controls # 3) ctrlSetTextColor _statusColor;
-		(_controls # 4) ctrlSetText (_roles joinString " // ");
+		(_controls # 4) ctrlSetText (_roles joinString ([" // ", "/"] select _compact));
 		(_controls # 4) ctrlSetTextColor _dimColor;
 	};
 };

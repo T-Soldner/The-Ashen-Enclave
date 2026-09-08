@@ -3,11 +3,24 @@ missionNamespace setVariable ["TAE_HUD_initialized", true];
 
 uiNamespace setVariable ["TAE_HUD_userEnabled", missionNamespace getVariable ["TAE_HUD_autoEnable", true]];
 uiNamespace setVariable ["TAE_HUD_suspended", false];
-uiNamespace setVariable ["TAE_HUD_auxiliaryMode", 0];
+uiNamespace setVariable ["TAE_HUD_auxiliaryMode", missionNamespace getVariable ["TAE_HUD_auxiliaryDisplay", 0]];
 uiNamespace setVariable ["TAE_HUD_cameraTargetIndex", 0];
+uiNamespace setVariable ["TAE_HUD_updatePFH", -1];
+uiNamespace setVariable ["TAE_HUD_compassPFH", -1];
+uiNamespace setVariable ["TAE_HUD_auxiliaryPFH", -1];
+uiNamespace setVariable ["TAE_HUD_auxiliaryPFHMode", 0];
 
-[] call TAE_fnc_hudPublishIdentityColor;
-player addEventHandler ["Respawn", {[] call TAE_fnc_hudPublishIdentityColor;}];
+private _playerEventHandler = [
+	"unit",
+	{
+		params ["_unit"];
+		[_unit] call TAE_fnc_hudBindPlayerEvents;
+		[] call TAE_fnc_hudPublishIdentityColor;
+		[] call TAE_fnc_hudMonitor;
+	},
+	true
+] call CBA_fnc_addPlayerEventHandler;
+uiNamespace setVariable ["TAE_HUD_playerEventHandler", _playerEventHandler];
 
 [
 	missionNamespace,
@@ -43,9 +56,7 @@ player addEventHandler ["Respawn", {[] call TAE_fnc_hudPublishIdentityColor;}];
 	}
 ] call CBA_fnc_addEventHandler;
 
-[{[] call TAE_fnc_hudMonitor;}, 0.25] call CBA_fnc_addPerFrameHandler;
-[{[] call TAE_fnc_hudUpdate;}, 0.10] call CBA_fnc_addPerFrameHandler;
-[{[] call TAE_fnc_hudUpdateAuxiliary;}, 0] call CBA_fnc_addPerFrameHandler;
-[{[] call TAE_fnc_hudUpdateCompass;}, 0] call CBA_fnc_addPerFrameHandler;
+private _monitorPFH = [{[] call TAE_fnc_hudMonitor;}, 2] call CBA_fnc_addPerFrameHandler;
+uiNamespace setVariable ["TAE_HUD_monitorPFH", _monitorPFH];
 
 [] call TAE_fnc_hudMonitor;

@@ -2,6 +2,7 @@ private _display = uiNamespace getVariable ["TAE_HUD_display", displayNull];
 if (isNull _display || {isNull player}) exitWith
 {
 	[] call TAE_fnc_hudDestroyCamera;
+	[] call TAE_fnc_hudClearRadar;
 };
 
 private _mode = uiNamespace getVariable ["TAE_HUD_auxiliaryMode", 0];
@@ -13,11 +14,37 @@ private _title = _display displayCtrl 1304;
 private _status = _display displayCtrl 1305;
 private _active = _mode > 0;
 
+// Keep the tracker header above its larger square; restore the map/camera layout.
+private _headerY = safeZoneY + safeZoneH * (if (_mode isEqualTo 3) then {0.723} else {0.803});
+private _headerX = safeZoneX + safeZoneW - safeZoneW * 0.210;
+private _headerWidth = safeZoneW * 0.185;
+if (_mode isEqualTo 3) then
+{
+	_headerWidth = safeZoneH * 0.220 * (pixelW / pixelH);
+	_headerX = safeZoneX + safeZoneW * 0.975 - _headerWidth;
+};
+_title ctrlSetPosition [_headerX, _headerY, _headerWidth * 0.72, safeZoneH * 0.025];
+_status ctrlSetPosition [_headerX + _headerWidth * 0.72, _headerY, _headerWidth * 0.28, safeZoneH * 0.025];
+_title ctrlCommit 0;
+_status ctrlCommit 0;
+
 {
 	_x ctrlShow _active;
 } forEach [_background, _line, _title, _status];
 _map ctrlShow (_mode isEqualTo 1);
 _cameraControl ctrlShow (_mode isEqualTo 2);
+(_display displayCtrl 1306) ctrlShow (_mode isEqualTo 3);
+if (_mode isNotEqualTo 3) then {[] call TAE_fnc_hudClearRadar;};
+
+if (_mode isEqualTo 3) exitWith
+{
+	_background ctrlShow false;
+	_line ctrlShow false;
+	[] call TAE_fnc_hudDestroyCamera;
+	_title ctrlSetText "MOTION TRACKER";
+	_status ctrlSetText format ["%1 M", missionNamespace getVariable ["TAE_HUD_radarRange", 50]];
+	[] call TAE_fnc_hudUpdateRadar;
+};
 
 if (_mode isEqualTo 0) exitWith
 {

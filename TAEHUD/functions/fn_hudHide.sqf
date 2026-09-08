@@ -1,10 +1,12 @@
 if !(uiNamespace getVariable ["TAE_HUD_visible", false]) exitWith
 {
+	[] call TAE_fnc_hudStopHandlers;
 	[true] call TAE_fnc_hudSetVanillaWeaponInfo;
 	[true] call TAE_fnc_hudSetVanillaStanceInfo;
 	uiNamespace setVariable ["TAE_HUD_savedVanillaInfo", nil];
 };
 
+[] call TAE_fnc_hudStopHandlers;
 ("TAE_HUD_LAYER" call BIS_fnc_rscLayer) cutFadeOut 0.15;
 [true] call TAE_fnc_hudSetVanillaWeaponInfo;
 [true] call TAE_fnc_hudSetVanillaStanceInfo;

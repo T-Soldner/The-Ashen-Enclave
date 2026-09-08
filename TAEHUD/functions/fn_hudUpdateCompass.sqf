@@ -1,10 +1,12 @@
 private _display = uiNamespace getVariable ["TAE_HUD_display", displayNull];
 if (isNull _display || {isNull player}) exitWith {};
+if !(missionNamespace getVariable ["TAE_HUD_showCompass", true]) exitWith {};
 
 if ((vehicle player) isEqualTo player) then
 {
-	[false] call TAE_fnc_hudSetVanillaWeaponInfo;
-	[false] call TAE_fnc_hudSetVanillaStanceInfo;
+	private _showVanilla = !(missionNamespace getVariable ["TAE_HUD_showWeapon", true]);
+	[_showVanilla] call TAE_fnc_hudSetVanillaWeaponInfo;
+	[_showVanilla] call TAE_fnc_hudSetVanillaStanceInfo;
 };
 
 private _viewVector = getCameraViewDirection player;

@@ -11,7 +11,7 @@ _dimColor set [3, ((_color # 3) * 0.72) min 1];
 
 {
 	(_display displayCtrl _x) ctrlSetTextColor _dimColor;
-} forEach [1101, 1122, 1124, 1126, 1127, 1128, 1305];
+} forEach [1101, 1122, 1124, 1126, 1127, 1128, 1129, 1305];
 
 {
 	(_display displayCtrl _x) ctrlSetBackgroundColor _color;
