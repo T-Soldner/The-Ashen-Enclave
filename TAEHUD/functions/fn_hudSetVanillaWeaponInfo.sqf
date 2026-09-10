@@ -6,7 +6,9 @@ if (isNil {uiNamespace getVariable "TAE_HUD_savedVanillaInfo"}) then
 	uiNamespace setVariable ["TAE_HUD_savedVanillaInfo", _hudState param [1, true]];
 };
 private _savedInfo = uiNamespace getVariable ["TAE_HUD_savedVanillaInfo", true];
-_hudState set [1, _visible && _savedInfo];
+// Optic rangefinders share the info layer. Hide only the replacement controls below,
+// not the entire layer, so binocular/scope distance readouts remain available.
+_hudState set [1, _savedInfo];
 showHUD _hudState;
 
 private _unitInfoDisplay = uiNamespace getVariable ["RscUnitInfo", displayNull];

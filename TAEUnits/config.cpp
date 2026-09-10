@@ -274,6 +274,7 @@ class CfgVehicles {
 	class TAE_Unit_HitPoint_Base: tae_uniform_unit_grey_seal {
 		scope = 0;
 		scopeCurator = 0;
+		nakedUniform = "U_BasicBody";
 		goggles = "TAE_NoFacewear";
 
 		class HitPoints {

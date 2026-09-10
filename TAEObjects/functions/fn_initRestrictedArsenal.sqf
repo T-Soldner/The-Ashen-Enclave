@@ -277,7 +277,6 @@ private _items = [
 	"3AS_3Rnd_Smoke_Green_shell",
 	"mti_factions_mag_green_shotgun_slug",
 	"mti_factions_mag_ice_carbine",
-	"ls_magazine_westar35s_scatter",
 	"JLTS_stun_mag_long",
 	"3AS_3UGL_MK54_HE_shell",
 	"1Rnd_Smoke_Grenade_shell",

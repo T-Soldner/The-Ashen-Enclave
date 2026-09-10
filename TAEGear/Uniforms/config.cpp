@@ -513,6 +513,9 @@ class CfgWeapons {
     };
 
     class tae_uniform_ls_mandalorian: ls_mandalorianUniform {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -520,6 +523,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_ls_mandalorian";
             containerClass = "Supply120";
             mass = 40;
@@ -527,6 +531,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_forgemaster_seal: tgf_undersuit_uniform_forgemaster_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -534,6 +541,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_forgemaster_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -541,6 +549,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_black_seal: tgf_undersuit_uniform_black_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -548,6 +559,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_black_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -555,6 +567,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_dark_blue_seal: tgf_undersuit_uniform_dark_blue_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -562,6 +577,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_dark_blue_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -569,6 +585,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_dark_green_seal: tgf_undersuit_uniform_dark_green_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -576,6 +595,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_dark_green_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -583,6 +603,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_grey_seal: tgf_undersuit_uniform_grey_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -590,6 +613,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_grey_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -597,6 +621,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_orange_seal: tgf_undersuit_uniform_orange_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -604,6 +631,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_orange_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -611,6 +639,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_red_seal: tgf_undersuit_uniform_red_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -618,6 +649,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_red_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -625,11 +657,15 @@ class CfgWeapons {
         };
     };
     class tae_uniform_dark_red_seal: tae_uniform_red_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Dark Red)";
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_dark_red_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -637,11 +673,15 @@ class CfgWeapons {
         };
     };
     class tae_uniform_brown_seal: tae_uniform_red_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
         displayName = "TAE Mandalorian Undersuit with Seal (Brown)";
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_brown_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -649,6 +689,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_white_seal: tgf_undersuit_uniform_white_seal {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -656,6 +699,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_white_seal";
             containerClass = "Supply120";
             mass = 40;
@@ -663,6 +707,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_skirata: tgf_undersuit_uniform_skirata {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -670,6 +717,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_skirata";
             containerClass = "Supply120";
             mass = 40;
@@ -677,6 +725,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_vau: tgf_undersuit_uniform_vau {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -684,6 +735,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_vau";
             containerClass = "Supply120";
             mass = 40;
@@ -691,6 +743,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_black_female: tgf_undersuit_uniform_black_female {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -698,6 +753,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_black_female";
             containerClass = "Supply120";
             mass = 40;
@@ -705,6 +761,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_dark_blue_female: tgf_undersuit_uniform_dark_blue_female {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -712,6 +771,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_dark_blue_female";
             containerClass = "Supply120";
             mass = 40;
@@ -719,6 +779,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_dark_red_female: tgf_undersuit_uniform_red_female {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -726,6 +789,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_dark_red_female";
             containerClass = "Supply120";
             mass = 40;
@@ -733,6 +797,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_grey_female: tgf_undersuit_uniform_grey_female {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -740,6 +807,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_grey_female";
             containerClass = "Supply120";
             mass = 40;
@@ -747,6 +815,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_red_female: tgf_undersuit_uniform_red_female {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -754,6 +825,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_red_female";
             containerClass = "Supply120";
             mass = 40;
@@ -761,6 +833,9 @@ class CfgWeapons {
         };
     };
     class tae_uniform_white_female: tgf_undersuit_uniform_white_female {
+        model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.025,0.025,0.025,1,CO)"};
         scope = 2;
         scopeArsenal = 2;
         author = "Edonn";
@@ -768,6 +843,7 @@ class CfgWeapons {
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
         class ItemInfo: ItemInfo {
+            uniformModel = "-";
             uniformClass = "tae_uniform_unit_white_female";
             containerClass = "Supply120";
             mass = 40;
