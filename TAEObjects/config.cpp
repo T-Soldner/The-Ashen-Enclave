@@ -561,7 +561,7 @@ class CfgVehicles {
 				class TAE_PutOnKeiraArmor {
 					displayName = "Put On Keira's Armor";
 					condition = "true";
-					statement = "[_player,'tae_varen_niteowl_armor','tae_keira_helmet','lsd_gar_medicalScanner_nvg','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_varen_niteowl_armor','tae_keira_helmet','tae_dark_red_rangefinder','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
 				};
 			};
 		};

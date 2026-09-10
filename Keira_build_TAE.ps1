@@ -30,7 +30,7 @@ $addons = @(
     # ,"TAEASTRS"
     # ,"TAEJLTSCompat"
     ,"TAEUnits"
-    # ,"TAEObjects"
+    ,"TAEObjects"
     # ,"TAEVehicles"
 )
 
