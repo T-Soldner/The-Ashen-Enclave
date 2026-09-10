@@ -633,6 +633,7 @@ private _items = [
 	"tae_kyram_armor",
 	"tae_kyram_helmet",
 	"tae_valeria_helmet",
+	"tae_keira_helmet",
 	"tae_dark_grey_rangefinder",
 	"tae_IQA12",
 	"tae_TargetingScope_FP2",

@@ -557,6 +557,12 @@ class CfgVehicles {
 					condition = "true";
 					statement = "[_player,'tae_varen_niteowl_armor','tae_valeria_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
 				};
+
+				class TAE_PutOnKeiraArmor {
+					displayName = "Put On Keira's Armor";
+					condition = "true";
+					statement = "[_player,'tae_varen_niteowl_armor','tae_keira_helmet','tae_dark_red_rangefinder','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+				};
 			};
 		};
 	};
