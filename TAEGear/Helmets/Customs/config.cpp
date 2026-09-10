@@ -211,13 +211,16 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Valeria" };
+				values[] = { "Standard", "Valeria", "Keira" };
 
 				class Standard {
 					label = "Standard";
 				};
 				class Valeria {
 					label = "Valeria";
+				};
+				class Keira {
+					label = "Keira";
 				};
 			};
 		};
@@ -1220,7 +1223,8 @@ class CfgWeapons {
 		scopeArsenal=2;
 		scopeCurator=2;
 		author="keira";
-		displayName="keira's silly lil hat";
+		displayName="keira's tinkered helmet";
+    	ls_common_hideHead = 1;
 		hiddenSelections[]=
 		{
 			"camo1",
