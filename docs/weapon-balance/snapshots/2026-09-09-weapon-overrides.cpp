@@ -74,8 +74,7 @@ class CfgWeapons {
 
 	class IDA_TargetingScope;
 	class IDA_IQA11;
-	class mti_armoury_weapon_hpb_base;
-	class mti_armoury_weapon_hpb : mti_armoury_weapon_hpb_base {
+	class mti_armoury_weapon_hpb {
 		class Standard;
 		class Heavy;
 	};
@@ -153,7 +152,6 @@ class CfgWeapons {
 		scopeArsenal = 2;
 		displayName = "HPB-14 Heavy Blaster Rifle (Reduced Power)";
 		baseWeapon = "tae_HPB14";
-		muzzles[] = {"Standard"};
 		magazines[] = {"tae_mag_HPB14"};
 		magazineWell[] = {};
 

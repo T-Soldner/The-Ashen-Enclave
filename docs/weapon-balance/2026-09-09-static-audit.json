@@ -1,0 +1,7566 @@
+[
+  {
+    "class": "3AS_A180_F",
+    "name": "\"[3AS] A180 Sidearm\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\A180\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": "57.5",
+    "muzzles": [
+      "this",
+      "TAS_Stun_Pistol_F"
+    ],
+    "modes": {
+      "3as_a180_f/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_pistol_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_18Rnd_EM20_Mag",
+        "ammo": [
+          "3AS_EM20_RedPlasma"
+        ],
+        "count": 18.0,
+        "speed": 306.0,
+        "hit": 7.0,
+        "caliber": 1.18,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 306.0,
+        "airfriction": -0.00027,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_A280_F",
+    "name": "\"[3AS] A280 Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\A280\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3AS_recoil_dc15a\"",
+    "mass": "90",
+    "muzzles": [
+      "this",
+      "TAS_Stun_F"
+    ],
+    "modes": {
+      "3as_a280_f/Single": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_a280_f/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00093,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_a280_f/single_medium_optics1": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "3as_a280_f/single_far_optics2": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "tas_stun_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00093,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "single_medium_optics1": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "single_far_optics2": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_50Rnd_EM50_Mag",
+        "ammo": [
+          "3AS_EM50_RedPlasma"
+        ],
+        "count": 45.0,
+        "speed": 472.0,
+        "hit": 15.0,
+        "caliber": 1.95,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 472.0,
+        "airfriction": -0.00018,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_A280_GL",
+    "name": "\"[3AS] A280 Blaster Rifle (GL)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\A280\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3AS_recoil_dc15a\"",
+    "mass": "110",
+    "muzzles": [
+      "this",
+      "GL_3GL_F"
+    ],
+    "modes": {
+      "3as_a280_gl/Single": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_a280_gl/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00093,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_a280_gl/single_medium_optics1": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "3as_a280_gl/single_far_optics2": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "gl_3gl_f/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00093,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "single_medium_optics1": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "single_far_optics2": {
+        "reloadtime": 0.1333,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_50Rnd_EM50_Mag",
+        "ammo": [
+          "3AS_EM50_RedPlasma"
+        ],
+        "count": 45.0,
+        "speed": 472.0,
+        "hit": 15.0,
+        "caliber": 1.95,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 472.0,
+        "airfriction": -0.00018,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_3UGL_MK54_HE_shell",
+        "ammo": [
+          "3AS_MK54_HE"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 80.0,
+        "caliber": 2.0,
+        "indirecthit": 8.0,
+        "indirecthitrange": 6.0,
+        "explosive": 1.0,
+        "typicalspeed": 185.0,
+        "airfriction": -0.001,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_DC17S_F",
+    "name": "\"$STR_3AS_Weapons_Republic_DC17S_Display\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\dc17s\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_light\"",
+    "mass": null,
+    "muzzles": [
+      "this",
+      "TAS_Stun_Pistol_F"
+    ],
+    "modes": {
+      "3as_dc17s_f/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_pistol_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_16Rnd_EC20_Mag",
+        "ammo": [
+          "3AS_EC20_BluePlasma"
+        ],
+        "count": 16.0,
+        "speed": 306.0,
+        "hit": 7.0,
+        "caliber": 1.18,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 306.0,
+        "airfriction": -0.00027,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_DLT19",
+    "name": "\"[3AS] DLT-19 Heavy Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Imperial\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3AS_recoil_DLT19\"",
+    "mass": "60",
+    "muzzles": [],
+    "modes": {
+      "3as_dlt19/Single": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_dlt19/FullAuto": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_200Rnd_EM40_DLT19_Mag",
+        "ammo": [
+          "3AS_EM40_RedPlasma"
+        ],
+        "count": 200.0,
+        "speed": 417.0,
+        "hit": 12.0,
+        "caliber": 1.65,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 417.0,
+        "airfriction": -0.0002,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_DLT19X",
+    "name": "\"[3AS] DLT-19x Targeting Blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Imperial\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3AS_recoil_DLT19X\"",
+    "mass": "60",
+    "muzzles": [],
+    "modes": {
+      "3as_dlt19x/Single": {
+        "reloadtime": 1.0,
+        "dispersion": 0.00012,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 1.0,
+        "dispersion": 0.00012,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_10Rnd_EM100_DLT19X_Mag",
+        "ammo": [
+          "3AS_EM100_RedPlasma"
+        ],
+        "count": 10.0,
+        "speed": 750.0,
+        "hit": 35.0,
+        "caliber": 4.48,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 750.0,
+        "airfriction": -0.00011,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_DP23_F",
+    "name": "\"$STR_3AS_Weapons_Republic_DP23_Display\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\dp24\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_heavy\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "3as_dp23_f/Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_dp23_f/Single_close": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "3as_dp23_f/Single_far": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Single_close": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "Single_far": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_10Rnd_EC30_Pellets",
+        "ammo": [
+          "3AS_EC30_Pellets_Submunition"
+        ],
+        "count": 10.0,
+        "speed": 380.0,
+        "hit": 20.0,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": null,
+        "airfriction": -0.0003,
+        "submunitionammo": "3AS_EC30_Pellets_Submunition_Deploy",
+        "submunitionconetype": "{ \"poissondisc\" , 10 }"
+      }
+    ]
+  },
+  {
+    "class": "3AS_DP23_GL",
+    "name": "\"$STR_3AS_Weapons_Republic_DP23_UGL_Display\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\dp24\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_heavy\"",
+    "mass": "80",
+    "muzzles": [
+      "this",
+      "3AS_FL_F"
+    ],
+    "modes": {
+      "3as_dp23_gl/Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_dp23_gl/Single_close": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "3as_dp23_gl/Single_far": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Single_close": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "Single_far": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00133,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_10Rnd_EC30_Pellets",
+        "ammo": [
+          "3AS_EC30_Pellets_Submunition"
+        ],
+        "count": 10.0,
+        "speed": 380.0,
+        "hit": 20.0,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": null,
+        "airfriction": -0.0003,
+        "submunitionammo": "3AS_EC30_Pellets_Submunition_Deploy",
+        "submunitionconetype": "{ \"poissondisc\" , 10 }"
+      }
+    ]
+  },
+  {
+    "class": "3AS_E11",
+    "name": "\"[3AS] E-11 Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Imperial\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_E11\"",
+    "mass": "60",
+    "muzzles": [
+      "this",
+      "TAS_Stun_F"
+    ],
+    "modes": {
+      "3as_e11/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_e11/Burst": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_e11/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Burst": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_40Rnd_EM40_E11_Mag",
+        "ammo": [
+          "3AS_EM40_RedPlasma"
+        ],
+        "count": 40.0,
+        "speed": 417.0,
+        "hit": 12.0,
+        "caliber": 1.65,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 417.0,
+        "airfriction": -0.0002,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_E11Stock",
+    "name": "\"[3AS] E-11 Blaster Rifle (Stock)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Imperial\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_E11\"",
+    "mass": "60",
+    "muzzles": [
+      "this",
+      "TAS_Stun_F"
+    ],
+    "modes": {
+      "3as_e11stock/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_e11stock/Burst": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_e11stock/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Burst": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_40Rnd_EM40_E11_Mag",
+        "ammo": [
+          "3AS_EM40_RedPlasma"
+        ],
+        "count": 40.0,
+        "speed": 417.0,
+        "hit": 12.0,
+        "caliber": 1.65,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 417.0,
+        "airfriction": -0.0002,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_E11_GL",
+    "name": "\"[3AS] E-11GL Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Imperial\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_E11\"",
+    "mass": "60",
+    "muzzles": [
+      "this",
+      "3AS_E11GL"
+    ],
+    "modes": {
+      "3as_e11_gl/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_e11_gl/Burst": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_e11_gl/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_e11gl/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Burst": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_40Rnd_EM40_E11_Mag",
+        "ammo": [
+          "3AS_EM40_RedPlasma"
+        ],
+        "count": 40.0,
+        "speed": 417.0,
+        "hit": 12.0,
+        "caliber": 1.65,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 417.0,
+        "airfriction": -0.0002,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "1Rnd_HE_Grenade_shell",
+        "ammo": [
+          "G_40mm_HE"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 80.0,
+        "caliber": 2.0,
+        "indirecthit": 8.0,
+        "indirecthitrange": 6.0,
+        "explosive": 1.0,
+        "typicalspeed": 185.0,
+        "airfriction": -0.001,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "UGL_FlareWhite_F",
+        "ammo": [
+          "F_40mm_White"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "UGL_FlareGreen_F",
+        "ammo": [
+          "F_40mm_Green"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "UGL_FlareRed_F",
+        "ammo": [
+          "F_40mm_Red"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "UGL_FlareYellow_F",
+        "ammo": [
+          "F_40mm_Yellow"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "UGL_FlareCIR_F",
+        "ammo": [
+          "F_40mm_CIR"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "1Rnd_Smoke_Grenade_shell",
+        "ammo": [
+          "G_40mm_Smoke"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "1Rnd_SmokeRed_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeRed"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "1Rnd_SmokeGreen_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeGreen"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "1Rnd_SmokeYellow_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeYellow"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "1Rnd_SmokePurple_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokePurple"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "1Rnd_SmokeBlue_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeBlue"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "1Rnd_SmokeOrange_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeOrange"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_HE_Grenade_shell",
+        "ammo": [
+          "G_40mm_HE"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 80.0,
+        "caliber": 2.0,
+        "indirecthit": 8.0,
+        "indirecthitrange": 6.0,
+        "explosive": 1.0,
+        "typicalspeed": 185.0,
+        "airfriction": -0.001,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_UGL_FlareWhite_F",
+        "ammo": [
+          "F_40mm_White"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_UGL_FlareGreen_F",
+        "ammo": [
+          "F_40mm_Green"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_UGL_FlareRed_F",
+        "ammo": [
+          "F_40mm_Red"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_UGL_FlareYellow_F",
+        "ammo": [
+          "F_40mm_Yellow"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_UGL_FlareCIR_F",
+        "ammo": [
+          "F_40mm_CIR"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_Smoke_Grenade_shell",
+        "ammo": [
+          "G_40mm_Smoke"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_SmokeRed_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeRed"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_SmokeGreen_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeGreen"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_SmokeYellow_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeYellow"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_SmokePurple_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokePurple"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_SmokeBlue_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeBlue"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3Rnd_SmokeOrange_Grenade_shell",
+        "ammo": [
+          "G_40mm_SmokeOrange"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.2,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_E5_F",
+    "name": "\"[3AS] E-5 Carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\E5\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3AS_recoil_dc15s\"",
+    "mass": "60",
+    "muzzles": [],
+    "modes": {
+      "3as_e5_f/FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_e5_f/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00106,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_60Rnd_EM50_RedPlasma",
+        "ammo": [
+          "3AS_EM50_RedPlasma"
+        ],
+        "count": 60.0,
+        "speed": 472.0,
+        "hit": 15.0,
+        "caliber": 1.95,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 472.0,
+        "airfriction": -0.00018,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_EC17_F",
+    "name": "\"[3AS] EC-17 Holdout\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\EC-17\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": "55",
+    "muzzles": [
+      "this",
+      "TAS_Stun_Pistol_F"
+    ],
+    "modes": {
+      "3as_ec17_f/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_pistol_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_18Rnd_EM20_EC17_Mag",
+        "ammo": [
+          "3AS_EM20_RedPlasma"
+        ],
+        "count": 18.0,
+        "speed": 275.0,
+        "hit": 7.0,
+        "caliber": 1.18,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 306.0,
+        "airfriction": -0.00027,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_FusionCutter_F",
+    "name": "\"[3AS] Fusion Cutter\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Roleplay\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"none\"",
+    "mass": "60",
+    "muzzles": [
+      "this",
+      "splice_muzzle",
+      "dewreck_muzzle",
+      "fortification_muzzle"
+    ],
+    "modes": {
+      "3as_fusioncutter_f/repairQuality_mode": {
+        "reloadtime": 1.0,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_fusioncutter_f/repairQuick_mode": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": 5.0
+      },
+      "splice_muzzle/splice_mode": {
+        "reloadtime": 1.0,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": 100.0
+      },
+      "dewreck_muzzle/dewreck_mode": {
+        "reloadtime": 1.0,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": 100.0
+      },
+      "fortification_muzzle/fortification_mode": {
+        "reloadtime": 1.0,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": 100.0
+      },
+      "repairQuality_mode": {
+        "reloadtime": 1.0,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "repairQuick_mode": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_FusionCutter_Magazine",
+        "ammo": [
+          "3AS_FusionCutter_Ammo"
+        ],
+        "count": 100.0,
+        "speed": 60.0,
+        "hit": 75.0,
+        "caliber": 5.0,
+        "indirecthit": 2.0,
+        "indirecthitrange": 0.5,
+        "explosive": 0.1,
+        "typicalspeed": null,
+        "airfriction": -0.01,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_FusionCutter_Splice_Magazine",
+        "ammo": [
+          "3AS_FusionCutter_Ammo"
+        ],
+        "count": 100.0,
+        "speed": 60.0,
+        "hit": 75.0,
+        "caliber": 5.0,
+        "indirecthit": 2.0,
+        "indirecthitrange": 0.5,
+        "explosive": 0.1,
+        "typicalspeed": null,
+        "airfriction": -0.01,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_FusionCutter_Dewreck_Magazine",
+        "ammo": [
+          "3AS_FusionCutter_Ammo"
+        ],
+        "count": 100.0,
+        "speed": 60.0,
+        "hit": 75.0,
+        "caliber": 5.0,
+        "indirecthit": 2.0,
+        "indirecthitrange": 0.5,
+        "explosive": 0.1,
+        "typicalspeed": null,
+        "airfriction": -0.01,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_FusionCutter_Fortification_Magazine",
+        "ammo": [
+          "3AS_FusionCutter_Ammo"
+        ],
+        "count": 100.0,
+        "speed": 60.0,
+        "hit": 75.0,
+        "caliber": 5.0,
+        "indirecthit": 2.0,
+        "indirecthitrange": 0.5,
+        "explosive": 0.1,
+        "typicalspeed": null,
+        "airfriction": -0.01,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_MPL_F",
+    "name": "\"[3AS] MPL\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\mpl\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_heavy\"",
+    "mass": "60",
+    "muzzles": [],
+    "modes": {
+      "3as_mpl_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": 0.00579,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "3as_mpl_f/Burst": {
+        "reloadtime": 0.25,
+        "dispersion": 0.00579,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.75,
+        "dispersion": 0.00579,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Burst": {
+        "reloadtime": 0.25,
+        "dispersion": 0.00579,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_3Rnd_HE_Grenade_shell",
+        "ammo": [
+          "3AS_MPL_25mm_HE"
+        ],
+        "count": 3.0,
+        "speed": 80.0,
+        "hit": 50.0,
+        "caliber": 1.0,
+        "indirecthit": 6.0,
+        "indirecthitrange": 5.0,
+        "explosive": 1.0,
+        "typicalspeed": 185.0,
+        "airfriction": -0.001,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_RK3",
+    "name": "\"[3AS] RK3 Blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Imperial\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "60",
+    "muzzles": [
+      "this",
+      "TAS_Stun_Pistol_F"
+    ],
+    "modes": {
+      "3as_rk3/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_pistol_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_18Rnd_EM20_RK3_Mag",
+        "ammo": [
+          "3AS_EM20_RedPlasma"
+        ],
+        "count": 18.0,
+        "speed": 306.0,
+        "hit": 7.0,
+        "caliber": 1.18,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 306.0,
+        "airfriction": -0.00027,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_RPS6_F",
+    "name": "\"[3AS] RPS6 Disposible Rocket Launcher\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\RPS6\\config.txt",
+    "speedOverride": 30.0,
+    "recoil": "\"recoil_rpg\"",
+    "mass": "100",
+    "muzzles": [],
+    "modes": {
+      "3as_rps6_f/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": []
+  },
+  {
+    "class": "3AS_RPS6_G",
+    "name": "\"[3AS] RPS6 Disposible Guided Launcher\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\RPS6\\config.txt",
+    "speedOverride": 30.0,
+    "recoil": "\"recoil_empty\"",
+    "mass": "100",
+    "muzzles": [],
+    "modes": {
+      "3as_rps6_g/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": []
+  },
+  {
+    "class": "3AS_S5_f",
+    "name": "\"[3AS] S-5 Security Pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\S5\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": "100",
+    "muzzles": [
+      "this",
+      "TAS_Stun_Pistol_F"
+    ],
+    "modes": {
+      "3as_s5_f/Single": {
+        "reloadtime": 0.166667,
+        "dispersion": 0.00201,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_pistol_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.166667,
+        "dispersion": 0.00201,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_20Rnd_EG20_mag",
+        "ammo": [
+          "3AS_EG20_GreenPlasma"
+        ],
+        "count": 20.0,
+        "speed": 306.0,
+        "hit": 7.0,
+        "caliber": 1.18,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 306.0,
+        "airfriction": -0.00027,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_SE14R",
+    "name": "\"[3AS] SE-14r Light Repeating Blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Imperial\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_SE14R\"",
+    "mass": "60",
+    "muzzles": [
+      "this",
+      "TAS_Stun_Pistol_F"
+    ],
+    "modes": {
+      "3as_se14r/Burst": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_pistol_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Burst": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_15Rnd_EC20_SE14R_Mag",
+        "ammo": [
+          "3AS_EC20_BluePlasma"
+        ],
+        "count": 15.0,
+        "speed": 306.0,
+        "hit": 7.0,
+        "caliber": 1.18,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 306.0,
+        "airfriction": -0.00027,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "3AS_ScatterGun_F",
+    "name": "\"[3AS] Scattergun\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Scattergun\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"3as_recoil_heavy\"",
+    "mass": "60",
+    "muzzles": [],
+    "modes": {
+      "3as_scattergun_f/Single": {
+        "reloadtime": 1.5,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 1.5,
+        "dispersion": 0.00066,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_8Rnd_ESlugY_Mag",
+        "ammo": [
+          "3AS_ESlug_YellowPlasma"
+        ],
+        "count": 8.0,
+        "speed": 450.0,
+        "hit": 42.0,
+        "caliber": 3.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 600.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "DymekBlasterPistol_F",
+    "name": "\"[3AS] Dymek Blaster Pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2058554822_3AS_Weapons\\Dymek\\Pistol\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": "60",
+    "muzzles": [
+      "this",
+      "TAS_Stun_Pistol_F"
+    ],
+    "modes": {
+      "dymekblasterpistol_f/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tas_stun_pistol_f/Single": {
+        "reloadtime": 0.75,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00399,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "3AS_16Rnd_EY20_Mag",
+        "ammo": [
+          "3AS_EY20_YellowPlasma"
+        ],
+        "count": 16.0,
+        "speed": 306.0,
+        "hit": 7.0,
+        "caliber": 1.18,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 306.0,
+        "airfriction": -0.00027,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "3AS_5Rnd_Stun_Mag",
+        "ammo": [
+          "3AS_Stun_Round"
+        ],
+        "count": 5.0,
+        "speed": 40.0,
+        "hit": 0.01,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.1,
+        "typicalspeed": 40.0,
+        "airfriction": -0.0003,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_773Firepuncher",
+    "name": "\"773-Firepuncher Sniper Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"IDA_recoil_HeavyBlasterRifle\"",
+    "mass": "80",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_773firepuncher/Single": {
+        "reloadtime": 0.17142,
+        "dispersion": 0.00025,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.17142,
+        "dispersion": 0.00025,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power4_10Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power4_Blue"
+        ],
+        "count": 10.0,
+        "speed": 1200.0,
+        "hit": 18.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_DC15A",
+    "name": "\"DC-15A Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_BlasterRifle\"",
+    "mass": "80",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_dc15a/Single": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_dc15a/FullAuto": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_60Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Blue"
+        ],
+        "count": 60.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_DC15LE",
+    "name": "\"DC-15LE Heavy Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_HeavyBlasterRifle\"",
+    "mass": "80",
+    "muzzles": [
+      "this",
+      "EGLM"
+    ],
+    "modes": {
+      "ida_dc15le/Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00075,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_dc15le/FullAuto": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00075,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "eglm/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00075,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00075,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_40Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Blue"
+        ],
+        "count": 40.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_HE_RifleGrenade",
+        "ammo": [
+          "IDA_RifleGrenade"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 30.0,
+        "caliber": 2.0,
+        "indirecthit": 10.0,
+        "indirecthitrange": 6.0,
+        "explosive": 1.0,
+        "typicalspeed": 185.0,
+        "airfriction": -0.001,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_DC15P",
+    "name": "\"DC-15P Blaster Pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": 380.0,
+    "recoil": "\"IDA_recoil_BlasterPistol\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_dc15p/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0035,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0035,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power2_20Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power2_Blue"
+        ],
+        "count": 20.0,
+        "speed": 440.0,
+        "hit": 9.0,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_DC15S",
+    "name": "\"DC-15S Blaster Carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_BlasterCarbine\"",
+    "mass": "50",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_dc15s/Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_dc15s/FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_40Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Blue"
+        ],
+        "count": 40.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_DC15S_UGL",
+    "name": "\"DC-15S Blaster Carbine UGL\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_BlasterCarbine\"",
+    "mass": "50",
+    "muzzles": [
+      "This",
+      "EGLM"
+    ],
+    "modes": {
+      "ida_dc15s_ugl/Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_dc15s_ugl/FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "eglm/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_40Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Blue"
+        ],
+        "count": 40.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_HE_LauncherGrenade",
+        "ammo": [
+          "IDA_HE_LauncherGrenade"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 80.0,
+        "caliber": 2.0,
+        "indirecthit": 20.0,
+        "indirecthitrange": 5.0,
+        "explosive": 1.0,
+        "typicalspeed": 185.0,
+        "airfriction": -0.001,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_Smoke_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_SmokeRed_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact_Red"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_SmokeGreen_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact_Green"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_SmokeBlue_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact_Blue"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_SmokePurple_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact_Purple"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "ACE_40mm_Flare_Red",
+        "ammo": [],
+        "count": null,
+        "speed": null,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "ACE_40mm_Flare_White",
+        "ammo": [],
+        "count": null,
+        "speed": null,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "ACE_HuntIR_M203",
+        "ammo": [],
+        "count": null,
+        "speed": null,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_DC15X",
+    "name": "\"DC-15X Targeting Blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"IDA_recoil_TargetingBlaster\"",
+    "mass": "120",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_dc15x/Single": {
+        "reloadtime": 0.6,
+        "dispersion": 0.0001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.6,
+        "dispersion": 0.0001,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power5_5Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power5_Blue"
+        ],
+        "count": 5.0,
+        "speed": 3200.0,
+        "hit": 25.0,
+        "caliber": 2.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_DC17",
+    "name": "\"DC-17 Blaster Pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": 380.0,
+    "recoil": "\"IDA_recoil_BlasterPistol\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_dc17/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0035,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0035,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power2_20Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power2_Blue"
+        ],
+        "count": 20.0,
+        "speed": 440.0,
+        "hit": 9.0,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_DC23",
+    "name": "\"DC-23 ScatterBlaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_ScatterBlaster\"",
+    "mass": "50",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_dc23/Fire": {
+        "reloadtime": 0.6,
+        "dispersion": 0.0,
+        "burst": 1.0,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Fire": {
+        "reloadtime": 0.6,
+        "dispersion": 0.0,
+        "burst": 1.0,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Scatter_6Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Scatter_Blue"
+        ],
+        "count": 6.0,
+        "speed": 350.0,
+        "hit": 5.0,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": "IDA_Blasterbolt_Power2_Blue",
+        "submunitionconetype": "{ \"random\" , 12 }"
+      }
+    ]
+  },
+  {
+    "class": "IDA_DLT19",
+    "name": "\"DLT-19 Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_IMPERIAL\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_BlasterRifle\"",
+    "mass": "80",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_dlt19/Single": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_dlt19/FullAuto": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_60Rnd_Red",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Red"
+        ],
+        "count": 60.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_E10",
+    "name": "\"E-10 Blaster Carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_IMPERIAL\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_BlasterCarbine\"",
+    "mass": "50",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_e10/Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_e10/FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_40Rnd_Red",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Red"
+        ],
+        "count": 40.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_E10_UGL",
+    "name": "\"E-10 Blaster Carbine UGL\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_IMPERIAL\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_BlasterCarbine\"",
+    "mass": "50",
+    "muzzles": [
+      "This",
+      "EGLM"
+    ],
+    "modes": {
+      "ida_e10_ugl/Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_e10_ugl/FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "eglm/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_40Rnd_Red",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Red"
+        ],
+        "count": 40.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_HE_LauncherGrenade",
+        "ammo": [
+          "IDA_HE_LauncherGrenade"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 80.0,
+        "caliber": 2.0,
+        "indirecthit": 20.0,
+        "indirecthitrange": 5.0,
+        "explosive": 1.0,
+        "typicalspeed": 185.0,
+        "airfriction": -0.001,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_Smoke_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_SmokeRed_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact_Red"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_SmokeGreen_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact_Green"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_SmokeBlue_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact_Blue"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_SmokePurple_LauncherGrenade",
+        "ammo": [
+          "IDA_smoke_Impact_Purple"
+        ],
+        "count": 1.0,
+        "speed": 80.0,
+        "hit": 1.0,
+        "caliber": 2.0,
+        "indirecthit": 1.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 22.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "ACE_40mm_Flare_Red",
+        "ammo": [],
+        "count": null,
+        "speed": null,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "ACE_40mm_Flare_White",
+        "ammo": [],
+        "count": null,
+        "speed": null,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "ACE_HuntIR_M203",
+        "ammo": [],
+        "count": null,
+        "speed": null,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_E11D",
+    "name": "\"E-11D Heavy Blaster Carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_IMPERIAL\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_HeavyBlasterRifle\"",
+    "mass": "50",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_e11d/Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00075,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_e11d/FullAuto": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00075,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00075,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00075,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_40Rnd_Red",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Red"
+        ],
+        "count": 40.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_E22",
+    "name": "\"E-22 Double-Barreled Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_IMPERIAL\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_BlasterRifle\"",
+    "mass": "50",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_e22/Single": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_e22/FullAuto": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.08,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_60Rnd_Red",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Red"
+        ],
+        "count": 60.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_Galaar15",
+    "name": "\"Galaar-15 Blaster Carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_INDEP\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_BlasterCarbine\"",
+    "mass": "50",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_galaar15/Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_galaar15/FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.133333,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power3_40Rnd_yellow",
+        "ammo": [
+          "IDA_Blasterbolt_Power3_Yellow"
+        ],
+        "count": 40.0,
+        "speed": 440.0,
+        "hit": 13.0,
+        "caliber": 1.8,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_Galaar90",
+    "name": "\"Galaar-90 Targeting Blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_INDEP\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"IDA_recoil_TargetingBlaster\"",
+    "mass": "120",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_galaar90/Single": {
+        "reloadtime": 0.6,
+        "dispersion": 0.0001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.6,
+        "dispersion": 0.0001,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power5_5Rnd_Yellow",
+        "ammo": [
+          "IDA_Blasterbolt_Power5_Yellow"
+        ],
+        "count": 5.0,
+        "speed": 3200.0,
+        "hit": 25.0,
+        "caliber": 2.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_M41",
+    "name": "\"M-41 Heavy Repeating Blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_INDEP\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_HeavyRepeatingBlaster\"",
+    "mass": "80",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_m41/FullAuto": {
+        "reloadtime": 0.15,
+        "dispersion": 0.0005,
+        "burst": 1.0,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.15,
+        "dispersion": 0.0005,
+        "burst": 1.0,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power2_100Rnd_Green",
+        "ammo": [
+          "IDA_Blasterbolt_Power2_Green"
+        ],
+        "count": 100.0,
+        "speed": 440.0,
+        "hit": 9.0,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_PLX1",
+    "name": "\"PLX-1 Rocket launcher\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": 40.0,
+    "recoil": "\"recoil_titan_short\"",
+    "mass": "200",
+    "muzzles": [],
+    "modes": {
+      "ida_plx1/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ida_plx1/TopDown": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "TopDown": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_PLX1_Rocket",
+        "ammo": [
+          "IDA_Missile_Blue"
+        ],
+        "count": 1.0,
+        "speed": 40.0,
+        "hit": 550.0,
+        "caliber": null,
+        "indirecthit": 100.0,
+        "indirecthitrange": 4.0,
+        "explosive": 1.0,
+        "typicalspeed": 160.0,
+        "airfriction": 0.085,
+        "submunitionammo": "ammo_Penetrator_Titan_AT",
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_Westar35",
+    "name": "\"Westar-35 Blaster Pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_INDEP\\config.txt",
+    "speedOverride": 380.0,
+    "recoil": "\"IDA_recoil_BlasterPistol\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_westar35/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0034,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0034,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power2_20Rnd_Yellow",
+        "ammo": [
+          "IDA_Blasterbolt_Power2_yellow"
+        ],
+        "count": 20.0,
+        "speed": 440.0,
+        "hit": 9.0,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "IDA_Z6",
+    "name": "\"Z-6 Rotary Cannon\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2939850574_Indecisive_Armoury_Weapons_REPUBLIC\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"IDA_recoil_RotaryBlaster\"",
+    "mass": "100",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ida_z6/Auto": {
+        "reloadtime": 0.06,
+        "dispersion": 0.0015,
+        "burst": 1.0,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Auto": {
+        "reloadtime": 0.06,
+        "dispersion": 0.0015,
+        "burst": 1.0,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power1_300Rnd_Blue",
+        "ammo": [
+          "IDA_Blasterbolt_Power1_Blue"
+        ],
+        "count": 300.0,
+        "speed": 440.0,
+        "hit": 6.5,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_Blaster_Cell_Power1_300Rnd_Red",
+        "ammo": [
+          "IDA_Blasterbolt_Power1_Red"
+        ],
+        "count": 300.0,
+        "speed": 440.0,
+        "hit": 6.5,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_Blaster_Cell_Power1_300Rnd_Green",
+        "ammo": [
+          "IDA_Blasterbolt_Power1_Green"
+        ],
+        "count": 300.0,
+        "speed": 440.0,
+        "hit": 6.5,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "IDA_Blaster_Cell_Power1_300Rnd_Yellow",
+        "ammo": [
+          "IDA_Blasterbolt_Power1_yellow"
+        ],
+        "count": 300.0,
+        "speed": 440.0,
+        "hit": 6.5,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JLTS_DW32S",
+    "name": "\"$STR_JLTS_names_DW32S\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\dw32s\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"recoil_mx\"",
+    "mass": "68",
+    "muzzles": [
+      "this",
+      "Stun"
+    ],
+    "modes": {
+      "jlts_dw32s/Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00087,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "stun/Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.0029,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00087,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JLTS_DW32S_mag",
+        "ammo": [
+          "JLTS_bullet_carbine_blue"
+        ],
+        "count": 20.0,
+        "speed": 800.0,
+        "hit": 10.0,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 820.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "JLTS_stun_mag_short",
+        "ammo": [
+          "JLTS_bullet_stun"
+        ],
+        "count": 10.0,
+        "speed": 50.0,
+        "hit": 0.01,
+        "caliber": 1.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 30.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "JLTS_stun_mag_long",
+        "ammo": [
+          "JLTS_bullet_stun"
+        ],
+        "count": 5.0,
+        "speed": 50.0,
+        "hit": 0.01,
+        "caliber": 1.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 30.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JLTS_RG4D",
+    "name": "\"$STR_JLTS_names_RG4D\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\1940589429_JLTS_S_weapons_RG4D\\config.txt",
+    "speedOverride": 410.0,
+    "recoil": "\"recoil_pistol_p07\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "jlts_rg4d/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0029,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0029,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JLTS_RG4D_mag",
+        "ammo": [
+          "JLTS_bullet_pistol_red"
+        ],
+        "count": 15.0,
+        "speed": 410.0,
+        "hit": 5.0,
+        "caliber": 1.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 380.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JLTS_SBB3",
+    "name": "\"$STR_JLTS_names_SBB3\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\1940589429_JLTS_S_weapons_SBB3\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"JLTS_recoil_SBB3\"",
+    "mass": "77",
+    "muzzles": [],
+    "modes": {
+      "jlts_sbb3/Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00073,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.00073,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JLTS_SBB3_mag",
+        "ammo": [
+          "JLTS_bullet_scatter_red"
+        ],
+        "count": 25.0,
+        "speed": 800.0,
+        "hit": 5.0,
+        "caliber": 1.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 380.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_FWMBBlasterRifle",
+    "name": "\"FWMB-10 heavy blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\T21\\config.txt",
+    "speedOverride": 500.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "jmsllte_fwmbblasterrifle/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_fwmbblasterrifle/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 1.0,
+        "multiplier": null
+      },
+      "jmsllte_fwmbblasterrifle/close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_fwmbblasterrifle/short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_fwmbblasterrifle/medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 1.0
+      },
+      "close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_FWMB_40rnd_Mag",
+        "ammo": [
+          "JMSLLTE_t21_Ammo"
+        ],
+        "count": 40.0,
+        "speed": 650.0,
+        "hit": 20.0,
+        "caliber": 1.8,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_FWMBkBlasterRifle",
+    "name": "\"FWMB-10K heavy blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\T21\\config.txt",
+    "speedOverride": 550.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "jmsllte_fwmbkblasterrifle/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_fwmbkblasterrifle/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 1.0,
+        "multiplier": null
+      },
+      "jmsllte_fwmbkblasterrifle/close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_fwmbkblasterrifle/short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_fwmbkblasterrifle/medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 1.0
+      },
+      "close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00217,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_FWMB_40rnd_Mag",
+        "ammo": [
+          "JMSLLTE_t21_Ammo"
+        ],
+        "count": 40.0,
+        "speed": 650.0,
+        "hit": 20.0,
+        "caliber": 1.8,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_HH12_launcher",
+    "name": "\"HH-12\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\Launchers\\config.txt",
+    "speedOverride": 30.0,
+    "recoil": "\"recoil_rpg\"",
+    "mass": "100",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_hh12_launcher/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_HH12_AA_Mag",
+        "ammo": [
+          "JMSLLTE_HH12_AA"
+        ],
+        "count": 1.0,
+        "speed": 50.0,
+        "hit": 500.0,
+        "caliber": null,
+        "indirecthit": 50.0,
+        "indirecthitrange": 8.0,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": 0.026,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "JMSLLTE_HH12_AT_Mag",
+        "ammo": [
+          "JMSLLTE_HH12_AT"
+        ],
+        "count": 1.0,
+        "speed": 50.0,
+        "hit": 800.0,
+        "caliber": null,
+        "indirecthit": 30.0,
+        "indirecthitrange": 3.0,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": 0.084,
+        "submunitionammo": "ammo_Penetrator_Titan_AT",
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_K16pistol",
+    "name": "\"K-16 Bryar pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\Bryar\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_k16pistol/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_K16_15rnd_Mag",
+        "ammo": [
+          "JMSLLTE_se14_Ammo"
+        ],
+        "count": 15.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.2,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_T21BBlasterRifle",
+    "name": "\"T-21B targeting blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\T21\\config.txt",
+    "speedOverride": 2000.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "jmsllte_t21bblasterrifle/Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_t21bblasterrifle/far_optic1": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_t21bblasterrifle/medium_optic2": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_t21bblasterrifle/far_optic2": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "far_optic1": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium_optic2": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "far_optic2": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_T21B_7rnd_Mag",
+        "ammo": [
+          "JMSLLTE_t21_Ammo"
+        ],
+        "count": 7.0,
+        "speed": 650.0,
+        "hit": 20.0,
+        "caliber": 1.8,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_T21BlasterRifle",
+    "name": "\"T-21 light blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\T21\\config.txt",
+    "speedOverride": 400.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "jmsllte_t21blasterrifle/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_t21blasterrifle/FullAuto": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 1.0,
+        "multiplier": null
+      },
+      "jmsllte_t21blasterrifle/close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_t21blasterrifle/short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_t21blasterrifle/medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 1.0
+      },
+      "close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_T21_25rnd_Mag",
+        "ammo": [
+          "JMSLLTE_t21_Ammo"
+        ],
+        "count": 25.0,
+        "speed": 650.0,
+        "hit": 20.0,
+        "caliber": 1.8,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_T21BlasterRifle_old",
+    "name": "\"T-21 light blaster (old)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\T21\\config.txt",
+    "speedOverride": 400.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "20",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "jmsllte_t21blasterrifle_old/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_t21blasterrifle_old/FullAuto": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 1.0,
+        "multiplier": null
+      },
+      "jmsllte_t21blasterrifle_old/close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_t21blasterrifle_old/short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_t21blasterrifle_old/medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 1.0
+      },
+      "close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00219,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_T21_25rnd_Mag",
+        "ammo": [
+          "JMSLLTE_t21_Ammo"
+        ],
+        "count": 25.0,
+        "speed": 650.0,
+        "hit": 20.0,
+        "caliber": 1.8,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_W_TD23_black_F",
+    "name": "\"TD2.3 Electrobinoculars (black)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\ElectroBinocular\\config.txt",
+    "speedOverride": null,
+    "recoil": null,
+    "mass": "20",
+    "muzzles": [],
+    "modes": {},
+    "magazines": [
+      {
+        "mag": "Laserbatteries",
+        "ammo": [
+          "Laserbeam"
+        ],
+        "count": 1.0,
+        "speed": 30.0,
+        "hit": 500.0,
+        "caliber": null,
+        "indirecthit": 150.0,
+        "indirecthitrange": 2.5,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_W_TD23_green_F",
+    "name": "\"TD2.3 Electrobinoculars (green)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\ElectroBinocular\\config.txt",
+    "speedOverride": null,
+    "recoil": null,
+    "mass": "20",
+    "muzzles": [],
+    "modes": {},
+    "magazines": [
+      {
+        "mag": "Laserbatteries",
+        "ammo": [
+          "Laserbeam"
+        ],
+        "count": 1.0,
+        "speed": 30.0,
+        "hit": 500.0,
+        "caliber": null,
+        "indirecthit": 150.0,
+        "indirecthitrange": 2.5,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_W_TD23_tan_F",
+    "name": "\"TD2.3 Electrobinoculars (tan)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\ElectroBinocular\\config.txt",
+    "speedOverride": null,
+    "recoil": null,
+    "mass": "20",
+    "muzzles": [],
+    "modes": {},
+    "magazines": [
+      {
+        "mag": "Laserbatteries",
+        "ammo": [
+          "Laserbeam"
+        ],
+        "count": 1.0,
+        "speed": 30.0,
+        "hit": 500.0,
+        "caliber": null,
+        "indirecthit": 150.0,
+        "indirecthitrange": 2.5,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_W_TD23_white_F",
+    "name": "\"TD2.3 Electrobinoculars (white)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\ElectroBinocular\\config.txt",
+    "speedOverride": null,
+    "recoil": null,
+    "mass": "20",
+    "muzzles": [],
+    "modes": {},
+    "magazines": [
+      {
+        "mag": "Laserbatteries",
+        "ammo": [
+          "Laserbeam"
+        ],
+        "count": 1.0,
+        "speed": 30.0,
+        "hit": 500.0,
+        "caliber": null,
+        "indirecthit": 150.0,
+        "indirecthitrange": 2.5,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a180",
+    "name": "\"A180 blaster carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\A180\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a180/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a180/FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a180/close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a180/short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a180/medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_A180_25rnd_Mag",
+        "ammo": [
+          "JMSLLTE_se14_Ammo"
+        ],
+        "count": 25.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.2,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a180rifle",
+    "name": "\"A180 blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\A180\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a180rifle/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a180rifle/FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a180rifle/close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a180rifle/short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a180rifle/medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_A180_30rnd_Mag",
+        "ammo": [
+          "JMSLLTE_rk3_Ammo"
+        ],
+        "count": 30.0,
+        "speed": 650.0,
+        "hit": 15.0,
+        "caliber": 1.25,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "JMSLLTE_A180_25rnd_Mag",
+        "ammo": [
+          "JMSLLTE_se14_Ammo"
+        ],
+        "count": 25.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.2,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a180stock",
+    "name": "\"A180 blaster carbine (stock)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\A180\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a180stock/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a180stock/FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a180stock/close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a180stock/short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a180stock/medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00145,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_A180_25rnd_Mag",
+        "ammo": [
+          "JMSLLTE_se14_Ammo"
+        ],
+        "count": 25.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.2,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a280cr",
+    "name": "\"A295 blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\A280\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a280cr/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a280cr/FullAuto": {
+        "reloadtime": 0.095,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a280cr/close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a280cr/short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a280cr/medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a280cr/far": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.095,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "far": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_A280CR_20rnd_Mag",
+        "ammo": [
+          "JMSLLTE_a280cr_Ammo"
+        ],
+        "count": 20.0,
+        "speed": 650.0,
+        "hit": 25.0,
+        "caliber": 1.8,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a280pistol",
+    "name": "\"A280CFE blaster pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\DL18\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a280pistol/Single": {
+        "reloadtime": 0.11,
+        "dispersion": 0.000135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.11,
+        "dispersion": 0.000135,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_a300_15rnd_Mag",
+        "ammo": [
+          "JMSLLTE_a300_Ammo"
+        ],
+        "count": 15.0,
+        "speed": 650.0,
+        "hit": 17.0,
+        "caliber": 1.7,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a300",
+    "name": "\"A300 blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\A300\\config.txt",
+    "speedOverride": 2000.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a300/Single": {
+        "reloadtime": 0.8,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a300/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a300/far_optic1": {
+        "reloadtime": 0.8,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a300/medium_optic2": {
+        "reloadtime": 0.8,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a300/far_optic2": {
+        "reloadtime": 0.8,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.8,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "far_optic1": {
+        "reloadtime": 0.8,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium_optic2": {
+        "reloadtime": 0.8,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "far_optic2": {
+        "reloadtime": 0.8,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_a300_15rnd_Mag",
+        "ammo": [
+          "JMSLLTE_a300_Ammo"
+        ],
+        "count": 15.0,
+        "speed": 650.0,
+        "hit": 17.0,
+        "caliber": 1.7,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a300c",
+    "name": "\"A280CFE blaster carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\A300\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a300c/Single": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a300c/FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0014,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a300c/close": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a300c/short": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a300c/medium": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0014,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_A300C_30rnd_Mag",
+        "ammo": [
+          "JMSLLTE_e22_Ammo"
+        ],
+        "count": 30.0,
+        "speed": 650.0,
+        "hit": 15.0,
+        "caliber": 1.6,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a310",
+    "name": "\"A310 blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\A300\\config.txt",
+    "speedOverride": 2000.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a310/Single": {
+        "reloadtime": 0.8,
+        "dispersion": 3.5e-05,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a310/Burst": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00035,
+        "burst": 3.0,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a310/far_optic1": {
+        "reloadtime": 0.8,
+        "dispersion": 3.5e-05,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a310/medium_optic2": {
+        "reloadtime": 0.8,
+        "dispersion": 3.5e-05,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a310/far_optic2": {
+        "reloadtime": 0.8,
+        "dispersion": 3.5e-05,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.8,
+        "dispersion": 3.5e-05,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Burst": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00035,
+        "burst": 3.0,
+        "showtoplayer": null
+      },
+      "far_optic1": {
+        "reloadtime": 0.8,
+        "dispersion": 3.5e-05,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium_optic2": {
+        "reloadtime": 0.8,
+        "dispersion": 3.5e-05,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "far_optic2": {
+        "reloadtime": 0.8,
+        "dispersion": 3.5e-05,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_A310_15rnd_Mag",
+        "ammo": [
+          "JMSLLTE_a310_Ammo"
+        ],
+        "count": 15.0,
+        "speed": 650.0,
+        "hit": 15.0,
+        "caliber": 2.1,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_a475",
+    "name": "\"A475 blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\A300\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_a475/Single": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a475/FullAuto": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0013,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_a475/close": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a475/short": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_a475/medium": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0013,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.13,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_A475_25rnd_Mag",
+        "ammo": [
+          "JMSLLTE_a475_Ammo"
+        ],
+        "count": 25.0,
+        "speed": 650.0,
+        "hit": 15.0,
+        "caliber": 1.6,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_dh17",
+    "name": "\"DH-17 blaster pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\DH17\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_dh17/Single": {
+        "reloadtime": 0.14,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_dh17/close": {
+        "reloadtime": 0.14,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_dh17/short": {
+        "reloadtime": 0.14,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_dh17/medium": {
+        "reloadtime": 0.14,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.14,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.14,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.14,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.14,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_DH17_30Rnd_Mag",
+        "ammo": [
+          "JMSLLTE_dh17_Ammo"
+        ],
+        "count": 30.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.15,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_dh17rifle",
+    "name": "\"DH-17 blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\DH17\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_dh17rifle/Single": {
+        "reloadtime": 0.14,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_dh17rifle/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_dh17rifle/close": {
+        "reloadtime": 0.14,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_dh17rifle/short": {
+        "reloadtime": 0.14,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_dh17rifle/medium": {
+        "reloadtime": 0.14,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.14,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.0012,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.14,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.14,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.14,
+        "dispersion": 0.001,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_DH17_60Rnd_Mag",
+        "ammo": [
+          "JMSLLTE_dh17_Ammo"
+        ],
+        "count": 60.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.15,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_dh42pistol",
+    "name": "\"DH-42 blaster pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\DL18\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_dh42pistol/Single": {
+        "reloadtime": 0.115,
+        "dispersion": 0.00013,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.115,
+        "dispersion": 0.00013,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_DL18_20rnd_Mag",
+        "ammo": [
+          "JMSLLTE_se14_Ammo"
+        ],
+        "count": 20.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.2,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_dl18pistol",
+    "name": "\"DL-18 blaster pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\DL18\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_dl18pistol/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.000135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.000135,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_DL18_20rnd_Mag",
+        "ammo": [
+          "JMSLLTE_se14_Ammo"
+        ],
+        "count": 20.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.2,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_dl44pistol",
+    "name": "\"DL-44 heavy blaster pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\DL44\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_dl44pistol/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_DL44_10rnd_Mag",
+        "ammo": [
+          "JMSLLTE_dlt19_Ammo"
+        ],
+        "count": 10.0,
+        "speed": 650.0,
+        "hit": 17.0,
+        "caliber": 1.4,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_dt12pistol",
+    "name": "\"DT-12 heavy blaster pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\DT12\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_dt12pistol/Single": {
+        "reloadtime": 0.13,
+        "dispersion": 0.000165,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.13,
+        "dispersion": 0.000165,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_DT12_50rnd_Mag",
+        "ammo": [
+          "JMSLLTE_rk3_Ammo"
+        ],
+        "count": 50.0,
+        "speed": 650.0,
+        "hit": 15.0,
+        "caliber": 1.25,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_ee3",
+    "name": "\"EE-3 blaster carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\ee3\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_ee3/Single": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_ee3/Burst": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": 3.0,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_ee3/close": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_ee3/short": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_ee3/medium": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Burst": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": 3.0,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0003,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_EE3_30rnd_Mag",
+        "ammo": [
+          "JMSLLTE_ee3_Ammo"
+        ],
+        "count": 30.0,
+        "speed": 650.0,
+        "hit": 18.0,
+        "caliber": 1.7,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_ee4",
+    "name": "\"EE-4 blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\ee3\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_ee4/Single": {
+        "reloadtime": 0.11,
+        "dispersion": 0.002,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_ee4/FullAuto": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0022,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_ee4/close": {
+        "reloadtime": 0.11,
+        "dispersion": 0.002,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_ee4/short": {
+        "reloadtime": 0.11,
+        "dispersion": 0.002,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_ee4/medium": {
+        "reloadtime": 0.11,
+        "dispersion": 0.002,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.11,
+        "dispersion": 0.002,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.11,
+        "dispersion": 0.0022,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.11,
+        "dispersion": 0.002,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.11,
+        "dispersion": 0.002,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.11,
+        "dispersion": 0.002,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_EE3_30rnd_Mag",
+        "ammo": [
+          "JMSLLTE_ee3_Ammo"
+        ],
+        "count": 30.0,
+        "speed": 650.0,
+        "hit": 18.0,
+        "caliber": 1.7,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_f78",
+    "name": "\"F-78 blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\F78\\config.txt",
+    "speedOverride": 400.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "30",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "jmsllte_f78/Single": {
+        "reloadtime": 0.16,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_f78/FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_f78/close": {
+        "reloadtime": 0.16,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_f78/short": {
+        "reloadtime": 0.16,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_f78/medium": {
+        "reloadtime": 0.16,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.16,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00135,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.16,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.16,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.16,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_F78_50Rnd_Mag",
+        "ammo": [
+          "JMSLLTE_f78_Ammo"
+        ],
+        "count": 50.0,
+        "speed": 610.0,
+        "hit": 15.0,
+        "caliber": 1.5,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_relbyk23pistol",
+    "name": "\"Relby K-25 blaster pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\RelbyK23\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_relbyk23pistol/Single": {
+        "reloadtime": 0.13,
+        "dispersion": 0.000135,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.13,
+        "dispersion": 0.000135,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_K23_20rnd_Mag",
+        "ammo": [
+          "JMSLLTE_dh17_Ammo"
+        ],
+        "count": 20.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.15,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_rk3pistol",
+    "name": "\"RK-3 blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\RK3\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_rk3pistol/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00115,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_RK3_20rnd_Mag",
+        "ammo": [
+          "JMSLLTE_rk3_Ammo"
+        ],
+        "count": 20.0,
+        "speed": 650.0,
+        "hit": 15.0,
+        "caliber": 1.25,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_rt97cBlasterRifle",
+    "name": "\"RT-97C heavy blaster rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\RT97C\\config.txt",
+    "speedOverride": 400.0,
+    "recoil": "\"recoil_zafir\"",
+    "mass": "30",
+    "muzzles": [],
+    "modes": {
+      "jmsllte_rt97cblasterrifle/Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00229,
+        "burst": null,
+        "showtoplayer": 1.0,
+        "multiplier": null
+      },
+      "jmsllte_rt97cblasterrifle/FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00229,
+        "burst": null,
+        "showtoplayer": 1.0,
+        "multiplier": null
+      },
+      "jmsllte_rt97cblasterrifle/close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00229,
+        "burst": 3.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_rt97cblasterrifle/short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00229,
+        "burst": 3.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "jmsllte_rt97cblasterrifle/medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00229,
+        "burst": 8.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00229,
+        "burst": null,
+        "showtoplayer": 1.0
+      },
+      "FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.00229,
+        "burst": null,
+        "showtoplayer": 1.0
+      },
+      "close": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00229,
+        "burst": 3.0,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00229,
+        "burst": 3.0,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.12,
+        "dispersion": 0.00229,
+        "burst": 8.0,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_RT97C_150Rnd_Mag",
+        "ammo": [
+          "JMSLLTE_rt97c_Ammo"
+        ],
+        "count": 150.0,
+        "speed": 650.0,
+        "hit": 16.0,
+        "caliber": 1.3,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_se14Rpistol",
+    "name": "\"SE-14r blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\Se14\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_se14rpistol/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "jmsllte_se14rpistol/Burst": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0015,
+        "burst": 5.0,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Burst": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0015,
+        "burst": 5.0,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_SE14_30rnd_Mag",
+        "ammo": [
+          "JMSLLTE_se14_Ammo"
+        ],
+        "count": 30.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.2,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "JMSLLTE_se14pistol",
+    "name": "\"SE-14 blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\3482641195_JMSLLTE_weapons\\Se14\\config.txt",
+    "speedOverride": 1500.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": null,
+    "muzzles": [],
+    "modes": {
+      "jmsllte_se14pistol/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.0011,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "JMSLLTE_SE14_30rnd_Mag",
+        "ammo": [
+          "JMSLLTE_se14_Ammo"
+        ],
+        "count": 30.0,
+        "speed": 650.0,
+        "hit": 14.0,
+        "caliber": 1.2,
+        "indirecthit": 0.1,
+        "indirecthitrange": 0.2,
+        "explosive": null,
+        "typicalspeed": 1000.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "KND_SX21_Base",
+    "name": "\"SX-21 Scatter Blaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2743998048_knd_sx21\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"recoil_huntershotgun_01\"",
+    "mass": "98",
+    "muzzles": [
+      "this",
+      "KND_SX21_UGL"
+    ],
+    "modes": {
+      "knd_sx21_base/Single": {
+        "reloadtime": 0.096,
+        "dispersion": 0.00087,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_sx21_ugl/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.096,
+        "dispersion": 0.00087,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "knd_mag_sx21_buck",
+        "ammo": [
+          "knd_ammo_SX21_submunition"
+        ],
+        "count": 12.0,
+        "speed": 900.0,
+        "hit": 35.0,
+        "caliber": 0.525,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": "knd_ammo_B_65x39_Caseless_cyan",
+        "submunitionconetype": "{ \"poissondisc\" , 6 }"
+      }
+    ]
+  },
+  {
+    "class": "knd_EE2",
+    "name": "\"EE-2 Blaster Carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2743998048_knd_ee2\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"recoil_MSBS65\"",
+    "mass": "74",
+    "muzzles": [
+      "this",
+      "knd_dummy_muzzle",
+      "knd_ee2_HPMuzzle"
+    ],
+    "modes": {
+      "knd_ee2/LowPower": {
+        "reloadtime": 0.05,
+        "dispersion": 0.00047,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_ee2/HighPower": {
+        "reloadtime": 2.0,
+        "dispersion": 0.00047,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_ee2/Close": {
+        "reloadtime": 0.05,
+        "dispersion": 0.00047,
+        "burst": 3.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_ee2/Medium": {
+        "reloadtime": 0.05,
+        "dispersion": 0.00047,
+        "burst": 3.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_ee2/Far": {
+        "reloadtime": 0.05,
+        "dispersion": 0.00047,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_ee2_hpmuzzle/HighPower": {
+        "reloadtime": 1.0,
+        "dispersion": 0.00047,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "LowPower": {
+        "reloadtime": 0.05,
+        "dispersion": 0.00047,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "HighPower": {
+        "reloadtime": 2.0,
+        "dispersion": 0.00047,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Close": {
+        "reloadtime": 0.05,
+        "dispersion": 0.00047,
+        "burst": 3.0,
+        "showtoplayer": 0.0
+      },
+      "Medium": {
+        "reloadtime": 0.05,
+        "dispersion": 0.00047,
+        "burst": 3.0,
+        "showtoplayer": 0.0
+      },
+      "Far": {
+        "reloadtime": 0.05,
+        "dispersion": 0.00047,
+        "burst": 1.0,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "knd_mag_EE2",
+        "ammo": [
+          "knd_ammo_B_65x39_Caseless_red"
+        ],
+        "count": 40.0,
+        "speed": 700.0,
+        "hit": 10.0,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.01,
+        "typicalspeed": 500.0,
+        "airfriction": -0.0009,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "knd_MK",
+    "name": "\"MK Blaster Rifle\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2743998048_knd_mk\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"knd_recoil_mk\"",
+    "mass": "57",
+    "muzzles": [],
+    "modes": {
+      "knd_mk/Single": {
+        "reloadtime": 0.171429,
+        "dispersion": 0.00015,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_mk/Close": {
+        "reloadtime": 0.171429,
+        "dispersion": 0.02,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_mk/Medium": {
+        "reloadtime": 0.171429,
+        "dispersion": 0.02,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_mk/Far": {
+        "reloadtime": 0.171429,
+        "dispersion": 0.02,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.171429,
+        "dispersion": 0.00015,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Close": {
+        "reloadtime": 0.171429,
+        "dispersion": 0.02,
+        "burst": 1.0,
+        "showtoplayer": 0.0
+      },
+      "Medium": {
+        "reloadtime": 0.171429,
+        "dispersion": 0.02,
+        "burst": 1.0,
+        "showtoplayer": 0.0
+      },
+      "Far": {
+        "reloadtime": 0.171429,
+        "dispersion": 0.02,
+        "burst": 1.0,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "knd_MK_mag",
+        "ammo": [
+          "knd_ammo_B_408_Ball_Red"
+        ],
+        "count": 8.0,
+        "speed": 810.0,
+        "hit": 24.0,
+        "caliber": 2.4,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.01,
+        "typicalspeed": 500.0,
+        "airfriction": -0.00048,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "knd_MK_mag_penetrator",
+        "ammo": [
+          "knd_ammo_MK_Penetrator"
+        ],
+        "count": 4.0,
+        "speed": 810.0,
+        "hit": 24.0,
+        "caliber": 20.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.01,
+        "typicalspeed": 500.0,
+        "airfriction": -0.00048,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "knd_Mortar_carry",
+    "name": "\"(KND) Mortar\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2743998048_knd_mortar\\config.txt",
+    "speedOverride": null,
+    "recoil": null,
+    "mass": null,
+    "muzzles": [],
+    "modes": {},
+    "magazines": [
+      {
+        "mag": "KND_82mm_HE_Carryable",
+        "ammo": [
+          "KND_82mm_HE_Mortar"
+        ],
+        "count": 8.0,
+        "speed": 200.0,
+        "hit": 340.0,
+        "caliber": 10.0,
+        "indirecthit": 125.0,
+        "indirecthitrange": 30.0,
+        "explosive": 0.8,
+        "typicalspeed": 800.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "KND_82mm_Smoke_Carryable",
+        "ammo": [
+          "KND_82mm_Smoke_Mortar"
+        ],
+        "count": 8.0,
+        "speed": 200.0,
+        "hit": 0.0,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": "SmokeShellArty",
+        "submunitionconetype": null
+      },
+      {
+        "mag": "KND_82mm_Flare_Carryable",
+        "ammo": [
+          "KND_82mm_Flare_Mortar"
+        ],
+        "count": 8.0,
+        "speed": 200.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "knd_de10",
+    "name": "\"DE-10 Blaster Pistol\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2743998048_knd_de10\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"knd_de10_recoil\"",
+    "mass": "18",
+    "muzzles": [],
+    "modes": {
+      "knd_de10/Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00024,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00024,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "knd_de10_mag",
+        "ammo": [
+          "knd_ammo_B_338_Ball_Blue"
+        ],
+        "count": 10.0,
+        "speed": 500.0,
+        "hit": 8.0,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.01,
+        "typicalspeed": 500.0,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "knd_ee3B",
+    "name": "\"EE-3B Blaster Carbine\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2743998048_knd_ee3\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"knd_recoil_ee3b\"",
+    "mass": "74",
+    "muzzles": [],
+    "modes": {
+      "knd_ee3b/Single": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_ee3b/FullAuto": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_ee3b/Close": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": 4.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_ee3b/Medium": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": 2.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_ee3b/Far": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Close": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": 4.0,
+        "showtoplayer": 0.0
+      },
+      "Medium": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": 2.0,
+        "showtoplayer": 0.0
+      },
+      "Far": {
+        "reloadtime": 0.101695,
+        "dispersion": 0.00063,
+        "burst": 1.0,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "knd_mag_ee3B",
+        "ammo": [
+          "knd_ammo_B_762x51_Ball_red"
+        ],
+        "count": 30.0,
+        "speed": 750.0,
+        "hit": 11.6,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.01,
+        "typicalspeed": 500.0,
+        "airfriction": -0.001,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "knd_ppsh",
+    "name": "\"T-14 Blaster Repeater\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2743998048_knd_ppsh\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"recoil_smg_03\"",
+    "mass": "55",
+    "muzzles": [],
+    "modes": {
+      "knd_ppsh/Single": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_ppsh/Fullauto": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_ppsh/Close": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": 5.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_ppsh/Medium": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": 3.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_ppsh/Far": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Fullauto": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Close": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": 5.0,
+        "showtoplayer": 0.0
+      },
+      "Medium": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": 3.0,
+        "showtoplayer": 0.0
+      },
+      "Far": {
+        "reloadtime": 0.066666,
+        "dispersion": 0.00099,
+        "burst": 1.0,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "knd_ppsh_mag",
+        "ammo": [
+          "knd_ammo_B_9x21_ball_red"
+        ],
+        "count": 50.0,
+        "speed": 600.0,
+        "hit": 5.0,
+        "caliber": 1.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.01,
+        "typicalspeed": 500.0,
+        "airfriction": -0.0016,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "knd_ppsh_mag_Big",
+        "ammo": [
+          "knd_ammo_B_9x21_ball_red"
+        ],
+        "count": 100.0,
+        "speed": 600.0,
+        "hit": 5.0,
+        "caliber": 1.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.01,
+        "typicalspeed": 500.0,
+        "airfriction": -0.0016,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "knd_rotary",
+    "name": "\"JD-70 Rancor\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2743998048_knd_rotary\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"knd_recoil_rotary\"",
+    "mass": "450",
+    "muzzles": [],
+    "modes": {
+      "knd_rotary/Full": {
+        "reloadtime": 0.109091,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_rotary/FastAuto": {
+        "reloadtime": 0.109091,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "knd_rotary/Close": {
+        "reloadtime": 0.109091,
+        "dispersion": 0.00037,
+        "burst": 8.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_rotary/Medium": {
+        "reloadtime": 0.17,
+        "dispersion": 0.00037,
+        "burst": 3.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "knd_rotary/Far": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": 2.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Full": {
+        "reloadtime": 0.109091,
+        "dispersion": 0.00037,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FastAuto": {
+        "reloadtime": 0.109091,
+        "dispersion": 0.0009,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "Close": {
+        "reloadtime": 0.109091,
+        "dispersion": 0.00037,
+        "burst": 8.0,
+        "showtoplayer": 0.0
+      },
+      "Medium": {
+        "reloadtime": 0.17,
+        "dispersion": 0.00037,
+        "burst": 3.0,
+        "showtoplayer": 0.0
+      },
+      "Far": {
+        "reloadtime": 0.2,
+        "dispersion": 0.00037,
+        "burst": 2.0,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "knd_rotary_mag_600",
+        "ammo": [
+          "knd_ammo_rancor"
+        ],
+        "count": 600.0,
+        "speed": 350.0,
+        "hit": 24.0,
+        "caliber": 2.4,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.01,
+        "typicalspeed": 500.0,
+        "airfriction": -0.00048,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "ls_weapon_westar35c",
+    "name": "\"Westar-35C\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2162749089_ls_core_weapons_westar\\config.txt",
+    "speedOverride": -1.0,
+    "recoil": "\"ls_recoil\"",
+    "mass": "60",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ls_weapon_westar35c/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ls_weapon_westar35c/FullAuto": {
+        "reloadtime": 0.15,
+        "dispersion": 0.001455,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ls_weapon_westar35c/close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "ls_weapon_westar35c/short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "ls_weapon_westar35c/medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.15,
+        "dispersion": 0.001455,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "ls_magazine_westar35c",
+        "ammo": [
+          "ls_bullet_12mw_yellow"
+        ],
+        "count": 35.0,
+        "speed": 900.0,
+        "hit": 8.0,
+        "caliber": 0.869565,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 920.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "ls_weapon_westar35s",
+    "name": "\"Westar-35S\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2162749089_ls_core_weapons_westar\\config.txt",
+    "speedOverride": 800.0,
+    "recoil": "\"ls_recoil\"",
+    "mass": "70",
+    "muzzles": [
+      "this",
+      "scatter"
+    ],
+    "modes": {
+      "ls_weapon_westar35s/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ls_weapon_westar35s/close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "ls_weapon_westar35s/short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "ls_weapon_westar35s/medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "scatter/Single": {
+        "reloadtime": null,
+        "dispersion": null,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "ls_magazine_westar35s",
+        "ammo": [
+          "ls_bullet_192mw_yellow"
+        ],
+        "count": 35.0,
+        "speed": 900.0,
+        "hit": 12.0,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 800.0,
+        "airfriction": -0.0012,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "ls_magazine_westar35s_scatter",
+        "ammo": [
+          "ls_12Gauge_Pellets_Submunition"
+        ],
+        "count": 35.0,
+        "speed": 900.0,
+        "hit": null,
+        "caliber": null,
+        "indirecthit": null,
+        "indirecthitrange": null,
+        "explosive": null,
+        "typicalspeed": null,
+        "airfriction": null,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "ls_weapon_westar35sa",
+    "name": "\"Westar-35SA\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2162749089_ls_core_weapons_westar\\config.txt",
+    "speedOverride": 300.0,
+    "recoil": "\"recoil_pistol_4five\"",
+    "mass": "24",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ls_weapon_westar35sa/Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.01015,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ls_weapon_westar35sa/close": {
+        "reloadtime": 0.2,
+        "dispersion": 0.01015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "ls_weapon_westar35sa/short": {
+        "reloadtime": 0.2,
+        "dispersion": 0.01015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "ls_weapon_westar35sa/medium": {
+        "reloadtime": 0.2,
+        "dispersion": 0.01015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.2,
+        "dispersion": 0.01015,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.2,
+        "dispersion": 0.01015,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.2,
+        "dispersion": 0.01015,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.2,
+        "dispersion": 0.01015,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "ls_magazine_westar35sa",
+        "ammo": [
+          "ls_bullet_12mw_yellow"
+        ],
+        "count": 30.0,
+        "speed": 900.0,
+        "hit": 8.0,
+        "caliber": 0.869565,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 920.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "ls_weapon_zh73",
+    "name": "\"ZH-73 Mk-I\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2162749089_ls_core_weapons_zh73\\config.txt",
+    "speedOverride": 400.0,
+    "recoil": "\"recoil_default\"",
+    "mass": "80",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "ls_weapon_zh73/Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ls_weapon_zh73/FullAuto": {
+        "reloadtime": 0.13,
+        "dispersion": 0.001455,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "ls_weapon_zh73/close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "ls_weapon_zh73/short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "ls_weapon_zh73/medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.13,
+        "dispersion": 0.001455,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "close": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "short": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium": {
+        "reloadtime": 0.15,
+        "dispersion": 0.003015,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "ls_magazine_zh73",
+        "ammo": [
+          "ls_bullet_192mw_red"
+        ],
+        "count": 100.0,
+        "speed": 827.0,
+        "hit": 12.0,
+        "caliber": 1.6,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 800.0,
+        "airfriction": -0.0012,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "mti_armoury_weapon_Bowcaster",
+    "name": "\"[SOB] Bowcaster\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\bowcaster\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"recoil_mx\"",
+    "mass": "275",
+    "muzzles": [
+      "this",
+      "Heavy"
+    ],
+    "modes": {
+      "mti_armoury_weapon_bowcaster/Single": {
+        "reloadtime": 0.26,
+        "dispersion": 0.00025,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "mti_armoury_weapon_bowcaster/far_optic1": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "mti_armoury_weapon_bowcaster/medium_optic2": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "mti_armoury_weapon_bowcaster/far_optic2": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "heavy/Single": {
+        "reloadtime": 0.6,
+        "dispersion": 0.00025,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "heavy/far_optic1": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "heavy/medium_optic2": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "heavy/far_optic2": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.26,
+        "dispersion": 0.00025,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "far_optic1": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "medium_optic2": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0
+      },
+      "far_optic2": {
+        "reloadtime": 0.4,
+        "dispersion": 0.00035,
+        "burst": null,
+        "showtoplayer": 0.0
+      }
+    },
+    "magazines": [
+      {
+        "mag": "mti_armoury_mag_Bowcaster_base",
+        "ammo": [
+          "mti_armoury_ammo_Bowcaster_Base"
+        ],
+        "count": 20.0,
+        "speed": 900.0,
+        "hit": 45.0,
+        "caliber": 4.0,
+        "indirecthit": 3.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 620.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "mti_armoury_mag_Bowcaster_Heavy_2",
+        "ammo": [
+          "mti_armoury_ammo_Bowcaster_Heavy"
+        ],
+        "count": 2.0,
+        "speed": 800.0,
+        "hit": 55.0,
+        "caliber": 2.4,
+        "indirecthit": 12.0,
+        "indirecthitrange": 6.0,
+        "explosive": 0.6,
+        "typicalspeed": 620.0,
+        "airfriction": -0.000651,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "mti_armoury_weapon_NT",
+    "name": "\"[SOB] NT-242\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\nt\\config.txt",
+    "speedOverride": null,
+    "recoil": "\"mti_armoury_weapons_core_nt_recoil\"",
+    "mass": "50",
+    "muzzles": [],
+    "modes": {
+      "mti_armoury_weapon_nt/Single": {
+        "reloadtime": 2.0,
+        "dispersion": 7.5e-05,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 2.0,
+        "dispersion": 7.5e-05,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "mti_armoury_mag_NT_Precision",
+        "ammo": [
+          "mti_armoury_ammo_NT_Precision"
+        ],
+        "count": 15.0,
+        "speed": 800.0,
+        "hit": 100.0,
+        "caliber": 40.0,
+        "indirecthit": 35.0,
+        "indirecthitrange": 0.0,
+        "explosive": 0.0,
+        "typicalspeed": 800.0,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "mti_armoury_weapon_br_77_metal",
+    "name": "\"[SOB] BR-77 (Metal)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\br77\\config.txt",
+    "speedOverride": 910.0,
+    "recoil": "\"mti_armoury_weapons_Core_Rifle_Recoil\"",
+    "mass": "50",
+    "muzzles": [
+      "this",
+      "Stun"
+    ],
+    "modes": {
+      "mti_armoury_weapon_br_77_metal/Single": {
+        "reloadtime": 0.65,
+        "dispersion": 7.5e-05,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "stun/Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.0029,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.65,
+        "dispersion": 7.5e-05,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "mti_armoury_mag_br77_HP",
+        "ammo": [
+          "mti_armoury_ammo_br_rifle"
+        ],
+        "count": 15.0,
+        "speed": 1000.0,
+        "hit": 20.0,
+        "caliber": 4.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 1200.0,
+        "airfriction": -0.0012,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "mti_armoury_weapon_br_77_wood",
+    "name": "\"[SOB] BR-77 (Wooden)\"",
+    "source": "C:\\Users\\tomso\\AppData\\Local\\Temp\\tae_weapon_balance\\2853198944_mti_armoury_weapons\\br77\\config.txt",
+    "speedOverride": 910.0,
+    "recoil": "\"mti_armoury_weapons_Core_Rifle_Recoil\"",
+    "mass": "50",
+    "muzzles": [
+      "this",
+      "Stun"
+    ],
+    "modes": {
+      "mti_armoury_weapon_br_77_wood/Single": {
+        "reloadtime": 0.65,
+        "dispersion": 7.5e-05,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "stun/Single": {
+        "reloadtime": 0.5,
+        "dispersion": 0.0029,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.65,
+        "dispersion": 7.5e-05,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "mti_armoury_mag_br77_HP",
+        "ammo": [
+          "mti_armoury_ammo_br_rifle"
+        ],
+        "count": 15.0,
+        "speed": 1000.0,
+        "hit": 20.0,
+        "caliber": 4.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 1200.0,
+        "airfriction": -0.0012,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  },
+  {
+    "class": "tae_HPB14",
+    "name": "\"HPB-14 Heavy Blaster Rifle (Reduced Power)\"",
+    "source": "D:\\GitHub\\The-Ashen-Enclave\\TAEWeapons\\config.cpp",
+    "speedOverride": 1000.0,
+    "recoil": "\"mti_armoury_weapons_core_Rifle_Recoil\"",
+    "mass": "275",
+    "muzzles": [
+      "Standard",
+      "Heavy"
+    ],
+    "modes": {
+      "tae_hpb14/Single": {
+        "reloadtime": 0.55,
+        "dispersion": 1e-05,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "tae_hpb14/FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0005,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "standard/FullAuto": {
+        "reloadtime": 0.07,
+        "dispersion": 0.00102,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "standard/close": {
+        "reloadtime": 0.07,
+        "dispersion": 0.00102,
+        "burst": 3.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "standard/short": {
+        "reloadtime": 0.07,
+        "dispersion": 0.00102,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "standard/medium": {
+        "reloadtime": 0.07,
+        "dispersion": 0.00102,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "standard/far": {
+        "reloadtime": 0.07,
+        "dispersion": 0.00102,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "heavy/FullAuto": {
+        "reloadtime": 0.35,
+        "dispersion": 0.00102,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "heavy/close": {
+        "reloadtime": 0.35,
+        "dispersion": 0.00102,
+        "burst": 3.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "heavy/short": {
+        "reloadtime": 0.35,
+        "dispersion": 0.00102,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "heavy/medium": {
+        "reloadtime": 0.35,
+        "dispersion": 0.00102,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "heavy/far": {
+        "reloadtime": 0.35,
+        "dispersion": 0.00102,
+        "burst": 1.0,
+        "showtoplayer": 0.0,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.55,
+        "dispersion": 1e-05,
+        "burst": null,
+        "showtoplayer": null
+      },
+      "FullAuto": {
+        "reloadtime": 0.1,
+        "dispersion": 0.0005,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "tae_mag_HPB14",
+        "ammo": [
+          "tae_ammo_HPB14"
+        ],
+        "count": 150.0,
+        "speed": 1200.0,
+        "hit": 4.5,
+        "caliber": 2.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 1200.0,
+        "airfriction": -0.0012,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      },
+      {
+        "mag": "tae_mag_HPB14_scatter",
+        "ammo": [
+          "tae_ammo_HPB14_scatter"
+        ],
+        "count": 10.0,
+        "speed": 1000.0,
+        "hit": 3.0,
+        "caliber": 1.0,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.0,
+        "explosive": null,
+        "typicalspeed": 1200.0,
+        "airfriction": -0.0012,
+        "submunitionammo": "tae_ammo_HPB14_scatter_pellet",
+        "submunitionconetype": "{ \"poissondisc\" , 24 }"
+      }
+    ]
+  },
+  {
+    "class": "tae_IQA12",
+    "name": "\"IQA-12 Targeting Blaster\"",
+    "source": "D:\\GitHub\\The-Ashen-Enclave\\TAEWeapons\\config.cpp",
+    "speedOverride": -1.0,
+    "recoil": "\"IDA_recoil_TargetingBlaster\"",
+    "mass": "120",
+    "muzzles": [
+      "this"
+    ],
+    "modes": {
+      "tae_iqa12/Single": {
+        "reloadtime": 0.6,
+        "dispersion": 0.0001,
+        "burst": null,
+        "showtoplayer": null,
+        "multiplier": null
+      },
+      "Single": {
+        "reloadtime": 0.6,
+        "dispersion": 0.0001,
+        "burst": null,
+        "showtoplayer": null
+      }
+    },
+    "magazines": [
+      {
+        "mag": "IDA_Blaster_Cell_Power5_5Rnd_Green",
+        "ammo": [
+          "IDA_Blasterbolt_Power5_Green"
+        ],
+        "count": 5.0,
+        "speed": 3200.0,
+        "hit": 25.0,
+        "caliber": 2.2,
+        "indirecthit": 0.0,
+        "indirecthitrange": 0.5,
+        "explosive": 1.0,
+        "typicalspeed": null,
+        "airfriction": 0.0,
+        "submunitionammo": null,
+        "submunitionconetype": null
+      }
+    ]
+  }
+]

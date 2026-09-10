@@ -355,6 +355,7 @@ class CfgWeapons {
 		dlc = "The Ashen Enclave AUX Mod";
 		scope = 0;
 		displayname = "Mandalorian Nite Owl Helmet";
+		ls_common_hideHead = 1;
 		TAE_underwaterVision = 1;
 		TAE_HUD = 1;
 		class ItemInfo : HeadgearItem {
