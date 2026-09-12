@@ -3,7 +3,6 @@ missionNamespace setVariable ["TAE_HUD_initialized", true];
 
 uiNamespace setVariable ["TAE_HUD_userEnabled", missionNamespace getVariable ["TAE_HUD_autoEnable", true]];
 uiNamespace setVariable ["TAE_HUD_suspended", false];
-uiNamespace setVariable ["TAE_HUD_auxiliaryMode", missionNamespace getVariable ["TAE_HUD_auxiliaryDisplay", 0]];
 uiNamespace setVariable ["TAE_HUD_cameraTargetIndex", 0];
 uiNamespace setVariable ["TAE_HUD_updatePFH", -1];
 uiNamespace setVariable ["TAE_HUD_compassPFH", -1];

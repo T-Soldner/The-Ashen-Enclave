@@ -3,4 +3,6 @@
 !Ashen Enclave PSDs/
 !Ashen Enclave PSDs/**
 .codex_tmp/
-Reference Textures/Cole Protocol HUD/
+Reference Textures/*
+!Reference Textures/Flags/
+!Reference Textures/Jetpacks/

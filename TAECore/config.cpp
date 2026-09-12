@@ -1,4 +1,4 @@
-#define TAE_SPLASH_ONLOAD onLoad = "private _screen = uiNamespace getVariable ['TAE_sessionSplash','']; if (_screen isEqualTo '') then {_screen = selectRandom ['\TAECore\textures\screen.paa','\TAECore\textures\screen2.paa']; uiNamespace setVariable ['TAE_sessionSplash',_screen];}; (_this select 0) ctrlSetText _screen;"
+#define TAE_SPLASH_ONLOAD onLoad = "private _screen = uiNamespace getVariable ['TAE_sessionSplash','']; if (_screen isEqualTo '') then {_screen = selectRandom ['\TAECore\textures\screen_co.paa','\TAECore\textures\screen2_co.paa']; uiNamespace setVariable ['TAE_sessionSplash',_screen];}; (_this select 0) ctrlSetText _screen;"
 // Release version: MAJOR.MINOR.FEATURE.REVISION
 // MAJOR: breaking compatibility or dependency restructuring.
 // MINOR: a new PBO or major subsystem; reset FEATURE and REVISION to 0.
@@ -67,8 +67,8 @@ class CfgMods
 	class Mod_Base;
 	class TAE_Core: Mod_Base
 	{
-		logo = "TAECore\textures\logo.paa";
-		picture = "TAECore\textures\logo.paa";
+		logo = "TAECore\textures\logo_ca.paa";
+		picture = "TAECore\textures\logo_ca.paa";
 		name = "The Ashen Enclave AUX Mod";
 	};
 };
@@ -123,7 +123,7 @@ class RscDisplayMain: RscStandardDisplay
 		delete BackgroundSpotlight;
 		class Logo: RscActivePicture
 		{
-			text="\TAECore\textures\logo.paa";
+			text="\TAECore\textures\logo_ca.paa";
 		};
 	};
 	enableDisplay=0;
@@ -145,7 +145,7 @@ class RscDisplayMain: RscStandardDisplay
 			y="SafeZoneY";
 			h="SafeZoneH";
 			w="SafeZoneW";
-			text="\TAECore\textures\screen.paa";
+			text="\TAECore\textures\screen_co.paa";
 		};
 	};
 };
@@ -166,7 +166,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\screen.paa";
+					text="\TAECore\textures\screen_co.paa";
 				};
 			};
 		};
@@ -181,7 +181,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\screen.paa";
+					text="\TAECore\textures\screen_co.paa";
 				};
 			};
 		};
@@ -196,7 +196,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\screen.paa";
+					text="\TAECore\textures\screen_co.paa";
 				};
 			};
 		};
@@ -211,7 +211,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\screen.paa";
+					text="\TAECore\textures\screen_co.paa";
 				};
 			};
 		};
@@ -226,7 +226,7 @@ class RscDisplayLoading
 					y="SafeZoneY";
 					h="SafeZoneH";
 					w="SafeZoneW";
-					text="\TAECore\textures\screen.paa";
+					text="\TAECore\textures\screen_co.paa";
 				};
 			};
 		};
@@ -244,7 +244,7 @@ class RscDisplayLoadMission: RscStandardDisplay
 			y="SafeZoneY";
 			h="SafeZoneH";
 			w="SafeZoneW";
-			text="\TAECore\textures\screen.paa";
+			text="\TAECore\textures\screen_co.paa";
 		};
 	};
 };
@@ -260,7 +260,7 @@ class RscDisplayStart: RscStandardDisplay
 			y="SafeZoneY";
 			h="SafeZoneH";
 			w="SafeZoneW";
-			text="\TAECore\textures\screen.paa";
+			text="\TAECore\textures\screen_co.paa";
 		};
 	};
 };
@@ -275,7 +275,7 @@ class RscDisplayClientWait: RscDisplayMPPlayers
 		y="SafeZoneY";
 		h="SafeZoneH";
 		w="SafeZoneW";
-		text="\TAECore\textures\screen.paa";
+		text="\TAECore\textures\screen_co.paa";
 	};
 };
 class RscDisplayClient: RscStandardDisplay
@@ -290,7 +290,7 @@ class RscDisplayClient: RscStandardDisplay
 			y="SafeZoneY";
 			h="SafeZoneH";
 			w="SafeZoneW";
-			text="\TAECore\textures\screen.paa";
+			text="\TAECore\textures\screen_co.paa";
 		};
 	};
 };

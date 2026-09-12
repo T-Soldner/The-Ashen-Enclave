@@ -3,7 +3,7 @@ params ["_display"];
 if (isNull _display) exitWith {};
 
 private _header = _display ctrlCreate ["RscText", 1130];
-_header ctrlSetText "SQUAD LINK // 1 NODE";
+_header ctrlSetText "CLAN LINK // 1 NODE";
 _header ctrlSetFont "ls_republic";
 _header ctrlSetFontHeight (safeZoneH * 0.016);
 _header ctrlSetPosition

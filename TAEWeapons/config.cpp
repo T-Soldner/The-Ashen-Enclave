@@ -8,7 +8,8 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {
 			"tae_TargetingScope_FP2",
-			"tae_IQA12",
+			"tae_IQA11a",
+			"tae_Galaar90a",
 			"tae_HPB14"
 		};
 		skipWhenMissingDependencies = 1;
@@ -74,6 +75,12 @@ class CfgWeapons {
 
 	class IDA_TargetingScope;
 	class IDA_IQA11;
+	class IDA_Galaar90 {
+		class WeaponSlotsInfo {
+			class CowsSlot;
+		};
+		class LinkedItems;
+	};
 	class mti_armoury_weapon_hpb_base;
 	class mti_armoury_weapon_hpb : mti_armoury_weapon_hpb_base {
 		class Standard;
@@ -117,13 +124,13 @@ class CfgWeapons {
 		};
 	};
 
-	class tae_IQA12 : IDA_IQA11 {
+	class tae_IQA11a : IDA_IQA11 {
 		dlc = "The Ashen Enclave AUX Mod";
 		author = "Edonn";
 		scope = 2;
 		scopeArsenal = 2;
-		displayName = "IQA-12 Targeting Blaster";
-		baseWeapon = "tae_IQA12";
+		displayName = "IQA-11a Targeting Blaster";
+		baseWeapon = "tae_IQA11a";
 
 		class WeaponSlotsInfo : WeaponSlotsInfo {
 			mass = 120;
@@ -139,6 +146,28 @@ class CfgWeapons {
 		};
 
 		class LinkedItems {
+			class LinkedItemsOptic {
+				slot = "CowsSlot";
+				item = "tae_TargetingScope_FP2";
+			};
+		};
+	};
+
+	class tae_Galaar90a : IDA_Galaar90 {
+		dlc = "The Ashen Enclave AUX Mod";
+		author = "Edonn";
+		scope = 2;
+		scopeArsenal = 2;
+		displayName = "Galaar-90a Targeting Blaster";
+		baseWeapon = "tae_Galaar90a";
+
+		class WeaponSlotsInfo : WeaponSlotsInfo {
+			class CowsSlot : CowsSlot {
+				compatibleItems[] = { "IDA_TargetingScope", "tae_TargetingScope_FP2" };
+			};
+		};
+
+		class LinkedItems : LinkedItems {
 			class LinkedItemsOptic {
 				slot = "CowsSlot";
 				item = "tae_TargetingScope_FP2";

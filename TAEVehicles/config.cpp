@@ -11,13 +11,15 @@ class CfgPatches {
 			"TAEObjects",
 			"TAEUnits_HouseKarr",
 			"mti_armoury_vehicles_weapons",
+			"mti_armoury_vehicles_delta",
 			"ls_vehicles_z98",
 			"knd_jdumb"
 		};
 		units[] = {
 			"TAE_KomrkFighter_Transport",
 			"TAE_Skycat_Transport",
-			"TAE_Z98_Headhunter"
+			"TAE_Z98_Headhunter",
+			"TAE_Delta7_Interceptor"
 		};
 		weapons[] = {
 			"TAE_Skycat_weapon_MPR10",
@@ -384,6 +386,105 @@ class CfgVehicles {
 		class Components;
 	};
 	class ls_vehicle_z98;
+	class Plane_Base_F;
+	class 3AS_Delta7_Base_F: Plane_Base_F {
+		class Components;
+		class TextureSources;
+	};
+	class mti_armoury_vehicles_delta_base: 3AS_Delta7_Base_F {
+		class TextureSources: TextureSources {};
+		class Components: Components {
+			class TransportPylonsComponent {
+				class pylons;
+				class presets;
+			};
+		};
+	};
+
+	class TAE_Delta7_Interceptor: mti_armoury_vehicles_delta_base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "[TAE] Delta-7";
+		displayNameShort = "[TAE] Delta-7";
+		hiddenSelectionsTextures[] = {
+			"\TAEVehicles\data\delta7\DEL7_Hull_Purple_DarkRed_co.paa",
+			"3AS\3AS_Delta7\data\Delta7_Landing_Gear_co.paa",
+			"3AS\3AS_Delta7\data\Delta7_Cockpit_co.paa",
+			"3AS\3AS_Delta7\data\Delta7_Interfaces_ca.paa"
+		};
+		textureList[] = {"TAE_Purple_DarkRed", 1};
+		mti_aircraft_hasSkins = 1;
+		class TextureSources: TextureSources {
+			class TAE_Purple_DarkRed {
+				displayName = "TAE Purple / Dark Red";
+				author = "3rd Army Studios and TAE Mod Team";
+				factions[] = {};
+				mti_aircraft_scope = 1;
+				textures[] = {
+					"\TAEVehicles\data\delta7\DEL7_Hull_Purple_DarkRed_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Landing_Gear_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Cockpit_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Interfaces_ca.paa"
+				};
+			};
+			class TAE_Purple: TAE_Purple_DarkRed {
+				displayName = "TAE Purple";
+				textures[] = {
+					"\TAEVehicles\data\delta7\DEL7_Hull_Purple_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Landing_Gear_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Cockpit_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Interfaces_ca.paa"
+				};
+			};
+		};
+		author = "3rd Army Studios, MokTech Industries and TAE Mod Team";
+		side = 2;
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Aircraft";
+		crew = "TAE_Unit_Pilot";
+		typicalCargo[] = {"TAE_Unit_Pilot"};
+		tf_hasLRradio = 1;
+		tf_range = 100000;
+		maxSpeed = 2000;
+		altFullForce = 10000;
+		altNoForce = 20000;
+		// Test: disable automatic pitch alignment to the vertical flight path.
+		draconicTorqueYCoef = 0;
+		// Two successive 15% increases: 32.25% above the inherited 3AS curve.
+		thrustCoef[] = {1.98375,1.98375,2.116,2.3805,2.645,3.30625,3.9675,4.62875,3.30625,2.645,2.24825,1.98375,1.45475,1.3225,1.3225,1.3225};
+		weapons[] = {"mti_armoury_weapon_AA_Cannon", "Laserdesignator_pilotCamera", "ls_weapon_CMFlareLauncher"};
+		magazines[] = {
+			"mti_armoury_mag_AA_Cannon_Mag",
+			"mti_armoury_mag_AA_Cannon_Mag",
+			"mti_armoury_mag_AA_Cannon_Mag",
+			"Laserbatteries",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple"
+		};
+		ace_cargo_space = 15;
+		ace_cargo_hasCargo = 1;
+		delete ACE_Cargo;
+		class Components: Components {
+			class TransportPylonsComponent: TransportPylonsComponent {
+				class pylons: pylons {
+					delete pylons1;
+					delete pylons2;
+					delete pylons3;
+					delete pylons4;
+					delete pylons5;
+					delete pylons6;
+					delete Pylons7;
+				};
+				class presets: presets {
+					delete Default;
+					delete empty;
+				};
+			};
+		};
+	};
 
 	class TAE_KomrkFighter_Transport_base: knd_KomrkFighter_VTOL_Dynamic_F {
 		scope = 0;
@@ -1184,16 +1285,21 @@ class CfgVehicles {
 			class SensorsManagerComponent {
 				class Components {
 					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+						// Compensate for small radar signatures and remove look-down clutter filtering.
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minSpeedThreshold = 0;
+						maxSpeedThreshold = 0;
 						class AirTarget {
-							minRange = 0;
-							maxRange = 32000;
+							minRange = 100000;
+							maxRange = 100000;
 							objectDistanceLimitCoef = -1;
 							viewDistanceLimitCoef = -1;
 						};
 
 						class GroundTarget {
-							minRange = 0;
-							maxRange = 8000;
+							minRange = 100000;
+							maxRange = 100000;
 							objectDistanceLimitCoef = -1;
 							viewDistanceLimitCoef = -1;
 						};

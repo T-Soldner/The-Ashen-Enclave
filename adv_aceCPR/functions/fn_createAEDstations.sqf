@@ -15,7 +15,7 @@ if ( _useOwnObject ) then {
 adv_aceCPR_aed_stationAction = [
 	"adv_aceCPR_AED_stationary",
 	localize "STR_ADV_ACECPR_AED_STATION_ACTION",
-	"\adv_aceCPR\ui\defib_action.paa",
+	"\adv_aceCPR\ui\defib_action_ca.paa",
 	{
 		params ["_target","_caller","_arguments"];
 		[_caller,_target] call adv_aceCPR_fnc_useAEDStation

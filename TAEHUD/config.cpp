@@ -244,12 +244,14 @@ class RscTitles
 				w = "safeZoneW * 0.300";
 				h = "safeZoneH * 0.030";
 			};
-			class WeaponMode: WeaponName
+			class WeaponMode: RscPicture
 			{
 				idc = 1122;
-				text = "SAFE";
+				text = "";
 				font = "RobotoCondensed";
 				sizeEx = "safeZoneH * 0.015";
+				x = "safeZoneX + safeZoneW * 0.980 - safeZoneH * 0.096 * (pixelW / pixelH)";
+				w = "safeZoneH * 0.096 * (pixelW / pixelH)";
 				colorText[] = {0.75,0.78,0.80,0.86};
 				y = "safeZoneY + (safeZoneH * 0.070)";
 				h = "safeZoneH * 0.024";
@@ -350,6 +352,21 @@ class RscTitles
 				colorOutside[] = {0,0,0,0};
 				colorGrid[] = {0,0,0,0};
 				colorGridMap[] = {0,0,0,0};
+				// Drawing surface only: inherited terrain shading can leak through on some worlds.
+				colorSea[] = {0,0,0,0};
+				colorForest[] = {0,0,0,0};
+				colorForestBorder[] = {0,0,0,0};
+				colorRocks[] = {0,0,0,0};
+				colorRocksBorder[] = {0,0,0,0};
+				colorLevels[] = {0,0,0,0};
+				colorCountlines[] = {0,0,0,0};
+				colorMainCountlines[] = {0,0,0,0};
+				colorCountlinesWater[] = {0,0,0,0};
+				colorMainCountlinesWater[] = {0,0,0,0};
+				colorPowerLines[] = {0,0,0,0};
+				colorRailWay[] = {0,0,0,0};
+				colorNames[] = {0,0,0,0};
+				colorInactive[] = {0,0,0,0};
 				sizeEx = 0;
 				maxSatelliteAlpha = 0;
 				alphaFadeStartScale = 0;
@@ -378,6 +395,8 @@ class RscTitles
 				w = "safeZoneW * 0.105";
 				h = "safeZoneH * 0.025";
 			};
+			class AuxiliaryMapTitle: AuxiliaryTitle { idc = 1314; };
+			class AuxiliaryRadarTitle: AuxiliaryTitle { idc = 1324; };
 			class AuxiliaryStatus: AuxiliaryTitle
 			{
 				idc = 1305;
@@ -389,6 +408,8 @@ class RscTitles
 				x = "safeZoneX + safeZoneW - (safeZoneW * 0.105)";
 				w = "safeZoneW * 0.080";
 			};
+			class AuxiliaryMapStatus: AuxiliaryStatus { idc = 1315; };
+			class AuxiliaryRadarStatus: AuxiliaryStatus { idc = 1325; };
 		};
 	};
 };

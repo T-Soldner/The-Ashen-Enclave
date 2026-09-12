@@ -47,7 +47,7 @@ if (_defaultFont < 0) then {_defaultFont = (_hudFonts find "RobotoCondensed") ma
 [
 	"TAE_HUD_identityColor",
 	"COLOR",
-	["Squad Link Personal Color", "Controls the color squadmates see for your name or number and direction marker."],
+	["Clan/House Link Personal Color", "Controls the color teammates see for your name or number and direction marker."],
 	["The Ashen Enclave", "Helmet HUD"],
 	[0.95, 0.72, 0.14, 0.95],
 	2,
@@ -57,7 +57,7 @@ if (_defaultFont < 0) then {_defaultFont = (_hudFonts find "RobotoCondensed") ma
 [
 	"TAE_HUD_squadDisplay",
 	"LIST",
-	["Squad Link Display", "Choose full names or a narrower numbered layout on your HUD only."],
+	["Clan/House Link Display", "Choose full names or a narrower numbered layout on your HUD only."],
 	["The Ashen Enclave", "Helmet HUD"],
 	[[0, 1], ["Full names", "Compact numbers"], 0],
 	2,
@@ -67,7 +67,7 @@ if (_defaultFont < 0) then {_defaultFont = (_hudFonts find "RobotoCondensed") ma
 [
 	"TAE_HUD_squadNumber",
 	"LIST",
-	["Squad Link Personal Number", "Your number shown to teammates using Compact numbers. Coordinate numbers with your squad; duplicates are allowed."],
+	["Clan/House Link Personal Number", "Your number shown to teammates using Compact numbers. Coordinate numbers with your squad; duplicates are allowed."],
 	["The Ashen Enclave", "Helmet HUD"],
 	[[1, 2, 3, 4, 5, 6, 7, 8], ["1", "2", "3", "4", "5", "6", "7", "8"], 0],
 	2,
@@ -95,17 +95,33 @@ if (_defaultFont < 0) then {_defaultFont = (_hudFonts find "RobotoCondensed") ma
 	["TAE_HUD_showSystem", "Show System Labels", "Show the upper-left visor link and system status labels."],
 	["TAE_HUD_showCompass", "Show Compass", "Show the compass, heading, squad markers and waypoint marker."],
 	["TAE_HUD_showWeapon", "Show Weapon Panel", "Show the TAE weapon, ammunition, stance and equipment panel. When hidden, restore the native information displays."],
-	["TAE_HUD_showSquad", "Show Squad Link", "Show the lower-left squad list using your chosen name or number layout."],
+	["TAE_HUD_showSquad", "Show Clan/House Link", "Show the lower-left link list using your chosen name or number layout."],
 	["TAE_HUD_showAccents", "Show Decorative Accents", "Show the upper-left and lower-left decorative lines."]
 ];
 
+{
+	_x params ["_setting", "_label"];
+	[
+		_setting, "LIST",
+		[_label, "Choose a panel location. Panels sharing a location stack. Off stops this panel's processing."],
+		["The Ashen Enclave", "Helmet HUD"],
+		[[0, 1, 2, 3], ["Off", "Bottom Right", "Bottom Center", "Top Left"], 0],
+		2,
+		{[] call TAE_fnc_hudSyncAuxiliaryHandler;}
+	] call CBA_fnc_addSetting;
+} forEach [
+	["TAE_HUD_mapLocation", "Map Location"],
+	["TAE_HUD_cameraLocation", "Helmet Camera Location"],
+	["TAE_HUD_trackerLocation", "Motion Tracker Location"]
+];
+
 [
-	"TAE_HUD_auxiliaryDisplay", "LIST",
-	["Auxiliary Display", "Choose the lower-right panel. Hidden stops the camera and motion tracker processing."],
+	"TAE_HUD_linkView", "LIST",
+	["Link View", "House Link shows other living same-side player group leaders while you lead your group; otherwise Clan Link shows your own group."],
 	["The Ashen Enclave", "Helmet HUD"],
-	[[0, 1, 2, 3], ["Hidden", "Map", "Camera", "Motion tracker"], 0],
+	[[0, 1], ["Clan Link", "House Link (group leaders)"], 0],
 	2,
-	{[] call TAE_fnc_hudSyncAuxiliaryHandler;}
+	{[] call TAE_fnc_hudUpdate;}
 ] call CBA_fnc_addSetting;
 
 [

@@ -138,7 +138,7 @@ private _weapon = currentWeapon _unit;
 if (_weapon isEqualTo "") exitWith
 {
 	(_display displayCtrl 1121) ctrlSetText "UNARMED";
-	(_display displayCtrl 1122) ctrlSetText "SAFE";
+	(_display displayCtrl 1122) ctrlSetText "";
 	(_display displayCtrl 1123) ctrlSetText "--";
 	(_display displayCtrl 1124) ctrlSetText "0 MAGS // 0 RES";
 	(_display displayCtrl 1128) ctrlSetText "RNG -- M";
@@ -151,11 +151,20 @@ private _mode = _weaponState param [2, "SAFE"];
 private _magazine = _weaponState param [3, ""];
 private _loadedAmmo = _weaponState param [4, 0];
 private _zeroing = round (currentZeroing _unit);
-private _modeLabel = toUpper ((_mode splitString "_") joinString " ");
-private _normalizedMode = (_modeLabel splitString " ") joinString "";
-if (_normalizedMode isEqualTo "FULLAUTO") then
+private _muzzle = _weaponState param [1, _weapon];
+private _muzzleConfig = if (_muzzle in ["this", _weapon]) then {_weaponConfig} else {_weaponConfig >> _muzzle};
+private _modeConfig = _muzzleConfig >> _mode;
+private _textureType = getText (_modeConfig >> "textureType");
+private _textures = configFile >> "CfgInGameUI" >> "CfgWeaponModeTextures";
+private _modeIcon = getText (_textures >> _textureType);
+if (_modeIcon isEqualTo "") then
 {
-	_modeLabel = "AUTO";
+	private _fallback = if (getNumber (_modeConfig >> "autoFire") > 0) then {"fullAuto"} else
+	{
+		if (getNumber (_modeConfig >> "burst") > 1) then {"burst"} else {"semi"}
+	};
+	if (toLower _mode in ["safe", "safety"]) then {_fallback = "safe";};
+	_modeIcon = getText (_textures >> _fallback);
 };
 
 private _spareMagazines = (magazinesAmmoFull _unit) select
@@ -168,7 +177,7 @@ private _reserveAmmo = 0;
 } forEach _spareMagazines;
 
 (_display displayCtrl 1121) ctrlSetText (toUpper _weaponName);
-(_display displayCtrl 1122) ctrlSetText _modeLabel;
+(_display displayCtrl 1122) ctrlSetText _modeIcon;
 (_display displayCtrl 1123) ctrlSetText str _loadedAmmo;
 (_display displayCtrl 1124) ctrlSetText format ["%1 MAGS // %2 RES", count _spareMagazines, _reserveAmmo];
 (_display displayCtrl 1128) ctrlSetText (if (_zeroing > 0) then {format ["RNG %1 M", _zeroing]} else {"RNG -- M"});

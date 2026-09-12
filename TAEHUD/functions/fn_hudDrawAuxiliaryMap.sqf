@@ -1,6 +1,6 @@
 params ["_map"];
 
-if ((uiNamespace getVariable ["TAE_HUD_auxiliaryMode", 0]) isNotEqualTo 1) exitWith {};
+if ((missionNamespace getVariable ["TAE_HUD_mapLocation", 0]) isEqualTo 0) exitWith {};
 if (isNull player) exitWith {};
 
 private _hudColor = missionNamespace getVariable ["TAE_HUD_color", [0.95, 0.72, 0.14, 0.90]];

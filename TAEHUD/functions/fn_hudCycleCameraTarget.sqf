@@ -1,6 +1,6 @@
 if (!hasInterface || {isNull player}) exitWith {};
 // Selecting a target must never override the player's panel preference.
-if ((missionNamespace getVariable ["TAE_HUD_auxiliaryDisplay", 0]) isNotEqualTo 2) exitWith {};
+if ((missionNamespace getVariable ["TAE_HUD_cameraLocation", 0]) isEqualTo 0) exitWith {};
 
 private _display = uiNamespace getVariable ["TAE_HUD_display", displayNull];
 if (isNull _display) exitWith
@@ -21,7 +21,7 @@ if (_targets isEqualTo []) exitWith
 };
 
 private _index = uiNamespace getVariable ["TAE_HUD_cameraTargetIndex", 0];
-if ((uiNamespace getVariable ["TAE_HUD_auxiliaryMode", 0]) isEqualTo 2) then
+if ((missionNamespace getVariable ["TAE_HUD_cameraLocation", 0]) > 0) then
 {
 	_index = (_index + 1) mod (count _targets);
 };

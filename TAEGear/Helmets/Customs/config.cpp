@@ -567,14 +567,14 @@ class CfgWeapons {
 		displayName = "House Karr Traditional Helmet (Foundling)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_FND.paa",
+			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_FND_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_FND.paa",
+				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_FND_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -587,14 +587,14 @@ class CfgWeapons {
 		displayName = "House Karr Traditional Helmet (Mandalorian Recruit)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Rec.paa",
+			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Rec_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Rec.paa",
+				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Rec_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -607,14 +607,14 @@ class CfgWeapons {
 		displayName = "House Karr Traditional Helmet (Mandalorian Apprentice)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_App.paa",
+			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_App_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_App.paa",
+				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_App_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -627,14 +627,14 @@ class CfgWeapons {
 		displayName = "House Karr Traditional Helmet (Mandalorian)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Mando.paa",
+			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Mando_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Mando.paa",
+				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Mando_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -647,14 +647,14 @@ class CfgWeapons {
 		displayName = "House Karr Traditional Helmet (Mandalorian Veteran)";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Vet.paa",
+			"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Vet_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Vet.paa",
+				"TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Vet_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -669,14 +669,14 @@ class CfgWeapons {
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_FND.paa",
+			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_FND_co.paa",
 			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_FND.paa",
+				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_FND_co.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
@@ -689,14 +689,14 @@ class CfgWeapons {
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MR.paa",
+			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MR_co.paa",
 			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MR.paa",
+				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MR_co.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
@@ -709,14 +709,14 @@ class CfgWeapons {
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MA.paa",
+			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MA_co.paa",
 			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MA.paa",
+				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MA_co.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
@@ -729,14 +729,14 @@ class CfgWeapons {
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MM.paa",
+			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MM_co.paa",
 			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MM.paa",
+				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MM_co.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
@@ -749,14 +749,14 @@ class CfgWeapons {
 		displayName = "House Karr Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MV.paa",
+			"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MV_co.paa",
 			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MV.paa",
+				"TAEGear\data\HouseKarr\NiteOwl\NITE_Helmet_MV_co.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
@@ -771,7 +771,7 @@ class CfgWeapons {
 		displayName = "Hondo's Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Hondo\BM_Helmet_Hondo.paa",
+			"TAEGear\data\Hondo\BM_Helmet_Hondo_co.paa",
 			"\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"
 		};
 
@@ -779,7 +779,7 @@ class CfgWeapons {
 			
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Hondo\BM_Helmet_Hondo.paa",
+				"TAEGear\data\Hondo\BM_Helmet_Hondo_co.paa",
 				"\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"
 			};
 		};
@@ -792,7 +792,7 @@ class CfgWeapons {
 		displayName = "Nova's Armorer Helmet";
 		hiddenSelections[] = {"camo1","visor","neckTex"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Nova\ARM_Helmet_Nova.paa",
+			"TAEGear\data\Nova\ARM_Helmet_Nova_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\armorer\data\visor_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\armorer\data\neck_co.paa"
 		};
@@ -800,7 +800,7 @@ class CfgWeapons {
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","visor","neckTex"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Nova\ARM_Helmet_Nova.paa",
+				"TAEGear\data\Nova\ARM_Helmet_Nova_co.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\armorer\data\visor_co.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\armorer\data\neck_co.paa"
 			};
@@ -815,10 +815,10 @@ class CfgWeapons {
 		author = "Teka";
 		displayName = "Teka's Helmet";
 		hiddenSelections[] = {"camo1","camo2","camo"};
-		hiddenSelectionsTextures[] = {"TAEGear\data\Teka\PLT_Helmet_Teka.paa","TAEGear\data\Teka\PLT_Visor_Teka.paa","TAEGear\data\Teka\PLT_Lights_Teka.paa"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Teka\PLT_Helmet_Teka_co.paa","TAEGear\data\Teka\PLT_Visor_Teka_co.paa","TAEGear\data\Teka\PLT_Lights_Teka_co.paa"};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2","camo"};
-			hiddenSelectionsTextures[] = {"TAEGear\data\Teka\PLT_Helmet_Teka.paa","TAEGear\data\Teka\PLT_Visor_Teka.paa","TAEGear\data\Teka\PLT_Lights_Teka.paa"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Teka\PLT_Helmet_Teka_co.paa","TAEGear\data\Teka\PLT_Visor_Teka_co.paa","TAEGear\data\Teka\PLT_Lights_Teka_co.paa"};
 		};
 	};
 	class tae_shyyyo_helmet : tae_helmet_pilot {
@@ -828,10 +828,10 @@ class CfgWeapons {
 		author = "Hondo";
 		displayName = "Shyyyo Pilot Helmet";
 		hiddenSelections[] = {"camo1","camo2","camo"};
-		hiddenSelectionsTextures[] = {"TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Visor_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Lights_Shyyyo.paa"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo_co.paa","TAEGear\data\Shyyyo\PLT_Visor_Shyyyo_co.paa","TAEGear\data\Shyyyo\PLT_Lights_Shyyyo_co.paa"};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2","camo"};
-			hiddenSelectionsTextures[] = {"TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Visor_Shyyyo.paa","TAEGear\data\Shyyyo\PLT_Lights_Shyyyo.paa"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo_co.paa","TAEGear\data\Shyyyo\PLT_Visor_Shyyyo_co.paa","TAEGear\data\Shyyyo\PLT_Lights_Shyyyo_co.paa"};
 		};
 	};
 	
@@ -844,15 +844,15 @@ class CfgWeapons {
 		displayName = "Clan Acklay Helmet";
 		hiddenSelections[] = {"camo1","visor","neckTex"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Acklay\LS_TRAD_Helmet_Acklay.paa",
-			"TAEGear\data\Acklay\LS_TRAD_Visor_Acklay.paa",
+			"TAEGear\data\Acklay\LS_TRAD_Helmet_Acklay_co.paa",
+			"TAEGear\data\Acklay\LS_TRAD_Visor_Acklay_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","visor","neckTex"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Acklay\LS_TRAD_Helmet_Acklay.paa",
-				"TAEGear\data\Acklay\LS_TRAD_Visor_Acklay.paa",
+				"TAEGear\data\Acklay\LS_TRAD_Helmet_Acklay_co.paa",
+				"TAEGear\data\Acklay\LS_TRAD_Visor_Acklay_co.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
 			};
 		};
@@ -884,14 +884,14 @@ class CfgWeapons {
 		displayName = "Clan Acklay Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Acklay\NITE_Helmet_Acklay.paa",
+			"TAEGear\data\Acklay\NITE_Helmet_Acklay_co.paa",
 			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Acklay\NITE_Helmet_Acklay.paa",
+				"TAEGear\data\Acklay\NITE_Helmet_Acklay_co.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
@@ -905,8 +905,8 @@ class CfgWeapons {
 		displayName = "Edonn's Helmet";
 		hiddenSelections[] = {"camo1","visor","neckTex"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Edonn\LS_DIN_Helmet_Edonn.paa",
-			"TAEGear\data\Edonn\LS_DIN_Visor_Edonn.paa",
+			"TAEGear\data\Edonn\LS_DIN_Helmet_Edonn_co.paa",
+			"TAEGear\data\Edonn\LS_DIN_Visor_Edonn_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
 		};
 		hiddenSelectionsMaterials[] = {
@@ -916,8 +916,8 @@ class CfgWeapons {
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","visor","neckTex"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Edonn\LS_DIN_Helmet_Edonn.paa",
-				"TAEGear\data\Edonn\LS_DIN_Visor_Edonn.paa",
+				"TAEGear\data\Edonn\LS_DIN_Helmet_Edonn_co.paa",
+				"TAEGear\data\Edonn\LS_DIN_Visor_Edonn_co.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
 			};
 			hiddenSelectionsMaterials[] = {
@@ -934,11 +934,11 @@ class CfgWeapons {
 		displayName = "Dark Grey";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		visionMode[] = { "Normal", "NVG", "TI" };
-		hiddenSelectionsTextures[] = { "TAEGear\data\Edonn\LS_DIN_Rangefinder_Edonn.paa" };
+		hiddenSelectionsTextures[] = { "TAEGear\data\Edonn\LS_DIN_Rangefinder_Edonn_co.paa" };
 		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
 		class ItemInfo: ItemInfo {
 			uniformModel = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_on_r.p3d";
-			hiddenSelectionsTextures[] = { "TAEGear\data\Edonn\LS_DIN_Rangefinder_Edonn.paa" };
+			hiddenSelectionsTextures[] = { "TAEGear\data\Edonn\LS_DIN_Rangefinder_Edonn_co.paa" };
 			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		};
 	};
@@ -952,13 +952,13 @@ class CfgWeapons {
 		displayName = "Nox's Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Nox\WAR_Helmet_Nox.paa",
+			"TAEGear\data\Nox\WAR_Helmet_Nox_co.paa",
 			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Nox\WAR_Helmet_Nox.paa",
+				"TAEGear\data\Nox\WAR_Helmet_Nox_co.paa",
 				"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
 			};
 		};
@@ -974,14 +974,14 @@ class CfgWeapons {
 		displayName = "Jimothy's Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Jimothy\HEAV_Helmet_Jimothy.paa",
-			"TAEGear\data\Jimothy\HEAV_Visor_Jimothy.paa"
+			"TAEGear\data\Jimothy\HEAV_Helmet_Jimothy_co.paa",
+			"TAEGear\data\Jimothy\HEAV_Visor_Jimothy_co.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Jimothy\HEAV_Helmet_Jimothy.paa",
-				"TAEGear\data\Jimothy\HEAV_Visor_Jimothy.paa"
+				"TAEGear\data\Jimothy\HEAV_Helmet_Jimothy_co.paa",
+				"TAEGear\data\Jimothy\HEAV_Visor_Jimothy_co.paa"
 			};
 		};
 	};
@@ -991,11 +991,11 @@ class CfgWeapons {
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Jimothy";
-		hiddenSelectionsTextures[] = {"TAEGear\data\Jimothy\HEAV_NVG_Jimothy.paa"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Jimothy\HEAV_NVG_Jimothy_co.paa"};
 		class ItemInfo: ItemInfo {
 			uniformModel = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
 			modelOff = "\z\tgf\addons\nvg\heavy_nv\heavy_nv.p3d";
-		hiddenSelectionsTextures[] = {"TAEGear\data\Jimothy\HEAV_NVG_Jimothy.paa"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Jimothy\HEAV_NVG_Jimothy_co.paa"};
 		};
 	};
 
@@ -1008,14 +1008,14 @@ class CfgWeapons {
 		displayName = "Frenk's Gunslinger Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Frenk\GUN_Helmet_Frenk.paa",
-			"TAEGear\data\Frenk\GUN_Visor_Frenk.paa"
+			"TAEGear\data\Frenk\GUN_Helmet_Frenk_co.paa",
+			"TAEGear\data\Frenk\GUN_Visor_Frenk_co.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Frenk\GUN_Helmet_Frenk.paa",
-				"TAEGear\data\Frenk\GUN_Visor_Frenk.paa"
+				"TAEGear\data\Frenk\GUN_Helmet_Frenk_co.paa",
+				"TAEGear\data\Frenk\GUN_Visor_Frenk_co.paa"
 			};
 		};
 	};
@@ -1027,14 +1027,14 @@ class CfgWeapons {
 		displayName = "Towi's Arbiter Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Towi\ARB_Helmet_Towi.paa",
-			"TAEGear\data\Towi\ARB_Visor_Towi.paa"
+			"TAEGear\data\Towi\ARB_Helmet_Towi_co.paa",
+			"TAEGear\data\Towi\ARB_Visor_Towi_co.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Towi\ARB_Helmet_Towi.paa",
-				"TAEGear\data\Towi\ARB_Visor_Towi.paa"
+				"TAEGear\data\Towi\ARB_Helmet_Towi_co.paa",
+				"TAEGear\data\Towi\ARB_Visor_Towi_co.paa"
 			};
 		};
 	};
@@ -1048,14 +1048,14 @@ class CfgWeapons {
 		displayName = "Stasik's Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Stasik\VPR_Helmet_Stasik.paa",
-			"TAEGear\data\Stasik\VPR_Visor_Stasik.paa"
+			"TAEGear\data\Stasik\VPR_Helmet_Stasik_co.paa",
+			"TAEGear\data\Stasik\VPR_Visor_Stasik_co.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Stasik\VPR_Helmet_Stasik.paa",
-				"TAEGear\data\Stasik\VPR_Visor_Stasik.paa"
+				"TAEGear\data\Stasik\VPR_Helmet_Stasik_co.paa",
+				"TAEGear\data\Stasik\VPR_Visor_Stasik_co.paa"
 			};
 		};
 	};
@@ -1067,15 +1067,15 @@ class CfgWeapons {
 		displayName = "Bingo's Viper Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Bingo\VIPR_Helmet_Bingo.paa",
-			"TAEGear\data\Bingo\VIPR_Visor_Bingo.paa"
+			"TAEGear\data\Bingo\VIPR_Helmet_Bingo_co.paa",
+			"TAEGear\data\Bingo\VIPR_Visor_Bingo_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Bingo\VIPR_Helmet_Bingo.paa",
-				"TAEGear\data\Bingo\VIPR_Visor_Bingo.paa"
+				"TAEGear\data\Bingo\VIPR_Helmet_Bingo_co.paa",
+				"TAEGear\data\Bingo\VIPR_Visor_Bingo_co.paa"
 			};
 		};
 	};
@@ -1089,14 +1089,14 @@ class CfgWeapons {
 		displayName = "Clan Foxx Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Foxx\TRAD_Helmet_Foxx.paa",
+			"TAEGear\data\Foxx\TRAD_Helmet_Foxx_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Foxx\TRAD_Helmet_Foxx.paa",
+				"TAEGear\data\Foxx\TRAD_Helmet_Foxx_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -1109,13 +1109,13 @@ class CfgWeapons {
 		displayName = "Clan Foxx Rangefinder";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		hiddenSelections[] = {"camo1"};
-		hiddenSelectionsTextures[] = {"TAEGear\data\Juno\TRAD_Rangefinder_Foxx.paa"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Juno\TRAD_Rangefinder_Foxx_co.paa"};
 		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformModel = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_on_r.p3d";
 			hiddenSelections[] = {"camo1"};
-			hiddenSelectionsTextures[] = {"TAEGear\data\Juno\TRAD_Rangefinder_Foxx.paa"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Juno\TRAD_Rangefinder_Foxx_co.paa"};
 			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		};
 	};
@@ -1127,15 +1127,15 @@ class CfgWeapons {
 		displayName = "Juno's Arbiter Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Juno\ARB_Helmet_Juno.paa",
-			"TAEGear\data\Juno\ARB_Visor_Juno.paa"
+			"TAEGear\data\Juno\ARB_Helmet_Juno_co.paa",
+			"TAEGear\data\Juno\ARB_Visor_Juno_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Juno\ARB_Helmet_Juno.paa",
-				"TAEGear\data\Juno\ARB_Visor_Juno.paa"
+				"TAEGear\data\Juno\ARB_Helmet_Juno_co.paa",
+				"TAEGear\data\Juno\ARB_Visor_Juno_co.paa"
 			};
 		};
 	};
@@ -1147,14 +1147,14 @@ class CfgWeapons {
 		displayName = "Bean's War Chief Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Foxx\WAR_Helmet_Bean.paa",
+			"TAEGear\data\Foxx\WAR_Helmet_Bean_co.paa",
 			"\z\tgf\addons\helmets\war_chief\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Foxx\WAR_Helmet_Bean.paa",
+				"TAEGear\data\Foxx\WAR_Helmet_Bean_co.paa",
 				"\z\tgf\addons\helmets\war_chief\data\camo2_co.paa"
 			};
 		};
@@ -1169,14 +1169,14 @@ class CfgWeapons {
 		displayName = "Clan Varen Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Varen\TRAD_Helmet_Varen.paa",
+			"TAEGear\data\Varen\TRAD_Helmet_Varen_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Varen\TRAD_Helmet_Varen.paa",
+				"TAEGear\data\Varen\TRAD_Helmet_Varen_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -1189,13 +1189,13 @@ class CfgWeapons {
 		displayName = "Dark Red";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		hiddenSelections[] = {"camo1"};
-		hiddenSelectionsTextures[] = { "TAEGear\data\Varen\TRAD_Rangefinder_Varen.paa" };
+		hiddenSelectionsTextures[] = { "TAEGear\data\Varen\TRAD_Rangefinder_Varen_co.paa" };
 		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformModel = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_on_r.p3d";
 			hiddenSelections[] = {"camo1"};
-			hiddenSelectionsTextures[] = { "TAEGear\data\Varen\TRAD_Rangefinder_Varen.paa" };
+			hiddenSelectionsTextures[] = { "TAEGear\data\Varen\TRAD_Rangefinder_Varen_co.paa" };
 			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		};
 	};
@@ -1207,13 +1207,13 @@ class CfgWeapons {
 		displayName = "Valeria's Viper Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Varen\VPR_Helmet_Valeria.paa",
+			"TAEGear\data\Varen\VPR_Helmet_Valeria_co.paa",
 			"\z\tgf\addons\helmets\viper\data\camo2_co.paa"
 		};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Varen\VPR_Helmet_Valeria.paa",
+				"TAEGear\data\Varen\VPR_Helmet_Valeria_co.paa",
 				"\z\tgf\addons\helmets\viper\data\camo2_co.paa"
 			};
 		};
@@ -1275,14 +1275,14 @@ class CfgWeapons {
 		displayName = "Clan Haranverd Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Haranverd\TRAD_Helmet_Haranverd.paa",
+			"TAEGear\data\Haranverd\TRAD_Helmet_Haranverd_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Haranverd\TRAD_Helmet_Haranverd.paa",
+				"TAEGear\data\Haranverd\TRAD_Helmet_Haranverd_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -1296,14 +1296,14 @@ class CfgWeapons {
 		displayName = "Clan Haranverd Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Haranverd\NITE_Helmet_Haranverd.paa",
+			"TAEGear\data\Haranverd\NITE_Helmet_Haranverd_co.paa",
 			"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Haranverd\NITE_Helmet_Haranverd.paa",
+				"TAEGear\data\Haranverd\NITE_Helmet_Haranverd_co.paa",
 				"\z\tgf\addons\helmets\nite_owl\data\camo2_co.paa"
 			};
 		};
@@ -1318,14 +1318,14 @@ class CfgWeapons {
 		displayName = "Clan Kyr'am Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Kyram\TRAD_Helmet_Kyram.paa",
+			"TAEGear\data\Kyram\TRAD_Helmet_Kyram_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Kyram\TRAD_Helmet_Kyram.paa",
+				"TAEGear\data\Kyram\TRAD_Helmet_Kyram_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -1340,14 +1340,14 @@ class CfgWeapons {
 		displayName = "Clan Rook Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Rook\TRAD_Helmet_Rook.paa",
+			"TAEGear\data\Rook\TRAD_Helmet_Rook_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Rook\TRAD_Helmet_Rook.paa",
+				"TAEGear\data\Rook\TRAD_Helmet_Rook_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -1360,15 +1360,15 @@ class CfgWeapons {
 		displayName = "Hades' Arbiter Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Hades\ARB_Helmet_Hades.paa",
-			"TAEGear\data\Hades\ARB_Visor_Hades.paa"
+			"TAEGear\data\Hades\ARB_Helmet_Hades_co.paa",
+			"TAEGear\data\Hades\ARB_Visor_Hades_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Hades\ARB_Helmet_Hades.paa",
-				"TAEGear\data\Hades\ARB_Visor_Hades.paa"
+				"TAEGear\data\Hades\ARB_Helmet_Hades_co.paa",
+				"TAEGear\data\Hades\ARB_Visor_Hades_co.paa"
 			};
 		};
 	};
@@ -1380,14 +1380,14 @@ class CfgWeapons {
 		displayName = "Grey's Gunslinger Veteran Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Grey\GUNV_Helmet_Grey.paa",
+			"TAEGear\data\Grey\GUNV_Helmet_Grey_co.paa",
 			"\z\tgf\addons\helmets\gunslinger_vet\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Grey\GUNV_Helmet_Grey.paa",
+				"TAEGear\data\Grey\GUNV_Helmet_Grey_co.paa",
 				"\z\tgf\addons\helmets\gunslinger_vet\data\camo2_co.paa"
 			};
 		};
@@ -1400,15 +1400,15 @@ class CfgWeapons {
 		displayName = "Galaxy's Gunslinger Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Galaxy\GUN_Helmet_Galaxy.paa",
-			"TAEGear\data\Galaxy\GUN_Visor_Galaxy.paa"
+			"TAEGear\data\Galaxy\GUN_Helmet_Galaxy_co.paa",
+			"TAEGear\data\Galaxy\GUN_Visor_Galaxy_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Galaxy\GUN_Helmet_Galaxy.paa",
-				"TAEGear\data\Galaxy\GUN_Visor_Galaxy.paa"
+				"TAEGear\data\Galaxy\GUN_Helmet_Galaxy_co.paa",
+				"TAEGear\data\Galaxy\GUN_Visor_Galaxy_co.paa"
 			};
 		};
 	};
@@ -1420,14 +1420,14 @@ class CfgWeapons {
 		displayName = "Vario's Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Vario\TRAD_Helmet_Vario.paa",
+			"TAEGear\data\Vario\TRAD_Helmet_Vario_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Vario\TRAD_Helmet_Vario.paa",
+				"TAEGear\data\Vario\TRAD_Helmet_Vario_co.paa",
 				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
@@ -1440,15 +1440,15 @@ class CfgWeapons {
 		displayName = "Andora's Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Andora\NITE_Helmet_Andora.paa",
-			"TAEGear\data\Andora\NITE_Visor_Andora.paa"
+			"TAEGear\data\Andora\NITE_Helmet_Andora_co.paa",
+			"TAEGear\data\Andora\NITE_Visor_Andora_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Andora\NITE_Helmet_Andora.paa",
-				"TAEGear\data\Andora\NITE_Visor_Andora.paa"
+				"TAEGear\data\Andora\NITE_Helmet_Andora_co.paa",
+				"TAEGear\data\Andora\NITE_Visor_Andora_co.paa"
 			};
 		};
 	};
@@ -1459,14 +1459,14 @@ class CfgWeapons {
 		author = "Nox";
 		displayName = "Goostivool's Executioner Helmet";
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Goostivool\EXEC_Helmet_Goostivool.paa",
+			"TAEGear\data\Goostivool\EXEC_Helmet_Goostivool_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Goostivool\EXEC_Helmet_Goostivool.paa",
+				"TAEGear\data\Goostivool\EXEC_Helmet_Goostivool_co.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
 				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
 			};
@@ -1480,15 +1480,15 @@ class CfgWeapons {
 		displayName = "Shen's Gunslinger Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Shen\GUN_Helmet_Shen.paa",
-			"TAEGear\data\Shen\GUN_Visor_Shen.paa"
+			"TAEGear\data\Shen\GUN_Helmet_Shen_co.paa",
+			"TAEGear\data\Shen\GUN_Visor_Shen_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Shen\GUN_Helmet_Shen.paa",
-				"TAEGear\data\Shen\GUN_Visor_Shen.paa"
+				"TAEGear\data\Shen\GUN_Helmet_Shen_co.paa",
+				"TAEGear\data\Shen\GUN_Visor_Shen_co.paa"
 			};
 		};
 	};

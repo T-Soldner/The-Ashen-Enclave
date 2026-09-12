@@ -1,5 +1,5 @@
 params ["_map"];
-if (isNull player || {(uiNamespace getVariable ["TAE_HUD_auxiliaryMode", 0]) isNotEqualTo 3}) exitWith {};
+if (isNull player || {(missionNamespace getVariable ["TAE_HUD_trackerLocation", 0]) isEqualTo 0}) exitWith {};
 
 // Use an off-terrain map as a drawing surface. Screen conversion keeps range
 // calibration independent of terrain size, UI scale, and map zoom limits.
