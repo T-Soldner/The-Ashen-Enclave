@@ -4,67 +4,83 @@ if (isNull _display || {isNull player}) exitWith
 	[] call TAE_fnc_hudDestroyCamera;
 	[] call TAE_fnc_hudClearRadar;
 };
-
-private _mode = uiNamespace getVariable ["TAE_HUD_auxiliaryMode", 0];
-private _background = _display displayCtrl 1300;
-private _line = _display displayCtrl 1301;
+private _locations = [
+	missionNamespace getVariable ["TAE_HUD_mapLocation", 0],
+	missionNamespace getVariable ["TAE_HUD_cameraLocation", 0],
+	missionNamespace getVariable ["TAE_HUD_trackerLocation", 0]
+];
+private _color = missionNamespace getVariable ["TAE_HUD_color", [0.95,0.72,0.14,0.9]];
+private _font = missionNamespace getVariable ["TAE_HUD_font", "ls_republic"];
+private _used = [0,0,0,0];
 private _map = _display displayCtrl 1302;
 private _cameraControl = _display displayCtrl 1303;
-private _title = _display displayCtrl 1304;
-private _status = _display displayCtrl 1305;
-private _active = _mode > 0;
-
-// Keep the tracker header above its larger square; restore the map/camera layout.
-private _headerY = safeZoneY + safeZoneH * (if (_mode isEqualTo 3) then {0.723} else {0.803});
-private _headerX = safeZoneX + safeZoneW - safeZoneW * 0.210;
-private _headerWidth = safeZoneW * 0.185;
-if (_mode isEqualTo 3) then
+// Original decoration belongs to the camera; each panel has independent headings.
+(_display displayCtrl 1300) ctrlShow false;
+(_display displayCtrl 1301) ctrlShow false;
 {
-	_headerWidth = safeZoneH * 0.220 * (pixelW / pixelH);
-	_headerX = safeZoneX + safeZoneW * 0.975 - _headerWidth;
-};
-_title ctrlSetPosition [_headerX, _headerY, _headerWidth * 0.72, safeZoneH * 0.025];
-_status ctrlSetPosition [_headerX + _headerWidth * 0.72, _headerY, _headerWidth * 0.28, safeZoneH * 0.025];
-_title ctrlCommit 0;
-_status ctrlCommit 0;
-
-{
-	_x ctrlShow _active;
-} forEach [_background, _line, _title, _status];
-_map ctrlShow (_mode isEqualTo 1);
-_cameraControl ctrlShow (_mode isEqualTo 2);
-(_display displayCtrl 1306) ctrlShow (_mode isEqualTo 3);
-if (_mode isNotEqualTo 3) then {[] call TAE_fnc_hudClearRadar;};
-
-if (_mode isEqualTo 3) exitWith
-{
-	_background ctrlShow false;
-	_line ctrlShow false;
-	[] call TAE_fnc_hudDestroyCamera;
-	_title ctrlSetText "MOTION TRACKER";
-	_status ctrlSetText format ["%1 M", missionNamespace getVariable ["TAE_HUD_radarRange", 50]];
-	[] call TAE_fnc_hudUpdateRadar;
-};
-
-if (_mode isEqualTo 0) exitWith
-{
-	[] call TAE_fnc_hudDestroyCamera;
-};
-
-if (_mode isEqualTo 1) exitWith
-{
-	[] call TAE_fnc_hudDestroyCamera;
-	_title ctrlSetText "GPS NAVIGATION";
-	_status ctrlSetText format ["%1 KM/H", round (abs (speed (vehicle player)))];
-	private _nextMapUpdate = uiNamespace getVariable ["TAE_HUD_nextMapUpdate", 0];
-	if (diag_tickTime >= _nextMapUpdate) then
+	private _index = _forEachIndex;
+	private _location = _x;
+	private _panel = _display displayCtrl ([1302,1303,1306] # _index);
+	private _title = _display displayCtrl ([1314,1304,1324] # _index);
+	private _status = _display displayCtrl ([1315,1305,1325] # _index);
+	private _active = _location > 0;
+	{_x ctrlShow _active;} forEach [_panel,_title];
+	_status ctrlShow (_active && {_index isNotEqualTo 0});
+	if (_active) then
 	{
-		_map ctrlMapAnimAdd [0, 0.075, getPosASLVisual player];
+		private _height = safeZoneH * ([0.140,0.140,0.220] # _index);
+		private _width = if (_index isEqualTo 2) then {_height * pixelW / pixelH} else {safeZoneW * 0.185};
+		private _total = _height + safeZoneH * 0.042;
+		private _offset = _used # _location;
+		private _left = switch (_location) do
+		{
+			case 2: {safeZoneX + (safeZoneW - _width)/2};
+			case 3: {safeZoneX + safeZoneW * 0.020};
+			default {safeZoneX + safeZoneW * 0.975 - _width};
+		};
+		private _top = if (_location isEqualTo 3) then
+		{
+			safeZoneY + safeZoneH * 0.115 + _offset
+		} else {
+			safeZoneY + safeZoneH * 0.975 - _offset - _total
+		};
+		_used set [_location, _offset + _total + safeZoneH * 0.012];
+		_panel ctrlSetPosition [_left,_top + safeZoneH * 0.032,_width,_height];
+		_title ctrlSetPosition [_left,_top,_width*0.62,safeZoneH*0.025];
+		_status ctrlSetPosition [_left+_width*0.62,_top,_width*0.38,safeZoneH*0.025];
+		{_x ctrlCommit 0;} forEach [_panel,_title,_status];
+		{
+			_x ctrlSetTextColor _color;
+			_x ctrlSetFont _font;
+		} forEach [_title,_status];
+		_title ctrlSetText (["GPS NAVIGATION","HELMET CAMERA","MOTION TRACKER"] # _index);
+	};
+} forEach _locations;
+
+if ((_locations # 2) > 0) then
+{
+	(_display displayCtrl 1325) ctrlSetText format ["%1 M", missionNamespace getVariable ["TAE_HUD_radarRange",50]];
+	// Camera pose updates every frame; contact scans retain their 10 Hz cadence.
+	if (diag_tickTime >= (uiNamespace getVariable ["TAE_HUD_nextRadarUpdate",0])) then
+	{
+		[] call TAE_fnc_hudUpdateRadar;
+		uiNamespace setVariable ["TAE_HUD_nextRadarUpdate",diag_tickTime+0.10];
+	};
+} else {
+	[] call TAE_fnc_hudClearRadar;
+};
+if ((_locations # 0) > 0) then
+{
+	if (diag_tickTime >= (uiNamespace getVariable ["TAE_HUD_nextMapUpdate",0])) then
+	{
+		_map ctrlMapAnimAdd [0,0.075,getPosASLVisual player];
 		ctrlMapAnimCommit _map;
-		uiNamespace setVariable ["TAE_HUD_nextMapUpdate", diag_tickTime + 0.10];
+		uiNamespace setVariable ["TAE_HUD_nextMapUpdate",diag_tickTime+0.10];
 	};
 };
-
+if ((_locations # 1) isEqualTo 0) exitWith {[] call TAE_fnc_hudDestroyCamera;};
+private _title = _display displayCtrl 1304;
+private _status = _display displayCtrl 1305;
 _title ctrlSetText "HELMET CAMERA";
 private _targets = (units group player) select
 {

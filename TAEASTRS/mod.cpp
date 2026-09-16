@@ -1,10 +1,10 @@
 name                    = "The Ashen Enclave TFAR Setter";
 author                  = "Chatter and M3ales; TAE Mod Team";
 tooltipOwned            = "The Ashen Enclave TFAR Setter";
-picture                 = "ATSR_Logo.paa";
-logoSmall               = "ATSR_Logo.paa";
-logo                    = "ATSR_Logo.paa";
-logoOver                = "ATSR_Logo.paa";
+picture                 = "ATSR_Logo_ca.paa";
+logoSmall               = "ATSR_Logo_ca.paa";
+logo                    = "ATSR_Logo_ca.paa";
+logoOver                = "ATSR_Logo_ca.paa";
 hideName                = 0;
 hidePicture             = 0;
 actionName              = "Github";

@@ -9,6 +9,7 @@ class CfgPatches {
 			"ace_medical_treatment",
 			"cba_xeh",
 			"ls_common",
+			"ls_weapons_mpl",
 			"TAEUniforms",
 			"TAEGear_Armors_Customs",
 			"TAEGear_Helmets_Customs",
@@ -453,7 +454,7 @@ class CfgVehicles {
 		author = "TAE Mod Team";
 		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Infantry";
-		editorPreview = "\TAEUnits\data\previews\Karr.paa";
+		editorPreview = "\TAEUnits\data\previews\Karr_ca.paa";
 		side = 2;
 		genericNames = "TAE_GenericNames_HouseKarr";
 
@@ -3479,14 +3480,14 @@ class CfgVehicles {
 		backpack = "tae_modular_pack";
 		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
-			"tae_IQA12",
+			"tae_IQA11a",
 			"LFP_Westar_35",
 			"JMSLLTE_W_TD23_white_F",
 			"Throw",
 			"Put"
 		};
 		respawnWeapons[] = {
-			"tae_IQA12",
+			"tae_IQA11a",
 			"LFP_Westar_35",
 			"JMSLLTE_W_TD23_white_F",
 			"Throw",
@@ -3749,7 +3750,7 @@ class CfgVehicles {
 		author = "TAE Mod Team";
 		faction = "TAE_Faction_Criminals";
 		editorSubcategory = "TAE_EdSubcat_BlackSpireCartel";
-		editorPreview = "\TAEUnits\data\previews\Karr.paa";
+		editorPreview = "\TAEUnits\data\previews\Karr_ca.paa";
 		side = 2;
 		genericNames = "TAE_GenericNames_HouseKarr";
 		identityTypes[] = {"LanguageENG_F","Head_NATO","TAE_NoFacewear"};
@@ -4248,7 +4249,7 @@ class CfgVehicles {
 		author = "TAE Mod Team";
 		faction = "TAE_Faction_NihilRaiders";
 		editorSubcategory = "TAE_EdSubcat_NihilRaiders";
-		editorPreview = "\TAEUnits\data\previews\Karr.paa";
+		editorPreview = "\TAEUnits\data\previews\Karr_ca.paa";
 		side = 0;
 		genericNames = "TAE_GenericNames_HouseKarr";
 		identityTypes[] = {"LanguageENG_F","Head_NATO","TAE_NoFacewear"};
@@ -4330,8 +4331,23 @@ class CfgVehicles {
 		uniformClass = "JMSLLTE_HuttHeavy_brown_F_CombatUniform";
 		weapons[] = {"ls_weapon_mpl57","Throw","Put"};
 		respawnWeapons[] = {"ls_weapon_mpl57","Throw","Put"};
-		magazines[] = {"ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF"};
-		respawnMagazines[] = {"ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF","ls_magazine_3Rnd_40mw_G76_HEF"};
+		// Updated LS MPL uses single-round magazines; retain the 30-round supply.
+		magazines[] = {
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF"
+		};
+		respawnMagazines[] = {
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF",
+			"ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF","ls_magazine_40mm_G76_HEF"
+		};
 		linkedItems[] = {"LST_DSI_Vest_V1_Armor","SFA_Combat_Eng_Helmet","ItemMap","ItemRadio","ItemCompass","ItemWatch"};
 		respawnLinkedItems[] = {"LST_DSI_Vest_V1_Armor","SFA_Combat_Eng_Helmet","ItemMap","ItemRadio","ItemCompass","ItemWatch"};
 		items[] = {"FirstAidKit","JMSLLTE_thermaldetonator_HandGrenade","JMSLLTE_thermaldetonator_HandGrenade"};
@@ -4702,7 +4718,7 @@ class CfgVehicles {
 		displayName = "Civilian (Random)";
 		faction = "TAE_Faction_Civilians";
 		editorSubcategory = "TAE_EdSubcat_Civilians";
-		editorPreview = "\TAEUnits\data\previews\Karr.paa";
+		editorPreview = "\TAEUnits\data\previews\Karr_ca.paa";
 		side = 3;
 		identityTypes[] = {"LanguageENG_F","Head_NATO","NoGlasses"};
 		icon = "iconMan";

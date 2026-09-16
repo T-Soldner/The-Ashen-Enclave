@@ -1,66 +1,64 @@
 params [["_visible", true, [true]]];
 
-private _hudState = shownHUD;
-if (isNil {uiNamespace getVariable "TAE_HUD_savedVanillaInfo"}) then
+// Restore only controls we changed, with their original visibility and fade.
+private _saved = uiNamespace getVariable ["TAE_HUD_hiddenWeaponControls", []];
+if (_visible) exitWith
 {
-	uiNamespace setVariable ["TAE_HUD_savedVanillaInfo", _hudState param [1, true]];
-};
-private _savedInfo = uiNamespace getVariable ["TAE_HUD_savedVanillaInfo", true];
-// Optic rangefinders share the info layer. Hide only the replacement controls below,
-// not the entire layer, so binocular/scope distance readouts remain available.
-_hudState set [1, _savedInfo];
-showHUD _hudState;
-
-private _unitInfoDisplay = uiNamespace getVariable ["RscUnitInfo", displayNull];
-
-if (isNull _unitInfoDisplay) then
-{
-	private _matches = allDisplays select
 	{
-		(_x getVariable ["BIS_fnc_initDisplay_configClass", ""]) isEqualTo "RscUnitInfo"
-	};
-	_unitInfoDisplay = _matches param [0, displayNull];
-};
-
-if (isNull _unitInfoDisplay) then
-{
-	_unitInfoDisplay = findDisplay 300;
-};
-
-if (isNull _unitInfoDisplay) exitWith {};
-
-{
-	private _control = _unitInfoDisplay displayCtrl _x;
-	if (!isNull _control) then
-	{
-		_control ctrlShow _visible;
-		_control ctrlSetFade ([1, 0] select _visible);
-		_control ctrlCommit 0;
-	};
-} forEach
-[
-	2302, // Infantry weapon panel
-	2303, // Vehicle weapon panel
-	187,  // Weapon-mode arrows (fallback for non-grouped layouts)
-	168,  // Weapon zeroing
-	380,  // Infantry freefall speed
-	121,  // Vehicle speed value
-	1004, // Vehicle speed unit
-	1006  // Vehicle speed background
-];
-
-// The vanilla soldier HUD nests the mode arrows inside its weapon groups and
-// can reshow that child independently of the parent control.
-{
-	private _group = _unitInfoDisplay displayCtrl _x;
-	if (!isNull _group) then
-	{
-		private _modeTexture = _group controlsGroupCtrl 187;
-		if (!isNull _modeTexture) then
+		_x params ["_control", "_shown", "_fade"];
+		if (!isNull _control) then
 		{
-			_modeTexture ctrlShow _visible;
-			_modeTexture ctrlSetFade ([1, 0] select _visible);
-			_modeTexture ctrlCommit 0;
+			_control ctrlShow _shown;
+			_control ctrlSetFade _fade;
+			_control ctrlCommit 0;
 		};
+	} forEach _saved;
+	uiNamespace setVariable ["TAE_HUD_hiddenWeaponControls", []];
+};
+
+// Keep the info layer itself enabled for scope/binocular distance readouts.
+// Multiple IDD 300 displays can coexist; the namespace handle may not be newest.
+private _displays = allDisplays select
+{
+	ctrlIDD _x isEqualTo 300 ||
+	{(_x getVariable ["BIS_fnc_initDisplay_configClass", ""]) isEqualTo "RscUnitInfo"}
+};
+private _info = uiNamespace getVariable ["RscUnitInfo", displayNull];
+if (!isNull _info) then {_displays pushBackUnique _info;};
+_info = findDisplay 300;
+if (!isNull _info) then {_displays pushBackUnique _info;};
+_saved = _saved select {!isNull (_x # 0)};
+private _controls = [];
+{
+	private _display = _x;
+	{
+		private _control = _display displayCtrl _x;
+		if (!isNull _control) then {_controls pushBackUnique _control;};
+	} forEach [2302,2303,187,380,121,1004,1006];
+	// Only zeroing, not the optic's CA_Distance (198).
+	{
+		if (ctrlClassName _x isEqualTo "CA_Zeroing") then {_controls pushBackUnique _x;};
+	} forEach allControls _display;
+	{
+		private _group = _display displayCtrl _x;
+		if (!isNull _group) then
+		{
+			private _arrows = _group controlsGroupCtrl 187;
+			if (!isNull _arrows) then {_controls pushBackUnique _arrows;};
+		};
+	} forEach [2302,2303];
+} forEach _displays;
+// Capture all states before hiding parents, which can affect child visibility.
+{
+	private _control = _x;
+	if ((_saved findIf {(_x # 0) isEqualTo _control}) < 0) then
+	{
+		_saved pushBack [_control, ctrlShown _control, ctrlFade _control];
 	};
-} forEach [2302, 2303];
+} forEach _controls;
+{
+	_x ctrlShow false;
+	_x ctrlSetFade 1;
+	_x ctrlCommit 0;
+} forEach _controls;
+uiNamespace setVariable ["TAE_HUD_hiddenWeaponControls", _saved];

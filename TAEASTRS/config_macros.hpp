@@ -3,7 +3,7 @@
 #define FUNC(name) ADDON##_fnc_##name
 #define QUOTE(target) #target
 #define FUNCTION_PATH ADDON##\functions
-#define ICON_PATH(icon_name) ADDON##\ui\##icon_name##.paa
+#define ICON_PATH(icon_name) ADDON##\ui\##icon_name##_ca.paa
 #define COMPILE_FILE(name) compile preprocessFileLineNumbers 'ADDON\##name##.sqf'
 #define GVAR(name) ADDON##_##name
 #define ARR_2(a,b) a, b

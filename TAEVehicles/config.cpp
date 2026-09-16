@@ -11,15 +11,21 @@ class CfgPatches {
 			"TAEObjects",
 			"TAEUnits_HouseKarr",
 			"mti_armoury_vehicles_weapons",
+			"mti_armoury_vehicles_delta",
+			"mti_armoury_vehicles_barc",
+			"mti_armoury_statics_stretcher",
 			"ls_vehicles_z98",
 			"knd_jdumb"
 		};
 		units[] = {
 			"TAE_KomrkFighter_Transport",
 			"TAE_Skycat_Transport",
-			"TAE_Z98_Headhunter"
+			"TAE_Z98_Headhunter",
+			"TAE_Delta7_Interceptor",
+			"TAE_BARC_Stretcher"
 		};
 		weapons[] = {
+			"TAE_BARC_Repeater",
 			"TAE_Skycat_weapon_MPR10",
 			"TAE_Skycat_weapon_Talon",
 			"TAE_Skycat_weapon_Firebrand",
@@ -40,6 +46,9 @@ class CfgPatches {
 };
 
 class CfgEditorSubcategories {
+	class TAE_EdSubcat_HouseKarr_Speeders {
+		displayName = "Speeders";
+	};
 	class TAE_EdSubcat_HouseKarr_Aircraft {
 		displayName = "Aircraft";
 	};
@@ -57,6 +66,22 @@ class CfgFunctions {
 };
 
 class CfgWeapons {
+	class CannonCore;
+	class 3AS_BARC_Repeater: CannonCore {
+		class manual;
+		class close;
+		class short;
+		class medium;
+		class far;
+	};
+	class TAE_BARC_Repeater: 3AS_BARC_Repeater {
+		// Half the original 0.3-second interval; retain AI burst patterns.
+		class manual: manual { reloadTime = 0.15; };
+		class close: close { reloadTime = 0.15; };
+		class short: short { reloadTime = 0.15; };
+		class medium: medium { reloadTime = 0.15; };
+		class far: far { reloadTime = 0.15; };
+	};
 	class mti_armoury_weapon_AA_Missile_Light_Pylon;
 	class mti_armoury_weapon_AA_Short_Missile_Pylon;
 	class mti_armoury_weapon_AA_Long_Missile_Pylon;
@@ -179,7 +204,164 @@ class CfgWeapons {
 		};
 	};
 };
+class SensorTemplateActiveRadar;
 class CfgAmmo {
+	class mti_armoury_ammo_AA_Base_Ammo;
+	class mti_armoury_ammo_AA_Ammo_Light: mti_armoury_ammo_AA_Base_Ammo {
+		class Components {
+			class SensorsManagerComponent {
+				class Components {
+					class IRSensorComponent;
+				};
+			};
+		};
+	};
+	class TAE_ammo_Talon: mti_armoury_ammo_AA_Ammo_Light {
+		maxSpeed = 700;
+		maneuvrability = 40;
+		missileLockMaxDistance = 1500;
+		weaponLockSystem = 2 + 8;
+		class Components: Components {
+			class SensorsManagerComponent: SensorsManagerComponent {
+				class Components: Components {
+					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+						class AirTarget {
+							minRange = 15000;
+							maxRange = 15000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget: AirTarget {};
+						angleRangeHorizontal = 150;
+						angleRangeVertical = 150;
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minSpeedThreshold = 0;
+						maxSpeedThreshold = 0;
+						minTrackableATL = -1000000;
+						maxTrackableATL = 1000000;
+					};
+					class IRSensorComponent: IRSensorComponent {
+						// 10x sensitivity compensates for low IR signatures; lock distance stays capped.
+						class AirTarget {
+							minRange = 15000;
+							maxRange = 15000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget: AirTarget {};
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minTrackableATL = -1000000;
+						maxTrackableATL = 1000000;
+					};
+				};
+			};
+		};
+	};
+	class mti_armoury_ammo_AA_Ammo_Short: mti_armoury_ammo_AA_Base_Ammo {
+		class Components {
+			class SensorsManagerComponent {
+				class Components {
+					class IRSensorComponent;
+				};
+			};
+		};
+	};
+	class TAE_ammo_Pursuit: mti_armoury_ammo_AA_Ammo_Short {
+		thrust = 600;
+		missileLockMaxDistance = 6000;
+		weaponLockSystem = 2 + 8;
+		class Components: Components {
+			class SensorsManagerComponent: SensorsManagerComponent {
+				class Components: Components {
+					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+						class AirTarget {
+							minRange = 60000;
+							maxRange = 60000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget: AirTarget {};
+						angleRangeHorizontal = 150;
+						angleRangeVertical = 150;
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minSpeedThreshold = 0;
+						maxSpeedThreshold = 0;
+						minTrackableATL = -1000000;
+						maxTrackableATL = 1000000;
+					};
+					class IRSensorComponent: IRSensorComponent {
+						// 10x sensitivity compensates for low IR signatures; lock distance stays capped.
+						class AirTarget {
+							minRange = 60000;
+							maxRange = 60000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget: AirTarget {};
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minTrackableATL = -1000000;
+						maxTrackableATL = 1000000;
+					};
+				};
+			};
+		};
+	};
+	class mti_armoury_ammo_AA_Missile_Long: mti_armoury_ammo_AA_Base_Ammo {
+		class Components {
+			class SensorsManagerComponent {
+				class Components {
+					class IRSensorComponent;
+				};
+			};
+		};
+	};
+	class TAE_ammo_Longspear: mti_armoury_ammo_AA_Missile_Long {
+		maneuvrability = 15;
+		maxSpeed = 2222.222222; // 8000 km/h
+		missileLockMaxDistance = 12000;
+		weaponLockSystem = 2 + 8;
+		class Components: Components {
+			class SensorsManagerComponent: SensorsManagerComponent {
+				class Components: Components {
+					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+						class AirTarget {
+							minRange = 120000;
+							maxRange = 120000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget: AirTarget {};
+						angleRangeHorizontal = 190;
+						angleRangeVertical = 190;
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minSpeedThreshold = 0;
+						maxSpeedThreshold = 0;
+						minTrackableATL = -1000000;
+						maxTrackableATL = 1000000;
+					};
+					class IRSensorComponent: IRSensorComponent {
+						// 10x sensitivity compensates for low IR signatures; lock distance stays capped.
+						class AirTarget {
+							minRange = 120000;
+							maxRange = 120000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget: AirTarget {};
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minTrackableATL = -1000000;
+						maxTrackableATL = 1000000;
+					};
+				};
+			};
+		};
+	};
 	class ACE_Hydra70_DAGR;
 	class mti_armoury_ammo_AGM_Missile;
 
@@ -240,6 +422,7 @@ class CfgMagazines {
 	};
 
 	class TAE_Komrk_mag_Lightning: mti_armoury_mag_AA_Light_Mag {
+		ammo = "TAE_ammo_Talon";
 		displayName = "Talon Interceptor (3-Round)";
 		displayNameShort = "Talon (3)";
 		descriptionShort = "Talon is a short-range anti-air interceptor missile with a maximum lock range of 1.5 kilometers.";
@@ -251,6 +434,7 @@ class CfgMagazines {
 	};
 
 	class TAE_Komrk_mag_Typhoon: mti_armoury_mag_AA_Short_Mag {
+		ammo = "TAE_ammo_Pursuit";
 		displayName = "Pursuit Concussion (3-Round)";
 		displayNameShort = "Pursuit (3)";
 		descriptionShort = "Pursuit is a medium-range concussion missile for general anti-air engagements, with a maximum lock range of 6 kilometers.";
@@ -262,9 +446,10 @@ class CfgMagazines {
 	};
 
 	class TAE_Komrk_mag_Hurricane: mti_armoury_mag_AA_Long_Mag {
+		ammo = "TAE_ammo_Longspear";
 		displayName = "Longspear (3-Round)";
 		displayNameShort = "Longspear (3)";
-		descriptionShort = "Longspear is a long-range anti-air missile intended to engage distant aircraft.";
+		descriptionShort = "Longspear is a long-range anti-air missile with a maximum lock range of 12 kilometers.";
 		count = 3;
 		hardpoints[] = {
 			"TAE_KOMRK_HP_AA"
@@ -305,6 +490,7 @@ class CfgMagazines {
 	};
 
 	class TAE_Z98_mag_Lightning: mti_armoury_mag_AA_Light_Mag {
+		ammo = "TAE_ammo_Talon";
 		displayName = "Talon Interceptor (3-Round)";
 		displayNameShort = "Talon (3)";
 		descriptionShort = "Talon is a short-range anti-air interceptor missile with a maximum lock range of 1.5 kilometers.";
@@ -316,6 +502,7 @@ class CfgMagazines {
 	};
 
 	class TAE_Z98_mag_Typhoon: mti_armoury_mag_AA_Short_Mag {
+		ammo = "TAE_ammo_Pursuit";
 		displayName = "Pursuit Concussion (3-Round)";
 		displayNameShort = "Pursuit (3)";
 		descriptionShort = "Pursuit is a medium-range concussion missile for general anti-air engagements, with a maximum lock range of 6 kilometers.";
@@ -328,9 +515,10 @@ class CfgMagazines {
 	};
 
 	class TAE_Z98_mag_Hurricane: mti_armoury_mag_AA_Long_Mag {
+		ammo = "TAE_ammo_Longspear";
 		displayName = "Longspear (3-Round)";
 		displayNameShort = "Longspear (3)";
-		descriptionShort = "Longspear is a long-range anti-air missile intended to engage distant aircraft.";
+		descriptionShort = "Longspear is a long-range anti-air missile with a maximum lock range of 12 kilometers.";
 		count = 3;
 		hardpoints[] = {
 			"TAE_Z98_HP_MIDDLE",
@@ -373,17 +561,205 @@ class CfgMagazines {
 	};
 };
 
-class SensorTemplateActiveRadar;
 class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
+	class BARC_Base;
+	class 3AS_BARC_Base: BARC_Base {
+		class Sounds;
+		class Wheels {
+			class LF;
+			class LR;
+			class RF;
+			class RR;
+		};
+		class PlayerSteeringCoefficients;
+	};
+	class 3AS_Barc_501: 3AS_BARC_Base {};
+	class 3AS_Barc: 3AS_Barc_501 {};
+	class mti_armoury_vehicles_barc_base: 3AS_Barc {};
+	class mti_armoury_vehicles_barc_stretcher: mti_armoury_vehicles_barc_base {
+		class Sounds: Sounds {};
+		class Wheels: Wheels {
+			class LF: LF {};
+			class LR: LR {};
+			class RF: RF {};
+			class RR: RR {};
+		};
+		class PlayerSteeringCoefficients: PlayerSteeringCoefficients {};
+	};
+	class TAE_BARC_Stretcher: mti_armoury_vehicles_barc_stretcher {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "[TAE] BARC Speeder";
+		maxSpeed = 180;
+		class Sounds: Sounds {
+			// Upstream high-RPM layers have empty samples. Crossfade in a
+			// real BARC loop as the existing low-RPM layer fades out.
+			class TAE_EngineHigh_ext {
+				sound[] = {"3AS\3AS_LightVics\3AS_BARC\sounds\eng_barcspeeder_hi.ogg", 0.65, 1, 300};
+				frequency = "0.9 + (rpm factor[1600,3500])*0.25";
+				volume = "engineOn*camPos*(rpm factor[1600,2040])";
+			};
+			class TAE_EngineHigh_int {
+				sound[] = {"3AS\3AS_LightVics\3AS_BARC\sounds\eng_barcspeeder_hi.ogg", 1, 1};
+				frequency = "0.9 + (rpm factor[1600,3500])*0.25";
+				volume = "engineOn*(1-camPos)*(rpm factor[1600,2040])";
+			};
+		};
+		hiddenSelectionsTextures[] = {"\TAEVehicles\data\barc\barc_house_karr_co.paa"};
+		textureList[] = {"TAE_HouseKarr", 1};
+		class TextureSources {
+			class TAE_HouseKarr {
+				displayName = "House Karr";
+				author = "3rd Army Studios and TAE Mod Team";
+				textures[] = {"\TAEVehicles\data\barc\barc_house_karr_co.paa"};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+			class SOB {
+				displayName = "Special Operations Brigade";
+				author = "MokTech Industries";
+				textures[] = {"\z\mti_armoury\addons\vehicles\barc\data\barc_MTI_co.paa"};
+				factions[] = {"mti_faction_SOB"};
+			};
+		};
+		author = "3rd Army Studios, MokTech Industries and TAE Mod Team";
+		side = 2;
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Speeders";
+		crew = "TAE_Unit_Medic";
+		typicalCargo[] = {"TAE_Unit_Medic"};
+		weapons[] = {"TAE_BARC_Repeater"};
+		// Reduce rebound without changing spring stiffness or ride height.
+		class Wheels: Wheels {
+			class LF: LF { springDamperRate = 11250; };
+			class LR: LR { springDamperRate = 11250; };
+			class RF: RF { springDamperRate = 11250; };
+			class RR: RR { springDamperRate = 11250; };
+		};
+		class PlayerSteeringCoefficients: PlayerSteeringCoefficients {
+			maxTurnHundred = 0.65;
+		};
+	};
 	class Helicopter_Base_H;
 	class knd_KomrkFighter_VTOL_Dynamic_F;
 	class knd_vehicles_skycat: Helicopter_Base_H {
 		class Components;
 	};
 	class ls_vehicle_z98;
+	class Plane_Base_F;
+	class 3AS_Delta7_Base_F: Plane_Base_F {
+		class Components;
+		class TextureSources;
+	};
+	class mti_armoury_vehicles_delta_base: 3AS_Delta7_Base_F {
+		class TextureSources: TextureSources {};
+		class Components: Components {
+			class SensorsManagerComponent {
+				class Components;
+			};
+			class TransportPylonsComponent {
+				class pylons;
+				class presets;
+			};
+		};
+	};
+
+	class TAE_Delta7_Interceptor: mti_armoury_vehicles_delta_base {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Delta-7 ""Ashwing""";
+		displayNameShort = "Delta-7 ""Ashwing""";
+		hiddenSelectionsTextures[] = {
+			"\TAEVehicles\data\delta7\DEL7_Hull_Purple_DarkRed_co.paa",
+			"3AS\3AS_Delta7\data\Delta7_Landing_Gear_co.paa",
+			"3AS\3AS_Delta7\data\Delta7_Cockpit_co.paa",
+			"3AS\3AS_Delta7\data\Delta7_Interfaces_ca.paa"
+		};
+		textureList[] = {"TAE_Purple_DarkRed", 1};
+		mti_aircraft_hasSkins = 1;
+		class TextureSources: TextureSources {
+			class TAE_Purple_DarkRed {
+				displayName = "Ashwing";
+				author = "3rd Army Studios and TAE Mod Team";
+				factions[] = {};
+				mti_aircraft_scope = 1;
+				textures[] = {
+					"\TAEVehicles\data\delta7\DEL7_Hull_Purple_DarkRed_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Landing_Gear_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Cockpit_co.paa",
+					"3AS\3AS_Delta7\data\Delta7_Interfaces_ca.paa"
+				};
+			};
+		};
+		author = "3rd Army Studios, MokTech Industries and TAE Mod Team";
+		side = 2;
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Aircraft";
+		crew = "TAE_Unit_Pilot";
+		typicalCargo[] = {"TAE_Unit_Pilot"};
+		tf_hasLRradio = 1;
+		tf_range = 100000;
+		maxSpeed = 2000;
+		altFullForce = 10000;
+		altNoForce = 20000;
+		// Test: disable automatic pitch alignment to the vertical flight path.
+		draconicTorqueYCoef = 0;
+		// Two successive 15% increases: 32.25% above the inherited 3AS curve.
+		thrustCoef[] = {1.98375,1.98375,2.116,2.3805,2.645,3.30625,3.9675,4.62875,3.30625,2.645,2.24825,1.98375,1.45475,1.3225,1.3225,1.3225};
+		weapons[] = {"mti_armoury_weapon_AA_Cannon", "Laserdesignator_pilotCamera", "ls_weapon_CMFlareLauncher"};
+		magazines[] = {
+			"mti_armoury_mag_AA_Cannon_Mag",
+			"mti_armoury_mag_AA_Cannon_Mag",
+			"mti_armoury_mag_AA_Cannon_Mag",
+			"Laserbatteries",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple"
+		};
+		ace_cargo_space = 15;
+		ace_cargo_hasCargo = 1;
+		delete ACE_Cargo;
+		class Components: Components {
+			class SensorsManagerComponent: SensorsManagerComponent {
+				class Components: Components {
+					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+						angleRangeHorizontal = 360;
+						angleRangeVertical = 360;
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minSpeedThreshold = 0;
+						maxSpeedThreshold = 0;
+						class AirTarget {
+							minRange = 100000;
+							maxRange = 100000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget: AirTarget {};
+					};
+				};
+			};
+			class TransportPylonsComponent: TransportPylonsComponent {
+				class pylons: pylons {
+					delete pylons1;
+					delete pylons2;
+					delete pylons3;
+					delete pylons4;
+					delete pylons5;
+					delete pylons6;
+					delete Pylons7;
+				};
+				class presets: presets {
+					delete Default;
+					delete empty;
+				};
+			};
+		};
+	};
 
 	class TAE_KomrkFighter_Transport_base: knd_KomrkFighter_VTOL_Dynamic_F {
 		scope = 0;
@@ -1184,16 +1560,23 @@ class CfgVehicles {
 			class SensorsManagerComponent {
 				class Components {
 					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
+						// Compensate for small radar signatures and remove look-down clutter filtering.
+						angleRangeHorizontal = 360;
+						angleRangeVertical = 360;
+						groundNoiseDistanceCoef = -1;
+						maxGroundNoiseDistance = -1;
+						minSpeedThreshold = 0;
+						maxSpeedThreshold = 0;
 						class AirTarget {
-							minRange = 0;
-							maxRange = 32000;
+							minRange = 100000;
+							maxRange = 100000;
 							objectDistanceLimitCoef = -1;
 							viewDistanceLimitCoef = -1;
 						};
 
 						class GroundTarget {
-							minRange = 0;
-							maxRange = 8000;
+							minRange = 100000;
+							maxRange = 100000;
 							objectDistanceLimitCoef = -1;
 							viewDistanceLimitCoef = -1;
 						};

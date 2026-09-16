@@ -14,6 +14,9 @@ class CfgFunctions {
 			class initHelmetDivingVision {
 				postInit = 1;
 			};
+			class initHelmetHeadRestore {
+				postInit = 1;
+			};
 		};
 	};
 };

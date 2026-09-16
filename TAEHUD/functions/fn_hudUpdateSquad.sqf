@@ -15,6 +15,14 @@ if (!_showSquad) exitWith
 };
 
 private _groupUnits = units (group player);
+private _houseLink = (missionNamespace getVariable ["TAE_HUD_linkView", 0]) isEqualTo 1
+	&& {leader group player isEqualTo player};
+if (_houseLink) then
+{
+	private _side = side group player;
+	_groupUnits = (allGroups select {side _x isEqualTo _side}) apply {leader _x};
+	_groupUnits = _groupUnits select {!isNull _x && {isPlayer _x} && {alive _x}};
+};
 private _trackedUnits = _groupUnits select {_x isNotEqualTo player && {!isNull _x}};
 private _slotCount = 15;
 private _visibleCount = (count _trackedUnits) min _slotCount;
@@ -86,7 +94,7 @@ private _nodeLabel = if (_nodeCount > (_slotCount + 1)) then
 {
 	format ["%1 %2", _nodeCount, ["NODE", "NODES"] select (_nodeCount isNotEqualTo 1)]
 };
-_header ctrlSetText format ["SQUAD LINK // %1", _nodeLabel];
+_header ctrlSetText format ["%1 // %2", ["CLAN LINK", "HOUSE LINK"] select _houseLink, _nodeLabel];
 
 for "_index" from 0 to (_slotCount - 1) do
 {
@@ -206,7 +214,13 @@ for "_index" from 0 to (_slotCount - 1) do
 			_label
 		];
 		(_controls # 1) ctrlSetTextColor _identityColor;
-		(_controls # 2) ctrlSetText format ["%1 M", round (player distance _unit)];
+		private _distance = player distance _unit;
+		(_controls # 2) ctrlSetText (if (_distance > 1000) then
+		{
+			format ["%1 km", (_distance / 1000) toFixed 1]
+		} else {
+			format ["%1 M", round _distance]
+		});
 		(_controls # 2) ctrlSetTextColor _dimColor;
 		(_controls # 3) ctrlSetText _status;
 		(_controls # 3) ctrlSetTextColor _statusColor;

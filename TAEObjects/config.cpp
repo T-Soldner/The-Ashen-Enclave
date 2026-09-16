@@ -11,6 +11,7 @@ class CfgPatches {
 			"ace_dragging",
 			"ace_cargo",
 			"ls_compat_ace_flags",
+			"ls_props_staticships",
 			"cba_xeh",
 			"JLTS_weapons_crates",
 			"3AS_Props",
@@ -18,6 +19,8 @@ class CfgPatches {
 			"3as_GNK_Prop",
 			"3AS_Prop_Flags",
 			"ls_characters_mandalorian",
+			"ls_weapons_westar",
+			"ls_weapons_zh73",
 			"tgf_helmets",
 			"TAEGear_Helmets_Customs",
 			"TAEGear_Armors_Customs",
@@ -27,6 +30,8 @@ class CfgPatches {
 			"knd_crates"
 		};
 		units[] = {
+			"TAE_Acclamator",
+			"TAE_Acclamator_Landed",
 			"TAE_Restricted_Arsenal_Box",
 			"TAE_Specialization_Gonk_Droid",
 			"TAE_Medical_Droid",
@@ -68,7 +73,7 @@ class CfgPatches {
 			"TAE_Wearable_Nox_Helmet",
 			"TAE_Wearable_Hondo_Helmet",
 			"TAE_Wearable_Edonn_Helmet",
-			"TAE_Wearable_Teka_Helmet"
+			"TAE_Wearable_Shyyyo_Helmet"
 		};
 		weapons[] = {
 			"TAE_ClanFlag_Acklay_Item",
@@ -90,6 +95,9 @@ class CfgEditorCategories {
 };
 
 class CfgEditorSubcategories {
+	class TAE_EdSubcat_HouseKarr_CapitalShips {
+		displayName = "Capital Ships";
+	};
 	class TAE_EdSubcat_HouseKarr_ArsenalServices {
 		displayName = "Arsenal and Services";
 	};
@@ -115,6 +123,7 @@ class CfgFunctions {
 	class TAE {
 		class Objects {
 			file = "TAEObjects\functions";
+			class initAcclamatorFTL { postInit = 1; };
 			class applyWearableLoadout {};
 			class fullHealPlayer {};
 			class initRestrictedArsenal {};
@@ -193,6 +202,27 @@ class CfgWeapons {
 };
 
 class CfgVehicles {
+	class ls_staticShip_acclamator;
+	class ls_staticShip_acclamator_landed;
+
+	class TAE_Acclamator: ls_staticShip_acclamator {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "[TAE] Acclamator";
+		author = "Legion Studios and TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_CapitalShips";
+	};
+
+	class TAE_Acclamator_Landed: ls_staticShip_acclamator_landed {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "[TAE] Acclamator (Landed)";
+		author = "Legion Studios and TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_CapitalShips";
+	};
+
 	class JLTS_Ammobox_weapons_GAR;
 	class JLTS_Ammobox_explosives_GAR;
 	class JLTS_Ammobox_ammo_GAR;
@@ -397,8 +427,8 @@ class CfgVehicles {
 		model = "\ls\core\addons\characters_mandalorian\helmets\traditional\ls_helmet_mandalorian_traditional.p3d";
 		hiddenSelections[] = {"camo1","visor","neckTex"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Acklay\LS_TRAD_Helmet_Acklay.paa",
-			"\TAEGear\data\Acklay\LS_TRAD_Visor_Acklay.paa",
+			"\TAEGear\data\Acklay\LS_TRAD_Helmet_Acklay_co.paa",
+			"\TAEGear\data\Acklay\LS_TRAD_Visor_Acklay_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
 		};
 		simulation = "thingX";
@@ -476,7 +506,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Foxx\TRAD_Helmet_Foxx.paa",
+			"\TAEGear\data\Foxx\TRAD_Helmet_Foxx_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
@@ -528,7 +558,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Varen\TRAD_Helmet_Varen.paa",
+			"\TAEGear\data\Varen\TRAD_Helmet_Varen_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
@@ -574,7 +604,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Haranverd\TRAD_Helmet_Haranverd.paa",
+			"\TAEGear\data\Haranverd\TRAD_Helmet_Haranverd_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
@@ -626,7 +656,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Kyram\TRAD_Helmet_Kyram.paa",
+			"\TAEGear\data\Kyram\TRAD_Helmet_Kyram_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
@@ -659,7 +689,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Rook\TRAD_Helmet_Rook.paa",
+			"\TAEGear\data\Rook\TRAD_Helmet_Rook_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
@@ -717,7 +747,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Mando.paa",
+			"\TAEGear\data\HouseKarr\Traditional\TRAD_Helmet_Mando_co.paa",
 			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
@@ -788,7 +818,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\warlord\warlord_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Nox\WAR_Helmet_Nox.paa",
+			"\TAEGear\data\Nox\WAR_Helmet_Nox_co.paa",
 			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
 		};
 
@@ -816,7 +846,7 @@ class CfgVehicles {
 		model = "\z\tgf\addons\helmets\battle_master\battle_master.p3d";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Hondo\BM_Helmet_Hondo.paa",
+			"\TAEGear\data\Hondo\BM_Helmet_Hondo_co.paa",
 			"\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"
 		};
 
@@ -844,8 +874,8 @@ class CfgVehicles {
 		model = "\ls\core\addons\characters_mandalorian\helmets\dinDjarin\ls_helmet_mandalorian_dinDjarin.p3d";
 		hiddenSelections[] = {"camo1","visor","neckTex"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Edonn\LS_DIN_Helmet_Edonn.paa",
-			"\TAEGear\data\Edonn\LS_DIN_Visor_Edonn.paa",
+			"\TAEGear\data\Edonn\LS_DIN_Helmet_Edonn_co.paa",
+			"\TAEGear\data\Edonn\LS_DIN_Visor_Edonn_co.paa",
 			"\ls\core\addons\characters_mandalorian\helmets\traditional\data\neck_co.paa"
 		};
 		hiddenSelectionsMaterials[] = {
@@ -870,16 +900,16 @@ class CfgVehicles {
 		};
 	};
 
-	class TAE_Wearable_Teka_Helmet: TAE_Wearable_Helmet_Base {
+	class TAE_Wearable_Shyyyo_Helmet: TAE_Wearable_Helmet_Base {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "Shyyyo Pilot Helmet";
 		model = "\z\tgf\addons\helmets\pilot\pilot_helmet.p3d";
 		hiddenSelections[] = {"camo1","camo2","camo"};
 		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo.paa",
-			"\TAEGear\data\Shyyyo\PLT_Visor_Shyyyo.paa",
-			"\TAEGear\data\Shyyyo\PLT_Lights_Shyyyo.paa"
+			"\TAEGear\data\Shyyyo\PLT_Helmet_Shyyyo_co.paa",
+			"\TAEGear\data\Shyyyo\PLT_Visor_Shyyyo_co.paa",
+			"\TAEGear\data\Shyyyo\PLT_Lights_Shyyyo_co.paa"
 		};
 
 		class ACE_Actions {
@@ -1031,7 +1061,7 @@ class CfgVehicles {
 		armor = 4000;
 		hiddenSelectionsTextures[] = {
 			"\MRC\JLTS\weapons\Crates\data\crate_1_GAR_co.paa",
-			"\TAEObjects\data\screen_karr_arsenal.paa"
+			"\TAEObjects\data\screen_karr_arsenal_co.paa"
 		};
 
 		ace_dragging_canCarry = 0;
@@ -1066,7 +1096,7 @@ class CfgVehicles {
 		armor = 4000;
 		hiddenSelectionsTextures[] = {
 			"\MRC\JLTS\weapons\Crates\data\crate_1_GAR_co.paa",
-			"\TAEObjects\data\screen_karr_arsenal.paa"
+			"\TAEObjects\data\screen_karr_arsenal_co.paa"
 		};
 
 		ace_dragging_canCarry = 0;
@@ -1118,7 +1148,7 @@ class CfgVehicles {
 		armor = 4000;
 		hiddenSelectionsTextures[] = {
 			"\MRC\JLTS\weapons\Crates\data\crate_1_GAR_co.paa",
-			"\TAEObjects\data\screen_karr_arsenal.paa"
+			"\TAEObjects\data\screen_karr_arsenal_co.paa"
 		};
 
 		ace_dragging_canCarry = 0;
@@ -1289,7 +1319,7 @@ class CfgVehicles {
 		armor = 4000;
 		hiddenSelectionsTextures[] = {
 			"\MRC\JLTS\weapons\Crates\data\crate_3_GAR_co.paa",
-			"\TAEObjects\data\screen_karr_arsenal.paa"
+			"\TAEObjects\data\screen_karr_arsenal_co.paa"
 		};
 
 		ace_dragging_canCarry = 0;

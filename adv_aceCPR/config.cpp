@@ -46,7 +46,7 @@
 			condition = "missionNamespace getVariable ['adv_aceCPR_enable',true] && !(_player getVariable ['adv_aceCPR_usedAEDStation',false]) && (_player getVariable ['ace_medical_medicClass',0]) > 0"; \
 			statement = "[_player,_target] call adv_aceCPR_fnc_useAEDStation"; \
 			exceptions[] = {"isNotInside"}; \
-			icon = "\adv_aceCPR\ui\defib_action.paa"; \
+			icon = "\adv_aceCPR\ui\defib_action_ca.paa"; \
 		};\
 	};\
 };
@@ -187,7 +187,7 @@ class ACE_Medical_Treatment_Actions {
 	class Defibrillator: CPR {
 		displayName = "$STR_ADV_ACECPR_AED_ACTION";
 		displayNameProgress = "$STR_ADV_ACECPR_AED_PROGRESS";
-		icon = "\adv_aceCPR\ui\defib_action.paa";
+		icon = "\adv_aceCPR\ui\defib_action_ca.paa";
 		items[] = {"adv_aceCPR_AED"};
 		condition = "[_medic, _patient] call adv_aceCPR_fnc_AED_condition";
 		treatmentTime = 8;

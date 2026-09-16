@@ -1,13 +1,13 @@
 /// Name of your mod
 name = "The Ashen Enclave";
 /// Picture displayed from the expansions menu/ Optimal size is 2048x1024, other sizes work too
-picture = "Picture.paa";
+picture = "Picture_co.paa";
 /// Display next to the item added by the mod
-logoSmall = "LogoSmall.paa";
+logoSmall = "LogoSmall_ca.paa";
 /// Logo displayed in the main menu
-logo = "Logo.paa";
+logo = "Logo_ca.paa";
 /// When the mouse is over, in the main menu
-logoOver = "Logo.paa";
+logoOver = "Logo_ca.paa";
 /// Website URL, that can accessed from the expansions menu
 action = "https://discord.gg/9zgGp5QSW7";
 // name of the action button
