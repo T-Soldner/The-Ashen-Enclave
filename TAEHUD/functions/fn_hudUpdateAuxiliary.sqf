@@ -24,7 +24,8 @@ private _cameraControl = _display displayCtrl 1303;
 	private _title = _display displayCtrl ([1314,1304,1324] # _index);
 	private _status = _display displayCtrl ([1315,1305,1325] # _index);
 	private _active = _location > 0;
-	{_x ctrlShow _active;} forEach [_panel,_title,_status];
+	{_x ctrlShow _active;} forEach [_panel,_title];
+	_status ctrlShow (_active && {_index isNotEqualTo 0});
 	if (_active) then
 	{
 		private _height = safeZoneH * ([0.140,0.140,0.220] # _index);
@@ -70,7 +71,6 @@ if ((_locations # 2) > 0) then
 };
 if ((_locations # 0) > 0) then
 {
-	(_display displayCtrl 1315) ctrlSetText format ["%1 KM/H", round (abs (speed (vehicle player)))];
 	if (diag_tickTime >= (uiNamespace getVariable ["TAE_HUD_nextMapUpdate",0])) then
 	{
 		_map ctrlMapAnimAdd [0,0.075,getPosASLVisual player];

@@ -1222,7 +1222,7 @@ class CfgWeapons {
 		scope=2;
 		scopeArsenal=2;
 		scopeCurator=2;
-		author="keira";
+		author="Keira";
 		displayName="keira's tinkered helmet";
     	ls_common_hideHead = 1;
 		hiddenSelections[]=
@@ -1271,7 +1271,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Sage";
 		displayName = "Clan Haranverd Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -1292,7 +1292,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Sage";
 		displayName = "Clan Haranverd Nite Owl Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -1314,7 +1314,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Nova";
 		displayName = "Clan Kyr'am Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {

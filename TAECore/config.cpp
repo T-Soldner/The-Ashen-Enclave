@@ -24,7 +24,8 @@ class CfgPatches
 		requiredVersion = 1.60;
 		// Required addons, used for setting load order. (CfgPatches classname NOT PBO filename!)
 		// When any of the addons are missing, a pop-up warning will appear when launching the game.
-		requiredAddons[] = { "A3_Data_F_Decade_Loadorder" };
+		// LS's 3AS compatibility restores the vanilla spotlight controls.
+		requiredAddons[] = { "A3_Data_F_Decade_Loadorder", "A3_UI_F", "3AS_Main_Intro", "ls_compat_tas", "TAEInsignias" };
 		// List of objects (CfgVehicles classes) contained in the addon. Important also for Zeus content (units and groups) unlocking.
 		units[] = {};
 		// List of weapons (CfgWeapons classes) contained in the addon.
@@ -111,23 +112,67 @@ class RscActiveText{};
 class RscActivePicture: RscActiveText{};
 class RscText{};
 class RscStandardDisplay{};
+class RscMainMenuSpotlight;
+class RscActivePictureKeepAspect;
+// Replace the source list: deleting display controls alone leaves dynamically
+// created promotional spotlights active in RscDisplayMain's native script.
+delete CfgMainMenuSpotlight;
 class RscDisplayMain: RscStandardDisplay
 {
+	onLoad = "['onLoad',_this,'RscDisplayMain','GUI'] call (uiNamespace getVariable 'BIS_fnc_initDisplay'); _this execVM '\TAECore\functions\hideMenuSpotlights.sqf';";
+	class Spotlight
+	{
+		class TAE_JoinServer
+		{
+			text = "JOIN TAE SERVER";
+			textIsQuote = 0;
+			picture = "\TAEInsignias\data\House_Karr_logo_ca.paa";
+			video = "";
+			actionText = "JOIN SERVER";
+			// Public client configuration: this password is not a secret store.
+			action = "connectToServer ['8.20.6.229', 2302, 'Rasputin'];";
+			condition = "true";
+		};
+	};
 	class Controls
 	{
-		delete Spotlight1;
-		delete Spotlight2;
-		delete Spotlight3;
-		delete BackgroundSpotlightRight;
-		delete BackgroundSpotlightLeft;
-		delete BackgroundSpotlight;
+		class Spotlight1: RscMainMenuSpotlight
+		{
+			idc = 1021;
+			show = 0;
+		};
+		class Spotlight2: RscText
+		{
+			// GROUP_1 (1020) is named Spotlight2 in the native config.
+			idc = 1020;
+			show = 0;
+			x = "safeZoneX + 2 * pixelW * pixelGridNoUIScale";
+			y = "safeZoneY + safeZoneH * 0.11";
+			w = "10 * (pixelW * pixelGridNoUIScale * 2)";
+			h = "10 * (pixelH * pixelGridNoUIScale * 2)";
+		};
+		class Spotlight3: RscMainMenuSpotlight
+		{
+			idc = 1022;
+			show = 0;
+		};
+		class SpotlightPrev: RscActivePictureKeepAspect {show = 0;};
+		class SpotlightNext: SpotlightPrev {show = 0;};
+		class BackgroundSpotlight: RscPicture
+		{
+			show = 0;
+			text = "";
+			colorText[] = {0,0,0,0};
+			colorBackground[] = {0,0,0,0};
+		};
+		class BackgroundSpotlightLeft: BackgroundSpotlight {};
+		class BackgroundSpotlightRight: BackgroundSpotlight {};
 		class Logo: RscActivePicture
 		{
 			text="\TAECore\textures\logo_ca.paa";
 		};
 	};
 	enableDisplay=0;
-	delete Spotlight;
 	class RscActiveText;
 	class RscActivePicture: RscActiveText
 	{

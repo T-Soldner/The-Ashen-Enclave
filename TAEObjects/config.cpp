@@ -11,6 +11,7 @@ class CfgPatches {
 			"ace_dragging",
 			"ace_cargo",
 			"ls_compat_ace_flags",
+			"ls_props_staticships",
 			"cba_xeh",
 			"JLTS_weapons_crates",
 			"3AS_Props",
@@ -27,6 +28,8 @@ class CfgPatches {
 			"knd_crates"
 		};
 		units[] = {
+			"TAE_Acclamator",
+			"TAE_Acclamator_Landed",
 			"TAE_Restricted_Arsenal_Box",
 			"TAE_Specialization_Gonk_Droid",
 			"TAE_Medical_Droid",
@@ -90,6 +93,9 @@ class CfgEditorCategories {
 };
 
 class CfgEditorSubcategories {
+	class TAE_EdSubcat_HouseKarr_CapitalShips {
+		displayName = "Capital Ships";
+	};
 	class TAE_EdSubcat_HouseKarr_ArsenalServices {
 		displayName = "Arsenal and Services";
 	};
@@ -115,6 +121,7 @@ class CfgFunctions {
 	class TAE {
 		class Objects {
 			file = "TAEObjects\functions";
+			class initAcclamatorFTL { postInit = 1; };
 			class applyWearableLoadout {};
 			class fullHealPlayer {};
 			class initRestrictedArsenal {};
@@ -193,6 +200,27 @@ class CfgWeapons {
 };
 
 class CfgVehicles {
+	class ls_staticShip_acclamator;
+	class ls_staticShip_acclamator_landed;
+
+	class TAE_Acclamator: ls_staticShip_acclamator {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "[TAE] Acclamator";
+		author = "Legion Studios and TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_CapitalShips";
+	};
+
+	class TAE_Acclamator_Landed: ls_staticShip_acclamator_landed {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "[TAE] Acclamator (Landed)";
+		author = "Legion Studios and TAE Mod Team";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_CapitalShips";
+	};
+
 	class JLTS_Ammobox_weapons_GAR;
 	class JLTS_Ammobox_explosives_GAR;
 	class JLTS_Ammobox_ammo_GAR;

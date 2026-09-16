@@ -75,11 +75,11 @@ class CfgWeapons {
 
 	class IDA_TargetingScope;
 	class IDA_IQA11;
-	class IDA_Galaar90 {
-		class WeaponSlotsInfo {
+	class arifle_MX_Base_F;
+	class IDA_Galaar90: arifle_MX_Base_F {
+		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class CowsSlot;
 		};
-		class LinkedItems;
 	};
 	class mti_armoury_weapon_hpb_base;
 	class mti_armoury_weapon_hpb : mti_armoury_weapon_hpb_base {
@@ -167,7 +167,7 @@ class CfgWeapons {
 			};
 		};
 
-		class LinkedItems : LinkedItems {
+		class LinkedItems {
 			class LinkedItemsOptic {
 				slot = "CowsSlot";
 				item = "tae_TargetingScope_FP2";

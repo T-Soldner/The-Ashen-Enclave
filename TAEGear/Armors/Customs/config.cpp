@@ -930,7 +930,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Sage";
 		displayName = "Clan Haranverd Traditional Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -951,7 +951,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Sage";
 		displayName = "Clan Haranverd Nite Owl Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -973,7 +973,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Nova";
 		displayName = "Clan Kyr'am Traditional Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
