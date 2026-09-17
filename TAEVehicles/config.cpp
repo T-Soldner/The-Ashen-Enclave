@@ -4,6 +4,7 @@ class CfgPatches {
 		author = "TAE Mod Team";
 		requiredAddons[] = {
 			"A3_Data_F_Loadorder",
+			"3AS_Vwing",
 			"ace_cargo",
 			"ace_missileguidance",
 			"KND_Komrk",
@@ -18,6 +19,7 @@ class CfgPatches {
 			"knd_jdumb"
 		};
 		units[] = {
+			"TAE_VWing",
 			"TAE_KomrkFighter_Transport",
 			"TAE_Skycat_Transport",
 			"TAE_Z98_Headhunter",
@@ -565,6 +567,78 @@ class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
+	class Plane_Fighter_03_base_F;
+	class 3AS_Vwing_base: Plane_Fighter_03_base_F {
+		class Components;
+	};
+	class TAE_VWing: 3AS_Vwing_base {
+		weapons[] = {"mti_armoury_weapon_AA_Cannon", "CMFlareLauncher", "Laserdesignator_pilotCamera"};
+		magazines[] = {"mti_armoury_mag_AA_Cannon_Mag", "mti_armoury_mag_AA_Cannon_Mag", "240Rnd_CMFlare_Chaff_Magazine", "240Rnd_CMFlare_Chaff_Magazine", "Laserbatteries"};
+		class Components: Components {
+			class TransportPylonsComponent {
+				UIPicture = "3as\3as_z95\data\plane_z95_pylon_ca.paa";
+				class pylons {
+					class pylons1 {
+						hardpoints[] = {"TAE_KOMRK_HP_AA"};
+						attachment = "TAE_Komrk_mag_Typhoon";
+						maxWeight = 5000;
+						priority = 10;
+						turret[] = {};
+						UIposition[] = {0.6,0.45};
+					};
+					class pylons2: pylons1 { UIposition[] = {0.05,0.45}; mirroredMissilePos = 1; };
+					class pylons3: pylons1 {
+						hardpoints[] = {"TAE_KOMRK_HP_HAMMERS", "mti_armoury_weapon_Bomb_Pylon"};
+						attachment = "TAE_Komrk_mag_Hammers";
+						UIposition[] = {0.55,0.35};
+					};
+					class pylons4: pylons3 { UIposition[] = {0.1,0.35}; mirroredMissilePos = 3; };
+					class pylons5: pylons3 {
+						attachment = "mti_armoury_mag_Smart_Bomb_Mag_Light";
+						UIposition[] = {0.5,0.25};
+					};
+					class pylons6: pylons5 { UIposition[] = {0.15,0.25}; mirroredMissilePos = 5; };
+				};
+				class presets {
+					class Empty { displayName = "Empty"; attachment[] = {}; };
+					class Default {
+						displayName = "House Karr Mixed";
+						attachment[] = {"TAE_Komrk_mag_Typhoon", "TAE_Komrk_mag_Typhoon", "TAE_Komrk_mag_Hammers", "TAE_Komrk_mag_Hammers", "mti_armoury_mag_Smart_Bomb_Mag_Light", "mti_armoury_mag_Smart_Bomb_Mag_Light"};
+					};
+				};
+			};
+		};
+		// Match the airbrakes inherited by TAE's Delta-7 from MTI.
+		airBrake = 55;
+		airBrakeFrictionCoef = 60;
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "[TAE] V-wing Starfighter";
+		author = "3rd Army Studios and TAE Mod Team";
+		side = 2;
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Aircraft";
+		crew = "TAE_Unit_Pilot";
+		typicalCargo[] = {"TAE_Unit_Pilot"};
+		hiddenSelectionsTextures[] = {
+			"\TAEVehicles\data\vwing\vwing_main_co.paa",
+			"\TAEVehicles\data\vwing\vwing_astromechdroid_co.paa",
+			"\TAEVehicles\data\vwing\vwing_wings_co.paa"
+		};
+		textureList[] = {"TAE_HouseKarr", 1};
+		class TextureSources {
+			class TAE_HouseKarr {
+				displayName = "House Karr";
+				author = "3rd Army Studios and TAE Mod Team";
+				textures[] = {
+					"\TAEVehicles\data\vwing\vwing_main_co.paa",
+					"\TAEVehicles\data\vwing\vwing_astromechdroid_co.paa",
+					"\TAEVehicles\data\vwing\vwing_wings_co.paa"
+				};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+		};
+	};
 	class BARC_Base;
 	class 3AS_BARC_Base: BARC_Base {
 		class Sounds;

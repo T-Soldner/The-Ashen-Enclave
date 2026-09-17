@@ -206,6 +206,20 @@ class CfgVehicles {
 	class ls_staticShip_acclamator_landed;
 
 	class TAE_Acclamator: ls_staticShip_acclamator {
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\acclamator\body_co.paa",
+			"\TAEObjects\data\acclamator\body_2_co.paa",
+			"\TAEObjects\data\acclamator\body_3_co.paa",
+			"\TAEObjects\data\acclamator\body_4_co.paa",
+			"\TAEObjects\data\acclamator\body_5_co.paa",
+			"\TAEObjects\data\acclamator\body_6_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\engine_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\glass_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\interior_1_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\interior_2_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\interior_3_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\interior_4_co.paa"
+		};
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "[TAE] Acclamator";
@@ -215,6 +229,23 @@ class CfgVehicles {
 	};
 
 	class TAE_Acclamator_Landed: ls_staticShip_acclamator_landed {
+		hiddenSelectionsTextures[] = {
+			"\TAEObjects\data\acclamator\body_co.paa",
+			"\TAEObjects\data\acclamator\body_2_co.paa",
+			"\TAEObjects\data\acclamator\body_3_co.paa",
+			"\TAEObjects\data\acclamator\body_4_co.paa",
+			"\TAEObjects\data\acclamator\body_5_co.paa",
+			"\TAEObjects\data\acclamator\body_6_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\engine_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\glass_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\interior_1_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\interior_2_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\interior_3_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\interior_4_co.paa",
+			"\TAEObjects\data\acclamator\landing_feet_co.paa",
+			"\TAEObjects\data\acclamator\landing_legs_co.paa",
+			"\ls\core\addons\props_staticships\acclamator\data\ramp_co.paa"
+		};
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "[TAE] Acclamator (Landed)";
@@ -481,13 +512,13 @@ class CfgVehicles {
 				class TAE_PutOnTowiArmor {
 					displayName = "Put On Towi's Armor";
 					condition = "true";
-					statement = "[_player,'tae_acklay_niteowl_armor','tae_towi_helmet','tae_ls_grey_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_towi_armor','tae_towi_helmet','tae_ls_grey_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnBingoArmor {
 					displayName = "Put On Bingo's Armor";
 					condition = "true";
-					statement = "[_player,'tae_acklay_armor','tae_bingo_helmet','tgf_nvg_rangefinder_r','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_bingo_armor','tae_bingo_helmet','tgf_nvg_rangefinder_r','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnNiteOwlArmor {
