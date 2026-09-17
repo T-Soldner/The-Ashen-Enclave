@@ -19,6 +19,8 @@ class CfgPatches {
 			"tae_teka_armor",
 			"tae_shyyyo_recon_armor",
 			"tae_acklay_armor",
+			"tae_towi_armor",
+			"tae_bingo_armor",
 			"tae_acklay_niteowl_armor",
 			"tae_stasik_armor",
 			"tae_edonn_armor",
@@ -123,7 +125,9 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Acklay","Niteowl","Stasik","Jimothy","Frenk" };
+				values[] = { "Acklay","Niteowl","Stasik","Jimothy","Frenk","Towi","Bingo" };
+				class Towi { label = "Towi"; };
+				class Bingo { label = "Bingo"; };
 				class Acklay {
 					label = "Standard";
 				};
@@ -310,6 +314,8 @@ class XtdGearInfos {
 			owner	= "Shyyyo";
 		};
 		//Acklay
+		class tae_towi_armor { model = "TAE_acklay_vests"; owner = "Towi"; };
+		class tae_bingo_armor { model = "TAE_acklay_vests"; owner = "Bingo"; };
 		class tae_acklay_armor {
 			model	= "TAE_acklay_vests";
 			owner	= "Acklay";
@@ -674,6 +680,32 @@ class CfgWeapons {
 	};
 	
 	// Clan Acklay
+	class tae_towi_armor: tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Jimothy";
+		displayName = "Towi's Nite Owl Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Towi\NITE_Armor_Towi.paa","TAEGear\data\Towi\NITE_Bracer_Towi.paa"};
+		class ItemInfo: ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Towi\NITE_Armor_Towi.paa","TAEGear\data\Towi\NITE_Bracer_Towi.paa"};
+		};
+	};
+	class tae_bingo_armor: tae_armor_battle {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Jimothy";
+		displayName = "Bingo's Battle Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Bingo\BAT_Armor_Bingo.paa","TAEGear\data\Bingo\BAT_Brace_Bingo.paa"};
+		class ItemInfo: ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Bingo\BAT_Armor_Bingo.paa","TAEGear\data\Bingo\BAT_Brace_Bingo.paa"};
+		};
+	};
 	class tae_acklay_armor : tae_armor_ls_traditional {
 		scope = 2;
 		scopeArsenal = 2;
