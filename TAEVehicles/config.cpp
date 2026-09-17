@@ -400,8 +400,8 @@ class CfgMagazines {
 	class knd_pylonrack_jdumb;
 
 	class TAE_Skycat_mag_MPR10: PylonRack_24Rnd_ACE_DAGR {
-		displayName = "MPR-10 Guided Proton Rockets (10-Round)";
-		displayNameShort = "MPR-10 (10)";
+		displayName = "MPR-10 Guided Proton Rockets";
+		displayNameShort = "MPR-10";
 		descriptionShort = "Ten guided proton rockets for precision attacks against vehicles and hardened ground targets.";
 		ammo = "TAE_Skycat_ammo_MPR10";
 		count = 10;
@@ -412,8 +412,8 @@ class CfgMagazines {
 	};
 
 	class TAE_Komrk_mag_Hammers: mti_armoury_mag_AGM_Mag {
-		displayName = "Firebrand Proton Missile (3-Round)";
-		displayNameShort = "Firebrand (3)";
+		displayName = "Firebrand Proton Missile";
+		displayNameShort = "Firebrand";
 		descriptionShort = "Firebrand is an infrared- and laser-guided proton missile for air-to-ground strikes, with a maximum lock range of 5 kilometers.";
 		ammo = "TAE_Firebrand_ammo_IRLaser";
 		count = 3;
@@ -425,8 +425,8 @@ class CfgMagazines {
 
 	class TAE_Komrk_mag_Lightning: mti_armoury_mag_AA_Light_Mag {
 		ammo = "TAE_ammo_Talon";
-		displayName = "Talon Interceptor (3-Round)";
-		displayNameShort = "Talon (3)";
+		displayName = "Talon Interceptor";
+		displayNameShort = "Talon";
 		descriptionShort = "Talon is a short-range anti-air interceptor missile with a maximum lock range of 1.5 kilometers.";
 		count = 3;
 		hardpoints[] = {
@@ -437,8 +437,8 @@ class CfgMagazines {
 
 	class TAE_Komrk_mag_Typhoon: mti_armoury_mag_AA_Short_Mag {
 		ammo = "TAE_ammo_Pursuit";
-		displayName = "Pursuit Concussion (3-Round)";
-		displayNameShort = "Pursuit (3)";
+		displayName = "Pursuit Concussion";
+		displayNameShort = "Pursuit";
 		descriptionShort = "Pursuit is a medium-range concussion missile for general anti-air engagements, with a maximum lock range of 6 kilometers.";
 		count = 3;
 		hardpoints[] = {
@@ -449,8 +449,8 @@ class CfgMagazines {
 
 	class TAE_Komrk_mag_Hurricane: mti_armoury_mag_AA_Long_Mag {
 		ammo = "TAE_ammo_Longspear";
-		displayName = "Longspear (3-Round)";
-		displayNameShort = "Longspear (3)";
+		displayName = "Longspear";
+		displayNameShort = "Longspear";
 		descriptionShort = "Longspear is a long-range anti-air missile with a maximum lock range of 12 kilometers.";
 		count = 3;
 		hardpoints[] = {
@@ -460,8 +460,8 @@ class CfgMagazines {
 	};
 
 	class TAE_Komrk_mag_Stalkers: mti_armoury_mag_HARM_Missile_Mag {
-		displayName = "Wraith Anti-Radiation (3-Round)";
-		displayNameShort = "Wraith (3)";
+		displayName = "Wraith Anti-Radiation";
+		displayNameShort = "Wraith";
 		descriptionShort = "Wraith is an anti-radiation missile designed to engage active emitters.";
 		count = 3;
 		hardpoints[] = {
@@ -493,8 +493,8 @@ class CfgMagazines {
 
 	class TAE_Z98_mag_Lightning: mti_armoury_mag_AA_Light_Mag {
 		ammo = "TAE_ammo_Talon";
-		displayName = "Talon Interceptor (3-Round)";
-		displayNameShort = "Talon (3)";
+		displayName = "Talon Interceptor";
+		displayNameShort = "Talon";
 		descriptionShort = "Talon is a short-range anti-air interceptor missile with a maximum lock range of 1.5 kilometers.";
 		count = 3;
 		hardpoints[] = {
@@ -505,8 +505,8 @@ class CfgMagazines {
 
 	class TAE_Z98_mag_Typhoon: mti_armoury_mag_AA_Short_Mag {
 		ammo = "TAE_ammo_Pursuit";
-		displayName = "Pursuit Concussion (3-Round)";
-		displayNameShort = "Pursuit (3)";
+		displayName = "Pursuit Concussion";
+		displayNameShort = "Pursuit";
 		descriptionShort = "Pursuit is a medium-range concussion missile for general anti-air engagements, with a maximum lock range of 6 kilometers.";
 		count = 3;
 		hardpoints[] = {
@@ -518,8 +518,8 @@ class CfgMagazines {
 
 	class TAE_Z98_mag_Hurricane: mti_armoury_mag_AA_Long_Mag {
 		ammo = "TAE_ammo_Longspear";
-		displayName = "Longspear (3-Round)";
-		displayNameShort = "Longspear (3)";
+		displayName = "Longspear";
+		displayNameShort = "Longspear";
 		descriptionShort = "Longspear is a long-range anti-air missile with a maximum lock range of 12 kilometers.";
 		count = 3;
 		hardpoints[] = {
@@ -530,8 +530,8 @@ class CfgMagazines {
 	};
 
 	class TAE_Z98_mag_Hammers: mti_armoury_mag_AGM_Mag {
-		displayName = "Firebrand Proton Missile (3-Round)";
-		displayNameShort = "Firebrand (3)";
+		displayName = "Firebrand Proton Missile";
+		displayNameShort = "Firebrand";
 		descriptionShort = "Firebrand is an infrared- and visual-guided proton missile for air-to-ground strikes, with a maximum lock range of 5 kilometers.";
 		ammo = "TAE_Z98_ammo_Hammers";
 		count = 3;
@@ -543,8 +543,8 @@ class CfgMagazines {
 	};
 
 	class TAE_Z98_mag_Stalkers: mti_armoury_mag_HARM_Missile_Mag {
-		displayName = "Wraith Anti-Radiation (3-Round)";
-		displayNameShort = "Wraith (3)";
+		displayName = "Wraith Anti-Radiation";
+		displayNameShort = "Wraith";
 		descriptionShort = "Wraith is an anti-radiation missile designed to engage active emitters.";
 		count = 3;
 		hardpoints[] = {
@@ -614,7 +614,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "[TAE] V-wing Starfighter";
-		author = "3rd Army Studios and TAE Mod Team";
+		author = "3rd Army Studios, MokTech Industries and Edonn";
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Aircraft";
@@ -629,7 +629,7 @@ class CfgVehicles {
 		class TextureSources {
 			class TAE_HouseKarr {
 				displayName = "House Karr";
-				author = "3rd Army Studios and TAE Mod Team";
+				author = "3rd Army Studios and Edonn";
 				textures[] = {
 					"\TAEVehicles\data\vwing\vwing_main_co.paa",
 					"\TAEVehicles\data\vwing\vwing_astromechdroid_co.paa",
@@ -687,7 +687,7 @@ class CfgVehicles {
 		class TextureSources {
 			class TAE_HouseKarr {
 				displayName = "House Karr";
-				author = "3rd Army Studios and TAE Mod Team";
+				author = "3rd Army Studios and Edonn";
 				textures[] = {"\TAEVehicles\data\barc\barc_house_karr_co.paa"};
 				factions[] = {"TAE_Faction_HouseKarr"};
 			};
@@ -698,7 +698,7 @@ class CfgVehicles {
 				factions[] = {"mti_faction_SOB"};
 			};
 		};
-		author = "3rd Army Studios, MokTech Industries and TAE Mod Team";
+		author = "3rd Army Studios, MokTech Industries and Edonn";
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Speeders";
@@ -756,7 +756,7 @@ class CfgVehicles {
 		class TextureSources: TextureSources {
 			class TAE_Purple_DarkRed {
 				displayName = "Ashwing";
-				author = "3rd Army Studios and TAE Mod Team";
+				author = "3rd Army Studios and Edonn";
 				factions[] = {};
 				mti_aircraft_scope = 1;
 				textures[] = {
@@ -767,7 +767,7 @@ class CfgVehicles {
 				};
 			};
 		};
-		author = "3rd Army Studios, MokTech Industries and TAE Mod Team";
+		author = "3rd Army Studios, MokTech Industries and Edonn";
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Aircraft";
@@ -1428,13 +1428,13 @@ class CfgVehicles {
 		};
 
 		hiddenSelectionsTextures[] = {
-			"TAEVehicles\data\z98\base_hull_co.paa",
+			"TAEVehicles\data\z98\pirate_blue_hull_co.paa",
 			"\ls\core\addons\vehicles_z98\data\cockpit_co.paa"
 		};
 
 		class TextureSources {
 			class base {
-				displayName = "Base";
+				displayName = "Louis Vuitton Version";
 				author = "TAE Mod Team";
 				factions[] = {};
 				textures[] = {
@@ -1443,6 +1443,15 @@ class CfgVehicles {
 				};
 			};
 			
+			class PirateBlue {
+				displayName = "Blue and Black (Pirate Rework)";
+				author = "House Kandosii and TAE Mod Team";
+				factions[] = {};
+				textures[] = {
+					"TAEVehicles\data\z98\pirate_blue_hull_co.paa",
+					"\ls\core\addons\vehicles_z98\data\cockpit_co.paa"
+				};
+			};
 			class Grey {
 				displayName = "Grey";
 				author = "Legion Studios";
@@ -1456,7 +1465,8 @@ class CfgVehicles {
 
 		textureList[] = {
 			"Grey", 0,
-			"base", 1
+			"base", 0,
+			"PirateBlue", 1
 		};
 
 		class Components {

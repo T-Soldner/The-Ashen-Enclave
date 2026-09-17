@@ -18,6 +18,12 @@ class CfgPatches {
             "tae_uniform_unit_white_seal",
             "tae_uniform_unit_skirata",
             "tae_uniform_unit_vau",
+            "tae_uniform_unit_orange_female",
+            "tae_uniform_unit_brown_female",
+            "tae_uniform_unit_dark_green_female",
+            "tae_uniform_unit_forgemaster_female",
+            "tae_uniform_unit_skirata_female",
+            "tae_uniform_unit_vau_female",
             "tae_uniform_unit_black_female",
             "tae_uniform_unit_dark_blue_female",
             "tae_uniform_unit_dark_red_female",
@@ -39,6 +45,12 @@ class CfgPatches {
             "tae_uniform_white_seal",
             "tae_uniform_skirata",
             "tae_uniform_vau",
+            "tae_uniform_orange_female",
+            "tae_uniform_brown_female",
+            "tae_uniform_dark_green_female",
+            "tae_uniform_forgemaster_female",
+            "tae_uniform_skirata_female",
+            "tae_uniform_vau_female",
             "tae_uniform_black_female",
             "tae_uniform_dark_blue_female",
             "tae_uniform_dark_red_female",
@@ -73,7 +85,7 @@ class XtdGearModels {
                 class DarkRed { label = "Dark Red"; };
                 class Orange { label = "Orange"; };
                 class Brown { label = "Brown"; };
-                class DarkGreen { label = "Dark Green"; };
+                class DarkGreen { label = "Green"; };
                 class DarkBlue { label = "Dark Blue"; };
                 class Forgemaster { label = "Forgemaster"; };
                 class Skirata { label = "Skirata"; };
@@ -169,6 +181,42 @@ class XtdGearInfos {
             source = "TGF";
             type = "Vau";
             sex = "Male";
+        };
+        class tae_uniform_orange_female {
+            model = "TAE_standard_uniforms";
+            source = "TGF";
+            type = "Orange";
+            sex = "Female";
+        };
+        class tae_uniform_brown_female {
+            model = "TAE_standard_uniforms";
+            source = "TGF";
+            type = "Brown";
+            sex = "Female";
+        };
+        class tae_uniform_dark_green_female {
+            model = "TAE_standard_uniforms";
+            source = "TGF";
+            type = "DarkGreen";
+            sex = "Female";
+        };
+        class tae_uniform_forgemaster_female {
+            model = "TAE_standard_uniforms";
+            source = "TGF";
+            type = "Forgemaster";
+            sex = "Female";
+        };
+        class tae_uniform_skirata_female {
+            model = "TAE_standard_uniforms";
+            source = "TGF";
+            type = "Skirata";
+            sex = "Female";
+        };
+        class tae_uniform_vau_female {
+            model = "TAE_standard_uniforms";
+            source = "TGF";
+            type = "Vau";
+            sex = "Female";
         };
         class tae_uniform_black_female {
             model = "TAE_standard_uniforms";
@@ -448,6 +496,60 @@ class CfgVehicles {
         explosionShielding = 0.4;
         minTotalDamageThreshold = 0.001;
         impactDamageMultiplier = 0.5;    };
+    class tae_uniform_unit_orange_female: tae_uniform_unit_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Orange)";
+        uniformClass = "tae_uniform_orange_female";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Fem_orange_co.paa",
+            "\z\tgf\addons\undersuit\data\fem\black\camo2_co.paa"
+        };
+    };
+    class tae_uniform_unit_brown_female: tae_uniform_unit_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Brown)";
+        uniformClass = "tae_uniform_brown_female";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Fem_brown_co.paa",
+            "\z\tgf\addons\undersuit\data\fem\black\camo2_co.paa"
+        };
+    };
+    class tae_uniform_unit_dark_green_female: tae_uniform_unit_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Green)";
+        uniformClass = "tae_uniform_dark_green_female";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Fem_dark_green_co.paa",
+            "\z\tgf\addons\undersuit\data\fem\black\camo2_co.paa"
+        };
+    };
+    class tae_uniform_unit_forgemaster_female: tae_uniform_unit_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Forgemaster)";
+        uniformClass = "tae_uniform_forgemaster_female";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Fem_forgemaster_co.paa",
+            "\z\tgf\addons\undersuit\data\fem\black\camo2_co.paa"
+        };
+    };
+    class tae_uniform_unit_skirata_female: tae_uniform_unit_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Kal Skirata)";
+        uniformClass = "tae_uniform_skirata_female";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Fem_skirata_co.paa",
+            "\z\tgf\addons\undersuit\data\fem\black\camo2_co.paa"
+        };
+    };
+    class tae_uniform_unit_vau_female: tae_uniform_unit_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Walon Vau)";
+        uniformClass = "tae_uniform_vau_female";
+        hiddenSelectionsTextures[] = {
+            "TAEGear\Data\Uniforms\Undersuit_Fem_vau_co.paa",
+            "\z\tgf\addons\undersuit\data\fem\black\camo2_co.paa"
+        };
+    };
     class tae_uniform_unit_white_female: tgf_undersuit_unit_white_female {
         scope = 1;
         scopeCurator = 0;
@@ -830,6 +932,48 @@ class CfgWeapons {
             containerClass = "Supply120";
             mass = 40;
             uniformType = "Neopren";
+        };
+    };
+    class tae_uniform_orange_female: tae_uniform_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Orange)";
+        class ItemInfo: ItemInfo {
+            uniformClass = "tae_uniform_unit_orange_female";
+        };
+    };
+    class tae_uniform_brown_female: tae_uniform_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Brown)";
+        class ItemInfo: ItemInfo {
+            uniformClass = "tae_uniform_unit_brown_female";
+        };
+    };
+    class tae_uniform_dark_green_female: tae_uniform_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Green)";
+        class ItemInfo: ItemInfo {
+            uniformClass = "tae_uniform_unit_dark_green_female";
+        };
+    };
+    class tae_uniform_forgemaster_female: tae_uniform_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Forgemaster)";
+        class ItemInfo: ItemInfo {
+            uniformClass = "tae_uniform_unit_forgemaster_female";
+        };
+    };
+    class tae_uniform_skirata_female: tae_uniform_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Kal Skirata)";
+        class ItemInfo: ItemInfo {
+            uniformClass = "tae_uniform_unit_skirata_female";
+        };
+    };
+    class tae_uniform_vau_female: tae_uniform_black_female {
+        author = "The Great Forge and Edonn";
+        displayName = "TAE Female Mandalorian Undersuit with Seal (Walon Vau)";
+        class ItemInfo: ItemInfo {
+            uniformClass = "tae_uniform_unit_vau_female";
         };
     };
     class tae_uniform_white_female: tgf_undersuit_uniform_white_female {

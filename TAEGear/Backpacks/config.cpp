@@ -17,6 +17,7 @@ class CfgPatches {
 			"tae_hondo_JT13_LR",
 			"tae_stasik_JT12",
 			"tae_jimothy_JT12",
+			"tae_frenk_JT12",
 			"tae_stasik_JT12_LR",
 			"tae_edonn_JT13_LR",
 			"tae_edonn_JT13",
@@ -165,7 +166,8 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo", "Stasik", "Edonn", "Nova", "Jimothy" };
+				values[] = { "Hondo", "Stasik", "Edonn", "Nova", "Jimothy", "Frenk" };
+				class Frenk { label = "Frenk"; };
 				class Jimothy { label = "Jimothy"; };
 
 				class Hondo {
@@ -205,6 +207,11 @@ class XtdGearModels {
 
 class XtdGearInfos {
 	class CfgVehicles {
+		class tae_frenk_JT12 {
+			model = "TAE_custom_Backpacks";
+			owner = "Frenk";
+			LR = "No";
+		};
 		class tae_jimothy_JT12 {
 			model = "TAE_custom_Backpacks";
 			owner = "Jimothy";
@@ -601,6 +608,16 @@ class CfgVehicles {
 		displayName = "Hondo's JT-13 Jetpack LR";
 		descriptionShort = "Hondo's JT-13 Jetpack LR";
 		hiddenselectionstextures[] = {"TAEGear\data\Hondo\JT13_RTO_Pack_Hondo_co.paa"};
+	};
+	class tae_frenk_JT12 : tae_jetpack_JT12 {
+		scope = 2;
+		author = "House Kandosii and Jimothy";
+		displayName = "Frenk's JT-12 Jetpack";
+		descriptionShort = "Frenk's JT-12 Jetpack";
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Frenk\JT12_Rocket_Frenk.paa",
+			"TAEGear\data\Frenk\JT12_Pack_Frenk.paa"
+		};
 	};
 	class tae_jimothy_JT12 : tae_jetpack_JT12 {
 		scope = 2;
