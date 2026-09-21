@@ -43,15 +43,10 @@ class CfgPatches {
 			"TAE_Unit_CQC_Specialist",
 			"TAE_Unit_Heavy_Weapons",
 			"TAE_Unit_Sniper",
-			"TAE_Unit_Player_Acklay",
-			"TAE_Unit_Player_Foxx",
-			"TAE_Unit_Player_Kyram",
-			"TAE_Unit_Player_Haranverd",
-			"TAE_Unit_Player_Rook",
-			"TAE_Unit_Player_Varen",
+			"TAE_Unit_Player_Mandalorian_LS",
+			"TAE_Unit_Player_Mandalorian_TGF",
 			"TAE_Unit_Player_Shyyyo",
 			"TAE_Unit_Player_Foundling",
-			"TAE_Unit_Player_Freelancer",
 			"TAE_Unit_BSC_Rifleman",
 			"TAE_Unit_BSC_Heavy_Gunner",
 			"TAE_Unit_BSC_Grenadier",
@@ -256,19 +251,24 @@ class CfgVehicles {
 	class JMSLLTE_O_veh_AA2_reb_F;
 	class JMSLLTE_O_veh_AA2mk2_reb_F;
 	class JMSLLTE_vehgr_ATST_reb_F;
-	class JMSLLTE_YwingA4_veh_F {
+	class JMSLLTE_YwingA4_base_F;
+	class JMSLLTE_YwingA4_veh_F: JMSLLTE_YwingA4_base_F {
 		class Components;
 	};
-	class JMSLLTE_UwingHeli_Reb_F {
+	class JMSLLTE_UwingHeli_inf;
+	class JMSLLTE_UwingHeli_Reb_F: JMSLLTE_UwingHeli_inf {
 		class Components;
 	};
-	class JMSLLTE_XwingCA2_NR_veh_F {
+	class JMSLLTE_XwingCA2_base_F;
+	class JMSLLTE_XwingCA2_NR_veh_F: JMSLLTE_XwingCA2_base_F {
 		class Components;
 	};
-	class JMSLLTE_XwingT70_veh_F {
+	class JMSLLTE_XwingT70_base_F;
+	class JMSLLTE_XwingT70_veh_F: JMSLLTE_XwingT70_base_F {
 		class Components;
 	};
-	class JMSLLTE_Awing_NR_veh_F {
+	class JMSLLTE_Awing_base_F;
+	class JMSLLTE_Awing_NR_veh_F: JMSLLTE_Awing_base_F {
 		class Components;
 	};
 
@@ -611,10 +611,10 @@ class CfgVehicles {
 		respawnItems[] = {};
 	};
 
-	class TAE_Unit_Player_Acklay: TAE_Unit_Player_Base {
+	class TAE_Unit_Player_Mandalorian_LS: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Clan Acklay Member";
+		displayName = "Mandalorian (LS)";
 
 		identityTypes[] = {
 			"LanguageENG_F",
@@ -639,10 +639,10 @@ class CfgVehicles {
 		respawnItems[] = {};
 	};
 
-	class TAE_Unit_Player_Foxx: TAE_Unit_Player_Base {
+	class TAE_Unit_Player_Mandalorian_TGF: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Clan Foxx Member";
+		displayName = "Mandalorian (TGF)";
 		identityTypes[] = {
 			"LanguageENG_F",
 			"Head_NATO",
@@ -658,97 +658,6 @@ class CfgVehicles {
 			"ItemMap",
 			"ls_radios_hush98"
 		};
-	};
-
-	class TAE_Unit_Player_Kyram: TAE_Unit_Player_Base {
-		scope = 2;
-		scopeCurator = 0;
-		displayName = "Clan Kyr'am Member";
-		identityTypes[] = {
-			"LanguageENG_F",
-			"Head_NATO",
-			"TAE_NoFacewear"
-		};
-		goggles = "TAE_NoFacewear";
-		uniformClass = "tae_uniform_grey_seal";
-		linkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-		respawnLinkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-	};
-
-	class TAE_Unit_Player_Haranverd: TAE_Unit_Player_Base {
-		scope = 2;
-		scopeCurator = 0;
-		displayName = "Clan Haranverd Member";
-		identityTypes[] = {
-			"LanguageENG_F",
-			"Head_NATO",
-			"TAE_NoFacewear"
-		};
-		goggles = "TAE_NoFacewear";
-		uniformClass = "tae_uniform_grey_seal";
-		linkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-		respawnLinkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-	};
-
-	class TAE_Unit_Player_Rook: TAE_Unit_Player_Base {
-		scope = 2;
-		scopeCurator = 0;
-		displayName = "Clan Rook Member";
-		identityTypes[] = {
-			"LanguageENG_F",
-			"Head_NATO",
-			"TAE_NoFacewear"
-		};
-		goggles = "TAE_NoFacewear";
-		uniformClass = "tae_uniform_grey_seal";
-		linkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-		respawnLinkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-	};
-
-	class TAE_Unit_Player_Varen: TAE_Unit_Player_Base {
-		scope = 2;
-		scopeCurator = 0;
-		displayName = "Clan Varen Member";
-
-		identityTypes[] = {
-			"LanguageENG_F",
-			"Head_NATO",
-			"TAE_NoFacewear"
-		};
-		goggles = "TAE_NoFacewear";
-		uniformClass = "tae_uniform_black_seal";
-		weapons[] = {};
-		respawnWeapons[] = {};
-		magazines[] = {};
-		respawnMagazines[] = {};
-		linkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-		respawnLinkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-		items[] = {};
-		respawnItems[] = {};
 	};
 
 	class TAE_Unit_Player_Shyyyo: TAE_Unit_Player_Base {
@@ -1056,27 +965,6 @@ class CfgVehicles {
 			"MTI_BactaSpray",
 			"ACE_painkillers",
 			"ACE_painkillers"
-		};
-	};
-
-	class TAE_Unit_Player_Freelancer: TAE_Unit_Player_Base {
-		scope = 2;
-		scopeCurator = 0;
-		displayName = "Freelancer";
-		identityTypes[] = {
-			"LanguageENG_F",
-			"Head_NATO",
-			"TAE_NoFacewear"
-		};
-		goggles = "TAE_NoFacewear";
-		uniformClass = "tae_uniform_grey_seal";
-		linkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
-		};
-		respawnLinkedItems[] = {
-			"ItemMap",
-			"ls_radios_hush98"
 		};
 	};
 

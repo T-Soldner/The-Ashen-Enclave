@@ -45,6 +45,7 @@ $addons = @(
 	"TAEASTRS",
 	"TAEJLTSCompat",
 	"TAEUnits",
+	"TAEMiningGuild",
 	"TAEObjects",
 	"TAEVehicles"
 )

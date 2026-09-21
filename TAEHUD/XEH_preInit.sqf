@@ -117,11 +117,23 @@ if (_defaultFont < 0) then {_defaultFont = (_hudFonts find "RobotoCondensed") ma
 
 [
 	"TAE_HUD_linkView", "LIST",
-	["Link View", "House Link shows other living same-side player group leaders while you lead your group; otherwise Clan Link shows your own group."],
+	["Link View", "House Link shows other living same-side players designated as Clan Leaders while you are designated as one; otherwise Clan Link shows your own group."],
 	["The Ashen Enclave", "Helmet HUD"],
-	[[0, 1], ["Clan Link", "House Link (group leaders)"], 0],
+	[[0, 1], ["Clan Link", "House Link (clan leaders)"], 0],
 	2,
 	{[] call TAE_fnc_hudUpdate;}
+] call CBA_fnc_addSetting;
+
+[
+	"TAE_HUD_clanLeader", "CHECKBOX",
+	["Clan Leader", "Designate yourself as a Clan Leader for same-side House Link tracking and access. Does not change your Arma group leader."],
+	["The Ashen Enclave", "Helmet HUD"],
+	false,
+	2,
+	{
+		[] call TAE_fnc_hudPublishIdentityColor;
+		[] call TAE_fnc_hudUpdate;
+	}
 ] call CBA_fnc_addSetting;
 
 [

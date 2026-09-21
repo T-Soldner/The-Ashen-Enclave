@@ -17,11 +17,15 @@ if (_visible) exitWith
 };
 
 // Keep the info layer itself enabled for scope/binocular distance readouts.
+// In-game UI layers are also registered separately by BIS_fnc_initDisplay.
 // Multiple IDD 300 displays can coexist; the namespace handle may not be newest.
-private _displays = allDisplays select
+private _candidates = +allDisplays;
+{_candidates pushBackUnique _x;} forEach (uiNamespace getVariable ["IGUI_displays", []]);
+private _displays = _candidates select
 {
-	ctrlIDD _x isEqualTo 300 ||
+	!isNull _x && {ctrlIDD _x isEqualTo 300 ||
 	{(_x getVariable ["BIS_fnc_initDisplay_configClass", ""]) isEqualTo "RscUnitInfo"}
+	}
 };
 private _info = uiNamespace getVariable ["RscUnitInfo", displayNull];
 if (!isNull _info) then {_displays pushBackUnique _info;};
@@ -35,9 +39,16 @@ private _controls = [];
 		private _control = _display displayCtrl _x;
 		if (!isNull _control) then {_controls pushBackUnique _control;};
 	} forEach [2302,2303,187,380,121,1004,1006];
+	// Hide children as well: the engine can update their visibility independently.
 	// Only zeroing, not the optic's CA_Distance (198).
 	{
-		if (ctrlClassName _x isEqualTo "CA_Zeroing") then {_controls pushBackUnique _x;};
+		if (ctrlClassName _x in [
+			"CA_Zeroing", "CA_Weapon", "CA_ModeTexture", "CA_Mode",
+			"CA_ValueReload", "CA_AmmoCount", "CA_MagCount", "CA_AmmoType",
+			"CA_GrenadeType", "CA_GrenadeCount", "CA_GunnerWeapon",
+			"CA_BackgroundWeapon", "CA_BackgroundWeaponTitle",
+			"CA_BackgroundWeaponTitleDark", "CA_BackgroundWeaponMode"
+		]) then {_controls pushBackUnique _x;};
 	} forEach allControls _display;
 	{
 		private _group = _display displayCtrl _x;

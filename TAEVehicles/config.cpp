@@ -5,6 +5,7 @@ class CfgPatches {
 		requiredAddons[] = {
 			"A3_Data_F_Loadorder",
 			"3AS_Vwing",
+			"3AS_Rebel_Armor_PX10",
 			"ace_cargo",
 			"ace_missileguidance",
 			"KND_Komrk",
@@ -19,6 +20,7 @@ class CfgPatches {
 			"knd_jdumb"
 		};
 		units[] = {
+			"TAE_PX10_R3",
 			"TAE_VWing",
 			"TAE_KomrkFighter_Transport",
 			"TAE_Skycat_Transport",
@@ -28,6 +30,7 @@ class CfgPatches {
 		};
 		weapons[] = {
 			"TAE_BARC_Repeater",
+			"TAE_weapon_AA_Cannon",
 			"TAE_Skycat_weapon_MPR10",
 			"TAE_Skycat_weapon_Talon",
 			"TAE_Skycat_weapon_Firebrand",
@@ -60,15 +63,18 @@ class CfgFunctions {
 	class TAE {
 		class Vehicles {
 			file = "\TAEVehicles\functions";
-			class boardRecoveredPlayer {};
-			class recoverAirbornePlayers {};
-			class showRecoveryMessage {};
+			class initBarcStretcher { postInit = 1; };
 		};
 	};
 };
 
 class CfgWeapons {
 	class CannonCore;
+	class mti_armoury_weapon_AA_Cannon;
+	class TAE_weapon_AA_Cannon: mti_armoury_weapon_AA_Cannon {
+		// Target lead and predicted impact indicators, without automatic aim adjustment.
+		ballisticsComputer = 4 + 8;
+	};
 	class 3AS_BARC_Repeater: CannonCore {
 		class manual;
 		class close;
@@ -567,14 +573,89 @@ class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
+	class 3AS_PX10_F;
+	class 3AS_PX10_IMP_F: 3AS_PX10_F {
+		class AnimationSources;
+	};
+	class 3AS_PX10_IMP_R3: 3AS_PX10_IMP_F {
+		class AnimationSources: AnimationSources {
+			class HideAttachmentDozer;
+			class HideAttachmentFuel;
+			class HideAttachmentPlate;
+			class HideAttachmentRepair;
+		};
+	};
+	class TAE_PX10_R3: 3AS_PX10_IMP_R3 {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr PX-10 CAV (R3)";
+		author = "3AS Studio and Edonn";
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Speeders";
+		side = 2;
+		crew = "TAE_Unit_Engineer";
+		typicalCargo[] = {"TAE_Unit_Engineer"};
+		hiddenSelectionsTextures[] = {
+			"\TAEVehicles\data\px10\px10cav_imp_co.paa",
+			"\TAEVehicles\data\px10\px10cavintback_co.paa",
+			"\TAEVehicles\data\px10\px10cavintfront_co.paa",
+			"\TAEVehicles\data\px10\px10fuel_imp_co.paa",
+			"\TAEVehicles\data\px10\px10crane_co.paa"
+		};
+		textureList[] = {"HouseKarr", 1};
+		class TextureSources {
+			class HouseKarr {
+				displayName = "House Karr";
+				author = "3AS Studio and Edonn";
+				textures[] = {
+					"\TAEVehicles\data\px10\px10cav_imp_co.paa",
+					"\TAEVehicles\data\px10\px10cavintback_co.paa",
+					"\TAEVehicles\data\px10\px10cavintfront_co.paa",
+					"\TAEVehicles\data\px10\px10fuel_imp_co.paa",
+					"\TAEVehicles\data\px10\px10crane_co.paa"
+				};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+		};
+		animationList[] = {"HideAttachmentDozer",0,"HideAttachmentFuel",0,"HideAttachmentPlate",0,"HideAttachmentRepair",0};
+		class AnimationSources: AnimationSources {
+			class HideAttachmentDozer: HideAttachmentDozer { displayName = ""; initPhase = 0; };
+			class HideAttachmentFuel: HideAttachmentFuel { displayName = ""; initPhase = 0; };
+			class HideAttachmentPlate: HideAttachmentPlate { displayName = ""; initPhase = 0; };
+			class HideAttachmentRepair: HideAttachmentRepair { displayName = ""; initPhase = 0; };
+		};
+	};
 	class Plane_Fighter_03_base_F;
 	class 3AS_Vwing_base: Plane_Fighter_03_base_F {
-		class Components;
+		class Components {
+			class SensorsManagerComponent {
+				class Components {
+					class ActiveRadarSensorComponent;
+				};
+			};
+		};
 	};
 	class TAE_VWing: 3AS_Vwing_base {
-		weapons[] = {"mti_armoury_weapon_AA_Cannon", "CMFlareLauncher", "Laserdesignator_pilotCamera"};
-		magazines[] = {"mti_armoury_mag_AA_Cannon_Mag", "mti_armoury_mag_AA_Cannon_Mag", "240Rnd_CMFlare_Chaff_Magazine", "240Rnd_CMFlare_Chaff_Magazine", "Laserbatteries"};
+		weapons[] = {"mti_armoury_weapon_AA_Cannon", "ls_weapon_CMFlareLauncher", "Laserdesignator_pilotCamera"};
+		magazines[] = {
+			"mti_armoury_mag_AA_Cannon_Mag",
+			"mti_armoury_mag_AA_Cannon_Mag",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"ls_mag_240Rnd_CMFlareChaff_purple",
+			"Laserbatteries"
+		};
 		class Components: Components {
+			class SensorsManagerComponent: SensorsManagerComponent {
+				class Components: Components {
+					class ActiveRadarSensorComponent: ActiveRadarSensorComponent {
+						angleRangeHorizontal = 360;
+						angleRangeVertical = 360;
+					};
+				};
+			};
 			class TransportPylonsComponent {
 				UIPicture = "3as\3as_z95\data\plane_z95_pylon_ca.paa";
 				class pylons {
@@ -613,7 +694,7 @@ class CfgVehicles {
 		airBrakeFrictionCoef = 60;
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "[TAE] V-wing Starfighter";
+		displayName = "House Karr V-wing Starfighter";
 		author = "3rd Army Studios, MokTech Industries and Edonn";
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
@@ -654,6 +735,12 @@ class CfgVehicles {
 	class 3AS_Barc: 3AS_Barc_501 {};
 	class mti_armoury_vehicles_barc_base: 3AS_Barc {};
 	class mti_armoury_vehicles_barc_stretcher: mti_armoury_vehicles_barc_base {
+		class ACE_Actions {
+			class ACE_MainActions {
+				class mti_armoury_vehicles_barc_deployStretcher;
+				class mti_armoury_vehicles_barc_stowStretcher;
+			};
+		};
 		class Sounds: Sounds {};
 		class Wheels: Wheels {
 			class LF: LF {};
@@ -664,9 +751,20 @@ class CfgVehicles {
 		class PlayerSteeringCoefficients: PlayerSteeringCoefficients {};
 	};
 	class TAE_BARC_Stretcher: mti_armoury_vehicles_barc_stretcher {
+		class ACE_Actions: ACE_Actions {
+			class ACE_MainActions: ACE_MainActions {
+				class mti_armoury_vehicles_barc_deployStretcher: mti_armoury_vehicles_barc_deployStretcher {
+					statement = "['TAE_barcStretcherRequest', [_target, _player, true]] call CBA_fnc_serverEvent";
+				};
+				class mti_armoury_vehicles_barc_stowStretcher: mti_armoury_vehicles_barc_stowStretcher {
+					condition = "private _stretcher = _target getVariable ['mti_armoury_vehicles_barc_stretcher', objNull]; alive _stretcher && {crew _stretcher isEqualTo []}";
+					statement = "['TAE_barcStretcherRequest', [_target, _player, false]] call CBA_fnc_serverEvent";
+				};
+			};
+		};
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "[TAE] BARC Speeder";
+		displayName = "House Karr BARC Speeder";
 		maxSpeed = 180;
 		class Sounds: Sounds {
 			// Upstream high-RPM layers have empty samples. Crossfade in a
@@ -734,7 +832,12 @@ class CfgVehicles {
 				class Components;
 			};
 			class TransportPylonsComponent {
-				class pylons;
+				class pylons {
+					class pylons1;
+					class pylons2;
+					class pylons3;
+					class pylons4;
+				};
 				class presets;
 			};
 		};
@@ -743,7 +846,9 @@ class CfgVehicles {
 	class TAE_Delta7_Interceptor: mti_armoury_vehicles_delta_base {
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "Delta-7 ""Ashwing""";
+		flaps = 0;
+		flapsFrictionCoef = 0;
+		displayName = "House Karr Delta-7 ""Ashwing""";
 		displayNameShort = "Delta-7 ""Ashwing""";
 		hiddenSelectionsTextures[] = {
 			"\TAEVehicles\data\delta7\DEL7_Hull_Purple_DarkRed_co.paa",
@@ -780,9 +885,11 @@ class CfgVehicles {
 		altNoForce = 20000;
 		// Test: disable automatic pitch alignment to the vertical flight path.
 		draconicTorqueYCoef = 0;
+		// 20% below the inherited 3AS hull armor of 60.
+		armor = 48;
 		// Two successive 15% increases: 32.25% above the inherited 3AS curve.
 		thrustCoef[] = {1.98375,1.98375,2.116,2.3805,2.645,3.30625,3.9675,4.62875,3.30625,2.645,2.24825,1.98375,1.45475,1.3225,1.3225,1.3225};
-		weapons[] = {"mti_armoury_weapon_AA_Cannon", "Laserdesignator_pilotCamera", "ls_weapon_CMFlareLauncher"};
+		weapons[] = {"TAE_weapon_AA_Cannon", "Laserdesignator_pilotCamera", "ls_weapon_CMFlareLauncher"};
 		magazines[] = {
 			"mti_armoury_mag_AA_Cannon_Mag",
 			"mti_armoury_mag_AA_Cannon_Mag",
@@ -819,17 +926,40 @@ class CfgVehicles {
 			};
 			class TransportPylonsComponent: TransportPylonsComponent {
 				class pylons: pylons {
-					delete pylons1;
-					delete pylons2;
-					delete pylons3;
-					delete pylons4;
+					class pylons1: pylons1 {
+						hardpoints[] = {"TAE_KOMRK_HP_AA"};
+						attachment = "TAE_Komrk_mag_Lightning";
+						maxWeight = 5000;
+						turret[] = {};
+					};
+					class pylons2: pylons2 {
+						hardpoints[] = {"TAE_KOMRK_HP_AA"};
+						attachment = "TAE_Komrk_mag_Lightning";
+						maxWeight = 5000;
+						turret[] = {};
+					};
+					class pylons3: pylons3 {
+						hardpoints[] = {"TAE_KOMRK_HP_AA"};
+						attachment = "TAE_Komrk_mag_Lightning";
+						maxWeight = 5000;
+						turret[] = {};
+					};
+					class pylons4: pylons4 {
+						hardpoints[] = {"TAE_KOMRK_HP_AA"};
+						attachment = "TAE_Komrk_mag_Lightning";
+						maxWeight = 5000;
+						turret[] = {};
+					};
 					delete pylons5;
 					delete pylons6;
 					delete Pylons7;
 				};
 				class presets: presets {
 					delete Default;
-					delete empty;
+					class TAE_Default {
+						displayName = "Talon Interceptors";
+						attachment[] = {"TAE_Komrk_mag_Lightning", "TAE_Komrk_mag_Lightning", "TAE_Komrk_mag_Lightning", "TAE_Komrk_mag_Lightning"};
+					};
 				};
 			};
 		};
@@ -839,6 +969,8 @@ class CfgVehicles {
 		scope = 0;
 		scopeCurator = 0;
 		vtol = 4;
+		flaps = 0;
+		flapsFrictionCoef = 0;
 		lockDetectionSystem = 30;
 		incomingMissileDetectionSystem = 26;
 		radarTargetSize = 0.6;
@@ -852,7 +984,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr Kom'rk-Class Fighter Transport";
-		author = "TAE Mod Team";
+		author = "House Kandosii and Hondo";
 
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
@@ -911,7 +1043,7 @@ class CfgVehicles {
 		class TextureSources {
 			class base {
 				displayName = "Base";
-				author = "TAE Mod Team";
+				author = "House Kandosii and Hondo";
 				textures[] = {
 					"TAEVehicles\data\komrk\base_fore_co.paa",
 					"knd_astromechs\tx\newrepublic\chassis\chassis_co.paa",
@@ -1185,17 +1317,6 @@ class CfgVehicles {
 		};
 
 		class UserActions {
-			class RecoverAirbornePlayers {
-				displayName = "Recover Airborne Personnel";
-				position = "";
-				radius = 5;
-				onlyForPlayer = 1;
-				showWindow = 0;
-				hideOnUse = 1;
-				condition = "((player isEqualTo currentPilot this) AND (alive this) AND (isEngineOn this) AND !(isTouchingGround this) AND (((getPosATL this) select 2) >= 5) AND (((vectorMagnitude (velocity this)) * 3.6) <= 200) AND (time >= (this getVariable ['TAE_recoveryAvailableAt',0])))";
-				statement = "[this,player] remoteExecCall ['TAE_fnc_recoverAirbornePlayers',2]";
-			};
-
 			class OpenDoor {
 				displayName = "Open Drop Bay";
 				source = "user";
@@ -1250,7 +1371,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr SKYCAT/I Transport";
-		author = "TAE Mod Team";
+		author = "House Kandosii";
 
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
@@ -1373,6 +1494,8 @@ class CfgVehicles {
 		scope = 0;
 		scopeCurator = 0;
 		vtol = 4;
+		flaps = 0;
+		flapsFrictionCoef = 0;
 		lockDetectionSystem = 30;
 		incomingMissileDetectionSystem = 26;
 		radarTargetSize = 0.3;
@@ -1389,7 +1512,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr Z-98 Interceptor";
-		author = "TAE Mod Team";
+		author = "Legion Studios and Hondo";
 
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
@@ -1435,7 +1558,7 @@ class CfgVehicles {
 		class TextureSources {
 			class base {
 				displayName = "Louis Vuitton Version";
-				author = "TAE Mod Team";
+				author = "Legion Studios and Hondo";
 				factions[] = {};
 				textures[] = {
 					"TAEVehicles\data\z98\base_hull_co.paa",
@@ -1445,7 +1568,7 @@ class CfgVehicles {
 			
 			class PirateBlue {
 				displayName = "Blue and Black (Pirate Rework)";
-				author = "House Kandosii and TAE Mod Team";
+				author = "House Kandosii and Hondo";
 				factions[] = {};
 				textures[] = {
 					"TAEVehicles\data\z98\pirate_blue_hull_co.paa",

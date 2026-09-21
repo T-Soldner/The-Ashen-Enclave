@@ -1416,7 +1416,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Nox";
+		author = "Jimothy";
 		displayName = "Vario's Traditional Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
