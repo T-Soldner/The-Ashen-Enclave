@@ -1,6 +1,8 @@
 params ["_display"];
 
 if (isNull _display || {isNull player}) exitWith {};
+private _leaderAlerts = _display getVariable ["TAE_HUD_leaderAlerts", []];
+{_x ctrlShow false;} forEach _leaderAlerts;
 private _showSquad = missionNamespace getVariable ["TAE_HUD_showSquad", true];
 {(_display displayCtrl _x) ctrlShow _showSquad;} forEach [1130, 1230];
 if (!_showSquad) exitWith
@@ -16,12 +18,15 @@ if (!_showSquad) exitWith
 
 private _groupUnits = units (group player);
 private _houseLink = (missionNamespace getVariable ["TAE_HUD_linkView", 0]) isEqualTo 1
-	&& {leader group player isEqualTo player};
+	&& {player getVariable ["TAE_HUD_clanLeader", false]};
 if (_houseLink) then
 {
 	private _side = side group player;
-	_groupUnits = (allGroups select {side _x isEqualTo _side}) apply {leader _x};
-	_groupUnits = _groupUnits select {!isNull _x && {isPlayer _x} && {alive _x}};
+	_groupUnits = allPlayers select {
+		!isNull _x && {isPlayer _x} && {alive _x}
+		&& {side group _x isEqualTo _side}
+		&& {_x getVariable ["TAE_HUD_clanLeader", false]}
+	};
 };
 private _trackedUnits = _groupUnits select {_x isNotEqualTo player && {!isNull _x}};
 private _slotCount = 15;
@@ -64,6 +69,43 @@ private _rowsHeight = if (_visibleCount > 0) then
 private _rowY = _contentBottom - _rowsHeight;
 private _headerLineY = _rowY - (safeZoneH * 0.008);
 private _headerY = _headerLineY - (safeZoneH * 0.026);
+
+// Supplement Clan Link only; House Link already shows leader status.
+if (!_houseLink && {player getVariable ["TAE_HUD_clanLeader", false]}) then
+{
+	private _side = side group player;
+	private _downLeaders = allPlayers select {
+		_x isNotEqualTo player && {alive _x} && {isPlayer _x}
+		&& {side group _x isEqualTo _side}
+		&& {_x getVariable ["TAE_HUD_clanLeader", false]}
+		&& {_x getVariable ["ACE_isUnconscious", false] || {lifeState _x isEqualTo "INCAPACITATED"}}
+	};
+	// Reuse rows, hiding surplus rows when leaders recover or leave.
+	while {count _leaderAlerts < count _downLeaders} do
+	{
+		private _control = _display ctrlCreate ["RscText", -1];
+		_control ctrlSetTextColor [1, 0.24, 0.18, 0.98];
+		_control ctrlShow false;
+		_leaderAlerts pushBack _control;
+	};
+	_display setVariable ["TAE_HUD_leaderAlerts", _leaderAlerts];
+	{
+		private _leader = _x;
+		private _leaderAlert = _leaderAlerts # _forEachIndex;
+		_leaderAlert ctrlSetText format ["%1 IS DOWN", toUpper name _leader];
+		_leaderAlert ctrlSetFont (missionNamespace getVariable ["TAE_HUD_font", "ls_republic"]);
+		_leaderAlert ctrlSetPosition [safeZoneX + safeZoneW * 0.02, _headerY - safeZoneH * 0.026 * (_forEachIndex + 1), safeZoneW * _panelWidth, safeZoneH * 0.024];
+		_leaderAlert ctrlSetFontHeight (safeZoneH * 0.013);
+		_leaderAlert ctrlCommit 0;
+		private _textWidth = ctrlTextWidth _leaderAlert;
+		private _availableWidth = safeZoneW * _panelWidth - safeZoneH * 0.008;
+		if (_textWidth > _availableWidth) then
+		{
+			_leaderAlert ctrlSetFontHeight (safeZoneH * 0.013 * (_availableWidth / _textWidth));
+		};
+		_leaderAlert ctrlShow true;
+	} forEach _downLeaders;
+};
 
 private _header = _display displayCtrl 1130;
 _header ctrlSetPosition

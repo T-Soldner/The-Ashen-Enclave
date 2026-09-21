@@ -87,7 +87,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Blaster Turret (Packed)";
 		descriptionShort = "Blaster Turret (Packed)";
 		picture = "\A3\Static_f_gamma\data\ui\gear_StaticTurret_MG_CA.paa";
@@ -102,7 +102,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Autonomous AA Turret (Packed)";
 		descriptionShort = "Autonomous AA Turret (Packed)";
 		picture = "\z\mti_armoury\addons\drones\paap\data\ui\paap_ca.paa";
@@ -116,7 +116,7 @@ class CfgWeapons {
 	};
 
 	class tae_autonomous_at_turret_packed: tae_autonomous_aa_turret_packed {
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Autonomous AT Turret (Packed)";
 		descriptionShort = "Autonomous AT Turret (Packed)";
 		hiddenSelectionsTextures[] = {"\z\mti_armoury\addons\drones\paap\data\patp\camo1_co.paa"};
@@ -126,7 +126,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Seeker Droid (Packed)";
 		descriptionShort = "Seeker Droid packed for carriage";
 		picture = "\MRC\JLTS\drones\prowler1000\data\ui\map_prowler_ca.paa";
@@ -187,14 +187,14 @@ class CfgVehicles {
 	class tae_seeker_droid_ai: I_UAV_AI {
 		scope = 1;
 		scopeCurator = 0;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Seeker Droid AI";
 	};
 
 	class tae_autonomous_turret_ai: I_UAV_AI {
 		scope = 1;
 		scopeCurator = 0;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Autonomous Turret Droid";
 	};
 
@@ -207,7 +207,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Blaster Turret";
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
@@ -221,7 +221,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Autonomous AA Turret";
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
@@ -235,7 +235,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Autonomous AT Turret";
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
@@ -249,7 +249,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "TAE Mod Team";
+		author = "Edonn";
 		displayName = "Seeker Droid";
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
