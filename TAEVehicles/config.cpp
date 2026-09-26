@@ -10,6 +10,7 @@ class CfgPatches {
 			"ace_missileguidance",
 			"KND_Komrk",
 			"knd_vehicles_skycat",
+			"knd_vehicles_imperial",
 			"TAEObjects",
 			"TAEUnits_HouseKarr",
 			"mti_armoury_vehicles_weapons",
@@ -20,6 +21,7 @@ class CfgPatches {
 			"knd_jdumb"
 		};
 		units[] = {
+			"TAE_CPH_Speeder",
 			"TAE_PX10_R3",
 			"TAE_VWing",
 			"TAE_KomrkFighter_Transport",
@@ -31,6 +33,7 @@ class CfgPatches {
 		weapons[] = {
 			"TAE_BARC_Repeater",
 			"TAE_weapon_AA_Cannon",
+			"TAE_Z98_Heavy_Cannon",
 			"TAE_Skycat_weapon_MPR10",
 			"TAE_Skycat_weapon_Talon",
 			"TAE_Skycat_weapon_Firebrand",
@@ -70,6 +73,11 @@ class CfgFunctions {
 
 class CfgWeapons {
 	class CannonCore;
+	class mti_armoury_weapon_Z95_Heavy_Cannon;
+	class TAE_Z98_Heavy_Cannon: mti_armoury_weapon_Z95_Heavy_Cannon {
+		// Permit vehicle use without changing the upstream cannon or its ballistics.
+		scope = 1;
+	};
 	class mti_armoury_weapon_AA_Cannon;
 	class TAE_weapon_AA_Cannon: mti_armoury_weapon_AA_Cannon {
 		// Target lead and predicted impact indicators, without automatic aim adjustment.
@@ -573,6 +581,39 @@ class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
+	class Car_F;
+	class knd_vehicles_imperial_cph: Car_F {
+		class PlayerSteeringCoefficients;
+	};
+	class TAE_CPH_Speeder: knd_vehicles_imperial_cph {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr C-PH Patrol Speeder Bike";
+		enginePower = 632.5;
+		peakTorque = 2599;
+		maxSpeed = 180;
+		class PlayerSteeringCoefficients: PlayerSteeringCoefficients {
+			turnIncreaseConst = 2.5;
+			turnIncreaseLinear = 1;
+			maxTurnHundred = 6;
+		};
+		author = "Jenna and House Kandosii";
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Speeders";
+		side = 2;
+		crew = "TAE_Unit_Veteran";
+		typicalCargo[] = {"TAE_Unit_Veteran"};
+		hiddenSelectionsTextures[] = {"\TAEVehicles\data\cph\camo1_co.paa"};
+		textureList[] = {"HouseKarr", 1};
+		class TextureSources {
+			class HouseKarr {
+				displayName = "House Karr";
+				author = "Jenna and House Kandosii";
+				textures[] = {"\TAEVehicles\data\cph\camo1_co.paa"};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+		};
+	};
 	class 3AS_PX10_F;
 	class 3AS_PX10_IMP_F: 3AS_PX10_F {
 		class AnimationSources;
@@ -800,8 +841,8 @@ class CfgVehicles {
 		side = 2;
 		faction = "TAE_Faction_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Speeders";
-		crew = "TAE_Unit_Medic";
-		typicalCargo[] = {"TAE_Unit_Medic"};
+		crew = "TAE_Unit_Veteran";
+		typicalCargo[] = {"TAE_Unit_Veteran"};
 		weapons[] = {"TAE_BARC_Repeater"};
 		// Reduce rebound without changing spring stiffness or ride height.
 		class Wheels: Wheels {
@@ -1529,7 +1570,7 @@ class CfgVehicles {
 		};
 
 		weapons[] = {
-			"mti_armoury_weapon_Z95_Heavy_Cannon",
+			"TAE_Z98_Heavy_Cannon",
 			"Laserdesignator_mounted",
 			"ls_weapon_CMFlareLauncher"
 		};

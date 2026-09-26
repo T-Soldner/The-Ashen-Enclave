@@ -630,6 +630,7 @@ private _items = [
 	"tae_foxx_rangefinder",
 	"tae_rook_armor",
 	"tae_hades_armor",
+	"tae_vario_armor",
 	"tae_andora_armor",
 	"tae_goostivool_armor",
 	"tae_shen_armor",

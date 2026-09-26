@@ -1,6 +1,6 @@
 params [["_logic", objNull, [objNull]], ["_actor", objNull, [objNull]], ["_request", "", [""]], ["_payload", [], [[]]]];
 if (!isServer || {isNull _logic} || {isNull _actor}) exitWith {};
-if (!(_logic isKindOf "TAE_Module_AircraftRequisition")) exitWith {};
+if (!(_logic isKindOf "TAE_Module_AircraftRequisition") && {!(_logic isKindOf "TAE_AircraftTerminal")}) exitWith {};
 private _data = _logic getVariable ["TAE_requisitionData", []];
 if (_data isEqualTo []) exitWith {};
 _data params ["_terminal", "_pad", "_classes", "_radius", "_duration"];

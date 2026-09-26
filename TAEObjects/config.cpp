@@ -14,7 +14,7 @@ class CfgPatches {
 			"ace_dragging",
 			"ace_cargo",
 			"ls_compat_ace_flags",
-			"ls_props_staticships",
+			"ls_props",
 			"cba_xeh",
 			"JLTS_weapons_crates",
 			"3AS_Props",
@@ -33,12 +33,10 @@ class CfgPatches {
 			"knd_crates"
 		};
 		units[] = {
+			"TAE_AircraftTerminal",
 			"TAE_Poster_HangInThere",
-			"TAE_Module_BridgeVisibility",
 			"TAE_Module_AircraftRequisition",
 			"TAE_Module_AircraftRepair",
-			"TAE_Acclamator",
-			"TAE_Acclamator_Landed",
 			"TAE_Restricted_Arsenal_Box",
 			"TAE_Restricted_Arsenal_Locker",
 			"TAE_Specialization_Gonk_Droid",
@@ -131,8 +129,6 @@ class CfgFunctions {
 	class TAE {
 		class Objects {
 			file = "TAEObjects\functions";
-			class initAcclamatorFTL { postInit = 1; };
-			class moduleBridgeVisibility {};
 			class moduleAircraftRequisition {};
 			class initAircraftRequisition { postInit = 1; };
 			class aircraftRequisitionRequest {};
@@ -148,6 +144,11 @@ class CfgFunctions {
 };
 
 class Extended_Init_EventHandlers {
+	class TAE_AircraftTerminal {
+		class TAEObjects_aircraftTerminal {
+			init = "if (!is3DEN) then {_this spawn {waitUntil {sleep 0.1; time > 0}; _this call TAE_fnc_moduleAircraftRequisition;};};";
+		};
+	};
 	class TAE_Restricted_Arsenal_Locker {
 		class TAEObjects_initRestrictedArsenal {
 			init = "_this call TAE_fnc_initRestrictedArsenal";
@@ -222,6 +223,83 @@ class CfgWeapons {
 };
 
 class CfgVehicles {
+	class ls_terminal_base;
+	class Land_ls_terminal_01: ls_terminal_base { class Attributes; };
+	class TAE_AircraftTerminal: Land_ls_terminal_01 {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr Aircraft Terminal";
+		editorCategory = "TAE_EdCat_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_ArsenalServices";
+		class Attributes: Attributes {
+			class TAE_TerminalMode {
+				property = "TAE_TerminalMode";
+				displayName = "Aircraft terminal mode";
+				tooltip = "Pilot-only scroll actions. Aircraft spawn in front of this terminal; no pad or module is needed.";
+				control = "Combo";
+				typeName = "NUMBER";
+				defaultValue = "1";
+				expression = "_this setVariable ['TAE_terminalMode', _value];";
+				class Values {
+					class Disabled {name = "Off"; value = 0;};
+					class Full {name = "Aircraft requisition and service"; value = 1;};
+					class Service {name = "Service only"; value = 2;};
+				};
+			};
+			class TAE_TerminalDistance {
+				property = "TAE_TerminalDistance";
+				displayName = "Spawn distance in front (metres)";
+				tooltip = "Defaults to 40 metres. Automatically kept at least 6 metres beyond the clearance radius so the requesting pilot does not block spawning.";
+				control = "Edit";
+				typeName = "NUMBER";
+				validate = "number";
+				defaultValue = "40";
+				expression = "_this setVariable ['TAE_spawnDistance', _value];";
+			};
+			class TAE_TerminalFacing {
+				property = "TAE_TerminalFacing";
+				displayName = "Aircraft facing";
+				tooltip = "Aircraft heading relative to the terminal's Eden direction. Spawn position is always in front of the terminal.";
+				control = "Combo";
+				typeName = "NUMBER";
+				defaultValue = "0";
+				expression = "_this setVariable ['TAE_spawnFacing', _value];";
+				class Values {
+					class Forward {name = "Forward"; value = 0;};
+					class Left {name = "Left"; value = 270;};
+					class Right {name = "Right"; value = 90;};
+					class Backwards {name = "Backwards"; value = 180;};
+				};
+			};
+			class TAE_TerminalAircraft {
+				property = "TAE_TerminalAircraft";
+				displayName = "Aircraft classnames";
+				tooltip = "Array of quoted classnames. [] uses House Karr aircraft. A supplied array replaces the defaults.";
+				control = "Edit";
+				typeName = "STRING";
+				defaultValue = "'[]'";
+				expression = "_this setVariable ['Aircraft', _value];";
+			};
+			class TAE_TerminalRadius {
+				property = "TAE_TerminalRadius";
+				displayName = "Pad clearance radius (metres)";
+				control = "Edit";
+				typeName = "NUMBER";
+				validate = "number";
+				defaultValue = "30";
+				expression = "_this setVariable ['Radius', _value];";
+			};
+			class TAE_TerminalRepairSeconds {
+				property = "TAE_TerminalRepairSeconds";
+				displayName = "Full repair duration (seconds)";
+				control = "Edit";
+				typeName = "NUMBER";
+				validate = "number";
+				defaultValue = "60";
+				expression = "_this setVariable ['RepairSeconds', _value];";
+			};
+		};
+	};
 	class UserTexture1m_F;
 	class TAE_Poster_HangInThere: UserTexture1m_F {
 		scope = 2;
@@ -235,57 +313,6 @@ class CfgVehicles {
 	class Module_F: Logic {
 		class AttributesBase {
 			class Edit;
-		};
-	};
-	class TAE_Module_BridgeVisibility: Module_F {
-		scope = 2;
-		scopeCurator = 0;
-		displayName = "TAE Bridge Visibility";
-		category = "NO_CATEGORY";
-		function = "TAE_fnc_moduleBridgeVisibility";
-		isGlobal = 2;
-		isTriggerActivated = 0;
-		isDisposable = 0;
-		class Attributes: AttributesBase {
-			class Exterior: Edit {
-				property = "TAE_BridgeExterior";
-				displayName = "Exterior variable name";
-				tooltip = "Ship object hidden for clients inside the bridge.";
-				defaultValue = "'TAE_Acclamator_Exterior'";
-			};
-			class InteriorLayer: Edit {
-				property = "TAE_BridgeInteriorLayer";
-				displayName = "Interior layer name";
-				tooltip = "Unique Eden layer containing bridge scenery, not units or collision-only supports.";
-				defaultValue = "'TAE_Bridge_Interior'";
-			};
-			class HalfWidth: Edit {
-				property = "TAE_BridgeHalfWidth";
-				displayName = "Zone half-width (metres)";
-				tooltip = "Distance left and right of the module. Rotate the module to align the rectangle.";
-				typeName = "NUMBER";
-				defaultValue = "30";
-			};
-			class HalfLength: Edit {
-				property = "TAE_BridgeHalfLength";
-				displayName = "Zone half-length (metres)";
-				tooltip = "Distance forward and backward from the module centre.";
-				typeName = "NUMBER";
-				defaultValue = "30";
-			};
-			class HalfHeight: Edit {
-				property = "TAE_BridgeHalfHeight";
-				displayName = "Zone half-height (metres)";
-				tooltip = "Vertical distance above and below the module centre. Place the module at the centre height of the usable bridge.";
-				typeName = "NUMBER";
-				defaultValue = "8";
-			};
-			class Exclusions: Edit {
-				property = "TAE_BridgeExclusions";
-				displayName = "Excluded object variable names";
-				tooltip = "Comma-separated names. Their visibility is never changed by this module.";
-				defaultValue = "'BridgeShield,Bridge_Close_Ray,Bridge_Open_Ray'";
-			};
 		};
 	};
 	class TAE_Module_AircraftRequisition: Module_F {
@@ -338,57 +365,6 @@ class CfgVehicles {
 		class Attributes: Attributes {
 			delete Aircraft;
 		};
-	};
-	class ls_staticShip_acclamator;
-	class ls_staticShip_acclamator_landed;
-
-	class TAE_Acclamator: ls_staticShip_acclamator {
-		hiddenSelectionsTextures[] = {
-			"\TAEObjects\data\acclamator\body_co.paa",
-			"\TAEObjects\data\acclamator\body_2_co.paa",
-			"\TAEObjects\data\acclamator\body_3_co.paa",
-			"\TAEObjects\data\acclamator\body_4_co.paa",
-			"\TAEObjects\data\acclamator\body_5_co.paa",
-			"\TAEObjects\data\acclamator\body_6_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\engine_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\glass_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\interior_1_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\interior_2_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\interior_3_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\interior_4_co.paa"
-		};
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr Acclamator";
-		author = "Legion Studios and TAE Mod Team";
-		editorCategory = "TAE_EdCat_HouseKarr";
-		editorSubcategory = "TAE_EdSubcat_HouseKarr_CapitalShips";
-	};
-
-	class TAE_Acclamator_Landed: ls_staticShip_acclamator_landed {
-		hiddenSelectionsTextures[] = {
-			"\TAEObjects\data\acclamator\body_co.paa",
-			"\TAEObjects\data\acclamator\body_2_co.paa",
-			"\TAEObjects\data\acclamator\body_3_co.paa",
-			"\TAEObjects\data\acclamator\body_4_co.paa",
-			"\TAEObjects\data\acclamator\body_5_co.paa",
-			"\TAEObjects\data\acclamator\body_6_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\engine_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\glass_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\interior_1_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\interior_2_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\interior_3_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\interior_4_co.paa",
-			"\TAEObjects\data\acclamator\landing_feet_co.paa",
-			"\TAEObjects\data\acclamator\landing_legs_co.paa",
-			"\ls\core\addons\props_staticships\acclamator\data\ramp_co.paa"
-		};
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr Acclamator (Landed)";
-		author = "Legion Studios and TAE Mod Team";
-		editorCategory = "TAE_EdCat_HouseKarr";
-		editorSubcategory = "TAE_EdSubcat_HouseKarr_CapitalShips";
 	};
 
 	class JLTS_Ammobox_weapons_GAR;
@@ -884,7 +860,7 @@ class CfgVehicles {
 				class TAE_PutOnVarioArmor {
 					displayName = "Put On Vario's Armor";
 					condition = "true";
-					statement = "[_player,'tae_rook_armor','tae_vario_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_vario_armor','tae_vario_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnAndoraArmor {
@@ -896,7 +872,7 @@ class CfgVehicles {
 				class TAE_PutOnGoostivoolArmor {
 					displayName = "Put On Goostivool's Armor";
 					condition = "true";
-					statement = "[_player,'tae_goostivool_armor','tae_goostivool_helmet','tgf_nvg_rangefinder_r','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+					statement = "[_player,'tae_goostivool_armor','tae_goostivool_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
 				};
 
 				class TAE_PutOnShenArmor {
@@ -1234,7 +1210,7 @@ class CfgVehicles {
 		ace_cargo_size = -1;
 		class ACE_Actions {
 			class ACE_MainActions {
-				distance = 6;
+				distance = 8;
 				position = "[0,0,0.9]";
 				selection = "";
 				displayName = "Interactions";

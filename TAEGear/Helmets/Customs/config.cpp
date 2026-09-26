@@ -217,7 +217,7 @@ class XtdGearModels {
 					label = "Valeria";
 				};
 				class Keira {
-					label = "Keira";
+					label = "Kiera";
 				};
 			};
 		};
@@ -1223,7 +1223,7 @@ class CfgWeapons {
 		scopeArsenal=2;
 		scopeCurator=2;
 		author="Keira";
-		displayName="keira's tinkered helmet";
+		displayName="Kiera's Helmet";
     	ls_common_hideHead = 1;
 		hiddenSelections[]=
 		{
@@ -1452,23 +1452,23 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_goostivool_helmet : tae_helmet_ls_executioner {
+	class tae_goostivool_helmet : tae_helmet_traditional {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Nox";
-		displayName = "Goostivool's Executioner Helmet";
+		displayName = "Goostivool's Traditional Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Goostivool\EXEC_Helmet_Goostivool_co.paa",
-			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
-			"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
+			"TAEGear\data\Goostivool\TRAD_Helmet_Goostivool_co.paa",
+			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Goostivool\EXEC_Helmet_Goostivool_co.paa",
-				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\visor_co.paa",
-				"\ls\core\addons\characters_mandalorian\helmets\executioner\data\neck_co.paa"
+				"TAEGear\data\Goostivool\TRAD_Helmet_Goostivool_co.paa",
+				"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
 			};
 		};
 	};

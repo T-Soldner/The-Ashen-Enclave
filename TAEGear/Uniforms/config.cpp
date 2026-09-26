@@ -565,52 +565,56 @@ class CfgVehicles {
 };
 
 class CfgWeapons {
-    class ls_mandalorianUniform {
+    class ls_uniform_base;
+    class tgf_undersuit_uniform_male;
+    class tgf_undersuit_uniform_female;
+    // Preserve upstream parents when exposing their nested ItemInfo classes.
+    class ls_mandalorianUniform: ls_uniform_base {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_forgemaster_seal {
+    class tgf_undersuit_uniform_forgemaster_seal: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_black_seal {
+    class tgf_undersuit_uniform_black_seal: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_dark_blue_seal {
+    class tgf_undersuit_uniform_dark_blue_seal: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_dark_green_seal {
+    class tgf_undersuit_uniform_dark_green_seal: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_grey_seal {
+    class tgf_undersuit_uniform_grey_seal: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_orange_seal {
+    class tgf_undersuit_uniform_orange_seal: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_red_seal {
+    class tgf_undersuit_uniform_red_seal: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_white_seal {
+    class tgf_undersuit_uniform_white_seal: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_skirata {
+    class tgf_undersuit_uniform_skirata: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_vau {
+    class tgf_undersuit_uniform_vau: tgf_undersuit_uniform_male {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_black_female {
+    class tgf_undersuit_uniform_black_female: tgf_undersuit_uniform_female {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_dark_blue_female {
+    class tgf_undersuit_uniform_dark_blue_female: tgf_undersuit_uniform_female {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_grey_female {
+    class tgf_undersuit_uniform_grey_female: tgf_undersuit_uniform_female {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_red_female {
+    class tgf_undersuit_uniform_red_female: tgf_undersuit_uniform_female {
         class ItemInfo;
     };
-    class tgf_undersuit_uniform_white_female {
+    class tgf_undersuit_uniform_white_female: tgf_undersuit_uniform_female {
         class ItemInfo;
     };
 
