@@ -1,11 +1,9 @@
 if (isNil "ls_common_fnc_hideHead") exitWith {};
 
-["CAManBase", "SlotItemChanged", {
-	params ["_unit", "_item", "_slot"];
-	if (!local _unit || {_slot != 605}) exitWith {};
-
-	// Let LS and loadout handlers finish before checking the actual equipped helmet.
-	[{
+TAE_fnc_queueHelmetHeadRestore = {
+	params ["_unit"];
+	if (isNull _unit || {!local _unit}) exitWith {};
+	private _restore = {
 		params ["_unit"];
 		if (isNull _unit || {!local _unit} || {!alive _unit}) exitWith {};
 		if (getNumber (configFile >> "CfgWeapons" >> headgear _unit >> "ls_common_hideHead") == 1) exitWith {};
@@ -15,5 +13,20 @@ if (isNil "ls_common_fnc_hideHead") exitWith {};
 		private _savedFace = _unit getVariable ["ls_common_oldFace", ""];
 		if (_savedFace == "" || {toLower _savedFace == "ls_hidehead"}) exitWith {};
 		[_unit, false] call ls_common_fnc_hideHead;
-	}, [_unit]] call CBA_fnc_execNextFrame;
+	};
+	// Recheck after sling/loadout handlers and asynchronous face events settle.
+	[_restore, [_unit]] call CBA_fnc_execNextFrame;
+	[_restore, [_unit], 0.5] call CBA_fnc_waitAndExecute;
+};
+
+["CAManBase", "SlotItemChanged", {
+	params ["_unit", "_item", "_slot"];
+	if (_slot != 605) exitWith {};
+	[_unit] call TAE_fnc_queueHelmetHeadRestore;
 }] call CBA_fnc_addClassEventHandler;
+
+// HOA removes headgear by script; listen to its completion event explicitly.
+["hoa_sling_helmetSlung", {
+	params ["_unit"];
+	[_unit] call TAE_fnc_queueHelmetHeadRestore;
+}] call CBA_fnc_addEventHandler;

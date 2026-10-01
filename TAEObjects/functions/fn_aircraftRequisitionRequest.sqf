@@ -1,12 +1,12 @@
 params [["_logic", objNull, [objNull]], ["_actor", objNull, [objNull]], ["_request", "", [""]], ["_payload", [], [[]]]];
 if (!isServer || {isNull _logic} || {isNull _actor}) exitWith {};
-if (!(_logic isKindOf "TAE_Module_AircraftRequisition") && {!(_logic isKindOf "TAE_AircraftTerminal")}) exitWith {};
+if !(_logic isKindOf "TAE_AircraftTerminal") exitWith {};
 private _data = _logic getVariable ["TAE_requisitionData", []];
 if (_data isEqualTo []) exitWith {};
 _data params ["_terminal", "_pad", "_classes", "_radius", "_duration"];
 if (isNull _terminal || {isNull _pad} || {!alive _actor} || {!isPlayer _actor} || {vehicle _actor != _actor} || {_actor distance _terminal > 5}) exitWith {};
 private _notify = {params ["_text"]; ["TAE_aircraftNotice", [_text], _actor] call CBA_fnc_targetEvent;};
-if (getNumber (configFile >> "CfgVehicles" >> typeOf _actor >> "ls_common_pilot") != 1) exitWith {["Pilot qualification required."] call _notify;};
+if !([_actor] call TAE_fnc_isQualifiedAircraftPilot) exitWith {["Pilot qualification required."] call _notify;};
 if (_pad getVariable ["TAE_aircraftBusy", false]) exitWith {["Pad is busy."] call _notify;};
 // nearestObjects includes wrecks, so a destroyed aircraft still blocks a new spawn.
 private _near = nearestObjects [_pad, ["Air", "LandVehicle", "Ship", "CAManBase"], _radius, true];

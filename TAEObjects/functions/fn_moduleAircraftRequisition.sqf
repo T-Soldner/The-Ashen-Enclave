@@ -1,16 +1,16 @@
 params [["_logic", objNull], ["_units", []], ["_activated", true]];
 if (!_activated || {isNull _logic} || {is3DEN}) exitWith {};
+if !(_logic isKindOf "TAE_AircraftTerminal") exitWith {};
 if (!canSuspend) exitWith {_this spawn TAE_fnc_moduleAircraftRequisition;};
 if (_logic getVariable ["TAE_requisitionStarted", false]) exitWith {};
 _logic setVariable ["TAE_requisitionStarted", true];
 
 if (isServer) then {
-    private _isTerminal = _logic isKindOf "TAE_AircraftTerminal";
-    private _mode = if (_isTerminal) then {_logic getVariable ["TAE_terminalMode", 1]} else {1};
+    private _mode = _logic getVariable ["TAE_terminalMode", 1];
     if (_mode == 0) exitWith {_logic setVariable ["TAE_requisitionData", [], true];};
-    private _terminal = if (_isTerminal) then {_logic} else {missionNamespace getVariable [_logic getVariable ["Terminal", "TAE_AircraftTerminal"], objNull]};
-    private _pad = missionNamespace getVariable [_logic getVariable ["Pad", "TAE_AircraftPad"], objNull];
-    if (_isTerminal) then {
+    private _terminal = _logic;
+    private _pad = objNull;
+    private _createPad = {
         // Keep a shared server-created anchor for spawning, service checks and JIP.
         private _radius = (_logic getVariable ["Radius", 30]) max 5;
         private _distance = (_logic getVariable ["TAE_spawnDistance", 40]) max (_radius + 6);
@@ -26,7 +26,8 @@ if (isServer) then {
             deleteVehicle ((_this # 0) getVariable ["TAE_generatedAircraftPad", objNull]);
         }];
     };
-    private _repairOnly = _mode == 2 || {getNumber (configOf _logic >> "TAE_repairOnly") == 1};
+    call _createPad;
+    private _repairOnly = _mode == 2;
     private _classes = if (_repairOnly) then {[]} else {parseSimpleArray (_logic getVariable ["Aircraft", "[]"])};
     if (!_repairOnly && {_classes isEqualTo []}) then {
         _classes = ["TAE_VWing", "TAE_Delta7_Interceptor", "TAE_KomrkFighter_Transport", "TAE_Skycat_Transport", "TAE_Z98_Headhunter"];
@@ -58,7 +59,10 @@ if (_data isEqualTo []) exitWith {
 };
 _data params ["_terminal", "_pad", "_classes"];
 private _actions = [];
-private _condition = "alive _this && {vehicle _this == _this} && {getNumber (configFile >> 'CfgVehicles' >> typeOf _this >> 'ls_common_pilot') == 1}";
+private _condition = "alive _this && {vehicle _this == _this} && {[_this] call TAE_fnc_isQualifiedAircraftPilot}";
+_actions pushBack (_terminal addAction ["Aircraft terminal: pilot qualification required", {
+    systemChat "Use a House Karr Pilot/Shyyyo unit or have an LS pilot qualification assigned.";
+}, nil, 1, false, true, "", "alive _this && {vehicle _this == _this} && {!([_this] call TAE_fnc_isQualifiedAircraftPilot)}", 4]);
 {
     private _label = getText (configFile >> "CfgVehicles" >> _x >> "displayName");
     _actions pushBack (_terminal addAction [format ["Request %1", _label], {

@@ -591,7 +591,7 @@ class CfgVehicles {
 		displayName = "House Karr C-PH Patrol Speeder Bike";
 		enginePower = 632.5;
 		peakTorque = 2599;
-		maxSpeed = 180;
+		maxSpeed = 200;
 		class PlayerSteeringCoefficients: PlayerSteeringCoefficients {
 			turnIncreaseConst = 2.5;
 			turnIncreaseLinear = 1;
@@ -806,7 +806,7 @@ class CfgVehicles {
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr BARC Speeder";
-		maxSpeed = 180;
+		maxSpeed = 160;
 		class Sounds: Sounds {
 			// Upstream high-RPM layers have empty samples. Crossfade in a
 			// real BARC loop as the existing low-RPM layer fades out.

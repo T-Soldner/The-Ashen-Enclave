@@ -1,3 +1,14 @@
+#include "cargo_macros.hpp"
+
+#include "wearable_macros.hpp"
+
+class CfgFactionClasses {
+	class NO_CATEGORY;
+	class TAE_Modules: NO_CATEGORY {
+		displayName = "[TAE] Modules";
+	};
+};
+
 class CfgPatches {
 	class TAEObjects {
 		name = "TAE Objects";
@@ -35,8 +46,6 @@ class CfgPatches {
 		units[] = {
 			"TAE_AircraftTerminal",
 			"TAE_Poster_HangInThere",
-			"TAE_Module_AircraftRequisition",
-			"TAE_Module_AircraftRepair",
 			"TAE_Restricted_Arsenal_Box",
 			"TAE_Restricted_Arsenal_Locker",
 			"TAE_Specialization_Gonk_Droid",
@@ -130,6 +139,7 @@ class CfgFunctions {
 		class Objects {
 			file = "TAEObjects\functions";
 			class moduleAircraftRequisition {};
+			class isQualifiedAircraftPilot {};
 			class initAircraftRequisition { postInit = 1; };
 			class aircraftRequisitionRequest {};
 			class repairAircraftOnPad {};
@@ -277,7 +287,7 @@ class CfgVehicles {
 				tooltip = "Array of quoted classnames. [] uses House Karr aircraft. A supplied array replaces the defaults.";
 				control = "Edit";
 				typeName = "STRING";
-				defaultValue = "'[]'";
+                defaultValue = "'[""TAE_VWing"",""TAE_Delta7_Interceptor"",""TAE_KomrkFighter_Transport"",""TAE_Skycat_Transport"",""TAE_Z98_Headhunter""]'";
 				expression = "_this setVariable ['Aircraft', _value];";
 			};
 			class TAE_TerminalRadius {
@@ -308,63 +318,6 @@ class CfgVehicles {
 		editorCategory = "TAE_EdCat_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Furniture";
 		hiddenSelectionsTextures[] = {"\TAEObjects\data\posters\hang_in_there_ca.paa"};
-	};
-	class Logic;
-	class Module_F: Logic {
-		class AttributesBase {
-			class Edit;
-		};
-	};
-	class TAE_Module_AircraftRequisition: Module_F {
-		TAE_repairOnly = 0;
-		scope = 2;
-		scopeCurator = 0;
-		displayName = "TAE Aircraft Requisition";
-		category = "NO_CATEGORY";
-		function = "TAE_fnc_moduleAircraftRequisition";
-		isGlobal = 2;
-		isTriggerActivated = 0;
-		isDisposable = 0;
-		class Attributes: AttributesBase {
-			class Terminal: Edit {
-				property = "TAE_RequisitionTerminal";
-				displayName = "Terminal variable name";
-				tooltip = "Variable name of the object that offers pilot-only scroll actions.";
-				defaultValue = "'TAE_AircraftTerminal'";
-			};
-			class Pad: Edit {
-				property = "TAE_RequisitionPad";
-				displayName = "Spawn pad variable name";
-				tooltip = "Invisible helipad defining spawn position, height and heading. Use a separate pad for each module.";
-				defaultValue = "'TAE_AircraftPad'";
-			};
-			class Aircraft: Edit {
-				property = "TAE_RequisitionAircraft";
-				displayName = "Aircraft classnames";
-				tooltip = "Array of quoted aircraft classnames. [] uses the House Karr aircraft defaults. Replaces, rather than extends, the defaults.";
-				defaultValue = "'[]'";
-			};
-			class Radius: Edit {
-				property = "TAE_RequisitionRadius";
-				displayName = "Pad clearance radius (metres)";
-				tooltip = "Area checked for people and vehicles before spawning, and for an aircraft to repair. Size for the largest aircraft; keep clear of walls.";
-				typeName = "NUMBER";
-				defaultValue = "30";
-			};
-			class RepairSeconds: Edit {
-				property = "TAE_RequisitionRepairSeconds";
-				displayName = "Full repair duration (seconds)";
-				typeName = "NUMBER";
-				defaultValue = "60";
-			};
-		};
-	};
-	class TAE_Module_AircraftRepair: TAE_Module_AircraftRequisition {
-		displayName = "TAE Aircraft Service Pad";
-		TAE_repairOnly = 1;
-		class Attributes: Attributes {
-			delete Aircraft;
-		};
 	};
 
 	class JLTS_Ammobox_weapons_GAR;
@@ -598,47 +551,33 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnAcklayArmor {
-					displayName = "Put On Acklay's Armor";
-					condition = "true";
-					statement = "[_player,'tae_acklay_armor','tae_acklay_helmet','tae_ls_grey_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnAcklayArmor, "Put On Acklay's Armor")
+                    statement = "[_player,'tae_acklay_armor','tae_acklay_helmet','tae_ls_grey_rangefinder','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnStasikArmor {
-					displayName = "Put On Stasik's Armor";
-					condition = "true";
-					statement = "[_player,'tae_stasik_armor','tae_stasik_helmet','tgf_nvg_rangefinder_r','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnStasikArmor, "Put On Stasik's Armor")
+                    statement = "[_player,'tae_stasik_armor','tae_stasik_helmet','tgf_nvg_rangefinder_r','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnJimothyArmor {
-					displayName = "Put On Jimothy's Armor";
-					condition = "true";
-					statement = "[_player,'tae_jimothy_armor','tae_jimothy_helmet','tae_jimothy_rangefinder','','tae_uniform_vau'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnJimothyArmor, "Put On Jimothy's Armor")
+                    statement = "[_player,'tae_jimothy_armor','tae_jimothy_helmet','tae_jimothy_rangefinder','','tae_uniform_vau'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnFrenkArmor {
-					displayName = "Put On Frenk's Armor";
-					condition = "true";
-					statement = "[_player,'tae_frenk_armor','tae_frenk_helmet','tae_dark_grey_rangefinder','','tae_uniform_dark_green_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnFrenkArmor, "Put On Frenk's Armor")
+                    statement = "[_player,'tae_frenk_armor','tae_frenk_helmet','tae_dark_grey_rangefinder','','tae_uniform_dark_green_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnTowiArmor {
-					displayName = "Put On Towi's Armor";
-					condition = "true";
-					statement = "[_player,'tae_towi_armor','tae_towi_helmet','tae_ls_grey_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnTowiArmor, "Put On Towi's Armor")
+                    statement = "[_player,'tae_towi_armor','tae_towi_helmet','tae_ls_grey_rangefinder','tae_facewear_ls_neck_lining','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnBingoArmor {
-					displayName = "Put On Bingo's Armor";
-					condition = "true";
-					statement = "[_player,'tae_bingo_armor','tae_bingo_helmet','tgf_nvg_rangefinder_r','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnBingoArmor, "Put On Bingo's Armor")
+                    statement = "[_player,'tae_bingo_armor','tae_bingo_helmet','tgf_nvg_rangefinder_r','tae_facewear_ls_neck_lining','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnNiteOwlArmor {
-					displayName = "Put On Nite Owl's Armor";
-					condition = "true";
-					statement = "[_player,'tae_acklay_niteowl_armor','tae_acklay_niteowl_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlArmor, "Put On Nite Owl's Armor")
+                    statement = "[_player,'tae_acklay_niteowl_armor','tae_acklay_niteowl_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -662,35 +601,25 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnFoxxArmor {
-					displayName = "Put On Foxx's Armor";
-					condition = "true";
-					statement = "[_player,'tae_foxx_armor','tae_foxx_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnFoxxArmor, "Put On Foxx's Armor")
+                    statement = "[_player,'tae_foxx_armor','tae_foxx_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnJunoArmor {
-					displayName = "Put On Juno's Armor";
-					condition = "true";
-					statement = "[_player,'tae_juno_armor','tae_juno_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnJunoArmor, "Put On Juno's Armor")
+                    statement = "[_player,'tae_juno_armor','tae_juno_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnBeanArmor {
-					displayName = "Put On Bean's Armor";
-					condition = "true";
-					statement = "[_player,'tae_foxx_armor','tae_bean_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnBeanArmor, "Put On Bean's Armor")
+                    statement = "[_player,'tae_foxx_armor','tae_bean_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnGreyArmor {
-					displayName = "Put On Grey's Armor";
-					condition = "true";
-					statement = "[_player,'tae_foxx_armor','tae_grey_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnGreyArmor, "Put On Grey's Armor")
+                    statement = "[_player,'tae_foxx_armor','tae_grey_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnGalaxyArmor {
-					displayName = "Put On Galaxy's Armor";
-					condition = "true";
-					statement = "[_player,'tae_galaxy_armor','tae_galaxy_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnGalaxyArmor, "Put On Galaxy's Armor")
+                    statement = "[_player,'tae_galaxy_armor','tae_galaxy_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -714,29 +643,21 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnVarenArmor {
-					displayName = "Put On Varen's Armor";
-					condition = "true";
-					statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnVarenArmor, "Put On Varen's Armor")
+                    statement = "[_player,'tae_varen_recon_armor','tae_varen_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnVarenNiteOwlArmor {
-					displayName = "Put On Varen's Nite Owl Armor";
-					condition = "true";
-					statement = "[_player,'tae_varen_niteowl_armor','tae_varen_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnVarenNiteOwlArmor, "Put On Varen's Nite Owl Armor")
+                    statement = "[_player,'tae_varen_niteowl_armor','tae_varen_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnValeriaArmor {
-					displayName = "Put On Valeria's Armor";
-					condition = "true";
-					statement = "[_player,'tae_varen_niteowl_armor','tae_valeria_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnValeriaArmor, "Put On Valeria's Armor")
+                    statement = "[_player,'tae_varen_niteowl_armor','tae_valeria_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnKeiraArmor {
-					displayName = "Put On Keira's Armor";
-					condition = "true";
-					statement = "[_player,'tae_varen_niteowl_armor','tae_keira_helmet','tae_dark_red_rangefinder','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnKeiraArmor, "Put On Keira's Armor")
+                    statement = "[_player,'tae_varen_niteowl_armor','tae_keira_helmet','tae_dark_red_rangefinder','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -760,17 +681,13 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnHaranverdTraditionalArmor {
-					displayName = "Put On Clan Haranverd Traditional Armor";
-					condition = "true";
-					statement = "[_player,'tae_haranverd_traditional_armor','tae_haranverd_traditional_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHaranverdTraditionalArmor, "Put On Clan Haranverd Traditional Armor")
+                    statement = "[_player,'tae_haranverd_traditional_armor','tae_haranverd_traditional_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnHaranverdNiteOwlArmor {
-					displayName = "Put On Clan Haranverd Nite Owl Armor";
-					condition = "true";
-					statement = "[_player,'tae_haranverd_niteowl_armor','tae_haranverd_niteowl_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHaranverdNiteOwlArmor, "Put On Clan Haranverd Nite Owl Armor")
+                    statement = "[_player,'tae_haranverd_niteowl_armor','tae_haranverd_niteowl_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -812,14 +729,10 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-                class TAE_PutOnKyramArmor {
-                    displayName = "Put On Clan Kyr'am Armor";
-                    condition = "true";
+                TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnKyramArmor, "Put On Clan Kyr'am Armor")
                     statement = "[_player,'tae_kyram_armor','tae_kyram_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
-                class TAE_PutOnNovaArmor {
-                    displayName = "Put On Nova's Armor";
-                    condition = "true";
+                TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNovaArmor, "Put On Nova's Armor")
                     statement = "[_player,'tae_karr_armor_niteowl_ma','tae_nova_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_white_female'] call TAE_fnc_applyWearableLoadout";
                 };
 			};
@@ -845,41 +758,29 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnRookArmor {
-					displayName = "Put On Rook's Armor";
-					condition = "true";
-					statement = "[_player,'tae_rook_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnRookArmor, "Put On Rook's Armor")
+                    statement = "[_player,'tae_rook_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnHadesArmor {
-					displayName = "Put On Hades' Armor";
-					condition = "true";
-					statement = "[_player,'tae_hades_armor','tae_hades_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHadesArmor, "Put On Hades' Armor")
+                    statement = "[_player,'tae_hades_armor','tae_hades_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnVarioArmor {
-					displayName = "Put On Vario's Armor";
-					condition = "true";
-					statement = "[_player,'tae_vario_armor','tae_vario_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnVarioArmor, "Put On Vario's Armor")
+                    statement = "[_player,'tae_vario_armor','tae_vario_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnAndoraArmor {
-					displayName = "Put On Andora's Armor";
-					condition = "true";
-					statement = "[_player,'tae_andora_armor','tae_andora_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnAndoraArmor, "Put On Andora's Armor")
+                    statement = "[_player,'tae_andora_armor','tae_andora_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnGoostivoolArmor {
-					displayName = "Put On Goostivool's Armor";
-					condition = "true";
-					statement = "[_player,'tae_goostivool_armor','tae_goostivool_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnGoostivoolArmor, "Put On Goostivool's Armor")
+                    statement = "[_player,'tae_goostivool_armor','tae_goostivool_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnShenArmor {
-					displayName = "Put On Shen's Armor";
-					condition = "true";
-					statement = "[_player,'tae_shen_armor','tae_shen_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnShenArmor, "Put On Shen's Armor")
+                    statement = "[_player,'tae_shen_armor','tae_shen_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -903,54 +804,38 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnRecruitArmor {
-					displayName = "Put On Mandalorian Recruit's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_medium_mr','tae_karr_helmet_mr','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnRecruitArmor, "Put On Mandalorian Recruit's Armor")
+                    statement = "[_player,'tae_karr_armor_medium_mr','tae_karr_helmet_mr','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnApprenticeArmor {
-					displayName = "Put On Mandalorian Apprentice's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_medium_ma','tae_karr_helmet_ma','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnApprenticeArmor, "Put On Mandalorian Apprentice's Armor")
+                    statement = "[_player,'tae_karr_armor_medium_ma','tae_karr_helmet_ma','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnMandalorianArmor {
-					displayName = "Put On Mandalorian's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_medium_mm','tae_karr_helmet_mm','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnMandalorianArmor, "Put On Mandalorian's Armor")
+                    statement = "[_player,'tae_karr_armor_medium_mm','tae_karr_helmet_mm','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnVeteranArmor {
-					displayName = "Put On Mandalorian Veteran's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_medium_mv','tae_karr_helmet_mv','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnVeteranArmor, "Put On Mandalorian Veteran's Armor")
+                    statement = "[_player,'tae_karr_armor_medium_mv','tae_karr_helmet_mv','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnNiteOwlRecruitArmor {
-					displayName = "Put On Nite Owl Recruit's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_niteowl_mr','tae_karr_helmet_niteowl_mr','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlRecruitArmor, "Put On Nite Owl Recruit's Armor")
+                    statement = "[_player,'tae_karr_armor_niteowl_mr','tae_karr_helmet_niteowl_mr','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnNiteOwlApprenticeArmor {
-					displayName = "Put On Nite Owl Apprentice's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_niteowl_ma','tae_karr_helmet_niteowl_ma','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlApprenticeArmor, "Put On Nite Owl Apprentice's Armor")
+                    statement = "[_player,'tae_karr_armor_niteowl_ma','tae_karr_helmet_niteowl_ma','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+                };
 
 
-				class TAE_PutOnNiteOwlMandalorianArmor {
-					displayName = "Put On Nite Owl's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_niteowl_mm','tae_karr_helmet_niteowl_mm','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlMandalorianArmor, "Put On Nite Owl's Armor")
+                    statement = "[_player,'tae_karr_armor_niteowl_mm','tae_karr_helmet_niteowl_mm','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnNiteOwlVeteranArmor {
-					displayName = "Put On Nite Owl Veteran's Armor";
-					condition = "true";
-					statement = "[_player,'tae_karr_armor_niteowl_mv','tae_karr_helmet_niteowl_mv','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlVeteranArmor, "Put On Nite Owl Veteran's Armor")
+                    statement = "[_player,'tae_karr_armor_niteowl_mv','tae_karr_helmet_niteowl_mv','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -974,11 +859,9 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnNoxArmor {
-					displayName = "Put On Nox's Armor";
-					condition = "true";
-					statement = "[_player,'tae_nox_armor','tae_nox_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNoxArmor, "Put On Nox's Armor")
+                    statement = "[_player,'tae_nox_armor','tae_nox_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -1002,11 +885,9 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnHondoArmor {
-					displayName = "Put On Hondo's Armor";
-					condition = "true";
-					statement = "[_player,'tae_hondo_armor','tae_hondo_helmet','','','tae_uniform_forgemaster_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHondoArmor, "Put On Hondo's Armor")
+                    statement = "[_player,'tae_hondo_armor','tae_hondo_helmet','','','tae_uniform_forgemaster_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -1035,11 +916,9 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnEdonnArmor {
-					displayName = "Put On Edonn's Armor";
-					condition = "true";
-					statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tgf_nvg_circuit','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnEdonnArmor, "Put On Edonn's Armor")
+                    statement = "[_player,'tae_edonn_armor','tae_edonn_helmet','tgf_nvg_circuit','','tae_uniform_ls_mandalorian'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -1064,17 +943,13 @@ class CfgVehicles {
 				displayName = "Helmet";
 				condition = "true";
 
-				class TAE_PutOnTekaArmor {
-					displayName = "Put On Teka's Armor";
-					condition = "true";
-					statement = "[_player,'tae_teka_armor','tae_teka_helmet','','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnTekaArmor, "Put On Teka's Armor")
+                    statement = "[_player,'tae_teka_armor','tae_teka_helmet','','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 
-				class TAE_PutOnShyyyoArmor {
-					displayName = "Put On Shyyyo's Armor";
-					condition = "true";
-					statement = "[_player,'tae_shyyyo_recon_armor','tae_shyyyo_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-				};
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnShyyyoArmor, "Put On Shyyyo's Armor")
+                    statement = "[_player,'tae_shyyyo_recon_armor','tae_shyyyo_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
 			};
 		};
 	};
@@ -1294,18 +1169,9 @@ class CfgVehicles {
 		class TransportMagazines {};
 
 		class TransportItems {
-			class _xx_knd_crates_ammoTin_verySmall {
-				name = "knd_crates_ammoTin_verySmall";
-				count = 50;
-			};
-			class _xx_knd_crates_ammoTin_small {
-				name = "knd_crates_ammoTin_small";
-				count = 50;
-			};
-			class _xx_knd_crates_ammoTin_large {
-				name = "knd_crates_ammoTin_large";
-				count = 50;
-			};
+			TAE_CARGO(_xx_knd_crates_ammoTin_verySmall, name, "knd_crates_ammoTin_verySmall", 50)
+			TAE_CARGO(_xx_knd_crates_ammoTin_small, name, "knd_crates_ammoTin_small", 50)
+			TAE_CARGO(_xx_knd_crates_ammoTin_large, name, "knd_crates_ammoTin_large", 50)
 		};
 		class TransportBackpacks {};
 	};
@@ -1344,140 +1210,44 @@ class CfgVehicles {
 		class TransportWeapons {};
 
 		class TransportMagazines {
-			class _xx_3AS_ThermalDetonator {
-				magazine = "3AS_ThermalDetonator";
-				count = 20;
-			};
-			class _xx_3AS_SonicDet {
-				magazine = "3AS_SonicDet";
-				count = 12;
-			};
-			class _xx_3AS_SmokeBlue {
-				magazine = "3AS_SmokeBlue";
-				count = 10;
-			};
-			class _xx_3AS_SmokeGreen {
-				magazine = "3AS_SmokeGreen";
-				count = 10;
-			};
-			class _xx_3AS_SmokeRed {
-				magazine = "3AS_SmokeRed";
-				count = 10;
-			};
-			class _xx_3AS_SmokeWhite {
-				magazine = "3AS_SmokeWhite";
-				count = 10;
-			};
-			class _xx_3AS_SmokeYellow {
-				magazine = "3AS_SmokeYellow";
-				count = 10;
-			};
-			class _xx_3AS_ThrowableCharge {
-				magazine = "3AS_ThrowableCharge";
-				count = 8;
-			};
-			class _xx_3AS_DetPack {
-				magazine = "3AS_DetPack";
-				count = 8;
-			};
-			class _xx_EC01_RemoteMagazine {
-				magazine = "EC01_RemoteMagazine";
-				count = 8;
-			};
-			class _xx_RTX_RemoteMagazine {
-				magazine = "RTX_RemoteMagazine";
-				count = 8;
-			};
-			class _xx_mti_armoury_mag_breaching_charge {
-				magazine = "mti_armoury_mag_breaching_charge";
-				count = 8;
-			};
-			class _xx_mti_armoury_mag_detpack {
-				magazine = "mti_armoury_mag_detpack";
-				count = 8;
-			};
-			class _xx_mti_armoury_mag_satchelCharge {
-				magazine = "mti_armoury_mag_satchelCharge";
-				count = 6;
-			};
-			class _xx_HX_AT_Mine_Mag {
-				magazine = "HX_AT_Mine_Mag";
-				count = 6;
-			};
-			class _xx_1Rnd_HE_Grenade_shell {
-				magazine = "1Rnd_HE_Grenade_shell";
-				count = 20;
-			};
-			class _xx_3Rnd_HE_Grenade_shell {
-				magazine = "3Rnd_HE_Grenade_shell";
-				count = 10;
-			};
-			class _xx_1Rnd_Smoke_Grenade_shell {
-				magazine = "1Rnd_Smoke_Grenade_shell";
-				count = 10;
-			};
-			class _xx_1Rnd_SmokeRed_Grenade_shell {
-				magazine = "1Rnd_SmokeRed_Grenade_shell";
-				count = 10;
-			};
-			class _xx_1Rnd_SmokeGreen_Grenade_shell {
-				magazine = "1Rnd_SmokeGreen_Grenade_shell";
-				count = 10;
-			};
-			class _xx_1Rnd_SmokeBlue_Grenade_shell {
-				magazine = "1Rnd_SmokeBlue_Grenade_shell";
-				count = 10;
-			};
-			class _xx_UGL_FlareWhite_F {
-				magazine = "UGL_FlareWhite_F";
-				count = 10;
-			};
-			class _xx_UGL_FlareRed_F {
-				magazine = "UGL_FlareRed_F";
-				count = 10;
-			};
-			class _xx_UGL_FlareGreen_F {
-				magazine = "UGL_FlareGreen_F";
-				count = 10;
-			};
-			class _xx_UGL_FlareYellow_F {
-				magazine = "UGL_FlareYellow_F";
-				count = 10;
-			};
+			TAE_CARGO(_xx_3AS_ThermalDetonator, magazine, "3AS_ThermalDetonator", 20)
+			TAE_CARGO(_xx_3AS_SonicDet, magazine, "3AS_SonicDet", 12)
+			TAE_CARGO(_xx_3AS_SmokeBlue, magazine, "3AS_SmokeBlue", 10)
+			TAE_CARGO(_xx_3AS_SmokeGreen, magazine, "3AS_SmokeGreen", 10)
+			TAE_CARGO(_xx_3AS_SmokeRed, magazine, "3AS_SmokeRed", 10)
+			TAE_CARGO(_xx_3AS_SmokeWhite, magazine, "3AS_SmokeWhite", 10)
+			TAE_CARGO(_xx_3AS_SmokeYellow, magazine, "3AS_SmokeYellow", 10)
+			TAE_CARGO(_xx_3AS_ThrowableCharge, magazine, "3AS_ThrowableCharge", 8)
+			TAE_CARGO(_xx_3AS_DetPack, magazine, "3AS_DetPack", 8)
+			TAE_CARGO(_xx_EC01_RemoteMagazine, magazine, "EC01_RemoteMagazine", 8)
+			TAE_CARGO(_xx_RTX_RemoteMagazine, magazine, "RTX_RemoteMagazine", 8)
+			TAE_CARGO(_xx_mti_armoury_mag_breaching_charge, magazine, "mti_armoury_mag_breaching_charge", 8)
+			TAE_CARGO(_xx_mti_armoury_mag_detpack, magazine, "mti_armoury_mag_detpack", 8)
+			TAE_CARGO(_xx_mti_armoury_mag_satchelCharge, magazine, "mti_armoury_mag_satchelCharge", 6)
+			TAE_CARGO(_xx_HX_AT_Mine_Mag, magazine, "HX_AT_Mine_Mag", 6)
+			TAE_CARGO(_xx_1Rnd_HE_Grenade_shell, magazine, "1Rnd_HE_Grenade_shell", 20)
+			TAE_CARGO(_xx_3Rnd_HE_Grenade_shell, magazine, "3Rnd_HE_Grenade_shell", 10)
+			TAE_CARGO(_xx_1Rnd_Smoke_Grenade_shell, magazine, "1Rnd_Smoke_Grenade_shell", 10)
+			TAE_CARGO(_xx_1Rnd_SmokeRed_Grenade_shell, magazine, "1Rnd_SmokeRed_Grenade_shell", 10)
+			TAE_CARGO(_xx_1Rnd_SmokeGreen_Grenade_shell, magazine, "1Rnd_SmokeGreen_Grenade_shell", 10)
+			TAE_CARGO(_xx_1Rnd_SmokeBlue_Grenade_shell, magazine, "1Rnd_SmokeBlue_Grenade_shell", 10)
+			TAE_CARGO(_xx_UGL_FlareWhite_F, magazine, "UGL_FlareWhite_F", 10)
+			TAE_CARGO(_xx_UGL_FlareRed_F, magazine, "UGL_FlareRed_F", 10)
+			TAE_CARGO(_xx_UGL_FlareGreen_F, magazine, "UGL_FlareGreen_F", 10)
+			TAE_CARGO(_xx_UGL_FlareYellow_F, magazine, "UGL_FlareYellow_F", 10)
 		};
 
 		class TransportItems {
-			class _xx_ACE_Clacker {
-				name = "ACE_Clacker";
-				count = 6;
-			};
-			class _xx_ACE_M26_Clacker {
-				name = "ACE_M26_Clacker";
-				count = 6;
-			};
-			class _xx_ACE_DefusalKit {
-				name = "ACE_DefusalKit";
-				count = 4;
-			};
-			class _xx_ACE_wirecutter {
-				name = "ACE_wirecutter";
-				count = 4;
-			};
+			TAE_CARGO(_xx_ACE_Clacker, name, "ACE_Clacker", 6)
+			TAE_CARGO(_xx_ACE_M26_Clacker, name, "ACE_M26_Clacker", 6)
+			TAE_CARGO(_xx_ACE_DefusalKit, name, "ACE_DefusalKit", 4)
+			TAE_CARGO(_xx_ACE_wirecutter, name, "ACE_wirecutter", 4)
 		};
 
 		class TransportBackpacks {
-			class _xx_knd_z6rocket {
-				backpack = "knd_z6rocket";
-				count = 6;
-			};
-			class _xx_knd_z6rocket_AA {
-				backpack = "knd_z6rocket_AA";
-				count = 6;
-			};
-			class _xx_knd_z6rocket_AT {
-				backpack = "knd_z6rocket_AT";
-				count = 6;
-			};
+			TAE_CARGO(_xx_knd_z6rocket, backpack, "knd_z6rocket", 6)
+			TAE_CARGO(_xx_knd_z6rocket_AA, backpack, "knd_z6rocket_AA", 6)
+			TAE_CARGO(_xx_knd_z6rocket_AT, backpack, "knd_z6rocket_AT", 6)
 		};
 	};
 
@@ -1516,54 +1286,18 @@ class CfgVehicles {
 		class TransportMagazines {};
 
 		class TransportItems {
-			class _xx_ACE_tourniquet {
-				name = "ACE_tourniquet";
-				count = 40;
-			};
-			class _xx_ACE_splint {
-				name = "ACE_splint";
-				count = 30;
-			};
-			class _xx_ACE_morphine {
-				name = "ACE_morphine";
-				count = 30;
-			};
-			class _xx_ACE_epinephrine {
-				name = "ACE_epinephrine";
-				count = 30;
-			};
-			class _xx_ACE_adenosine {
-				name = "ACE_adenosine";
-				count = 20;
-			};
-			class _xx_ACE_painkillers {
-				name = "ACE_painkillers";
-				count = 30;
-			};
-			class _xx_mti_armoury_props_medical_Bacta_Item_1000 {
-				name = "mti_armoury_props_medical_Bacta_Item_1000";
-				count = 20;
-			};
-			class _xx_mti_armoury_props_medical_Bacta_Item_500 {
-				name = "mti_armoury_props_medical_Bacta_Item_500";
-				count = 30;
-			};
-			class _xx_mti_armoury_props_medical_Bacta_Item_250 {
-				name = "mti_armoury_props_medical_Bacta_Item_250";
-				count = 30;
-			};
-			class _xx_ACE_surgicalKit {
-				name = "ACE_surgicalKit";
-				count = 4;
-			};
-			class _xx_MTI_BactaSpray {
-				name = "MTI_BactaSpray";
-				count = 200;
-			};
-			class _xx_MTI_BactaPatch {
-				name = "MTI_BactaPatch";
-				count = 200;
-			};
+			TAE_CARGO(_xx_ACE_tourniquet, name, "ACE_tourniquet", 40)
+			TAE_CARGO(_xx_ACE_splint, name, "ACE_splint", 30)
+			TAE_CARGO(_xx_ACE_morphine, name, "ACE_morphine", 30)
+			TAE_CARGO(_xx_ACE_epinephrine, name, "ACE_epinephrine", 30)
+			TAE_CARGO(_xx_ACE_adenosine, name, "ACE_adenosine", 20)
+			TAE_CARGO(_xx_ACE_painkillers, name, "ACE_painkillers", 30)
+			TAE_CARGO(_xx_mti_armoury_props_medical_Bacta_Item_1000, name, "mti_armoury_props_medical_Bacta_Item_1000", 20)
+			TAE_CARGO(_xx_mti_armoury_props_medical_Bacta_Item_500, name, "mti_armoury_props_medical_Bacta_Item_500", 30)
+			TAE_CARGO(_xx_mti_armoury_props_medical_Bacta_Item_250, name, "mti_armoury_props_medical_Bacta_Item_250", 30)
+			TAE_CARGO(_xx_ACE_surgicalKit, name, "ACE_surgicalKit", 4)
+			TAE_CARGO(_xx_MTI_BactaSpray, name, "MTI_BactaSpray", 200)
+			TAE_CARGO(_xx_MTI_BactaPatch, name, "MTI_BactaPatch", 200)
 		};
 
 		class TransportBackpacks {};
