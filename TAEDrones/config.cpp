@@ -259,6 +259,9 @@ class CfgVehicles {
 
 		altFullForce = 2500;
 		altNoForce = 2600;
+		maxSpeed = 200;
+		cyclicForwardForceCoef = 0.66;
+		bodyFrictionCoef = 0.35;
 		fuelCapacity = 200;
 		weapons[] = {};
 		magazines[] = {};

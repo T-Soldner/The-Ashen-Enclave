@@ -84,5 +84,14 @@ _actions pushBack (_terminal addAction ["Repair aircraft on pad", {
         };
     }, [_logic, _x # 1], 1.3, false, true, "", _condition, 4]);
 } forEach [["Refuel aircraft on pad", "refuel"], ["Rearm aircraft on pad", "rearm"], ["Change aircraft pylons", "pylon"]];
+_actions pushBack (_terminal addAction ["Put aircraft in storage", {
+    params ["_target", "_caller", "_id", "_logic"];
+    [_logic, _caller] spawn {
+        params ["_logic", "_caller"];
+        if (["Put the aircraft on the pad in storage? This despawns it and discards its cargo and current state.", "Aircraft storage", true, true] call BIS_fnc_guiMessage) then {
+            ["TAE_aircraftRequest", [_logic, _caller, "store"]] call CBA_fnc_serverEvent;
+        };
+    };
+}, _logic, 1.2, false, true, "", _condition, 4]);
 waitUntil {sleep 1; isNull _logic || {isNull _terminal} || {isNull _pad}};
 if (!isNull _terminal) then {{_terminal removeAction _x;} forEach _actions;};

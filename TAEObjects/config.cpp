@@ -145,6 +145,7 @@ class CfgFunctions {
 			class repairAircraftOnPad {};
 			class serviceAircraftOnPad {};
 			class aircraftPylonMenu {};
+			class aircraftStorageRequest {};
 			class applyWearableLoadout {};
 			class fullHealPlayer {};
 			class initRestrictedArsenal {};

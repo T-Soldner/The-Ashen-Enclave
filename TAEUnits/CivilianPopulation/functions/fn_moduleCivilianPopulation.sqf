@@ -24,14 +24,16 @@ _logic setVariable ["TAE_populationStarted", true];
     private _groups = [];
     private _states = [];
     private _vehicles = [];
+    diag_log format ["[TAE] Civilian population: requested %1 pedestrians, %2 vehicles; available vehicle classes: %3.", _count, _vehicleCount, _vehiclePool];
 
     // Bounded rejection sampling: never substitute an unsafe out-of-area point.
     private _sample = {
         params ["_nearIcon", ["_driving", false]];
         private _result = [];
         for "_attempt" from 1 to 60 do {
-            private _x = (random 2 - 1) * (if (_nearIcon) then {_a min 15} else {_a});
-            private _y = (random 2 - 1) * (if (_nearIcon) then {_b min 15} else {_b});
+            private _spawnRadius = if (_driving) then {15 + _vehicleCount * 3} else {15};
+            private _x = (random 2 - 1) * (if (_nearIcon) then {_a min _spawnRadius} else {_a});
+            private _y = (random 2 - 1) * (if (_nearIcon) then {_b min _spawnRadius} else {_b});
             private _pos = [(_center # 0) + _x * cos _angle + _y * sin _angle,
                 (_center # 1) - _x * sin _angle + _y * cos _angle, 0];
             if (_pos inArea _area && {!surfaceIsWater _pos}) then {
@@ -46,27 +48,7 @@ _logic setVariable ["TAE_populationStarted", true];
         _result
     };
 
-    for "_i" from 1 to _count do {
-        if (isNull _logic) exitWith {};
-        private _pos = [true] call _sample;
-        if (_pos isNotEqualTo []) then {
-            private _group = createGroup [civilian, true];
-            private _unit = _group createUnit ["TAE_Unit_Civilian_Random", _pos, [], 0, "NONE"];
-            _group setBehaviourStrong "SAFE";
-            _group setSpeedMode "LIMITED";
-            _group setCombatMode "BLUE";
-            _unit forceWalk true;
-            _units pushBack _unit;
-            _groups pushBack _group;
-            // Unit, route, active waypoint, destination, departure time, deadline.
-            _states pushBack [_unit, [], [], [], 0, 0];
-        };
-    };
-    if (count _units < _count) then {
-        diag_log format ["[TAE] Civilian population: spawned %1/%2; insufficient safe ground near module.", count _units, _count];
-    };
-    _logic setVariable ["TAE_populationUnits", _units];
-
+    // Reserve vehicle clearance before pedestrians occupy the spawn area.
     for "_i" from 1 to _vehicleCount do {
         if (isNull _logic || {_vehiclePool isEqualTo []}) exitWith {};
         private _pos = [true, true] call _sample;
@@ -101,6 +83,27 @@ _logic setVariable ["TAE_populationStarted", true];
     };
     if (count _vehicles < _vehicleCount) then {
         diag_log format ["[TAE] Civilian vehicles: spawned %1/%2; check installed pool and clear space near module.", count _vehicles, _vehicleCount];
+    };
+    private _footCount = 0;
+    for "_i" from 1 to _count do {
+        if (isNull _logic) exitWith {};
+        private _pos = [true] call _sample;
+        if (_pos isNotEqualTo []) then {
+            private _group = createGroup [civilian, true];
+            private _unit = _group createUnit ["TAE_Unit_Civilian_Random", _pos, [], 0, "NONE"];
+            _group setBehaviourStrong "SAFE";
+            _group setSpeedMode "LIMITED";
+            _group setCombatMode "BLUE";
+            _unit forceWalk true;
+            _units pushBack _unit;
+            _groups pushBack _group;
+            // Unit, route, active waypoint, destination, departure time, deadline.
+            _states pushBack [_unit, [], [], [], 0, 0];
+            _footCount = _footCount + 1;
+        };
+    };
+    if (_footCount < _count) then {
+        diag_log format ["[TAE] Civilian population: spawned %1/%2 pedestrians; insufficient safe ground near module.", _footCount, _count];
     };
     _logic setVariable ["TAE_populationUnits", _units];
     _logic setVariable ["TAE_populationVehicles", _vehicles];

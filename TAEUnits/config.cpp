@@ -685,7 +685,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Shyyyo: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Clan Shyyyo Member";
+		displayName = "Shyyyo Pilot";
 		role = "Crewman";
 		icon = "ls_iconManPilot";
 		nameSound = "veh_infantry_pilot_s";
