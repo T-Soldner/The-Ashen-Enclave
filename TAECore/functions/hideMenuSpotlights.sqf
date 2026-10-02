@@ -46,15 +46,33 @@ private _hiddenClasses = [
                 _parent = ctrlParentControlsGroup _parent;
             };
             if (_parent == _tile) then {
-                _x ctrlSetPosition ((ctrlPosition _x) apply {_x * _scale});
+                private _originalPosition = _x getVariable ["TAE_originalSpotlightPosition", []];
+                if (_originalPosition isEqualTo []) then {
+                    _originalPosition = +(ctrlPosition _x);
+                    _x setVariable ["TAE_originalSpotlightPosition", _originalPosition];
+                };
+                _x ctrlSetPosition (_originalPosition apply {_x * _scale});
                 _x ctrlCommit 0;
-                private _hoverPosition = _x getVariable ["pos", []];
+                private _hoverPosition = _x getVariable ["TAE_originalSpotlightHoverPosition", []];
+                if (_hoverPosition isEqualTo []) then {
+                    _hoverPosition = +(_x getVariable ["pos", []]);
+                    if !(_hoverPosition isEqualTo []) then {
+                        _x setVariable ["TAE_originalSpotlightHoverPosition", _hoverPosition];
+                    };
+                };
                 if !(_hoverPosition isEqualTo []) then {
                     _x setVariable ["pos", _hoverPosition apply {_x * _scale}];
                 };
             };
         } forEach allControls _display;
-        private _position = ctrlPosition _x;
+        // Profile switching can rerun setup on existing controls. Never scale
+        // their already-scaled dimensions a second time.
+        private _originalTilePosition = _tile getVariable ["TAE_originalSpotlightPosition", []];
+        if (_originalTilePosition isEqualTo []) then {
+            _originalTilePosition = +(ctrlPosition _tile);
+            _tile setVariable ["TAE_originalSpotlightPosition", _originalTilePosition];
+        };
+        private _position = +_originalTilePosition;
         _position set [0, safeZoneX + safeZoneW * 0.025];
         _position set [1, safeZoneY + safeZoneH * 0.11];
         _position set [2, (_position select 2) * _scale];

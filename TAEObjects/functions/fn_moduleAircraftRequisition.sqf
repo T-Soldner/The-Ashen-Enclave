@@ -1,12 +1,33 @@
 params [["_logic", objNull], ["_units", []], ["_activated", true]];
 if (!_activated || {isNull _logic} || {is3DEN}) exitWith {};
+if !(_logic isKindOf "TAE_AircraftTerminal") exitWith {};
+if (!canSuspend) exitWith {_this spawn TAE_fnc_moduleAircraftRequisition;};
 if (_logic getVariable ["TAE_requisitionStarted", false]) exitWith {};
 _logic setVariable ["TAE_requisitionStarted", true];
 
 if (isServer) then {
-    private _terminal = missionNamespace getVariable [_logic getVariable ["Terminal", "TAE_AircraftTerminal"], objNull];
-    private _pad = missionNamespace getVariable [_logic getVariable ["Pad", "TAE_AircraftPad"], objNull];
-    private _repairOnly = getNumber (configOf _logic >> "TAE_repairOnly") == 1;
+    private _mode = _logic getVariable ["TAE_terminalMode", 1];
+    if (_mode == 0) exitWith {_logic setVariable ["TAE_requisitionData", [], true];};
+    private _terminal = _logic;
+    private _pad = objNull;
+    private _createPad = {
+        // Keep a shared server-created anchor for spawning, service checks and JIP.
+        private _radius = (_logic getVariable ["Radius", 30]) max 5;
+        private _distance = (_logic getVariable ["TAE_spawnDistance", 40]) max (_radius + 6);
+        private _heading = getDir _terminal;
+        private _position = getPosATL _terminal;
+        _position set [0, (_position # 0) + sin _heading * _distance];
+        _position set [1, (_position # 1) + cos _heading * _distance];
+        _pad = createVehicle ["Land_HelipadEmpty_F", _position, [], 0, "CAN_COLLIDE"];
+        _pad setPosATL _position;
+        _pad setDir ((_heading + (_logic getVariable ["TAE_spawnFacing", 0])) mod 360);
+        _logic setVariable ["TAE_generatedAircraftPad", _pad];
+        _logic addEventHandler ["Deleted", {
+            deleteVehicle ((_this # 0) getVariable ["TAE_generatedAircraftPad", objNull]);
+        }];
+    };
+    call _createPad;
+    private _repairOnly = _mode == 2;
     private _classes = if (_repairOnly) then {[]} else {parseSimpleArray (_logic getVariable ["Aircraft", "[]"])};
     if (!_repairOnly && {_classes isEqualTo []}) then {
         _classes = ["TAE_VWing", "TAE_Delta7_Interceptor", "TAE_KomrkFighter_Transport", "TAE_Skycat_Transport", "TAE_Z98_Headhunter"];
@@ -19,6 +40,7 @@ if (isServer) then {
     } forEach _classes;
     if (isNull _terminal || {isNull _pad} || {_terminal == _pad} || {!isNull (_pad getVariable ["TAE_requisitionModule", objNull])}) exitWith {
         diag_log "[TAE Aircraft] Missing terminal/pad or pad already assigned. Module disabled.";
+        _logic setVariable ["TAE_requisitionError", "Aircraft terminal: missing pad or pad already assigned. Check Eden settings.", true];
         _logic setVariable ["TAE_requisitionData", [], true];
     };
     _pad setVariable ["TAE_requisitionModule", _logic, true];
@@ -28,10 +50,19 @@ if (!hasInterface) exitWith {};
 waitUntil {sleep 0.1; isNull _logic || {!isNil {_logic getVariable "TAE_requisitionData"}}};
 if (isNull _logic) exitWith {};
 private _data = _logic getVariable ["TAE_requisitionData", []];
-if (_data isEqualTo []) exitWith {};
+if (_data isEqualTo []) exitWith {
+    if (_logic isKindOf "TAE_AircraftTerminal" && {!isNil {_logic getVariable "TAE_requisitionError"}}) then {
+        _logic addAction ["Aircraft terminal: configuration problem", {
+            systemChat ((_this # 0) getVariable ["TAE_requisitionError", "Check terminal Eden settings."]);
+        }, nil, 1, false, true, "", "alive _this && {vehicle _this == _this}", 4];
+    };
+};
 _data params ["_terminal", "_pad", "_classes"];
 private _actions = [];
-private _condition = "alive _this && {vehicle _this == _this} && {getNumber (configFile >> 'CfgVehicles' >> typeOf _this >> 'ls_common_pilot') == 1}";
+private _condition = "alive _this && {vehicle _this == _this} && {[_this] call TAE_fnc_isQualifiedAircraftPilot}";
+_actions pushBack (_terminal addAction ["Aircraft terminal: pilot qualification required", {
+    systemChat "Use a House Karr Pilot/Shyyyo unit or have an LS pilot qualification assigned.";
+}, nil, 1, false, true, "", "alive _this && {vehicle _this == _this} && {!([_this] call TAE_fnc_isQualifiedAircraftPilot)}", 4]);
 {
     private _label = getText (configFile >> "CfgVehicles" >> _x >> "displayName");
     _actions pushBack (_terminal addAction [format ["Request %1", _label], {
@@ -53,5 +84,14 @@ _actions pushBack (_terminal addAction ["Repair aircraft on pad", {
         };
     }, [_logic, _x # 1], 1.3, false, true, "", _condition, 4]);
 } forEach [["Refuel aircraft on pad", "refuel"], ["Rearm aircraft on pad", "rearm"], ["Change aircraft pylons", "pylon"]];
+_actions pushBack (_terminal addAction ["Put aircraft in storage", {
+    params ["_target", "_caller", "_id", "_logic"];
+    [_logic, _caller] spawn {
+        params ["_logic", "_caller"];
+        if (["Put the aircraft on the pad in storage? This despawns it and discards its cargo and current state.", "Aircraft storage", true, true] call BIS_fnc_guiMessage) then {
+            ["TAE_aircraftRequest", [_logic, _caller, "store"]] call CBA_fnc_serverEvent;
+        };
+    };
+}, _logic, 1.2, false, true, "", _condition, 4]);
 waitUntil {sleep 1; isNull _logic || {isNull _terminal} || {isNull _pad}};
 if (!isNull _terminal) then {{_terminal removeAction _x;} forEach _actions;};

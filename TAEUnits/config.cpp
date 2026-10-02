@@ -1,3 +1,5 @@
+#include "group_macros.hpp"
+
 class CfgPatches {
 	class TAEUnits_HouseKarr {
 		name = "[TAE] House Karr";
@@ -5,9 +7,11 @@ class CfgPatches {
 		requiredVersion = 1.0;
 		requiredAddons[] = {
 			"A3_Characters_F",
+			"SFA_Weapons_N",
 			"ace_common",
 			"ace_medical_treatment",
 			"cba_xeh",
+			"jen_jetpacks_ai",
 			"ls_common",
 			"ls_weapons_mpl",
 			"TAEUniforms",
@@ -34,6 +38,7 @@ class CfgPatches {
 		};
 		units[] = {
 			"TAE_Unit_Veteran",
+			"TAE_Unit_RisingPhoenix",
 			"TAE_Unit_Engineer",
 			"TAE_Unit_Pilot",
 			"TAE_Unit_Medic",
@@ -76,7 +81,7 @@ class CfgPatches {
 			"TAE_Vehicle_NR_Awing",
 			"TAE_Unit_Civilian_Random"
 		};
-		weapons[] = {};
+		weapons[] = {"TAE_Nihil_CZX5_Rifle","TAE_Nihil_CZX5_Sniper","TAE_Nihil_Heavy_Repeating_Blaster"};
 	};
 };
 
@@ -147,6 +152,23 @@ class CfgEditorSubcategories {
 
 	class TAE_EdSubcat_Civilians {
 		displayName = "Civilians";
+	};
+};
+
+// SFA defines longer-range AI modes but omits them from these weapons' modes lists.
+// Keep the correction local to our Nihil loadouts, not every SFA weapon user.
+class CfgWeapons {
+	class SFA_CZX5_Rifle;
+	class SFA_CZX5_Sniper;
+	class SFA_Heavy_Repeating_Blaster;
+	class TAE_Nihil_CZX5_Rifle: SFA_CZX5_Rifle {
+		modes[] = {"Single","single_medium_optics1","single_far_optics2"};
+	};
+	class TAE_Nihil_CZX5_Sniper: SFA_CZX5_Sniper {
+		modes[] = {"Single","single_medium_optics1","single_far_optics2"};
+	};
+	class TAE_Nihil_Heavy_Repeating_Blaster: SFA_Heavy_Repeating_Blaster {
+		modes[] = {"FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2"};
 	};
 };
 
@@ -663,7 +685,7 @@ class CfgVehicles {
 	class TAE_Unit_Player_Shyyyo: TAE_Unit_Player_Base {
 		scope = 2;
 		scopeCurator = 0;
-		displayName = "Clan Shyyyo Member";
+		displayName = "Shyyyo Pilot";
 		role = "Crewman";
 		icon = "ls_iconManPilot";
 		nameSound = "veh_infantry_pilot_s";
@@ -1295,6 +1317,11 @@ class CfgVehicles {
 			"ACE_painkillers",
 			"ACE_painkillers"
 		};
+	};
+
+	class TAE_Unit_RisingPhoenix: TAE_Unit_Veteran {
+		displayName = "Rising Phoenix";
+		backpack = "tae_jetpack_JT12";
 	};
 
 	class TAE_Unit_Engineer: TAE_Unit_Base {
@@ -4143,8 +4170,8 @@ class CfgVehicles {
 		identityTypes[] = {"LanguageENG_F","Head_NATO","TAE_NoFacewear"};
 		icon = "iconMan";
 		uniformClass = "JMSLLTE_ScumAlCommando_desert_F_CombatUniform";
-		weapons[] = {"SFA_CZX5_Rifle","Throw","Put"};
-		respawnWeapons[] = {"SFA_CZX5_Rifle","Throw","Put"};
+		weapons[] = {"TAE_Nihil_CZX5_Rifle","Throw","Put"};
+		respawnWeapons[] = {"TAE_Nihil_CZX5_Rifle","Throw","Put"};
 		magazines[] = {"SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag"};
 		respawnMagazines[] = {"SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag"};
 		linkedItems[] = {"JMSLLTE_CommandosVest2_armor","SFA_Rep_TechMedic_Helmet","ItemMap","ItemWatch"};
@@ -4167,8 +4194,8 @@ class CfgVehicles {
 		role = "MissileSpecialist";
 		uniformClass = "JMSLLTE_PirShirtS2_bg_F_CombatUniform";
 		backpack = "SFA_Combat_eng_backpack";
-		weapons[] = {"SFA_CZX5_Rifle","SFA_Guided_Onslaught_Launcher","Throw","Put"};
-		respawnWeapons[] = {"SFA_CZX5_Rifle","SFA_Guided_Onslaught_Launcher","Throw","Put"};
+		weapons[] = {"TAE_Nihil_CZX5_Rifle","SFA_Guided_Onslaught_Launcher","Throw","Put"};
+		respawnWeapons[] = {"TAE_Nihil_CZX5_Rifle","SFA_Guided_Onslaught_Launcher","Throw","Put"};
 		magazines[] = {"SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag"};
 		respawnMagazines[] = {"SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_HP_mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag","SFA_Launcher_Guided_Mag"};
 		linkedItems[] = {"JMSLLTE_TrooperPouch_armor","SFA_Rep_Underworld_Helmet_REM","ItemMap","ItemWatch"};
@@ -4183,8 +4210,8 @@ class CfgVehicles {
 		displayName = "Nihil Sniper";
 		role = "Marksman";
 		uniformClass = "JMSLLTE_PirCapt_black_F_CombatUniform";
-		weapons[] = {"SFA_CZX5_Sniper","Throw","Put"};
-		respawnWeapons[] = {"SFA_CZX5_Sniper","Throw","Put"};
+		weapons[] = {"TAE_Nihil_CZX5_Sniper","Throw","Put"};
+		respawnWeapons[] = {"TAE_Nihil_CZX5_Sniper","Throw","Put"};
 		magazines[] = {"SFA_HP_Sniper_mag","SFA_HP_Sniper_mag","SFA_HP_Sniper_mag","SFA_HP_Sniper_mag"};
 		respawnMagazines[] = {"SFA_HP_Sniper_mag","SFA_HP_Sniper_mag","SFA_HP_Sniper_mag","SFA_HP_Sniper_mag"};
 		goggles = "G_JMSLLTE_Bandanna_jinata";
@@ -4201,8 +4228,8 @@ class CfgVehicles {
 		role = "MachineGunner";
 		uniformClass = "JMSLLTE_BHcom_hax_F_CombatUniform";
 		backpack = "JMSLLTE_back_stcape";
-		weapons[] = {"SFA_Heavy_Repeating_Blaster","Throw","Put"};
-		respawnWeapons[] = {"SFA_Heavy_Repeating_Blaster","Throw","Put"};
+		weapons[] = {"TAE_Nihil_Heavy_Repeating_Blaster","Throw","Put"};
+		respawnWeapons[] = {"TAE_Nihil_Heavy_Repeating_Blaster","Throw","Put"};
 		magazines[] = {"SFA_DRX40_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum"};
 		respawnMagazines[] = {"SFA_DRX40_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum","SFA_V7_Drum"};
 		linkedItems[] = {"JMSLLTE_BHcomArmor_red_armor","ItemMap","ItemWatch"};
@@ -4639,33 +4666,13 @@ class CfgGroups {
 					faction = "TAE_Faction_NihilRaiders";
 					icon = "\A3\ui_f\data\map\markers\nato\o_inf.paa";
 
-					class Unit0 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Heavy";
-						rank = "CORPORAL";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 0, "TAE_Unit_Nihil_Heavy", "CORPORAL", 0, 0, 0)
 
-					class Unit1 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Rifleman";
-						rank = "PRIVATE";
-						position[] = {5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit1, 0, "TAE_Unit_Nihil_Rifleman", "PRIVATE", 5, -5, 0)
 
-					class Unit2 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Rifleman";
-						rank = "PRIVATE";
-						position[] = {-5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit2, 0, "TAE_Unit_Nihil_Rifleman", "PRIVATE", -5, -5, 0)
 
-					class Unit3 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Rifleman";
-						rank = "PRIVATE";
-						position[] = {10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit3, 0, "TAE_Unit_Nihil_Rifleman", "PRIVATE", 10, -10, 0)
 				};
 
 				class TAE_Group_Nihil_RaidParty {
@@ -4674,75 +4681,25 @@ class CfgGroups {
 					faction = "TAE_Faction_NihilRaiders";
 					icon = "\A3\ui_f\data\map\markers\nato\o_inf.paa";
 
-					class Unit0 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Praetorian";
-						rank = "SERGEANT";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 0, "TAE_Unit_Nihil_Praetorian", "SERGEANT", 0, 0, 0)
 
-					class Unit1 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Heavy";
-						rank = "CORPORAL";
-						position[] = {5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit1, 0, "TAE_Unit_Nihil_Heavy", "CORPORAL", 5, -5, 0)
 
-					class Unit2 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_AT_AA";
-						rank = "CORPORAL";
-						position[] = {-5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit2, 0, "TAE_Unit_Nihil_AT_AA", "CORPORAL", -5, -5, 0)
 
-					class Unit3 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Sniper";
-						rank = "PRIVATE";
-						position[] = {10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit3, 0, "TAE_Unit_Nihil_Sniper", "PRIVATE", 10, -10, 0)
 
-					class Unit4 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Grenadier";
-						rank = "PRIVATE";
-						position[] = {-10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit4, 0, "TAE_Unit_Nihil_Grenadier", "PRIVATE", -10, -10, 0)
 
-					class Unit5 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Rifleman";
-						rank = "PRIVATE";
-						position[] = {15, -15, 0};
-					};
+					TAE_GROUP_MEMBER(Unit5, 0, "TAE_Unit_Nihil_Rifleman", "PRIVATE", 15, -15, 0)
 
-					class Unit6 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Rifleman";
-						rank = "PRIVATE";
-						position[] = {-15, -15, 0};
-					};
+					TAE_GROUP_MEMBER(Unit6, 0, "TAE_Unit_Nihil_Rifleman", "PRIVATE", -15, -15, 0)
 
-					class Unit7 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Rifleman";
-						rank = "PRIVATE";
-						position[] = {20, -20, 0};
-					};
+					TAE_GROUP_MEMBER(Unit7, 0, "TAE_Unit_Nihil_Rifleman", "PRIVATE", 20, -20, 0)
 
-					class Unit8 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Rifleman";
-						rank = "PRIVATE";
-						position[] = {-20, -20, 0};
-					};
+					TAE_GROUP_MEMBER(Unit8, 0, "TAE_Unit_Nihil_Rifleman", "PRIVATE", -20, -20, 0)
 
-					class Unit9 {
-						side = 0;
-						vehicle = "TAE_Unit_Nihil_Rifleman";
-						rank = "PRIVATE";
-						position[] = {25, -25, 0};
-					};
+					TAE_GROUP_MEMBER(Unit9, 0, "TAE_Unit_Nihil_Rifleman", "PRIVATE", 25, -25, 0)
 				};
 			};
 		};
@@ -4759,33 +4716,13 @@ class CfgGroups {
 					faction = "TAE_Faction_NewRepublic";
 					icon = "\A3\ui_f\data\map\markers\nato\o_inf.paa";
 
-					class Unit0 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Sergeant";
-						rank = "SERGEANT";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 0, "TAE_Unit_NR_Sergeant", "SERGEANT", 0, 0, 0)
 
-					class Unit1 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Commando";
-						rank = "PRIVATE";
-						position[] = {5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit1, 0, "TAE_Unit_NR_Commando", "PRIVATE", 5, -5, 0)
 
-					class Unit2 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Commando";
-						rank = "PRIVATE";
-						position[] = {-5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit2, 0, "TAE_Unit_NR_Commando", "PRIVATE", -5, -5, 0)
 
-					class Unit3 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Heavy";
-						rank = "PRIVATE";
-						position[] = {10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit3, 0, "TAE_Unit_NR_Heavy", "PRIVATE", 10, -10, 0)
 				};
 
 				class TAE_Group_NR_Squad {
@@ -4794,61 +4731,21 @@ class CfgGroups {
 					faction = "TAE_Faction_NewRepublic";
 					icon = "\A3\ui_f\data\map\markers\nato\o_inf.paa";
 
-					class Unit0 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Sergeant";
-						rank = "SERGEANT";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 0, "TAE_Unit_NR_Sergeant", "SERGEANT", 0, 0, 0)
 
-					class Unit1 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Commando";
-						rank = "CORPORAL";
-						position[] = {5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit1, 0, "TAE_Unit_NR_Commando", "CORPORAL", 5, -5, 0)
 
-					class Unit2 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_AT";
-						rank = "PRIVATE";
-						position[] = {-5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit2, 0, "TAE_Unit_NR_AT", "PRIVATE", -5, -5, 0)
 
-					class Unit3 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Medic";
-						rank = "PRIVATE";
-						position[] = {10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit3, 0, "TAE_Unit_NR_Medic", "PRIVATE", 10, -10, 0)
 
-					class Unit4 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Heavy";
-						rank = "PRIVATE";
-						position[] = {-10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit4, 0, "TAE_Unit_NR_Heavy", "PRIVATE", -10, -10, 0)
 
-					class Unit5 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Marksman";
-						rank = "PRIVATE";
-						position[] = {15, -15, 0};
-					};
+					TAE_GROUP_MEMBER(Unit5, 0, "TAE_Unit_NR_Marksman", "PRIVATE", 15, -15, 0)
 
-					class Unit6 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Sniper";
-						rank = "PRIVATE";
-						position[] = {-15, -15, 0};
-					};
+					TAE_GROUP_MEMBER(Unit6, 0, "TAE_Unit_NR_Sniper", "PRIVATE", -15, -15, 0)
 
-					class Unit7 {
-						side = 0;
-						vehicle = "TAE_Unit_NR_Alien_Commando";
-						rank = "PRIVATE";
-						position[] = {20, -20, 0};
-					};
+					TAE_GROUP_MEMBER(Unit7, 0, "TAE_Unit_NR_Alien_Commando", "PRIVATE", 20, -20, 0)
 				};
 			};
 		};
@@ -4863,74 +4760,41 @@ class CfgGroups {
 			class Infantry {
 				name = "Infantry";
 
+				class TAE_Group_RisingPhoenixTeam {
+					name = "Rising Phoenix Team";
+					side = 2;
+					faction = "TAE_Faction_HouseKarr";
+					icon = "\A3\ui_f\data\map\markers\nato\n_inf.paa";
+					TAE_GROUP_MEMBER(Unit0, 2, "TAE_Unit_RisingPhoenix", "SERGEANT", 0, 0, 0)
+					class Unit1: Unit0 { rank = "PRIVATE"; position[] = {5,-5,0}; };
+					class Unit2: Unit1 { position[] = {-5,-5,0}; };
+					class Unit3: Unit1 { position[] = {10,-10,0}; };
+					class Unit4: Unit1 { position[] = {-10,-10,0}; };
+				};
+
 				class TAE_Group_Squad {
 					name = "Squad";
 					side = 2;
 					faction = "TAE_Faction_HouseKarr";
 					icon = "\A3\ui_f\data\map\markers\nato\n_inf.paa";
 
-					class Unit0 {
-						side = 2;
-						vehicle = "TAE_Unit_Veteran";
-						rank = "SERGEANT";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 2, "TAE_Unit_Veteran", "SERGEANT", 0, 0, 0)
 
-					class Unit1 {
-						side = 2;
-						vehicle = "TAE_Unit_Engineer";
-						rank = "CORPORAL";
-						position[] = {5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit1, 2, "TAE_Unit_Engineer", "CORPORAL", 5, -5, 0)
 
-					class Unit2 {
-						side = 2;
-						vehicle = "TAE_Unit_Medic";
-						rank = "CORPORAL";
-						position[] = {-5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit2, 2, "TAE_Unit_Medic", "CORPORAL", -5, -5, 0)
 
-					class Unit3 {
-						side = 2;
-						vehicle = "TAE_Unit_Marksman";
-						rank = "PRIVATE";
-						position[] = {10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit3, 2, "TAE_Unit_Marksman", "PRIVATE", 10, -10, 0)
 
-					class Unit4 {
-						side = 2;
-						vehicle = "TAE_Unit_AT_AA";
-						rank = "PRIVATE";
-						position[] = {-10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit4, 2, "TAE_Unit_AT_AA", "PRIVATE", -10, -10, 0)
 
-					class Unit5 {
-						side = 2;
-						vehicle = "TAE_Unit_Grenadier";
-						rank = "PRIVATE";
-						position[] = {15, -15, 0};
-					};
+					TAE_GROUP_MEMBER(Unit5, 2, "TAE_Unit_Grenadier", "PRIVATE", 15, -15, 0)
 
-					class Unit6 {
-						side = 2;
-						vehicle = "TAE_Unit_CQC_Specialist";
-						rank = "PRIVATE";
-						position[] = {-15, -15, 0};
-					};
+					TAE_GROUP_MEMBER(Unit6, 2, "TAE_Unit_CQC_Specialist", "PRIVATE", -15, -15, 0)
 
-					class Unit7 {
-						side = 2;
-						vehicle = "TAE_Unit_Heavy_Weapons";
-						rank = "PRIVATE";
-						position[] = {20, -20, 0};
-					};
+					TAE_GROUP_MEMBER(Unit7, 2, "TAE_Unit_Heavy_Weapons", "PRIVATE", 20, -20, 0)
 
-					class Unit8 {
-						side = 2;
-						vehicle = "TAE_Unit_Sniper";
-						rank = "PRIVATE";
-						position[] = {-20, -20, 0};
-					};
+					TAE_GROUP_MEMBER(Unit8, 2, "TAE_Unit_Sniper", "PRIVATE", -20, -20, 0)
 				};
 
 				class TAE_Group_Fireteam {
@@ -4939,33 +4803,13 @@ class CfgGroups {
 					faction = "TAE_Faction_HouseKarr";
 					icon = "\A3\ui_f\data\map\markers\nato\n_inf.paa";
 
-					class Unit0 {
-						side = 2;
-						vehicle = "TAE_Unit_Veteran";
-						rank = "SERGEANT";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 2, "TAE_Unit_Veteran", "SERGEANT", 0, 0, 0)
 
-					class Unit1 {
-						side = 2;
-						vehicle = "TAE_Unit_Medic";
-						rank = "CORPORAL";
-						position[] = {5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit1, 2, "TAE_Unit_Medic", "CORPORAL", 5, -5, 0)
 
-					class Unit2 {
-						side = 2;
-						vehicle = "TAE_Unit_Marksman";
-						rank = "PRIVATE";
-						position[] = {-5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit2, 2, "TAE_Unit_Marksman", "PRIVATE", -5, -5, 0)
 
-					class Unit3 {
-						side = 2;
-						vehicle = "TAE_Unit_AT_AA";
-						rank = "PRIVATE";
-						position[] = {10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit3, 2, "TAE_Unit_AT_AA", "PRIVATE", 10, -10, 0)
 				};
 
 				class TAE_Group_Sentry {
@@ -4974,19 +4818,9 @@ class CfgGroups {
 					faction = "TAE_Faction_HouseKarr";
 					icon = "\A3\ui_f\data\map\markers\nato\n_recon.paa";
 
-					class Unit0 {
-						side = 2;
-						vehicle = "TAE_Unit_Marksman";
-						rank = "CORPORAL";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 2, "TAE_Unit_Marksman", "CORPORAL", 0, 0, 0)
 
-					class Unit1 {
-						side = 2;
-						vehicle = "TAE_Unit_Grenadier";
-						rank = "PRIVATE";
-						position[] = {5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit1, 2, "TAE_Unit_Grenadier", "PRIVATE", 5, -5, 0)
 				};
 			};
 
@@ -5004,33 +4838,13 @@ class CfgGroups {
 					faction = "TAE_Faction_Criminals";
 					icon = "\A3\ui_f\data\map\markers\nato\n_inf.paa";
 
-					class Unit0 {
-						side = 2;
-						vehicle = "TAE_Unit_BSC_Rifleman";
-						rank = "SERGEANT";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 2, "TAE_Unit_BSC_Rifleman", "SERGEANT", 0, 0, 0)
 
-					class Unit1 {
-						side = 2;
-						vehicle = "TAE_Unit_BSC_Heavy_Gunner";
-						rank = "PRIVATE";
-						position[] = {5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit1, 2, "TAE_Unit_BSC_Heavy_Gunner", "PRIVATE", 5, -5, 0)
 
-					class Unit2 {
-						side = 2;
-						vehicle = "TAE_Unit_BSC_Grenadier";
-						rank = "PRIVATE";
-						position[] = {-5, -5, 0};
-					};
+					TAE_GROUP_MEMBER(Unit2, 2, "TAE_Unit_BSC_Grenadier", "PRIVATE", -5, -5, 0)
 
-					class Unit3 {
-						side = 2;
-						vehicle = "TAE_Unit_BSC_Missile_Specialist";
-						rank = "PRIVATE";
-						position[] = {10, -10, 0};
-					};
+					TAE_GROUP_MEMBER(Unit3, 2, "TAE_Unit_BSC_Missile_Specialist", "PRIVATE", 10, -10, 0)
 				};
 			};
 		};
@@ -5051,12 +4865,7 @@ class CfgGroups {
 					faction = "TAE_Faction_Civilians";
 					icon = "\A3\ui_f\data\map\markers\nato\c_unknown.paa";
 
-					class Unit0 {
-						side = 3;
-						vehicle = "TAE_Unit_Civilian_Random";
-						rank = "PRIVATE";
-						position[] = {0, 0, 0};
-					};
+					TAE_GROUP_MEMBER(Unit0, 3, "TAE_Unit_Civilian_Random", "PRIVATE", 0, 0, 0)
 				};
 			};
 		};

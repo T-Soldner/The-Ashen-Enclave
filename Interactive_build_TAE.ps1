@@ -53,7 +53,6 @@ $addons = @(
     "TAEASTRS",
     "TAEJLTSCompat",
     "TAEUnits",
-    "TAEMiningGuild",
     "TAEObjects",
     "TAEVehicles"
 )
@@ -179,6 +178,11 @@ foreach ($addon in $addons) {
 
     if ($LASTEXITCODE -eq 0) {
         Write-Host "Signed $addon.pbo" -ForegroundColor Green
+        if ($addon -eq "TAEUnits") {
+            Get-ChildItem -LiteralPath $outputRoot -File |
+                Where-Object { $_.Name -eq "TAEMiningGuild.pbo" -or $_.Name -like "TAEMiningGuild.pbo.*.bisign" } |
+                ForEach-Object { Remove-Item -LiteralPath $_.FullName -ErrorAction Stop }
+        }
     } else {
         $message = "Signing $addon.pbo failed. Exit code: $LASTEXITCODE"
         $failures += $message

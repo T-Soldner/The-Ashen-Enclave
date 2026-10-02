@@ -37,6 +37,7 @@ class CfgPatches {
 			"tae_kyram_armor",
 			"tae_rook_armor",
 			"tae_hades_armor",
+			"tae_vario_armor",
 			"tae_andora_armor",
 			"tae_goostivool_armor",
 			"tae_shen_armor"
@@ -216,7 +217,10 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen" };
+				values[] = { "Standard", "Hades", "Vario", "Andora", "Goostivool", "Shen" };
+				class Vario {
+					label = "Vario";
+				};
 				class Standard {
 					label = "Standard";
 				};
@@ -380,6 +384,10 @@ class XtdGearInfos {
 		class tae_hades_armor {
 			model	= "TAE_rook_vests";
 			owner	= "Hades";
+		};
+		class tae_vario_armor {
+			model = "TAE_rook_vests";
+			owner = "Vario";
 		};
 		class tae_andora_armor {
 			model	= "TAE_rook_vests";
@@ -1042,6 +1050,21 @@ class CfgWeapons {
 			};
 		};
 	};
+	class tae_vario_armor : tae_armor_war_chief {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Shogun";
+		displayName = "Vario's War Chief Armor";
+		hiddenSelections[] = {"camo1", "camo2"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Vario\WAR_Armor_Vario_co.paa", "TAEGear\data\Vario\WAR_Brace_Vario_co.paa"};
+		hiddenSelectionsMaterials[] = {"TAEGear\data\Vario\WAR_Armor_Vario.rvmat", "TAEGear\data\Vario\WAR_Brace_Vario.rvmat"};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1", "camo2"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Vario\WAR_Armor_Vario_co.paa", "TAEGear\data\Vario\WAR_Brace_Vario_co.paa"};
+			hiddenSelectionsMaterials[] = {"TAEGear\data\Vario\WAR_Armor_Vario.rvmat", "TAEGear\data\Vario\WAR_Brace_Vario.rvmat"};
+		};
+	};
 	class tae_hades_armor : tae_armor_war_chief {
 		scope = 2;
 		scopeArsenal = 2;
@@ -1082,21 +1105,23 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_goostivool_armor : tae_armor_ls_traditional {
+	class tae_goostivool_armor : tae_armor_battle {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Nox";
-		displayName = "Goostivool's Armor";
-		hiddenSelections[] = {"camo1"};
+		displayName = "Goostivool's Battle Armor";
+		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Goostivool\LS_Armor_Goostivool_co.paa"
+			"TAEGear\data\Goostivool\BAT_Armor_Goostivool_co.paa",
+			"TAEGear\data\Goostivool\BAT_Brace_Goostivool_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
-			hiddenSelections[] = {"camo1"};
+			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Goostivool\LS_Armor_Goostivool_co.paa"
+				"TAEGear\data\Goostivool\BAT_Armor_Goostivool_co.paa",
+				"TAEGear\data\Goostivool\BAT_Brace_Goostivool_co.paa"
 			};
 		};
 	};

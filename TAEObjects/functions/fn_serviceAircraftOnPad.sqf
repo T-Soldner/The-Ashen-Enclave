@@ -10,9 +10,17 @@ if (crew _vehicle isNotEqualTo [] || {isEngineOn _vehicle} || {vectorMagnitude v
 private _validPylon = true;
 if (_operation == "pylon") then {
     _validPylon = false;
-    if (count _payload == 3 && {(_payload # 0) isEqualType objNull} && {(_payload # 1) isEqualType 0} && {(_payload # 2) isEqualType ""}) then {
-        _payload params ["_target", "_index", "_magazine"];
-        _validPylon = _target == _vehicle && {(getAllPylonsInfo _vehicle) findIf {(_x # 0) == _index} >= 0} && {_magazine == "" || {_magazine in (_vehicle getCompatiblePylonMagazines _index)}};
+    if (count _payload == 2 && {(_payload # 0) isEqualType objNull} && {(_payload # 1) isEqualType []}) then {
+        _payload params ["_target", "_changes"];
+        private _indices = [];
+        private _pylons = getAllPylonsInfo _vehicle;
+        _validPylon = _target == _vehicle && {count _changes > 0} && {count _changes <= count _pylons};
+        {
+            if !(_x isEqualType [] && {count _x == 2} && {(_x # 0) isEqualType 0} && {(_x # 1) isEqualType ""}) exitWith {_validPylon = false;};
+            _x params ["_index", "_magazine"];
+            if (_index in _indices || {_pylons findIf {(_x # 0) == _index} < 0} || {_magazine != "" && {!(_magazine in (_vehicle getCompatiblePylonMagazines _index))}}) exitWith {_validPylon = false;};
+            _indices pushBack _index;
+        } forEach _changes;
     };
 };
 if (!_validPylon) exitWith {["Aircraft changed or pylon store is incompatible."] call _notify;};
@@ -86,12 +94,16 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
             } forEach _jobs;
         };
         case "pylon": {
-            _payload params ["_target", "_index", "_magazine"];
-            private _end = diag_tickTime + 30;
-            waitUntil {sleep 0.25; !(call _ready) || {diag_tickTime >= _end}};
-            if (call _ready) then {
+            _payload params ["_target", "_changes"];
+            _completed = true;
+            {
+                _x params ["_index", "_magazine"];
+                private _end = diag_tickTime + 30;
+                waitUntil {sleep 0.25; !(call _ready) || {diag_tickTime >= _end}};
+                if !(call _ready) exitWith {_completed = false;};
                 private _pylons = getAllPylonsInfo _vehicle;
                 private _row = _pylons findIf {(_x # 0) == _index};
+                if (_row < 0) exitWith {_completed = false;};
                 if (_row >= 0 && {_magazine == "" || {_magazine in (_vehicle getCompatiblePylonMagazines _index)}}) then {
                     private _pylon = _pylons # _row;
                     private _oldWeapon = getText (configFile >> "CfgMagazines" >> (_pylon # 3) >> "pylonWeapon");
@@ -105,8 +117,9 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
                         if (_path isEqualTo []) then {_path = [-1];};
                         _vehicle removeWeaponTurret [_oldWeapon, _path];
                     };
-                };
-            };
+                } else {_completed = false;};
+                if (!_completed) exitWith {};
+            } forEach _changes;
         };
     };
     if (!isNull _vehicle) then {_vehicle setVariable ["TAE_repairBusy", false, true];};

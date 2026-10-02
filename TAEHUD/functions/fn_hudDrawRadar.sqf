@@ -76,9 +76,7 @@ private _shots = uiNamespace getVariable ["TAE_HUD_radarShots", []];
 			};
 			if (_isSquad) then
 			{
-				private _medicClass = _unit getVariable ["ace_medical_medicClass", _unit getUnitTrait "Medic"];
-				if (_medicClass isEqualType true) then {_medicClass = [0, 1] select _medicClass;};
-				_contactColor = [[0.72, 0.88, 1.00, 0.95], [1.00, 0.20, 0.18, 0.98]] select (_medicClass >= 1);
+				_contactColor = [0.72, 0.88, 1.00, 0.95];
 			} else
 			{
 				_contactColor set [3, ((_speed / 10) max _shotFade) min 1];

@@ -1,3 +1,5 @@
+#include "protection.hpp"
+
 class CfgPatches {
 	class TAEGear_Helmets {
 		addonRootClass = "TAEGear";
@@ -55,23 +57,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_battle_master : tgf_helmets_battle_master { 
@@ -83,23 +69,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\battle_master\battle_master.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_gunslinger : tgf_helmets_gunslinger { 
@@ -111,23 +81,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\gunslinger\gunslinger.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_gunslinger_vet : tgf_helmets_gunslinger_vet {
@@ -139,23 +93,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\gunslinger_vet\gunslinger_vet.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_warlord : tgf_helmets_warlord { 
@@ -167,23 +105,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\warlord\warlord_helmet.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_viper : tgf_helmets_viper { 
@@ -195,23 +117,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\viper\viper_helmet.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_heavy : tgf_helmets_heavy { 
@@ -223,23 +129,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\heavy\heavy_helmet.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_pilot : tgf_helmets_pilot { 
@@ -251,23 +141,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\pilot\pilot_helmet.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_shrike : tgf_helmets_shrike { 
@@ -279,23 +153,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\shrike\shrike.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_arbiter : tgf_helmets_arbiter { 
@@ -307,23 +165,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\arbiter\arbiter_helmet.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_war_chief : tgf_helmets_war_chief { 
@@ -335,23 +177,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\war_chief\war_chief.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_nite_owl : tgf_helmets_nite_owl { 
@@ -364,23 +190,7 @@ class CfgWeapons {
 		class ItemInfo : HeadgearItem {
 			mass = 40;
 			Uniformmodel = "\z\tgf\addons\helmets\nite_owl\nite_owl_helmet.p3d";
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_ls_traditional : ls_mandalorianHelmet_traditional { 
@@ -393,23 +203,7 @@ class CfgWeapons {
 			mass = 40;
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\traditional\ls_helmet_mandalorian_traditional.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_ls_dinDjarin : ls_mandalorianHelmet_dinDjarin { 
@@ -422,23 +216,7 @@ class CfgWeapons {
 			mass = 40;
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\dinDjarin\ls_helmet_mandalorian_dinDjarin.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_ls_executioner : ls_mandalorianHelmet_executioner {
@@ -451,23 +229,7 @@ class CfgWeapons {
 			mass = 40;
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\executioner\ls_helmet_mandalorian_executioner.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	class tae_helmet_ls_armorer : ls_mandalorianHelmet_armorer {
@@ -480,23 +242,7 @@ class CfgWeapons {
 			mass = 40;
 			uniformModel = "\ls\core\addons\characters_mandalorian\helmets\armorer\ls_helmet_mandalorian_armorer.p3d";
 			hiddenSelections[] = {"camo1","visor","neckTex"};
-			class HitpointsProtectionInfo {
-				class Face {
-					armor = 15;
-					hitpointName = "HitFace";
-					passThrough = 0.3;
-				};
-				class Head {
-					armor = 15;
-					hitPointName = "HitHead";
-					passThrough = 0.3;
-				};
-				class Neck {
-					armor = 15;
-					hitpointName = "HitNeck";
-					passThrough = 0.3;
-				};
-			};
+			TAE_HELMET_PROTECTION
 		};
 	};
 	
