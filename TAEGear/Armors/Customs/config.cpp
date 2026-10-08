@@ -181,10 +181,15 @@ class XtdGearModels {
 				};
 			};
 		};
-		class TAE_haranverd_vests {
-			label = "Clan Haranverd Vests";
+		class TAE_archived_armors {
+			label = "Archived Armors";
 			author = "TAE Aux Mod Team";
-			options[] = { "style" };
+			options[] = { "clan", "style" };
+			class clan {
+				label = "Clan";
+				values[] = { "Haranverd" };
+				class Haranverd { label = "Haranverd"; };
+			};
 			class style {
 				alwaysSelectable = 1;
 				label = "Style";
@@ -366,11 +371,13 @@ class XtdGearInfos {
 			owner	= "Niteowl";
 		};
 		class tae_haranverd_traditional_armor {
-			model = "TAE_haranverd_vests";
+			model = "TAE_archived_armors";
+			clan = "Haranverd";
 			style = "Traditional";
 		};
 		class tae_haranverd_niteowl_armor {
-			model = "TAE_haranverd_vests";
+			model = "TAE_archived_armors";
+			clan = "Haranverd";
 			style = "Niteowl";
 		};
 		class tae_kyram_armor {

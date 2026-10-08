@@ -22,8 +22,10 @@ class CfgPatches {
 			"ace_interact_menu",
 			"ace_arsenal",
 			"ace_medical_treatment",
+			"knd_medical",
 			"ace_dragging",
 			"ace_cargo",
+			"TAEWeapons",
 			"ls_compat_ace_flags",
 			"ls_props",
 			"cba_xeh",
@@ -41,7 +43,8 @@ class CfgPatches {
 			"TAEDrones",
 			"mti_armoury_props_locker",
 			"SFA_Structure_Bed",
-			"knd_crates"
+			"knd_crates",
+			"knd_mortar"
 		};
 		units[] = {
 			"TAE_AircraftTerminal",
@@ -51,6 +54,10 @@ class CfgPatches {
 			"TAE_Specialization_Gonk_Droid",
 			"TAE_Medical_Droid",
 			"TAE_Ammo_Crate",
+			"TAE_AT_Crate",
+			"TAE_GL_Crate",
+			"TAE_Mortar_Crate",
+			"TAE_JetpackFuel_Crate",
 			"TAE_Demo_Crate",
 			"TAE_Medical_Crate",
 			"TAE_Bed_Acklay",
@@ -60,7 +67,6 @@ class CfgPatches {
 			"TAE_Bed_HouseKarr",
 			"TAE_Bed_Shyyyo",
 			"TAE_Bed_Kyram",
-			"TAE_Bed_Haranverd",
 			"TAE_Vexillum_Acklay",
 			"TAE_Vexillum_Foxx",
 			"TAE_Vexillum_Varen",
@@ -68,10 +74,8 @@ class CfgPatches {
 			"TAE_Vexillum_HouseKarr",
 			"TAE_Vexillum_Shyyyo",
 			"TAE_Vexillum_Kyram",
-			"TAE_Vexillum_Haranverd",
 			"TAE_ClanFlag_Acklay",
 			"TAE_ClanFlag_Foxx",
-			"TAE_ClanFlag_Haranverd",
 			"TAE_ClanFlag_HouseKarr",
 			"TAE_ClanFlag_Kyram",
 			"TAE_ClanFlag_Rook",
@@ -81,7 +85,6 @@ class CfgPatches {
 			"TAE_Wearable_Acklay_Helmet",
 			"TAE_Wearable_Foxx_Helmet",
 			"TAE_Wearable_Varen_Helmet",
-			"TAE_Wearable_Haranverd_Helmet",
 			"TAE_Wearable_Kyram_Helmet",
 			"TAE_Wearable_Rook_Helmet",
 			"TAE_Wearable_Freelancer_Helmet",
@@ -91,9 +94,10 @@ class CfgPatches {
 			"TAE_Wearable_Shyyyo_Helmet"
 		};
 		weapons[] = {
+			"TAE_BactaPatch_Box",
+			"TAE_BactaSpray_Box",
 			"TAE_ClanFlag_Acklay_Item",
 			"TAE_ClanFlag_Foxx_Item",
-			"TAE_ClanFlag_Haranverd_Item",
 			"TAE_ClanFlag_HouseKarr_Item",
 			"TAE_ClanFlag_Kyram_Item",
 			"TAE_ClanFlag_Rook_Item",
@@ -146,15 +150,35 @@ class CfgFunctions {
 			class serviceAircraftOnPad {};
 			class aircraftPylonMenu {};
 			class aircraftStorageRequest {};
+			class aircraftCrateMenu {};
+			class aircraftCrateRequest {};
+			class getResupplyCrateClasses {};
 			class applyWearableLoadout {};
 			class fullHealPlayer {};
 			class initRestrictedArsenal {};
+			class getArsenalItems {};
+			class initAmmoCrate {};
 			class setPlayerPermissions {};
 		};
 	};
 };
 
 class Extended_Init_EventHandlers {
+	class TAE_GL_Crate {
+		class TAEObjects_initAmmoCrate {
+			init = "_this call TAE_fnc_initAmmoCrate";
+		};
+	};
+	class TAE_AT_Crate {
+		class TAEObjects_initAmmoCrate {
+			init = "_this call TAE_fnc_initAmmoCrate";
+		};
+	};
+	class TAE_Demo_Crate {
+		class TAEObjects_initAmmoCrate {
+			init = "_this call TAE_fnc_initAmmoCrate";
+		};
+	};
 	class TAE_AircraftTerminal {
 		class TAEObjects_aircraftTerminal {
 			init = "if (!is3DEN) then {_this spawn {waitUntil {sleep 0.1; time > 0}; _this call TAE_fnc_moduleAircraftRequisition;};};";
@@ -173,7 +197,24 @@ class Extended_Init_EventHandlers {
 
 };
 
+class ace_medical_replacementItems {
+	TAE_BactaPatch_Box[] = {{"MTI_BactaPatch", 10}};
+	TAE_BactaSpray_Box[] = {{"MTI_BactaSpray", 10}};
+};
+
 class CfgWeapons {
+	class knd_medical_supplybox_more_bandages;
+	class knd_medical_supplybox_more_bacta;
+	class TAE_BactaPatch_Box: knd_medical_supplybox_more_bandages {
+		picture = "\knd_medical\tex\supplybox\more_bacta_icon_co.paa";
+		displayName = "Box of Bacta Patches (10)";
+		descriptionShort = "Contains 10 MTI Bacta Patches. Unpacks automatically when taken.";
+	};
+	class TAE_BactaSpray_Box: knd_medical_supplybox_more_bacta {
+		picture = "\TAEObjects\data\medical\bacta_spray_box_icon_co.paa";
+		displayName = "Box of Bacta Sprays (10)";
+		descriptionShort = "Contains 10 MTI Bacta Sprays. Unpacks automatically when taken.";
+	};
 	class ls_carrierFlag_mandalorian_item;
 
 	class TAE_ClanFlag_Acklay_Item: ls_carrierFlag_mandalorian_item {
@@ -190,12 +231,6 @@ class CfgWeapons {
 		ace_flags_carrier = "TAE_ClanFlag_Foxx";
 	};
 
-	class TAE_ClanFlag_Haranverd_Item: ls_carrierFlag_mandalorian_item {
-		author = "Legion Studios and Jimothy";
-		displayName = "Flag (Clan Haranverd)";
-		ace_flags_texture = "\TAEObjects\data\flags\flag_haranverd_ca.paa";
-		ace_flags_carrier = "TAE_ClanFlag_Haranverd";
-	};
 
 	class TAE_ClanFlag_HouseKarr_Item: ls_carrierFlag_mandalorian_item {
 		author = "Legion Studios and Jimothy";
@@ -346,12 +381,6 @@ class CfgVehicles {
 		displayName = "Clan Foxx Flag";
 	};
 
-	class TAE_ClanFlag_Haranverd: ls_carrierFlag_mandalorian {
-		scope = 1;
-		scopeCurator = 0;
-		author = "Legion Studios and Jimothy";
-		displayName = "Clan Haranverd Flag";
-	};
 
 	class TAE_ClanFlag_HouseKarr: ls_carrierFlag_mandalorian {
 		scope = 1;
@@ -406,6 +435,14 @@ class CfgVehicles {
 				onlyForPlayer = 1;
 				condition = "alive player";
 				statement = "[player, 'engineer'] call TAE_fnc_setPlayerPermissions";
+			};
+			class TAE_GrantPilotPermissions {
+				displayName = "<t color='#8877EE'>Receive Pilot and Engineer Permissions</t>";
+				position = "";
+				radius = 4;
+				onlyForPlayer = 1;
+				condition = "alive player";
+				statement = "[player, 'pilot'] call TAE_fnc_setPlayerPermissions";
 			};
 
 			class TAE_GrantMedicalPermissions {
@@ -663,35 +700,6 @@ class CfgVehicles {
 		};
 	};
 
-	class TAE_Wearable_Haranverd_Helmet: TAE_Wearable_Helmet_Base {
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "Clan Haranverd Helmet";
-		model = "\z\tgf\addons\helmets\traditional\traditional_helmet.p3d";
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {
-			"\TAEGear\data\Haranverd\TRAD_Helmet_Haranverd_co.paa",
-			"\z\tgf\addons\helmets\traditional\data\camo2_co.paa"
-		};
-
-		class ACE_Actions {
-			class ACE_MainActions {
-				distance = 100;
-				position = "[0,-0.3,0.8]";
-				selection = "";
-				displayName = "Helmet";
-				condition = "true";
-
-				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHaranverdTraditionalArmor, "Put On Clan Haranverd Traditional Armor")
-                    statement = "[_player,'tae_haranverd_traditional_armor','tae_haranverd_traditional_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
-                };
-
-				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHaranverdNiteOwlArmor, "Put On Clan Haranverd Nite Owl Armor")
-                    statement = "[_player,'tae_haranverd_niteowl_armor','tae_haranverd_niteowl_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
-                };
-			};
-		};
-	};
 
 	class TAE_Bed_Kyram: TAE_Bed_Base {
 		scope = 2;
@@ -702,14 +710,6 @@ class CfgVehicles {
 		};
 	};
 
-	class TAE_Bed_Haranverd: TAE_Bed_Base {
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr Haranverd Bed";
-		hiddenSelectionsTextures[] = {
-			"\TAEObjects\data\furniture\tae_bed_haranverd_co.paa"
-		};
-	};
 
 	class TAE_Wearable_Kyram_Helmet: TAE_Wearable_Helmet_Base {
 		scope = 2;
@@ -1061,14 +1061,6 @@ class CfgVehicles {
 		};
 	};
 
-	class TAE_Vexillum_Haranverd: TAE_Vexillum_Base {
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr Haranverd Vexillum";
-		hiddenSelectionsTextures[] = {
-			"\TAEObjects\data\vexillums\tae_vexillum_haranverd_co.paa"
-		};
-	};
 
 	class OPTRE_Furniture_Locker;
 	class TAE_Restricted_Arsenal_Locker: OPTRE_Furniture_Locker {
@@ -1143,10 +1135,10 @@ class CfgVehicles {
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Supplies";
 		side = 3;
 		armor = 4000;
-		hiddenSelectionsTextures[] = {
-			"\MRC\JLTS\weapons\Crates\data\crate_1_GAR_co.paa",
-			"\TAEObjects\data\screen_karr_arsenal_co.paa"
-		};
+		model = "\knd_crates\cratemodel\NewCrate.p3d";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[] = {"\knd_crates\tex\crates\ammo\camo1_co.paa"};
+		editorPreview = "\knd_crates\tex\crates\thumbnail.paa";
 
 		ace_dragging_canCarry = 0;
 		ace_dragging_canDrag = 1;
@@ -1180,16 +1172,16 @@ class CfgVehicles {
 	class TAE_Demo_Crate: JLTS_Ammobox_explosives_GAR {
 		scope = 2;
 		scopeCurator = 2;
-		displayName = "House Karr Grenades/Explosives Crate";
+		displayName = "House Karr Demolition Crate";
 		author = "Edonn";
 		editorCategory = "TAE_EdCat_HouseKarr";
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Supplies";
 		side = 3;
 		armor = 4000;
-		hiddenSelectionsTextures[] = {
-			"\MRC\JLTS\weapons\Crates\data\crate_1_GAR_co.paa",
-			"\TAEObjects\data\screen_karr_arsenal_co.paa"
-		};
+		model = "\knd_crates\cratemodel\NewCrate.p3d";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[] = {"\knd_crates\tex\crates\demo\camo1_co.paa"};
+		editorPreview = "\knd_crates\tex\crates\thumbnail.paa";
 
 		ace_dragging_canCarry = 0;
 		ace_dragging_canDrag = 1;
@@ -1210,46 +1202,15 @@ class CfgVehicles {
 
 		class TransportWeapons {};
 
-		class TransportMagazines {
-			TAE_CARGO(_xx_3AS_ThermalDetonator, magazine, "3AS_ThermalDetonator", 20)
-			TAE_CARGO(_xx_3AS_SonicDet, magazine, "3AS_SonicDet", 12)
-			TAE_CARGO(_xx_3AS_SmokeBlue, magazine, "3AS_SmokeBlue", 10)
-			TAE_CARGO(_xx_3AS_SmokeGreen, magazine, "3AS_SmokeGreen", 10)
-			TAE_CARGO(_xx_3AS_SmokeRed, magazine, "3AS_SmokeRed", 10)
-			TAE_CARGO(_xx_3AS_SmokeWhite, magazine, "3AS_SmokeWhite", 10)
-			TAE_CARGO(_xx_3AS_SmokeYellow, magazine, "3AS_SmokeYellow", 10)
-			TAE_CARGO(_xx_3AS_ThrowableCharge, magazine, "3AS_ThrowableCharge", 8)
-			TAE_CARGO(_xx_3AS_DetPack, magazine, "3AS_DetPack", 8)
-			TAE_CARGO(_xx_EC01_RemoteMagazine, magazine, "EC01_RemoteMagazine", 8)
-			TAE_CARGO(_xx_RTX_RemoteMagazine, magazine, "RTX_RemoteMagazine", 8)
-			TAE_CARGO(_xx_mti_armoury_mag_breaching_charge, magazine, "mti_armoury_mag_breaching_charge", 8)
-			TAE_CARGO(_xx_mti_armoury_mag_detpack, magazine, "mti_armoury_mag_detpack", 8)
-			TAE_CARGO(_xx_mti_armoury_mag_satchelCharge, magazine, "mti_armoury_mag_satchelCharge", 6)
-			TAE_CARGO(_xx_HX_AT_Mine_Mag, magazine, "HX_AT_Mine_Mag", 6)
-			TAE_CARGO(_xx_1Rnd_HE_Grenade_shell, magazine, "1Rnd_HE_Grenade_shell", 20)
-			TAE_CARGO(_xx_3Rnd_HE_Grenade_shell, magazine, "3Rnd_HE_Grenade_shell", 10)
-			TAE_CARGO(_xx_1Rnd_Smoke_Grenade_shell, magazine, "1Rnd_Smoke_Grenade_shell", 10)
-			TAE_CARGO(_xx_1Rnd_SmokeRed_Grenade_shell, magazine, "1Rnd_SmokeRed_Grenade_shell", 10)
-			TAE_CARGO(_xx_1Rnd_SmokeGreen_Grenade_shell, magazine, "1Rnd_SmokeGreen_Grenade_shell", 10)
-			TAE_CARGO(_xx_1Rnd_SmokeBlue_Grenade_shell, magazine, "1Rnd_SmokeBlue_Grenade_shell", 10)
-			TAE_CARGO(_xx_UGL_FlareWhite_F, magazine, "UGL_FlareWhite_F", 10)
-			TAE_CARGO(_xx_UGL_FlareRed_F, magazine, "UGL_FlareRed_F", 10)
-			TAE_CARGO(_xx_UGL_FlareGreen_F, magazine, "UGL_FlareGreen_F", 10)
-			TAE_CARGO(_xx_UGL_FlareYellow_F, magazine, "UGL_FlareYellow_F", 10)
-		};
+		class TransportMagazines {};
 
 		class TransportItems {
-			TAE_CARGO(_xx_ACE_Clacker, name, "ACE_Clacker", 6)
-			TAE_CARGO(_xx_ACE_M26_Clacker, name, "ACE_M26_Clacker", 6)
-			TAE_CARGO(_xx_ACE_DefusalKit, name, "ACE_DefusalKit", 4)
+			TAE_CARGO(_xx_mti_armoury_props_misc_clacker_item, name, "mti_armoury_props_misc_clacker_item", 5)
+			TAE_CARGO(_xx_ACE_DefusalKit, name, "ACE_DefusalKit", 5)
 			TAE_CARGO(_xx_ACE_wirecutter, name, "ACE_wirecutter", 4)
 		};
 
-		class TransportBackpacks {
-			TAE_CARGO(_xx_knd_z6rocket, backpack, "knd_z6rocket", 6)
-			TAE_CARGO(_xx_knd_z6rocket_AA, backpack, "knd_z6rocket_AA", 6)
-			TAE_CARGO(_xx_knd_z6rocket_AT, backpack, "knd_z6rocket_AT", 6)
-		};
+		class TransportBackpacks {};
 	};
 
 	class TAE_Medical_Crate: JLTS_Ammobox_ammo_GAR {
@@ -1261,10 +1222,10 @@ class CfgVehicles {
 		editorSubcategory = "TAE_EdSubcat_HouseKarr_Supplies";
 		side = 3;
 		armor = 4000;
-		hiddenSelectionsTextures[] = {
-			"\MRC\JLTS\weapons\Crates\data\crate_3_GAR_co.paa",
-			"\TAEObjects\data\screen_karr_arsenal_co.paa"
-		};
+		model = "\knd_crates\cratemodel\NewCrate.p3d";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[] = {"\knd_crates\tex\crates\medical\camo1_co.paa"};
+		editorPreview = "\knd_crates\tex\crates\thumbnail.paa";
 
 		ace_dragging_canCarry = 0;
 		ace_dragging_canDrag = 1;
@@ -1297,10 +1258,43 @@ class CfgVehicles {
 			TAE_CARGO(_xx_mti_armoury_props_medical_Bacta_Item_500, name, "mti_armoury_props_medical_Bacta_Item_500", 30)
 			TAE_CARGO(_xx_mti_armoury_props_medical_Bacta_Item_250, name, "mti_armoury_props_medical_Bacta_Item_250", 30)
 			TAE_CARGO(_xx_ACE_surgicalKit, name, "ACE_surgicalKit", 4)
-			TAE_CARGO(_xx_MTI_BactaSpray, name, "MTI_BactaSpray", 200)
-			TAE_CARGO(_xx_MTI_BactaPatch, name, "MTI_BactaPatch", 200)
+			TAE_CARGO(_xx_adv_aceCPR_AED, name, "adv_aceCPR_AED", 5)
+			TAE_CARGO(_xx_MTI_Medisensor, name, "MTI_Medisensor", 5)
+			TAE_CARGO(_xx_TAE_BactaSpray_Box, name, "TAE_BactaSpray_Box", 20)
+			TAE_CARGO(_xx_TAE_BactaPatch_Box, name, "TAE_BactaPatch_Box", 20)
+			TAE_CARGO(_xx_MTI_BactaPatch, name, "MTI_BactaPatch", 30)
+			TAE_CARGO(_xx_MTI_BactaSpray, name, "MTI_BactaSpray", 30)
 		};
 
 		class TransportBackpacks {};
+	};
+	class TAE_AT_Crate: TAE_Ammo_Crate {
+		displayName = "House Karr Anti-Tank Crate";
+		hiddenSelectionsTextures[] = {"\knd_crates\tex\crates\at\camo1_co.paa"};
+		class TransportItems {};
+	};
+	class TAE_GL_Crate: TAE_Ammo_Crate {
+		displayName = "House Karr GL Ammo Case";
+		hiddenSelectionsTextures[] = {"\knd_crates\tex\crates\gadgets\camo1_co.paa"};
+		class TransportItems {};
+	};
+	class TAE_Mortar_Crate: TAE_Ammo_Crate {
+		displayName = "House Karr Mortar Crate";
+		hiddenSelectionsTextures[] = {"\knd_crates\tex\crates\mortar\camo1_co.paa"};
+		class TransportItems {};
+		class TransportWeapons {
+			TAE_CARGO(_xx_knd_Mortar_carry, weapon, "knd_Mortar_carry", 2)
+		};
+		class TransportMagazines {
+			TAE_CARGO(_xx_KND_82mm_HE_Carryable, magazine, "KND_82mm_HE_Carryable", 15)
+			TAE_CARGO(_xx_KND_82mm_Smoke_Carryable, magazine, "KND_82mm_Smoke_Carryable", 5)
+		};
+	};
+	class TAE_JetpackFuel_Crate: TAE_Ammo_Crate {
+		displayName = "House Karr Jetpack Fuel Crate";
+		hiddenSelectionsTextures[] = {"\knd_crates\tex\crates\jetpack\camo1_co.paa"};
+		class TransportItems {
+			TAE_CARGO(_xx_knd_jetpacks_fuelCan, name, "knd_jetpacks_fuelCan", 50)
+		};
 	};
 };

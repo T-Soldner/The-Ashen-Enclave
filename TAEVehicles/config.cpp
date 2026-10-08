@@ -1385,8 +1385,11 @@ class CfgVehicles {
 		};
 		class ace_cargo {
 			class cargo {
-				class knd_resupply_jetpack {
-					type = "knd_resupply_jetpack";
+				class TAE_AT_Crate { type = "TAE_AT_Crate"; amount = 1; };
+				class TAE_GL_Crate { type = "TAE_GL_Crate"; amount = 1; };
+				class TAE_Mortar_Crate { type = "TAE_Mortar_Crate"; amount = 1; };
+				class TAE_JetpackFuel_Crate {
+					type = "TAE_JetpackFuel_Crate";
 					amount = 1;
 				};
 
@@ -1508,8 +1511,10 @@ class CfgVehicles {
 		ace_cargo_space = 15;
 		class ace_cargo {
 			class cargo {
-				class knd_resupply_jetpack {
-					type = "knd_resupply_jetpack";
+				class TAE_AT_Crate { type = "TAE_AT_Crate"; amount = 1; };
+				class TAE_Mortar_Crate { type = "TAE_Mortar_Crate"; amount = 1; };
+				class TAE_JetpackFuel_Crate {
+					type = "TAE_JetpackFuel_Crate";
 					amount = 1;
 				};
 

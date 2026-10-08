@@ -1,6 +1,8 @@
 params ["_unit"];
 
 if (!local _unit) exitWith {};
+if (_unit getVariable ["TAE_civilianRandomized", false]) exitWith {};
+_unit setVariable ["TAE_civilianRandomized", true];
 
 [_unit] spawn {
 	params ["_unit"];

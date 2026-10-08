@@ -221,10 +221,15 @@ class XtdGearModels {
 				};
 			};
 		};
-		class TAE_haranverd_helmets {
-			label = "Clan Haranverd Helmets";
+		class TAE_archived_helmets {
+			label = "Archived Helmets";
 			author = "TAE Aux Mod Team";
-			options[] = { "style" };
+			options[] = { "clan", "style" };
+			class clan {
+				label = "Clan";
+				values[] = { "Haranverd" };
+				class Haranverd { label = "Haranverd"; };
+			};
 
 			class style {
 				alwaysSelectable = 1;
@@ -484,11 +489,13 @@ class XtdGearInfos {
 
 		// Clan Haranverd
 		class tae_haranverd_traditional_helmet {
-			model = "TAE_haranverd_helmets";
+			model = "TAE_archived_helmets";
+			clan = "Haranverd";
 			style = "Traditional";
 		};
 		class tae_haranverd_niteowl_helmet {
-			model = "TAE_haranverd_helmets";
+			model = "TAE_archived_helmets";
+			clan = "Haranverd";
 			style = "Niteowl";
 		};
 

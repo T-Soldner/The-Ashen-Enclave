@@ -93,5 +93,9 @@ _actions pushBack (_terminal addAction ["Put aircraft in storage", {
         };
     };
 }, _logic, 1.2, false, true, "", _condition, 4]);
+_actions pushBack (_terminal addAction ["Configure resupply crates", {
+    params ["_target", "_caller", "_id", "_logic"];
+    [_logic] call TAE_fnc_aircraftCrateMenu;
+}, _logic, 1.2, false, true, "", _condition, 4]);
 waitUntil {sleep 1; isNull _logic || {isNull _terminal} || {isNull _pad}};
 if (!isNull _terminal) then {{_terminal removeAction _x;} forEach _actions;};
