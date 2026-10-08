@@ -33,6 +33,15 @@ class CfgVehicles {
         class AttributeValues { size3[] = {100,100,-1}; };
         // Do not expose AttributesBase's helper templates as editable attributes.
         class Attributes {
+            class UseAgents {
+                expression = "_this setVariable ['UseAgents',_value,true];";
+                control = "Checkbox";
+                property = "TAE_CivilianUseAgents";
+                displayName = "Use agents for pedestrians";
+                tooltip = "Lighter ambient pedestrians with limited AI reactions. Vehicle drivers remain normal AI. Off preserves standard civilians.";
+                typeName = "BOOL";
+                defaultValue = "false";
+            };
             class VehicleCount {
                 expression = "_this setVariable ['VehicleCount',_value,true];";
                 control = "TAE_CivilianVehicleCountSlider";

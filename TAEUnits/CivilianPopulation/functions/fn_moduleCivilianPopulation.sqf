@@ -7,6 +7,7 @@ _logic setVariable ["TAE_populationStarted", true];
     params ["_logic"];
     private _count = round ((_logic getVariable ["Count", 15]) max 5 min 40);
     private _vehicleCount = round ((_logic getVariable ["VehicleCount", 0]) max 0 min 10);
+    private _useAgents = _logic getVariable ["UseAgents", false];
     private _vehiclePool = ["ls_vehicle_v35", "ls_vehicle_105kLancer_civ", "WM_74Z_Imperial_Brown",
         "JMSLLTE_C_veh_x34_F", "JMSLLTE_C_veh_g17_F", "JMSLLTE_C_veh_AA2_F",
         "JMSLLTE_C_veh_AA5_F", "JMSLLTE_C_veh_AA5sup_F"] select {
@@ -32,8 +33,17 @@ _logic setVariable ["TAE_populationStarted", true];
         private _result = [];
         for "_attempt" from 1 to 60 do {
             private _spawnRadius = if (_driving) then {15 + _vehicleCount * 3} else {15};
-            private _x = (random 2 - 1) * (if (_nearIcon) then {_a min _spawnRadius} else {_a});
-            private _y = (random 2 - 1) * (if (_nearIcon) then {_b min _spawnRadius} else {_b});
+            private _sampleA = if (_nearIcon) then {_a min _spawnRadius} else {_a * 0.95};
+            private _sampleB = if (_nearIcon) then {_b min _spawnRadius} else {_b * 0.95};
+            private _x = (random 2 - 1) * _sampleA;
+            private _y = (random 2 - 1) * _sampleB;
+            if (!_rectangle) then {
+                // Square root gives uniform area coverage, not a ring at the perimeter.
+                private _radius = sqrt (random 1);
+                private _bearing = random 360;
+                _x = _sampleA * _radius * cos _bearing;
+                _y = _sampleB * _radius * sin _bearing;
+            };
             private _pos = [(_center # 0) + _x * cos _angle + _y * sin _angle,
                 (_center # 1) - _x * sin _angle + _y * cos _angle, 0];
             if (_pos inArea _area && {!surfaceIsWater _pos}) then {
@@ -89,14 +99,22 @@ _logic setVariable ["TAE_populationStarted", true];
         if (isNull _logic) exitWith {};
         private _pos = [true] call _sample;
         if (_pos isNotEqualTo []) then {
-            private _group = createGroup [civilian, true];
-            private _unit = _group createUnit ["TAE_Unit_Civilian_Random", _pos, [], 0, "NONE"];
-            _group setBehaviourStrong "SAFE";
-            _group setSpeedMode "LIMITED";
-            _group setCombatMode "BLUE";
+            private _group = grpNull;
+            private _unit = objNull;
+            if (_useAgents) then {
+                _unit = createAgent ["TAE_Unit_Civilian_Random", _pos, [], 0, "NONE"];
+                [_unit] call TAE_fnc_randomizeCivilian;
+                _unit setBehaviour "SAFE";
+            } else {
+                _group = createGroup [civilian, true];
+                _unit = _group createUnit ["TAE_Unit_Civilian_Random", _pos, [], 0, "NONE"];
+                _group setBehaviourStrong "SAFE";
+                _group setSpeedMode "LIMITED";
+                _group setCombatMode "BLUE";
+                _groups pushBack _group;
+            };
             _unit forceWalk true;
             _units pushBack _unit;
-            _groups pushBack _group;
             // Unit, route, active waypoint, destination, departure time, deadline.
             _states pushBack [_unit, [], [], [], 0, 0];
             _footCount = _footCount + 1;
@@ -112,16 +130,20 @@ _logic setVariable ["TAE_populationStarted", true];
         {
             _x params ["_unit", "_route", "_waypoint", "_destination", "_depart", "_deadline", ["_vehicle", objNull]];
             private _driving = !isNull _vehicle;
+            private _agent = _useAgents && {!_driving};
             if (alive _unit && {local _unit} && {!_driving || {alive _vehicle && {driver _vehicle == _unit}}}) then {
                 if (_driving) then {_vehicle limitSpeed 50;};
-                if (_waypoint isNotEqualTo []) then {
+                if (_destination isNotEqualTo []) then {
                     private _arrived = _unit distance2D _destination < (if (_driving) then {10} else {4});
                     if (_arrived || {time > _deadline}) then {
-                        deleteWaypoint _waypoint;
+                        if (_waypoint isNotEqualTo []) then {deleteWaypoint _waypoint;};
                         _x set [2, []];
+                        _x set [3, []];
                         private _pause = if (_arrived && {random 100 < _pauseChance}) then {15 + random 105} else {0};
                         _x set [4, time + _pause];
-                        if (_arrived) then {doStop _unit;};
+                        if (_agent) then {
+                            _unit setDestination [getPosATL _unit, "LEADER PLANNED", true];
+                        } else {if (_arrived) then {doStop _unit;};};
                     };
                 } else {
                     if (time >= _depart) then {
@@ -134,12 +156,17 @@ _logic setVariable ["TAE_populationStarted", true];
                         };
                         if (_route isNotEqualTo []) then {
                             private _point = _route deleteAt 0;
-                            private _wp = (group _unit) addWaypoint [_point, 0];
-                            _wp setWaypointType "MOVE";
-                            _wp setWaypointSpeed "LIMITED";
-                            _wp setWaypointCompletionRadius (if (_driving) then {8} else {3});
-                            (group _unit) setCurrentWaypoint _wp;
-                            _unit doMove _point;
+                            private _wp = [];
+                            if (_agent) then {
+                                _unit setDestination [_point, "LEADER PLANNED", true];
+                            } else {
+                                _wp = (group _unit) addWaypoint [_point, 0];
+                                _wp setWaypointType "MOVE";
+                                _wp setWaypointSpeed "LIMITED";
+                                _wp setWaypointCompletionRadius (if (_driving) then {8} else {3});
+                                (group _unit) setCurrentWaypoint _wp;
+                                _unit doMove _point;
+                            };
                             _x set [2, _wp];
                             _x set [3, _point];
                             _x set [5, time + (120 max ((_unit distance2D _point) * 3))];

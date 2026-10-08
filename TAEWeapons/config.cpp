@@ -4,7 +4,7 @@ class CfgPatches {
 		author = "TAE Mod Team";
 		url = "https://discord.gg/9zgGp5QSW7";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "IDA_INDEP", "mti_armoury_weapons_hpb" };
+		requiredAddons[] = { "IDA_INDEP", "mti_armoury_weapons_hpb", "3AS_Equipment", "mti_armoury_explosives_compat" };
 		units[] = {};
 		weapons[] = {
 			"tae_TargetingScope_FP2",
@@ -17,6 +17,11 @@ class CfgPatches {
 };
 
 class CfgAmmo {
+	class 3AS_Detpack;
+	class TAE_DetPack_Ammo: 3AS_Detpack {
+		defaultMagazine = "TAE_DetPack";
+		ace_explosives_magazine = "TAE_DetPack";
+	};
 	class mti_armoury_ammo_hpb_base;
 	class mti_armoury_ammo_hpb_scatter;
 	class mti_armoury_ammo_Shotgun_Sub_HP;
@@ -45,6 +50,19 @@ class CfgAmmo {
 };
 
 class CfgMagazines {
+	class 3AS_DetPack {
+		class ACE_Triggers;
+	};
+	class TAE_DetPack: 3AS_DetPack {
+		displayName = "[TAE] Detonator Pack";
+		ammo = "TAE_DetPack_Ammo";
+		class ACE_Triggers: ACE_Triggers {
+			SupportedTriggers[] = {"Timer", "Command", "3AS_Transmitter", "mti_explosives_clacker"};
+			class mti_explosives_clacker {
+				FuseTime = 0.5;
+			};
+		};
+	};
 	class mti_armoury_mag_HPB;
 	class mti_armoury_mag_hpb_underbarrel;
 

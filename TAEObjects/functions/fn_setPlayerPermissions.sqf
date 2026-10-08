@@ -6,6 +6,13 @@ params [
 if (isNull _unit || {!local _unit}) exitWith {};
 
 private _message = switch (toLower _permission) do {
+	case "pilot": {
+		[_unit, "pilot", 1] call ls_common_fnc_setSkill;
+		_unit setVariable ["TAE_pilotPermission", true, true];
+		_unit setUnitTrait ["Engineer", true];
+		_unit setVariable ["ACE_IsEngineer", 1, true];
+		"You are now authorized as a pilot and engineer."
+	};
 	case "engineer": {
 		_unit setUnitTrait ["Engineer", true];
 		_unit setUnitTrait ["ExplosiveSpecialist", true];
@@ -19,6 +26,8 @@ private _message = switch (toLower _permission) do {
 		"You are now authorized as a medic."
 	};
 	default {
+		[_unit, "pilot", 0] call ls_common_fnc_setSkill;
+		_unit setVariable ["TAE_pilotPermission", false, true];
 		_unit setUnitTrait ["Medic", false];
 		_unit setUnitTrait ["Engineer", false];
 		_unit setUnitTrait ["ExplosiveSpecialist", false];

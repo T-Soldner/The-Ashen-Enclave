@@ -58,10 +58,4 @@ class CfgUnitInsignia {
 		textureVehicle = "";
 	};
 
-	class TAE_Insignia_Haranverd {
-		displayName = "House Karr Haranverd";
-		author = "Edonn";
-		texture = "\TAEInsignias\data\Haranverd_logo_ca.paa";
-		textureVehicle = "";
-	};
 };

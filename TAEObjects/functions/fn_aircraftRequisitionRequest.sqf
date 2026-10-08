@@ -14,6 +14,9 @@ _near = _near select {abs ((getPosASL _x # 2) - (getPosASL _pad # 2)) < 15};
 if (_request == "store") exitWith {
     [_logic, _pad, _actor, _radius, _request, _payload] call TAE_fnc_aircraftStorageRequest;
 };
+if (_request == "crates") exitWith {
+    [_logic, _pad, _actor, _radius, _payload] call TAE_fnc_aircraftCrateRequest;
+};
 if !(_request in ["repair", "refuel", "rearm", "pylon"]) exitWith {
     if !(_request in _classes) exitWith {["Aircraft is not authorized for this terminal."] call _notify;};
     if (_near isNotEqualTo []) exitWith {["Pad occupied. Clear people, vehicles and wrecks first."] call _notify;};

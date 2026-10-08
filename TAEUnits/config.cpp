@@ -79,6 +79,7 @@ class CfgPatches {
 			"TAE_Vehicle_NR_Xwing_CA2",
 			"TAE_Vehicle_NR_Xwing_T70",
 			"TAE_Vehicle_NR_Awing",
+			"TAE_Vehicle_NR_Awing_Elite",
 			"TAE_Unit_Civilian_Random"
 		};
 		weapons[] = {"TAE_Nihil_CZX5_Rifle","TAE_Nihil_CZX5_Sniper","TAE_Nihil_Heavy_Repeating_Blaster"};
@@ -4590,7 +4591,9 @@ class CfgVehicles {
 		faction = "TAE_Faction_NewRepublic";
 		editorSubcategory = "TAE_EdSubcat_NewRepublic_Aircraft";
 		vtol = 4;
-		maxSpeed = 1900;
+		flaps = 0;
+		flapsFrictionCoef = 0;
+		maxSpeed = 1200;
 		landingSpeed = 250;
 		stallSpeed = 190;
 		airFriction0[] = {75,50,12};
@@ -4604,7 +4607,7 @@ class CfgVehicles {
 		altNoForce = 13000;
 		altFullForce = 10000;
 		throttleToThrustLogFactor = 2;
-		thrustCoef[] = {1.9,1.84,1.78,1.84,1.9,1.98,2.06,2.12,2.14,2.14,2.08,1.55,1.15,1,0.7,0.25};
+		thrustCoef[] = {1.941875,1.911875,1.948,2.11025,2.2725,2.643125,3.01375,3.374375,2.723125,2.3925,2.164125,1.766875,1.302375,1.16125,1.01125,0.78625};
 		aileronSensitivity = 0.85;
 		aileronCoef[] = {0.4,0.5,0.8,0.95,1.02,1.04,1.03,1.01,1,0.7,0.6,0.55,0.5,0.45,0.4,0.35};
 		elevatorSensitivity = 1.2;
@@ -4624,6 +4627,24 @@ class CfgVehicles {
 		VTOLRollInfluence = 11;
 		VTOLYawInfluence = 13;
 		acceleration = 240;
+	};
+
+	class TAE_Vehicle_NR_Awing_Elite: TAE_Vehicle_NR_Awing {
+		displayName = "RZ-1 A-wing Interceptor Elite";
+		hiddenSelectionsTextures[] = {"\TAEUnits\data\awing\awing_elite_co.paa"};
+		textureList[] = {"TAE_Elite", 1};
+		class TextureSources {
+			class TAE_Elite {
+				displayName = "Elite";
+				author = "JMax";
+				textures[] = {"\TAEUnits\data\awing\awing_elite_co.paa"};
+				factions[] = {};
+			};
+		};
+		maxSpeed = 1600;
+		thrustCoef[] = {2.142857,2.142857,2.285714,2.571429,2.857143,3.571429,4.285714,5,3.571429,2.857143,2.428571,2.142857,1.571429,1.428571,1.428571,1.428571};
+		airBrake = 55;
+		airBrakeFrictionCoef = 60;
 	};
 
 	class TAE_Unit_Civilian_Random: JMSLLTE_c_jumpsuit_blue_F {
