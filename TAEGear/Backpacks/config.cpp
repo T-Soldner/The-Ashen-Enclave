@@ -265,9 +265,9 @@ class CfgVehicles {
 		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13\camo1_co.paa"};
 		maximumload = 160;
 		jen_jetpacks_core_acceleration = 4;
-		jen_jetpacks_core_drag = 4.8;
-		jen_jetpacks_core_fuelCoef = 5;
-		jen_jetpacks_core_heatCoef = 3;
+		jen_jetpacks_core_drag = 4.5;
+		jen_jetpacks_core_fuelCoef = 3.5;
+		jen_jetpacks_core_heatCoef = 2.2;
 		jen_jetpacks_core_coolCoef = 1.5;
 		jen_jetpacks_core_ascensionCoef = 1.3;
 		jen_jetpacks_core_jumpCoef = 1.2;
@@ -298,8 +298,8 @@ class CfgVehicles {
 		maximumload = 240;
 		jen_jetpacks_core_acceleration = 2.5;
 		jen_jetpacks_core_drag = 5;
-		jen_jetpacks_core_fuelCoef = 3;
-		jen_jetpacks_core_heatCoef = 2;
+		jen_jetpacks_core_fuelCoef = 2.5;
+		jen_jetpacks_core_heatCoef = 1.8;
 		jen_jetpacks_core_coolCoef = 1;
 		jen_jetpacks_core_ascensionCoef = 1.1;
 		jen_jetpacks_core_jumpCoef = 1;
@@ -332,11 +332,11 @@ class CfgVehicles {
 		};
 		maximumload = 320;
 		mass = 60;
-		jen_jetpacks_core_acceleration = 1.9;
+		jen_jetpacks_core_acceleration = 1.71;
 		jen_jetpacks_core_drag = 5.5;
 		jen_jetpacks_core_fuelCoef = 1.25;
 		jen_jetpacks_core_heatCoef = 0.75;
-		jen_jetpacks_core_coolCoef = 1.5;
+		jen_jetpacks_core_coolCoef = 0.5;
 		jen_jetpacks_core_ascensionCoef = 0.9;
 		jen_jetpacks_core_jumpCoef = 1;
 		jen_jetpacks_core_fuelCapacity = 220;
@@ -397,7 +397,7 @@ class CfgVehicles {
 		hiddenselections[] = {"rocket","pack"};
 		hiddenselectionstextures[] = {"\knd_jetpacks\data\PV\rocket_co.paa","\knd_jetpacks\data\PV\pack_co.paa"};
 		maximumload = 256;
-		jen_jetpacks_core_acceleration = 1.6;
+		jen_jetpacks_core_acceleration = 1.44;
 		jen_jetpacks_core_drag = 6;
 		jen_jetpacks_core_fuelCoef = 1.5;
 		jen_jetpacks_core_heatCoef = 1;
