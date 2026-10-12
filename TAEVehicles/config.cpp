@@ -12,7 +12,6 @@ class CfgPatches {
 			"knd_vehicles_skycat",
 			"knd_vehicles_imperial",
 			"JMSLLTE_vehgr_LIUV",
-			"pkv5_vehicles",
 			"TAEObjects",
 			"TAEUnits_HouseKarr",
 			"mti_armoury_vehicles_weapons",
@@ -23,11 +22,6 @@ class CfgPatches {
 			"knd_jdumb"
 		};
 		units[] = {
-			"TAE_PKV5_Cannon",
-			"TAE_PKV5_Multi",
-			"TAE_PKV5_MLRS",
-			"TAE_PKV5_Mortar",
-			"TAE_PKV5_AA",
 			"TAE_Acklay_LIU",
 			"TAE_CPH_Speeder",
 			"TAE_PX10_R3",
@@ -592,121 +586,6 @@ class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
-	class B_PKV5_MMTS_Cannon_F;
-	class TAE_PKV5_Cannon: B_PKV5_MMTS_Cannon_F {
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr PK-V5/B (Mass Driver)";
-		author = "Kharak and Hataaylir";
-		faction = "TAE_Faction_HouseKarr";
-		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
-		side = 2;
-		crew = "TAE_Unit_Engineer";
-		typicalCargo[] = {"TAE_Unit_Engineer"};
-		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_cannon_co.paa"};
-		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_cannon.rvmat"};
-		textureList[] = {"TAE_HouseKarr", 1};
-		class TextureSources {
-			class TAE_HouseKarr {
-				displayName = "House Karr";
-				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_cannon_co.paa"};
-				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_cannon.rvmat"};
-				factions[] = {"TAE_Faction_HouseKarr"};
-			};
-		};
-	};
-	class B_PKV5_MMTS_Multi_F;
-	class TAE_PKV5_Multi: B_PKV5_MMTS_Multi_F {
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr PK-V5/M (Multi-Purpose)";
-		author = "Kharak and Hataaylir";
-		faction = "TAE_Faction_HouseKarr";
-		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
-		side = 2;
-		crew = "TAE_Unit_Engineer";
-		typicalCargo[] = {"TAE_Unit_Engineer"};
-		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_multi_co.paa"};
-		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_multi.rvmat"};
-		textureList[] = {"TAE_HouseKarr", 1};
-		class TextureSources {
-			class TAE_HouseKarr {
-				displayName = "House Karr";
-				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_multi_co.paa"};
-				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_multi.rvmat"};
-				factions[] = {"TAE_Faction_HouseKarr"};
-			};
-		};
-	};
-	class B_PKV5_MMTS_MLRS_F;
-	class TAE_PKV5_MLRS: B_PKV5_MMTS_MLRS_F {
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr PK-V5/R (MLRS)";
-		author = "Kharak and Hataaylir";
-		faction = "TAE_Faction_HouseKarr";
-		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
-		side = 2;
-		crew = "TAE_Unit_Engineer";
-		typicalCargo[] = {"TAE_Unit_Engineer"};
-		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_mlrs_co.paa"};
-		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_mlrs.rvmat"};
-		textureList[] = {"TAE_HouseKarr", 1};
-		class TextureSources {
-			class TAE_HouseKarr {
-				displayName = "House Karr";
-				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_mlrs_co.paa"};
-				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_mlrs.rvmat"};
-				factions[] = {"TAE_Faction_HouseKarr"};
-			};
-		};
-	};
-	class B_PKV5_MMTS_Mortar_F;
-	class TAE_PKV5_Mortar: B_PKV5_MMTS_Mortar_F {
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr PK-V5/S (Siege Mortar)";
-		author = "Kharak and Hataaylir";
-		faction = "TAE_Faction_HouseKarr";
-		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
-		side = 2;
-		crew = "TAE_Unit_Engineer";
-		typicalCargo[] = {"TAE_Unit_Engineer"};
-		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_mortar_co.paa"};
-		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_mortar.rvmat"};
-		textureList[] = {"TAE_HouseKarr", 1};
-		class TextureSources {
-			class TAE_HouseKarr {
-				displayName = "House Karr";
-				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_mortar_co.paa"};
-				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_mortar.rvmat"};
-				factions[] = {"TAE_Faction_HouseKarr"};
-			};
-		};
-	};
-	class B_PKV5_MMTS_AA_F;
-	class TAE_PKV5_AA: B_PKV5_MMTS_AA_F {
-		scope = 2;
-		scopeCurator = 2;
-		displayName = "House Karr PK-V5/A (Anti-Air)";
-		author = "Kharak and Hataaylir";
-		faction = "TAE_Faction_HouseKarr";
-		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
-		side = 2;
-		crew = "TAE_Unit_Engineer";
-		typicalCargo[] = {"TAE_Unit_Engineer"};
-		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_aa_co.paa"};
-		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_aa.rvmat"};
-		textureList[] = {"TAE_HouseKarr", 1};
-		class TextureSources {
-			class TAE_HouseKarr {
-				displayName = "House Karr";
-				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_aa_co.paa"};
-				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_aa.rvmat"};
-				factions[] = {"TAE_Faction_HouseKarr"};
-			};
-		};
-	};
 	class JMSLLTE_B_veh_LIUSt_imp_F;
 	class TAE_Acklay_LIU: JMSLLTE_B_veh_LIUSt_imp_F {
 		scope = 2;
