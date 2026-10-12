@@ -148,6 +148,9 @@ class CfgFunctions {
 			class aircraftRequisitionRequest {};
 			class repairAircraftOnPad {};
 			class serviceAircraftOnPad {};
+			class spawnAircraftServiceDroids {};
+			class dismissAircraftServiceDroids {};
+			class animateAircraftServiceDroid {};
 			class aircraftPylonMenu {};
 			class aircraftStorageRequest {};
 			class aircraftCrateMenu {};

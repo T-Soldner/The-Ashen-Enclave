@@ -36,6 +36,8 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
         !isNull _logic && {!isNull _pad} && {alive _vehicle} && {local _vehicle} && {crew _vehicle isEqualTo []} && {!isEngineOn _vehicle} && {vectorMagnitude velocity _vehicle <= 0.5} && {_vehicle distance2D _pad <= _radius} && {abs ((getPosASL _vehicle # 2) - (getPosASL _pad # 2)) < 15}
     };
     private _completed = false;
+    private _serviceDroids = [];
+    if (call _ready) then {_serviceDroids = [_vehicle] call TAE_fnc_spawnAircraftServiceDroids;};
     switch (_operation) do {
         case "refuel": {
             while {call _ready && {fuel _vehicle < 1}} do {
@@ -122,6 +124,7 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
             } forEach _changes;
         };
     };
+    [_serviceDroids] call TAE_fnc_dismissAircraftServiceDroids;
     if (!isNull _vehicle) then {_vehicle setVariable ["TAE_repairBusy", false, true];};
     if (!isNull _pad) then {_pad setVariable ["TAE_aircraftBusy", false, true];};
     if (!isNull _actor) then {

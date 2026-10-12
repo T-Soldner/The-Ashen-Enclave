@@ -1,4 +1,5 @@
 if (hasInterface) then {
+	["TAE_serviceDroidVisual", {_this call TAE_fnc_animateAircraftServiceDroid;}] call CBA_fnc_addEventHandler;
     ["TAE_aircraftNotice", {params ["_message"]; systemChat format ["[Aircraft Service] %1", _message];}] call CBA_fnc_addEventHandler;
 };
 if (isServer) then {

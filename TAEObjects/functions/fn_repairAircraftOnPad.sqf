@@ -20,6 +20,7 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
     _vehicle setOwner 2;
     private _deadline = diag_tickTime + 5;
     waitUntil {sleep 0.1; local _vehicle || {isNull _vehicle} || {diag_tickTime > _deadline}};
+    private _serviceDroids = [_vehicle] call TAE_fnc_spawnAircraftServiceDroids;
     private _completed = false;
     private _step = 1 / _duration;
     while {!isNull _logic && {!isNull _pad} && {alive _vehicle} && {local _vehicle} && {crew _vehicle isEqualTo []} && {!isEngineOn _vehicle} && {_vehicle distance2D _pad <= _radius} && {abs ((getPosASL _vehicle # 2) - (getPosASL _pad # 2)) < 15} && {vectorMagnitude velocity _vehicle <= 0.5}} do {
@@ -36,6 +37,7 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
             {_vehicle setHitIndex [_forEachIndex, (_x - _step) max 0];} forEach _values;
         };
     };
+    [_serviceDroids] call TAE_fnc_dismissAircraftServiceDroids;
     if (!isNull _vehicle) then {_vehicle setVariable ["TAE_repairBusy", false, true];};
     if (!isNull _pad) then {_pad setVariable ["TAE_aircraftBusy", false, true];};
     if (!isNull _actor) then {

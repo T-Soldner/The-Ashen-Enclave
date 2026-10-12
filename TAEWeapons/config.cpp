@@ -4,13 +4,14 @@ class CfgPatches {
 		author = "TAE Mod Team";
 		url = "https://discord.gg/9zgGp5QSW7";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "IDA_INDEP", "mti_armoury_weapons_hpb", "3AS_Equipment", "mti_armoury_explosives_compat" };
+		requiredAddons[] = { "IDA_INDEP", "mti_armoury_weapons_hpb", "3AS_Equipment", "mti_armoury_explosives_compat", "knd_amban" };
 		units[] = {};
 		weapons[] = {
 			"tae_TargetingScope_FP2",
 			"tae_IQA11a",
 			"tae_Galaar90a",
-			"tae_HPB14"
+			"tae_HPB14",
+			"tae_Amban"
 		};
 		skipWhenMissingDependencies = 1;
 	};
@@ -50,6 +51,13 @@ class CfgAmmo {
 };
 
 class CfgMagazines {
+	class knd_mag_amban;
+	class tae_mag_Amban: knd_mag_amban {
+		author = "House Kandosii";
+		dlc = "The Ashen Enclave AUX Mod";
+		displayName = "[TAE] Amban Energy Pack";
+		mass = 12.5;
+	};
 	class 3AS_DetPack {
 		class ACE_Triggers;
 	};
@@ -86,8 +94,35 @@ class CfgMagazines {
 };
 
 class CowsSlot;
+class PointerSlot;
 
 class CfgWeapons {
+	class knd_amban_F;
+	class knd_amban_old_F: knd_amban_F {
+		class WeaponSlotsInfo;
+	};
+	class tae_Amban: knd_amban_old_F {
+		author = "House Kandosii";
+		dlc = "The Ashen Enclave AUX Mod";
+		displayName = "[TAE] Amban Phase-Pulse Rifle";
+		baseWeapon = "tae_Amban";
+		scope = 2;
+		scopeArsenal = 2;
+		muzzles[] = {"this"};
+		magazines[] = {"tae_mag_Amban"};
+		magazineWell[] = {};
+		delete knd_stunmuzzle;
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class PointerSlot: PointerSlot {
+				compatibleItems[] = {"mti_armoury_weapons_core_Flashlight_nomodel"};
+			};
+			// Replace the inherited bipod slot without inheriting its compatibility list.
+			class UnderBarrelSlot {
+				linkProxy = "";
+				class compatibleItems {};
+			};
+		};
+	};
 	class InventoryOpticsItem_Base_F;
 	class WeaponSlotsInfo;
 

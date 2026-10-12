@@ -432,6 +432,8 @@
 	"3AS_SmokeYellow",
 	"3AS_SmokeGreen",
 	"3AS_SonicDet",
+	"3AS_ThermalDetonator",
+	"knd_jetpacks_fuelCan",
 	"TAE_DetPack",
 	"HX_AT_Mine_Mag",
 	"mti_armoury_mag_breaching_charge",
