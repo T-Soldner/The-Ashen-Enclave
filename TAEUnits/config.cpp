@@ -1,6 +1,7 @@
 #include "group_macros.hpp"
 
 class CfgPatches {
+	#include "faction_sides_CfgPatches.hpp"
 	class TAEUnits_HouseKarr {
 		name = "[TAE] House Karr";
 		author = "TAE Mod Team";
@@ -87,6 +88,7 @@ class CfgPatches {
 };
 
 class CfgFactionClasses {
+	#include "faction_sides_CfgFactionClasses.hpp"
 	class TAE_Faction_HouseKarr {
 		displayName = "[TAE] House Karr";
 		side = 2;
@@ -4669,10 +4671,15 @@ class CfgVehicles {
 		respawnItems[] = {};
 
 	};
+	#include "faction_sides_CfgVehicles.hpp"
 };
 
 class CfgGroups {
+	class West {
+		#include "faction_sides_groups_West.hpp"
+	};
 	class East {
+		#include "faction_sides_groups_East.hpp"
 		name = "OPFOR";
 
 		class TAE_Faction_NihilRaiders {
@@ -4773,6 +4780,7 @@ class CfgGroups {
 	};
 
 	class Indep {
+		#include "faction_sides_groups_Indep.hpp"
 		name = "Independent";
 
 		class TAE_Faction_HouseKarr {
