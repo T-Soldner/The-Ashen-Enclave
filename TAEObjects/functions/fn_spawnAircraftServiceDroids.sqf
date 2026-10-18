@@ -6,6 +6,7 @@ private _min = _bounds # 0;
 private _max = _bounds # 1;
 private _width = (abs (_min # 0) max abs (_max # 0)) + 2;
 private _length = (abs (_min # 1) max abs (_max # 1)) + 2;
+private _height = if ((["TAE_Delta7_Interceptor", "TAE_Z98_Headhunter", "TAE_VWing"] findIf {_vehicle isKindOf _x}) >= 0) then {1} else {2};
 private _rotation = random 360;
 private _droids = [];
 for "_i" from 0 to 2 do {
@@ -14,11 +15,11 @@ for "_i" from 0 to 2 do {
     private _offset = [sin _angle * _width, cos _angle * _length, 0];
     private _target = _vehicle modelToWorldWorld _offset;
     private _start = _vehicle modelToWorldWorld [(_offset # 0) + sin _angle * 8, (_offset # 1) + cos _angle * 8, 0];
-    _start = _start vectorAdd [0,0,2];
-    _target = _target vectorAdd [0,0,2];
+    _start = _start vectorAdd [0,0,_height];
+    _target = _target vectorAdd [0,0,_height];
     {
         private _terrain = getTerrainHeightASL _x;
-        _x set [2, (_x # 2) max (_terrain + 2)];
+        _x set [2, (_x # 2) max (_terrain + _height)];
     } forEach [_start, _target];
     private _droid = createVehicle ["3as_INDEP_ScavDroid", ASLToAGL _start, [], 0, "CAN_COLLIDE"];
         if (!isNull _droid) then {

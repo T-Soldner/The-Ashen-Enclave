@@ -91,7 +91,9 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo", "Edonn", "Nox" };
+				values[] = { "Hondo", "Edonn", "Nox", "Juno", "Galaxy" };
+				class Juno { label = "Juno"; };
+				class Galaxy { label = "Galaxy"; };
 				class Hondo {
 					label = "Hondo";
 				};
@@ -146,54 +148,26 @@ class XtdGearModels {
 				};
 			};
 		};
-		class TAE_foxx_vests {
-			label = "Clan Foxx Vests";
-			author = "TAE Aux Mod Team";
-			options[] = { "owner" };
-			class owner {
-				alwaysSelectable = 1;
-				label = "Owner";
-				values[] = { "Standard", "Juno", "Galaxy" };
-				class Standard {
-					label = "Standard";
-				};
-				class Juno {
-					label = "Juno";
-				};
-				class Galaxy {
-					label = "Galaxy";
-				};
-			};
-		};
-		class TAE_varen_vests {
-			label = "Clan Varen Vests";
-			author = "TAE Aux Mod Team";
-			options[] = { "owner" };
-			class owner {
-				alwaysSelectable = 1;
-				label = "Owner";
-				values[] = { "Standard","Niteowl" };
-				class Standard {
-					label = "Standard";
-				};
-				class Niteowl {
-					label = "Nite Owl";
-				};
-			};
-		};
+
+
 		class TAE_archived_armors {
 			label = "Archived Armors";
 			author = "TAE Aux Mod Team";
 			options[] = { "clan", "style" };
 			class clan {
 				label = "Clan";
-				values[] = { "Haranverd" };
+				values[] = { "Haranverd", "Varen", "Kyram", "Foxx" };
+				class Varen { label = "Varen"; };
+				class Kyram { label = "Kyr'am"; };
+				class Foxx { label = "Foxx"; };
 				class Haranverd { label = "Haranverd"; };
 			};
 			class style {
 				alwaysSelectable = 1;
 				label = "Style";
-				values[] = { "Traditional", "Niteowl" };
+				values[] = { "Traditional", "Niteowl", "Recon", "Medium" };
+				class Recon { label = "Recon"; };
+				class Medium { label = "Medium"; };
 				class Traditional {
 					label = "Traditional";
 				};
@@ -202,19 +176,7 @@ class XtdGearModels {
 				};
 			};
 		};
-		class TAE_kyram_vests {
-			label = "Clan Kyr'am Vests";
-			author = "TAE Aux Mod Team";
-			options[] = { "style" };
-			class style {
-				alwaysSelectable = 1;
-				label = "Style";
-				values[] = { "Traditional" };
-				class Traditional {
-					label = "Traditional";
-				};
-			};
-		};
+
 		class TAE_rook_vests {
 			label = "Clan Rook Vests";
 			author = "TAE Aux Mod Team";
@@ -348,27 +310,30 @@ class XtdGearInfos {
 		
 		//Foxx
 		class tae_foxx_armor {
-			model	= "TAE_foxx_vests";
-			owner	= "Standard";
+			model = "TAE_archived_armors";
+			clan = "Foxx";
+			style = "Medium";
 			
 		};
 		class tae_juno_armor {
-			model	= "TAE_foxx_vests";
+			model	= "TAE_freelancer_vests";
 			owner	= "Juno";
 		};
 		class tae_galaxy_armor {
-			model	= "TAE_foxx_vests";
+			model	= "TAE_freelancer_vests";
 			owner	= "Galaxy";
 		};
 
 		// Varen
 		class tae_varen_recon_armor {
-			model	= "TAE_varen_vests";
-			owner	= "Standard";
+			model = "TAE_archived_armors";
+			clan = "Varen";
+			style = "Recon";
 		};
 		class tae_varen_niteowl_armor {
-			model	= "TAE_varen_vests";
-			owner	= "Niteowl";
+			model = "TAE_archived_armors";
+			clan = "Varen";
+			style = "Niteowl";
 		};
 		class tae_haranverd_traditional_armor {
 			model = "TAE_archived_armors";
@@ -381,7 +346,8 @@ class XtdGearInfos {
 			style = "Niteowl";
 		};
 		class tae_kyram_armor {
-			model = "TAE_kyram_vests";
+			model = "TAE_archived_armors";
+			clan = "Kyram";
 			style = "Traditional";
 		};
 		class tae_rook_armor {

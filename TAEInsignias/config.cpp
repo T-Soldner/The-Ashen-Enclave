@@ -16,12 +16,7 @@ class CfgUnitInsignia {
 		textureVehicle = "";
 	};
 
-	class TAE_Insignia_Foxx {
-		displayName = "House Karr Foxx";
-		author = "Edonn";
-		texture = "\TAEInsignias\data\Foxx_logo_ca.paa";
-		textureVehicle = "";
-	};
+
 
 	class TAE_Insignia_House_Karr {
 		displayName = "House Karr";
@@ -44,18 +39,8 @@ class CfgUnitInsignia {
 		textureVehicle = "";
 	};
 
-	class TAE_Insignia_Varen {
-		displayName = "House Karr Varen";
-		author = "Edonn";
-		texture = "\TAEInsignias\data\Varen_logo_ca.paa";
-		textureVehicle = "";
-	};
 
-	class TAE_Insignia_Kyram {
-		displayName = "House Karr Kyr'am";
-		author = "Edonn";
-		texture = "\TAEInsignias\data\Kyram_logo_ca.paa";
-		textureVehicle = "";
-	};
+
+
 
 };

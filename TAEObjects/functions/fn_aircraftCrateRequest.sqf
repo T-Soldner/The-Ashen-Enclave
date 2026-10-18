@@ -10,6 +10,9 @@ private _near = (nearestObjects [_pad, ["Air"], _radius, true]) select {alive _x
 if (count _near != 1 || {_near # 0 != _vehicle}) exitWith {["The selected aircraft must be the only intact aircraft on the pad."] call _notify;};
 if (_pad getVariable ["TAE_aircraftBusy", false] || {_vehicle getVariable ["TAE_repairBusy", false]}) exitWith {["Pad or aircraft is busy."] call _notify;};
 if (crew _vehicle isNotEqualTo [] || {isEngineOn _vehicle} || {vectorMagnitude velocity _vehicle > 0.5}) exitWith {["Empty the aircraft, stop it and shut down the engine first."] call _notify;};
+if (isClass (configOf _vehicle >> "VehicleTransport" >> "Carrier")) exitWith {
+    [_logic, _pad, _actor, _radius, _vehicle, _counts, _classes] call TAE_fnc_aircraftViVCrateRequest;
+};
 if !(_vehicle getVariable ["ace_cargo_hasCargo", getNumber (configOf _vehicle >> "ace_cargo_hasCargo") == 1]) exitWith {["This aircraft does not support ACE cargo."] call _notify;};
 private _loaded = +(_vehicle getVariable ["ace_cargo_loaded", []]);
 private _replace = _loaded select {(if (_x isEqualType "") then {_x} else {typeOf _x}) in _classes};

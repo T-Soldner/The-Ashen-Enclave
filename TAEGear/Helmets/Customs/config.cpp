@@ -33,7 +33,6 @@ class CfgPatches {
 			"tae_bingo_helmet",
 			"tae_foxx_helmet",
 			"tae_juno_helmet",
-			"tae_bean_helmet",
 			"tae_galaxy_helmet",
 			"tae_varen_helmet",
 			"tae_valeria_helmet",
@@ -44,9 +43,9 @@ class CfgPatches {
 			"tae_kyram_helmet",
 			"tae_dark_red_rangefinder",
 			"tae_foxx_rangefinder",
+			"tae_juno_rangefinder",
 			"tae_rook_helmet",
 			"tae_hades_helmet",
-			"tae_grey_helmet",
 			"tae_andora_helmet",
 			"tae_goostivool_helmet",
 			"tae_shen_helmet"
@@ -106,7 +105,11 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Edonn","Nox" };
+				values[] = { "Hondo","Edonn","Nox","Juno","Galaxy","Valeria","Nova" };
+				class Juno { label = "Juno"; };
+				class Galaxy { label = "Galaxy"; };
+				class Valeria { label = "Valeria"; };
+				class Nova { label = "Nova"; };
 
 				class Hondo {
 					label = "Hondo";
@@ -173,61 +176,18 @@ class XtdGearModels {
 			};
 		};
 		
-		class TAE_foxx_helmets {
-			label = "Clan Foxx Helmets";
-			author = "TAE Aux Mod Team";
-			options[] = { "owner" };
 
-			class owner {
-				alwaysSelectable = 1;
-				label = "Owner";
-				values[] = { "Standard", "Juno", "Bean", "Grey", "Galaxy" };
 
-				class Standard {
-					label = "Standard";
-				};
-				class Juno {
-					label = "Juno";
-				};
-				class Bean {
-					label = "Bean";
-				};
-				class Grey {
-					label = "Grey";
-				};
-				class Galaxy {
-					label = "Galaxy";
-				};
-			};
-		};
-		class TAE_varen_helmets {
-			label = "Clan Varen Helmets";
-			author = "TAE Aux Mod Team";
-			options[] = { "owner" };
-
-			class owner {
-				alwaysSelectable = 1;
-				label = "Owner";
-				values[] = { "Standard", "Valeria", "Keira" };
-
-				class Standard {
-					label = "Standard";
-				};
-				class Valeria {
-					label = "Valeria";
-				};
-				class Keira {
-					label = "Kiera";
-				};
-			};
-		};
 		class TAE_archived_helmets {
 			label = "Archived Helmets";
 			author = "TAE Aux Mod Team";
 			options[] = { "clan", "style" };
 			class clan {
 				label = "Clan";
-				values[] = { "Haranverd" };
+				values[] = { "Haranverd", "Varen", "Kyram", "Foxx" };
+				class Varen { label = "Varen"; };
+				class Kyram { label = "Kyr'am"; };
+				class Foxx { label = "Foxx"; };
 				class Haranverd { label = "Haranverd"; };
 			};
 
@@ -244,33 +204,17 @@ class XtdGearModels {
 				};
 			};
 		};
-		class TAE_kyram_helmets {
-			label = "Clan Kyr'am Helmets";
-			author = "TAE Aux Mod Team";
-			options[] = { "owner" };
 
-			class owner {
-				alwaysSelectable = 1;
-				label = "Owner";
-				values[] = { "Standard", "Nova" };
-
-				class Standard {
-					label = "Standard";
-				};
-				class Nova {
-					label = "Nova";
-				};
-			};
-		};
 		class TAE_rook_helmets {
 			label = "Clan Rook Helmets";
 			author = "TAE Aux Mod Team";
 			options[] = { "owner" };
 
 			class owner {
+				class Keira { label = "Kiera"; };
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen", "Vario" };
+				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen", "Vario", "Keira" };
 
 				class Standard {
 					label = "Standard";
@@ -300,7 +244,8 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "LSGrey", "DarkGrey", "Jimothy", "DarkRed", "Foxx" };
+				values[] = { "LSGrey", "DarkGrey", "Jimothy", "DarkRed", "Foxx", "Juno" };
+				class Juno { label = "Juno"; };
 
 				class LSGrey {
 					label = "LS Grey";
@@ -445,45 +390,43 @@ class XtdGearInfos {
 		
 		// Clan Foxx
 		class tae_foxx_helmet {
-			model = "TAE_foxx_helmets";
-			owner = "Standard";
+			model = "TAE_archived_helmets";
+			clan = "Foxx";
+			style = "Traditional";
 		};
 		class tae_foxx_rangefinder {
 			model = "TAE_nvgs";
 			owner = "Foxx";
 		};
-		class tae_juno_helmet {
-			model = "TAE_foxx_helmets";
+		class tae_juno_rangefinder {
+			model = "TAE_nvgs";
 			owner = "Juno";
 		};
-		class tae_bean_helmet {
-			model = "TAE_foxx_helmets";
-			owner = "Bean";
-		};
-		class tae_grey_helmet {
-			model = "TAE_foxx_helmets";
-			owner = "Grey";
+		class tae_juno_helmet {
+			model = "TAE_freelancer_helmets";
+			owner = "Juno";
 		};
 		class tae_galaxy_helmet {
-			model = "TAE_foxx_helmets";
+			model = "TAE_freelancer_helmets";
 			owner = "Galaxy";
 		};
 
 		// Clan Varen
 		class tae_varen_helmet {
-			model = "TAE_varen_helmets";
-			owner = "Standard";
+			model = "TAE_archived_helmets";
+			clan = "Varen";
+			style = "Traditional";
 		};
 		class tae_dark_red_rangefinder {
 			model = "TAE_nvgs";
 			owner = "DarkRed";
 		};
 		class tae_valeria_helmet {
-			model = "TAE_varen_helmets";
+			model = "TAE_freelancer_helmets";
 			owner = "Valeria";
 		};
 		class tae_keira_helmet {
-			model = "TAE_varen_helmets";
+			model = "TAE_rook_helmets";
 			owner = "Keira";
 		};
 
@@ -501,11 +444,12 @@ class XtdGearInfos {
 
 		// Clan Kyr'am
 		class tae_kyram_helmet {
-			model = "TAE_kyram_helmets";
-			owner = "Standard";
+			model = "TAE_archived_helmets";
+			clan = "Kyram";
+			style = "Traditional";
 		};
 		class tae_nova_helmet {
-			model = "TAE_kyram_helmets";
+			model = "TAE_freelancer_helmets";
 			owner = "Nova";
 		};
 
@@ -1126,6 +1070,14 @@ class CfgWeapons {
 			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		};
 	};
+	class tae_juno_rangefinder: tae_foxx_rangefinder {
+		author = "Juno";
+		displayName = "Juno's Rangefinder";
+		hiddenSelectionsTextures[] = {"TAEGear\data\Juno\Rangefinder_Juno_co.paa"};
+		class ItemInfo: ItemInfo {
+			hiddenSelectionsTextures[] = {"TAEGear\data\Juno\Rangefinder_Juno_co.paa"};
+		};
+	};
 	class tae_juno_helmet : tae_helmet_arbiter {
 		scope = 2;
 		scopeArsenal = 2;
@@ -1143,26 +1095,6 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Juno\ARB_Helmet_Juno_co.paa",
 				"TAEGear\data\Juno\ARB_Visor_Juno_co.paa"
-			};
-		};
-	};
-	class tae_bean_helmet : tae_helmet_war_chief{
-		scope = 2;
-		scopeArsenal = 2;
-		scopeCurator = 2;
-		author = "Bean";
-		displayName = "Bean's War Chief Helmet";
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Foxx\WAR_Helmet_Bean_co.paa",
-			"\z\tgf\addons\helmets\war_chief\data\camo2_co.paa"
-		};
-
-		class ItemInfo : ItemInfo {
-			hiddenSelections[] = {"camo1","camo2"};
-			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Foxx\WAR_Helmet_Bean_co.paa",
-				"\z\tgf\addons\helmets\war_chief\data\camo2_co.paa"
 			};
 		};
 	};
@@ -1376,26 +1308,6 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Hades\ARB_Helmet_Hades_co.paa",
 				"TAEGear\data\Hades\ARB_Visor_Hades_co.paa"
-			};
-		};
-	};
-	class tae_grey_helmet : tae_helmet_gunslinger_vet {
-		scope = 2;
-		scopeArsenal = 2;
-		scopeCurator = 2;
-		author = "Bean";
-		displayName = "Grey's Gunslinger Veteran Helmet";
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Grey\GUNV_Helmet_Grey_co.paa",
-			"\z\tgf\addons\helmets\gunslinger_vet\data\camo2_co.paa"
-		};
-
-		class ItemInfo : ItemInfo {
-			hiddenSelections[] = {"camo1","camo2"};
-			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Grey\GUNV_Helmet_Grey_co.paa",
-				"\z\tgf\addons\helmets\gunslinger_vet\data\camo2_co.paa"
 			};
 		};
 	};
