@@ -17,7 +17,7 @@ if (_request == "store") exitWith {
 if (_request == "crates") exitWith {
     [_logic, _pad, _actor, _radius, _payload] call TAE_fnc_aircraftCrateRequest;
 };
-if !(_request in ["repair", "refuel", "rearm", "pylon"]) exitWith {
+if !(_request in ["service", "repair", "refuel", "rearm", "pylon"]) exitWith {
     if !(_request in _classes) exitWith {["Aircraft is not authorized for this terminal."] call _notify;};
     if (_near isNotEqualTo []) exitWith {["Pad occupied. Clear people, vehicles and wrecks first."] call _notify;};
     _pad setVariable ["TAE_aircraftBusy", true, true];

@@ -2237,7 +2237,7 @@ class CfgVehicles {
 
 
 		uniformClass = "tae_uniform_grey_seal";
-		backpack = "tae_modular_pack";
+		backpack = "tae_modular_pack_at_aa";
 		goggles = "tgf_facewear_medium_belt";
 		weapons[] = {
 			"LFP_westarcarabine",
@@ -2291,11 +2291,7 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite",
-			"JMSLLTE_HH12_AT_Mag",
-			"JMSLLTE_HH12_AT_Mag",
-			"JMSLLTE_HH12_AT_Mag",
-			"JMSLLTE_HH12_AA_Mag"
+			"3AS_SmokeWhite"
 		};
 		respawnMagazines[] = {
 			"Laserbatteries",
@@ -2333,11 +2329,7 @@ class CfgVehicles {
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
 			"3AS_SmokeWhite",
-			"3AS_SmokeWhite",
-			"JMSLLTE_HH12_AT_Mag",
-			"JMSLLTE_HH12_AT_Mag",
-			"JMSLLTE_HH12_AT_Mag",
-			"JMSLLTE_HH12_AA_Mag"
+			"3AS_SmokeWhite"
 		};
 		linkedItems[] = {
 			"tae_karr_armor_medium_mm",

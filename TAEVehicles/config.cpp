@@ -12,6 +12,7 @@ class CfgPatches {
 			"knd_vehicles_skycat",
 			"knd_vehicles_imperial",
 			"JMSLLTE_vehgr_LIUV",
+			"pkv5_vehicles",
 			"TAEObjects",
 			"TAEUnits_HouseKarr",
 			"mti_armoury_vehicles_weapons",
@@ -22,6 +23,11 @@ class CfgPatches {
 			"knd_jdumb"
 		};
 		units[] = {
+			"TAE_PKV5_Cannon",
+			"TAE_PKV5_Multi",
+			"TAE_PKV5_MLRS",
+			"TAE_PKV5_Mortar",
+			"TAE_PKV5_AA",
 			"TAE_Acklay_LIU",
 			"TAE_CPH_Speeder",
 			"TAE_PX10_R3",
@@ -586,6 +592,121 @@ class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
+	class B_PKV5_MMTS_Cannon_F;
+	class TAE_PKV5_Cannon: B_PKV5_MMTS_Cannon_F {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr PK-V5/B (Mass Driver)";
+		author = "Kharak and Hataaylir";
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
+		side = 2;
+		crew = "TAE_Unit_Engineer";
+		typicalCargo[] = {"TAE_Unit_Engineer"};
+		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_cannon_co.paa"};
+		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_cannon.rvmat"};
+		textureList[] = {"TAE_HouseKarr", 1};
+		class TextureSources {
+			class TAE_HouseKarr {
+				displayName = "House Karr";
+				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_cannon_co.paa"};
+				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_cannon.rvmat"};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+		};
+	};
+	class B_PKV5_MMTS_Multi_F;
+	class TAE_PKV5_Multi: B_PKV5_MMTS_Multi_F {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr PK-V5/M (Multi-Purpose)";
+		author = "Kharak and Hataaylir";
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
+		side = 2;
+		crew = "TAE_Unit_Engineer";
+		typicalCargo[] = {"TAE_Unit_Engineer"};
+		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_multi_co.paa"};
+		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_multi.rvmat"};
+		textureList[] = {"TAE_HouseKarr", 1};
+		class TextureSources {
+			class TAE_HouseKarr {
+				displayName = "House Karr";
+				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_multi_co.paa"};
+				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_multi.rvmat"};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+		};
+	};
+	class B_PKV5_MMTS_MLRS_F;
+	class TAE_PKV5_MLRS: B_PKV5_MMTS_MLRS_F {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr PK-V5/R (MLRS)";
+		author = "Kharak and Hataaylir";
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
+		side = 2;
+		crew = "TAE_Unit_Engineer";
+		typicalCargo[] = {"TAE_Unit_Engineer"};
+		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_mlrs_co.paa"};
+		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_mlrs.rvmat"};
+		textureList[] = {"TAE_HouseKarr", 1};
+		class TextureSources {
+			class TAE_HouseKarr {
+				displayName = "House Karr";
+				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_mlrs_co.paa"};
+				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_mlrs.rvmat"};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+		};
+	};
+	class B_PKV5_MMTS_Mortar_F;
+	class TAE_PKV5_Mortar: B_PKV5_MMTS_Mortar_F {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr PK-V5/S (Siege Mortar)";
+		author = "Kharak and Hataaylir";
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
+		side = 2;
+		crew = "TAE_Unit_Engineer";
+		typicalCargo[] = {"TAE_Unit_Engineer"};
+		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_mortar_co.paa"};
+		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_mortar.rvmat"};
+		textureList[] = {"TAE_HouseKarr", 1};
+		class TextureSources {
+			class TAE_HouseKarr {
+				displayName = "House Karr";
+				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_mortar_co.paa"};
+				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_mortar.rvmat"};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+		};
+	};
+	class B_PKV5_MMTS_AA_F;
+	class TAE_PKV5_AA: B_PKV5_MMTS_AA_F {
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "House Karr PK-V5/A (Anti-Air)";
+		author = "Kharak and Hataaylir";
+		faction = "TAE_Faction_HouseKarr";
+		editorSubcategory = "TAE_EdSubcat_HouseKarr_Armored";
+		side = 2;
+		crew = "TAE_Unit_Engineer";
+		typicalCargo[] = {"TAE_Unit_Engineer"};
+		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_aa_co.paa"};
+		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_aa.rvmat"};
+		textureList[] = {"TAE_HouseKarr", 1};
+		class TextureSources {
+			class TAE_HouseKarr {
+				displayName = "House Karr";
+				textures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_aa_co.paa"};
+				materials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_aa.rvmat"};
+				factions[] = {"TAE_Faction_HouseKarr"};
+			};
+		};
+	};
 	class JMSLLTE_B_veh_LIUSt_imp_F;
 	class TAE_Acklay_LIU: JMSLLTE_B_veh_LIUSt_imp_F {
 		scope = 2;
@@ -973,12 +1094,11 @@ class CfgVehicles {
 		armor = 48;
 		// Two successive 15% increases: 32.25% above the inherited 3AS curve.
 		thrustCoef[] = {1.98375,1.98375,2.116,2.3805,2.645,3.30625,3.9675,4.62875,3.30625,2.645,2.24825,1.98375,1.45475,1.3225,1.3225,1.3225};
-		weapons[] = {"TAE_weapon_AA_Cannon", "Laserdesignator_pilotCamera", "ls_weapon_CMFlareLauncher"};
+		weapons[] = {"TAE_weapon_AA_Cannon", "ls_weapon_CMFlareLauncher"};
 		magazines[] = {
 			"mti_armoury_mag_AA_Cannon_Mag",
 			"mti_armoury_mag_AA_Cannon_Mag",
 			"mti_armoury_mag_AA_Cannon_Mag",
-			"Laserbatteries",
 			"ls_mag_240Rnd_CMFlareChaff_purple",
 			"ls_mag_240Rnd_CMFlareChaff_purple",
 			"ls_mag_240Rnd_CMFlareChaff_purple",
@@ -1021,7 +1141,10 @@ class CfgVehicles {
 							objectDistanceLimitCoef = -1;
 							viewDistanceLimitCoef = -1;
 						};
-						class GroundTarget: AirTarget {};
+						class GroundTarget: AirTarget {
+							minRange = 0;
+							maxRange = 0;
+						};
 					};
 				};
 			};
@@ -1051,9 +1174,10 @@ class CfgVehicles {
 						maxWeight = 5000;
 						turret[] = {};
 					};
-					delete pylons5;
-					delete pylons6;
+					// Remove derived pylons before their bases to avoid retained ghost slots.
 					delete Pylons7;
+					delete pylons6;
+					delete pylons5;
 				};
 				class presets: presets {
 					delete Default;
@@ -1082,6 +1206,23 @@ class CfgVehicles {
 	};
 
 	class TAE_KomrkFighter_Transport: TAE_KomrkFighter_Transport_base {
+		class knd_vehicles_core_vivCargo {
+			class knd_pak_crate { numberOf = 0; };
+			class knd_resupply_jetpack { numberOf = 0; };
+			class knd_resupply_AT { numberOf = 0; };
+			class knd_resupply_ammo { numberOf = 0; };
+			class knd_resupply_gadgets { numberOf = 0; };
+			class knd_resupply_medical { numberOf = 0; };
+			class knd_resupply_demo { numberOf = 0; };
+			class knd_resupply_mortar { numberOf = 0; };
+			class TAE_Ammo_Crate { numberOf = 1; };
+			class TAE_AT_Crate { numberOf = 1; };
+			class TAE_Demo_Crate { numberOf = 1; };
+			class TAE_GL_Crate { numberOf = 1; };
+			class TAE_Medical_Crate { numberOf = 1; };
+			class TAE_Mortar_Crate { numberOf = 1; };
+			class TAE_JetpackFuel_Crate { numberOf = 1; };
+		};
 		class TransportItems {
 			class _xx_knd_bacta { name = "knd_bacta"; count = 0; };
 			class _xx_knd_defib { name = "knd_defib"; count = 0; };
@@ -1127,8 +1268,8 @@ class CfgVehicles {
 			"TAE_Unit_Pilot"
 		};
 
-		ace_cargo_hasCargo = 1;
-		ace_cargo_space = 8;
+		ace_cargo_hasCargo = 0;
+		ace_cargo_space = 0;
 
 		hiddenSelections[] = {
 			"camo1",
@@ -1212,10 +1353,10 @@ class CfgVehicles {
 
 				class pylons {
 					class pylon1 {
-						hardpoints[] = {};
+						hardpoints[] = {"knd_vehicles_komrk_hardpoint_cargoBay"};
 						attachment = "";
 						priority = 1;
-						maxweight = 0;
+						maxweight = 5000;
 						UIposition[] = {0.35,0.25};
 						bay = 1;
 					};
@@ -1481,33 +1622,50 @@ class CfgVehicles {
 				class knd_resupply_ammo { type = "knd_resupply_ammo"; amount = 0; };
 				class knd_resupply_medical { type = "knd_resupply_medical"; amount = 0; };
 				class knd_vehicles_imperial_cph_captured { type = "knd_vehicles_imperial_cph_captured"; amount = 0; };
-				class TAE_AT_Crate { type = "TAE_AT_Crate"; amount = 1; };
-				class TAE_GL_Crate { type = "TAE_GL_Crate"; amount = 1; };
-				class TAE_Mortar_Crate { type = "TAE_Mortar_Crate"; amount = 1; };
+				class TAE_AT_Crate { type = "TAE_AT_Crate"; amount = 0; };
+				class TAE_GL_Crate { type = "TAE_GL_Crate"; amount = 0; };
+				class TAE_Mortar_Crate { type = "TAE_Mortar_Crate"; amount = 0; };
 				class TAE_JetpackFuel_Crate {
 					type = "TAE_JetpackFuel_Crate";
-					amount = 1;
+					amount = 0;
 				};
 
 				class TAE_Ammo_Crate {
 					type = "TAE_Ammo_Crate";
-					amount = 1;
+					amount = 0;
 				};
 
 				class TAE_Demo_Crate {
 					type = "TAE_Demo_Crate";
-					amount = 1;
+					amount = 0;
 				};
 
 				class TAE_Medical_Crate {
 					type = "TAE_Medical_Crate";
-					amount = 1;
+					amount = 0;
 				};
 			};
 		};
 	};
 
 	class TAE_Skycat_Transport: knd_vehicles_skycat {
+		class knd_vehicles_core_vivCargo {
+			class knd_pak_crate { numberOf = 0; };
+			class knd_resupply_jetpack { numberOf = 0; };
+			class knd_resupply_AT { numberOf = 0; };
+			class knd_resupply_ammo { numberOf = 0; };
+			class knd_resupply_gadgets { numberOf = 0; };
+			class knd_resupply_medical { numberOf = 0; };
+			class knd_resupply_demo { numberOf = 0; };
+			class knd_resupply_mortar { numberOf = 0; };
+			class TAE_Ammo_Crate { numberOf = 1; };
+			class TAE_AT_Crate { numberOf = 1; };
+			class TAE_Demo_Crate { numberOf = 1; };
+			class TAE_GL_Crate { numberOf = 1; };
+			class TAE_Medical_Crate { numberOf = 1; };
+			class TAE_Mortar_Crate { numberOf = 1; };
+			class TAE_JetpackFuel_Crate { numberOf = 1; };
+		};
 		hiddenSelectionsTextures[] = {
 			"\knd_vehicles_skycat\tex\yellow\camo1_co.paa",
 			"\knd_vehicles_skycat\tex\yellow\camo2_co.paa",
@@ -1642,8 +1800,8 @@ class CfgVehicles {
 			};
 		};
 
-		ace_cargo_hasCargo = 1;
-		ace_cargo_space = 15;
+		ace_cargo_hasCargo = 0;
+		ace_cargo_space = 0;
 		class ace_cargo {
 			class cargo {
 				class knd_resupply_jetpack { type = "knd_resupply_jetpack"; amount = 0; };
@@ -1654,27 +1812,27 @@ class CfgVehicles {
 				class knd_resupply_mortar { type = "knd_resupply_mortar"; amount = 0; };
 				class knd_resupply_demo { type = "knd_resupply_demo"; amount = 0; };
 				class knd_PAK_crate { type = "knd_PAK_crate"; amount = 0; };
-				class TAE_AT_Crate { type = "TAE_AT_Crate"; amount = 1; };
-				class TAE_GL_Crate { type = "TAE_GL_Crate"; amount = 1; };
-				class TAE_Mortar_Crate { type = "TAE_Mortar_Crate"; amount = 1; };
+				class TAE_AT_Crate { type = "TAE_AT_Crate"; amount = 0; };
+				class TAE_GL_Crate { type = "TAE_GL_Crate"; amount = 0; };
+				class TAE_Mortar_Crate { type = "TAE_Mortar_Crate"; amount = 0; };
 				class TAE_JetpackFuel_Crate {
 					type = "TAE_JetpackFuel_Crate";
-					amount = 1;
+					amount = 0;
 				};
 
 				class TAE_Ammo_Crate {
 					type = "TAE_Ammo_Crate";
-					amount = 1;
+					amount = 0;
 				};
 
 				class TAE_Demo_Crate {
 					type = "TAE_Demo_Crate";
-					amount = 1;
+					amount = 0;
 				};
 
 				class TAE_Medical_Crate {
 					type = "TAE_Medical_Crate";
-					amount = 1;
+					amount = 0;
 				};
 			};
 		};

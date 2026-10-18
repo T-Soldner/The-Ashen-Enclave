@@ -423,6 +423,14 @@ class CfgVehicles {
 		maximumload = 400;
 		mass = 60;
 	};
+	class tae_modular_pack_at_aa: tae_modular_pack {
+		scope = 1;
+		scopeArsenal = 0;
+		class TransportMagazines {
+			class AT { magazine = "JMSLLTE_HH12_AT_Mag"; count = 3; };
+			class AA { magazine = "JMSLLTE_HH12_AA_Mag"; count = 1; };
+		};
+	};
 	class tae_modular_pack_grenadier : tae_modular_pack {
 		scope = 1;
 		scopeArsenal = 0;

@@ -30,7 +30,7 @@ if (isServer) then {
     private _repairOnly = _mode == 2;
     private _classes = if (_repairOnly) then {[]} else {parseSimpleArray (_logic getVariable ["Aircraft", "[]"])};
     if (!_repairOnly && {_classes isEqualTo []}) then {
-        _classes = ["TAE_VWing", "TAE_Delta7_Interceptor", "TAE_KomrkFighter_Transport", "TAE_Skycat_Transport", "TAE_Z98_Headhunter"];
+        _classes = ["TAE_KomrkFighter_Transport", "TAE_Skycat_Transport", "TAE_Z98_Headhunter"];
     };
     private _valid = [];
     {
@@ -71,9 +71,9 @@ _actions pushBack (_terminal addAction ["Aircraft terminal: pilot qualification 
         ["TAE_aircraftRequest", [_logic, _caller, _class]] call CBA_fnc_serverEvent;
     }, [_logic, _x], 1.5, false, true, "", _condition, 4]);
 } forEach _classes;
-_actions pushBack (_terminal addAction ["Repair aircraft on pad", {
+_actions pushBack (_terminal addAction ["Service Vehicle", {
     params ["_target", "_caller", "_id", "_logic"];
-    ["TAE_aircraftRequest", [_logic, _caller, "repair"]] call CBA_fnc_serverEvent;
+    ["TAE_aircraftRequest", [_logic, _caller, "service"]] call CBA_fnc_serverEvent;
 }, _logic, 1.4, false, true, "", _condition, 4]);
 {
     _actions pushBack (_terminal addAction [_x # 0, {
@@ -83,7 +83,7 @@ _actions pushBack (_terminal addAction ["Repair aircraft on pad", {
             ["TAE_aircraftRequest", [_logic, _caller, _operation]] call CBA_fnc_serverEvent;
         };
     }, [_logic, _x # 1], 1.3, false, true, "", _condition, 4]);
-} forEach [["Refuel aircraft on pad", "refuel"], ["Rearm aircraft on pad", "rearm"], ["Change aircraft pylons", "pylon"]];
+} forEach [["Change aircraft pylons", "pylon"]];
 _actions pushBack (_terminal addAction ["Put aircraft in storage", {
     params ["_target", "_caller", "_id", "_logic"];
     [_logic, _caller] spawn {

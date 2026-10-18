@@ -2,11 +2,14 @@
 params ["_logic", "_pad", "_actor", "_radius", "_operation", "_payload"];
 if (!isServer) exitWith {};
 private _notify = {params ["_text"]; ["TAE_aircraftNotice", [_text], _actor] call CBA_fnc_targetEvent;};
-private _near = (nearestObjects [_pad, ["Air"], _radius, true]) select {alive _x && {abs ((getPosASL _x # 2) - (getPosASL _pad # 2)) < 15}};
-if (count _near != 1) exitWith {["Exactly one intact aircraft must be on the pad."] call _notify;};
+private _ground = _logic isKindOf "TAE_GroundTerminal";
+private _types = if (_ground) then {["LandVehicle"]} else {["Air"]};
+private _near = (nearestObjects [_pad, _types, _radius, true]) select {alive _x && {abs ((getPosASL _x # 2) - (getPosASL _pad # 2)) < 15}};
+if (count _near != 1) exitWith {["Exactly one intact vehicle must be on the pad."] call _notify;};
 private _vehicle = _near # 0;
-if (_pad getVariable ["TAE_aircraftBusy", false] || {_vehicle getVariable ["TAE_repairBusy", false]}) exitWith {["Pad or aircraft is busy."] call _notify;};
-if (crew _vehicle isNotEqualTo [] || {isEngineOn _vehicle} || {vectorMagnitude velocity _vehicle > 0.5}) exitWith {["Empty the aircraft, shut down its engine and let it stop before servicing."] call _notify;};
+if (_ground && {!((typeOf _vehicle) in (call TAE_fnc_getGroundVehicleClasses))}) exitWith {["Vehicle is not authorized for this terminal."] call _notify;};
+if (_pad getVariable ["TAE_aircraftBusy", false] || {_vehicle getVariable ["TAE_repairBusy", false]}) exitWith {["Pad or vehicle is busy."] call _notify;};
+if (crew _vehicle isNotEqualTo [] || {isEngineOn _vehicle} || {vectorMagnitude velocity _vehicle > 0.5}) exitWith {["Empty the vehicle, shut down its engine and let it stop before servicing."] call _notify;};
 private _validPylon = true;
 if (_operation == "pylon") then {
     _validPylon = false;
@@ -38,6 +41,25 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
     private _completed = false;
     private _serviceDroids = [];
     if (call _ready) then {_serviceDroids = [_vehicle] call TAE_fnc_spawnAircraftServiceDroids;};
+    private _fullService = _operation == "service";
+    if (_fullService) then {
+        private _duration = (_logic getVariable ["RepairSeconds", 60]) max 1;
+        private _step = 1 / _duration;
+        while {call _ready && {damage _vehicle > 0 || {((getAllHitPointsDamage _vehicle) param [2, []]) findIf {_x > 0} >= 0}}} do {
+            sleep 1;
+            if (call _ready) then {
+                private _damage = damage _vehicle;
+                private _hits = (getAllHitPointsDamage _vehicle) param [2, []];
+                _vehicle setDamage ((_damage - _step) max 0);
+                {_vehicle setHitIndex [_forEachIndex, (_x - _step) max 0];} forEach _hits;
+            };
+        };
+        while {call _ready && {fuel _vehicle < 1}} do {
+            sleep 1;
+            if (call _ready) then {_vehicle setFuel ((fuel _vehicle + 1/30) min 1);};
+        };
+        _operation = "rearm";
+    };
     switch (_operation) do {
         case "refuel": {
             while {call _ready && {fuel _vehicle < 1}} do {
@@ -76,6 +98,20 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
                 [_x, [_forEachIndex]] call _collect;
             } forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
             private _jobs = (_groups apply {["magazine", _x]}) + ((_pylons select {(_x # 3) != ""}) apply {["pylon", _x]});
+            if (_fullService) then {
+                // Skip full magazines and racks, but restore missing reserve magazines.
+                _jobs = _jobs select {
+                    _x params ["_kind", "_job"];
+                    if (_kind == "pylon") then {
+                        (_vehicle ammoOnPylon (_job # 0)) < getNumber (configFile >> "CfgMagazines" >> (_job # 3) >> "count")
+                    } else {
+                        _job params ["_class", "_path", "_count"];
+                        private _capacity = getNumber (configFile >> "CfgMagazines" >> _class >> "count");
+                        private _current = (magazinesAllTurrets _vehicle) select {(_x # 0) == _class && {(_x # 1) isEqualTo _path}};
+                        count _current < _count || {_current findIf {(_x # 2) < _capacity} >= 0}
+                    }
+                };
+            };
             _completed = call _ready;
             {
                 private _end = diag_tickTime + 60 / ((count _jobs) max 1);
