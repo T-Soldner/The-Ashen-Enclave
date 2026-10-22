@@ -51,8 +51,15 @@ try {
             if (Test-Path -LiteralPath $pboPath) { Remove-Item -LiteralPath $pboPath -Force }
             Get-ChildItem -LiteralPath $OutputRoot -Filter "$addon.pbo.*.bisign" -File |
                 ForEach-Object { Remove-Item -LiteralPath $_.FullName -Force }
-            $buildOutput = & $addonBuilder $sourcePath $OutputRoot -clear "-include=$runtimeIncludeList" "-prefix=$addon" 2>&1
-            $buildExitCode = $LASTEXITCODE
+            # Windows PowerShell wraps native stderr as errors, including Steam startup notices.
+            $previousErrorAction = $ErrorActionPreference
+            try {
+                $ErrorActionPreference = "Continue"
+                $buildOutput = & $addonBuilder $sourcePath $OutputRoot -clear "-include=$runtimeIncludeList" "-prefix=$addon" 2>&1
+                $buildExitCode = $LASTEXITCODE
+            } finally {
+                $ErrorActionPreference = $previousErrorAction
+            }
             $buildOutput | ForEach-Object { Write-Host $_ }
             if ($buildExitCode -ne 0 -or (($buildOutput | Out-String) -match '(\[ERROR\]|Build failed)')) {
                 throw "Packing $addon failed (exit $buildExitCode)."
