@@ -902,13 +902,13 @@ class CfgWeapons {
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Trimm\WARL_Helmet_Trimm.paa",
-			"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+			"TAEGear\Data\Trimm\WARL_Visor_Trimm.paa"
 		};
 		class ItemInfo: ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Trimm\WARL_Helmet_Trimm.paa",
-				"\z\tgf\addons\helmets\warlord\data\camo2_co.paa"
+				"TAEGear\Data\Trimm\WARL_Visor_Trimm.paa"
 			};
 		};
 	};
