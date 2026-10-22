@@ -2,7 +2,7 @@
 [CmdletBinding()]
 param(
     [string]$SourceRoot = "C:\Users\mrjim\Documents\GitHub\The-Ashen-Enclave",
-    [string]$OutputRoot = "D:\SteamLibrary\steamapps\common\Arma 3@MyTestPatch\addons",
+    [string]$OutputRoot = "D:\SteamLibrary\steamapps\common\Arma 3\@MyTestPatch\addons",
     [string]$ArmaToolsRoot = "D:\SteamLibrary\steamapps\common\Arma 3 Tools",
     [switch]$NoPause
 )
