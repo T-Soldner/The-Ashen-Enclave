@@ -7,12 +7,8 @@ if (isNull _terminal) exitWith {};
 if (isServer) then {
     private _radius = (_terminal getVariable ["TAE_groundRadius", 12]) max 8;
     private _distance = (_terminal getVariable ["TAE_groundDistance", 20]) max (_radius + 6);
-    private _heading = getDir _terminal;
-    private _position = _terminal getPos [_distance, _heading];
-    _position set [2, 0];
-    private _pad = createVehicle ["Land_HelipadEmpty_F", _position, [], 0, "CAN_COLLIDE"];
-    _pad setPosATL _position;
-    _pad setDir ((_heading + (_terminal getVariable ["TAE_groundFacing", 0])) mod 360);
+    private _pad = createVehicle ["Land_HelipadEmpty_F", [0,0,0], [], 0, "CAN_COLLIDE"];
+    [_terminal, _pad, _distance, _terminal getVariable ["TAE_groundFacing", 0]] call TAE_fnc_positionTerminalSpawnPad;
     _terminal setVariable ["TAE_groundData", [_pad, _radius], true];
     _terminal addEventHandler ["Deleted", {
         private _data = (_this # 0) getVariable ["TAE_groundData", []];

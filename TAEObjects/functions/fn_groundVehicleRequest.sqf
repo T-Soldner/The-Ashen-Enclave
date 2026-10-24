@@ -15,17 +15,16 @@ if (_class == "store") exitWith {
     [_terminal, _pad, _actor, _radius, "store", []] call TAE_fnc_aircraftStorageRequest;
 };
 if !(_class in (call TAE_fnc_getGroundVehicleClasses)) exitWith {["Vehicle is not authorized."] call _notify;};
+private _distance = (_terminal getVariable ["TAE_groundDistance", 20]) max (_radius + 6);
+if !([_terminal, _pad, _distance, _terminal getVariable ["TAE_groundFacing", 0]] call TAE_fnc_positionTerminalSpawnPad) exitWith {
+    ["No supporting deck or ground near terminal height at the spawn point. Check terminal placement and spawn distance."] call _notify;
+};
 private _near = nearestObjects [_pad, ["Air", "LandVehicle", "Ship", "CAManBase"], _radius, true];
 _near = _near select {abs ((getPosASL _x # 2) - (getPosASL _pad # 2)) < 15};
 if (_near isNotEqualTo []) exitWith {["Clear people, vehicles and wrecks from the spawn area first."] call _notify;};
-if (surfaceIsWater getPosWorld _pad) exitWith {["The spawn area must be on land."] call _notify;};
 _pad setVariable ["TAE_aircraftBusy", true, true];
-private _vehicle = createVehicle [_class, getPosATL _pad, [], 0, "CAN_COLLIDE"];
+private _vehicle = [_class, _pad] call TAE_fnc_spawnTerminalVehicle;
 if (!isNull _vehicle) then {
-    _vehicle setDir getDir _pad;
-    _vehicle setPosATL getPosATL _pad;
-    _vehicle setVectorUp surfaceNormal getPosWorld _pad;
-    _vehicle setVelocity [0,0,0];
     ["Vehicle ready. Move it clear before requesting another."] call _notify;
 } else {["Vehicle creation failed."] call _notify;};
 _pad setVariable ["TAE_aircraftBusy", false, true];
