@@ -131,6 +131,8 @@ class CfgFunctions {
 			class initGroundTerminal {};
 			class getGroundVehicleClasses {};
 			class groundVehicleRequest {};
+			class positionTerminalSpawnPad {};
+			class spawnTerminalVehicle {};
 			class isQualifiedAircraftPilot {};
 			class initAircraftRequisition { postInit = 1; };
 			class aircraftRequisitionRequest {};

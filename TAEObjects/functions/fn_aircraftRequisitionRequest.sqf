@@ -19,13 +19,15 @@ if (_request == "crates") exitWith {
 };
 if !(_request in ["service", "repair", "refuel", "rearm", "pylon"]) exitWith {
     if !(_request in _classes) exitWith {["Aircraft is not authorized for this terminal."] call _notify;};
+    private _distance = (_logic getVariable ["TAE_spawnDistance", 40]) max (_radius + 6);
+    if !([_terminal, _pad, _distance, _logic getVariable ["TAE_spawnFacing", 0]] call TAE_fnc_positionTerminalSpawnPad) exitWith {
+        ["No supporting deck or ground near terminal height at the spawn point. Check terminal placement and spawn distance."] call _notify;
+    };
+    _near = (nearestObjects [_pad, ["Air", "LandVehicle", "Ship", "CAManBase"], _radius, true]) select {abs ((getPosASL _x # 2) - (getPosASL _pad # 2)) < 15};
     if (_near isNotEqualTo []) exitWith {["Pad occupied. Clear people, vehicles and wrecks first."] call _notify;};
     _pad setVariable ["TAE_aircraftBusy", true, true];
-    private _aircraft = createVehicle [_request, ASLToAGL getPosASL _pad, [], 0, "CAN_COLLIDE"];
+    private _aircraft = [_request, _pad] call TAE_fnc_spawnTerminalVehicle;
     if (!isNull _aircraft) then {
-        _aircraft setDir getDir _pad;
-        _aircraft setPosASL getPosASL _pad;
-        _aircraft setVelocity [0,0,0];
         ["Aircraft ready on pad."] call _notify;
     } else {["Aircraft creation failed."] call _notify;};
     _pad setVariable ["TAE_aircraftBusy", false, true];
