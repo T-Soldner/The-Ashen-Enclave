@@ -21,7 +21,8 @@ class MiningGuildTests(unittest.TestCase):
         self.assertEqual(result[1], [])
 
     def test_generated_roster(self):
-        config = Parser((Path(__file__).resolve().parents[1] / 'TAEMiningGuild/config.cpp').read_text()).node()
+        config = Parser((Path(__file__).resolve().parents[1] / 'TAEUnits/MiningGuild/config.cpp').read_text()).node()
+        self.assertEqual(config['CfgFunctions']['TAE']['MiningGuild']['file'], 'TAEUnits\\MiningGuild\\functions')
         roster = config['CfgPatches']['TAEMiningGuild']['units']
         self.assertEqual(len(roster), 20)
         self.assertEqual(len(set(roster)), 20)

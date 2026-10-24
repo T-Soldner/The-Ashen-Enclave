@@ -2,17 +2,28 @@
 params ["_logic", "_pad", "_actor", "_radius", "_operation", "_payload"];
 if (!isServer) exitWith {};
 private _notify = {params ["_text"]; ["TAE_aircraftNotice", [_text], _actor] call CBA_fnc_targetEvent;};
-private _near = (nearestObjects [_pad, ["Air"], _radius, true]) select {alive _x && {abs ((getPosASL _x # 2) - (getPosASL _pad # 2)) < 15}};
-if (count _near != 1) exitWith {["Exactly one intact aircraft must be on the pad."] call _notify;};
+private _ground = _logic isKindOf "TAE_GroundTerminal";
+private _types = if (_ground) then {["LandVehicle"]} else {["Air"]};
+private _near = (nearestObjects [_pad, _types, _radius, true]) select {alive _x && {abs ((getPosASL _x # 2) - (getPosASL _pad # 2)) < 15}};
+if (count _near != 1) exitWith {["Exactly one intact vehicle must be on the pad."] call _notify;};
 private _vehicle = _near # 0;
-if (_pad getVariable ["TAE_aircraftBusy", false] || {_vehicle getVariable ["TAE_repairBusy", false]}) exitWith {["Pad or aircraft is busy."] call _notify;};
-if (crew _vehicle isNotEqualTo [] || {isEngineOn _vehicle} || {vectorMagnitude velocity _vehicle > 0.5}) exitWith {["Empty the aircraft, shut down its engine and let it stop before servicing."] call _notify;};
+if (_ground && {!((typeOf _vehicle) in (call TAE_fnc_getGroundVehicleClasses))}) exitWith {["Vehicle is not authorized for this terminal."] call _notify;};
+if (_pad getVariable ["TAE_aircraftBusy", false] || {_vehicle getVariable ["TAE_repairBusy", false]}) exitWith {["Pad or vehicle is busy."] call _notify;};
+if (crew _vehicle isNotEqualTo [] || {isEngineOn _vehicle} || {vectorMagnitude velocity _vehicle > 0.5}) exitWith {["Empty the vehicle, shut down its engine and let it stop before servicing."] call _notify;};
 private _validPylon = true;
 if (_operation == "pylon") then {
     _validPylon = false;
-    if (count _payload == 3 && {(_payload # 0) isEqualType objNull} && {(_payload # 1) isEqualType 0} && {(_payload # 2) isEqualType ""}) then {
-        _payload params ["_target", "_index", "_magazine"];
-        _validPylon = _target == _vehicle && {(getAllPylonsInfo _vehicle) findIf {(_x # 0) == _index} >= 0} && {_magazine == "" || {_magazine in (_vehicle getCompatiblePylonMagazines _index)}};
+    if (count _payload == 2 && {(_payload # 0) isEqualType objNull} && {(_payload # 1) isEqualType []}) then {
+        _payload params ["_target", "_changes"];
+        private _indices = [];
+        private _pylons = getAllPylonsInfo _vehicle;
+        _validPylon = _target == _vehicle && {count _changes > 0} && {count _changes <= count _pylons};
+        {
+            if !(_x isEqualType [] && {count _x == 2} && {(_x # 0) isEqualType 0} && {(_x # 1) isEqualType ""}) exitWith {_validPylon = false;};
+            _x params ["_index", "_magazine"];
+            if (_index in _indices || {_pylons findIf {(_x # 0) == _index} < 0} || {_magazine != "" && {!(_magazine in (_vehicle getCompatiblePylonMagazines _index))}}) exitWith {_validPylon = false;};
+            _indices pushBack _index;
+        } forEach _changes;
     };
 };
 if (!_validPylon) exitWith {["Aircraft changed or pylon store is incompatible."] call _notify;};
@@ -28,6 +39,27 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
         !isNull _logic && {!isNull _pad} && {alive _vehicle} && {local _vehicle} && {crew _vehicle isEqualTo []} && {!isEngineOn _vehicle} && {vectorMagnitude velocity _vehicle <= 0.5} && {_vehicle distance2D _pad <= _radius} && {abs ((getPosASL _vehicle # 2) - (getPosASL _pad # 2)) < 15}
     };
     private _completed = false;
+    private _serviceDroids = [];
+    if (call _ready) then {_serviceDroids = [_vehicle] call TAE_fnc_spawnAircraftServiceDroids;};
+    private _fullService = _operation == "service";
+    if (_fullService) then {
+        private _duration = (_logic getVariable ["RepairSeconds", 60]) max 1;
+        private _step = 1 / _duration;
+        while {call _ready && {damage _vehicle > 0 || {((getAllHitPointsDamage _vehicle) param [2, []]) findIf {_x > 0} >= 0}}} do {
+            sleep 1;
+            if (call _ready) then {
+                private _damage = damage _vehicle;
+                private _hits = (getAllHitPointsDamage _vehicle) param [2, []];
+                _vehicle setDamage ((_damage - _step) max 0);
+                {_vehicle setHitIndex [_forEachIndex, (_x - _step) max 0];} forEach _hits;
+            };
+        };
+        while {call _ready && {fuel _vehicle < 1}} do {
+            sleep 1;
+            if (call _ready) then {_vehicle setFuel ((fuel _vehicle + 1/30) min 1);};
+        };
+        _operation = "rearm";
+    };
     switch (_operation) do {
         case "refuel": {
             while {call _ready && {fuel _vehicle < 1}} do {
@@ -66,6 +98,20 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
                 [_x, [_forEachIndex]] call _collect;
             } forEach ("true" configClasses (configOf _vehicle >> "Turrets"));
             private _jobs = (_groups apply {["magazine", _x]}) + ((_pylons select {(_x # 3) != ""}) apply {["pylon", _x]});
+            if (_fullService) then {
+                // Skip full magazines and racks, but restore missing reserve magazines.
+                _jobs = _jobs select {
+                    _x params ["_kind", "_job"];
+                    if (_kind == "pylon") then {
+                        (_vehicle ammoOnPylon (_job # 0)) < getNumber (configFile >> "CfgMagazines" >> (_job # 3) >> "count")
+                    } else {
+                        _job params ["_class", "_path", "_count"];
+                        private _capacity = getNumber (configFile >> "CfgMagazines" >> _class >> "count");
+                        private _current = (magazinesAllTurrets _vehicle) select {(_x # 0) == _class && {(_x # 1) isEqualTo _path}};
+                        count _current < _count || {_current findIf {(_x # 2) < _capacity} >= 0}
+                    }
+                };
+            };
             _completed = call _ready;
             {
                 private _end = diag_tickTime + 60 / ((count _jobs) max 1);
@@ -86,12 +132,16 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
             } forEach _jobs;
         };
         case "pylon": {
-            _payload params ["_target", "_index", "_magazine"];
-            private _end = diag_tickTime + 30;
-            waitUntil {sleep 0.25; !(call _ready) || {diag_tickTime >= _end}};
-            if (call _ready) then {
+            _payload params ["_target", "_changes"];
+            _completed = true;
+            {
+                _x params ["_index", "_magazine"];
+                private _end = diag_tickTime + 30;
+                waitUntil {sleep 0.25; !(call _ready) || {diag_tickTime >= _end}};
+                if !(call _ready) exitWith {_completed = false;};
                 private _pylons = getAllPylonsInfo _vehicle;
                 private _row = _pylons findIf {(_x # 0) == _index};
+                if (_row < 0) exitWith {_completed = false;};
                 if (_row >= 0 && {_magazine == "" || {_magazine in (_vehicle getCompatiblePylonMagazines _index)}}) then {
                     private _pylon = _pylons # _row;
                     private _oldWeapon = getText (configFile >> "CfgMagazines" >> (_pylon # 3) >> "pylonWeapon");
@@ -105,10 +155,12 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
                         if (_path isEqualTo []) then {_path = [-1];};
                         _vehicle removeWeaponTurret [_oldWeapon, _path];
                     };
-                };
-            };
+                } else {_completed = false;};
+                if (!_completed) exitWith {};
+            } forEach _changes;
         };
     };
+    [_serviceDroids] call TAE_fnc_dismissAircraftServiceDroids;
     if (!isNull _vehicle) then {_vehicle setVariable ["TAE_repairBusy", false, true];};
     if (!isNull _pad) then {_pad setVariable ["TAE_aircraftBusy", false, true];};
     if (!isNull _actor) then {

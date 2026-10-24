@@ -37,6 +37,7 @@ class CfgPatches {
 			"tae_kyram_armor",
 			"tae_rook_armor",
 			"tae_hades_armor",
+			"tae_vario_armor",
 			"tae_andora_armor",
 			"tae_goostivool_armor",
 			"tae_shen_armor"
@@ -90,7 +91,9 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo", "Edonn", "Nox" };
+				values[] = { "Hondo", "Edonn", "Nox", "Juno", "Galaxy" };
+				class Juno { label = "Juno"; };
+				class Galaxy { label = "Galaxy"; };
 				class Hondo {
 					label = "Hondo";
 				};
@@ -145,49 +148,26 @@ class XtdGearModels {
 				};
 			};
 		};
-		class TAE_foxx_vests {
-			label = "Clan Foxx Vests";
+
+
+		class TAE_archived_armors {
+			label = "Archived Armors";
 			author = "TAE Aux Mod Team";
-			options[] = { "owner" };
-			class owner {
-				alwaysSelectable = 1;
-				label = "Owner";
-				values[] = { "Standard", "Juno", "Galaxy" };
-				class Standard {
-					label = "Standard";
-				};
-				class Juno {
-					label = "Juno";
-				};
-				class Galaxy {
-					label = "Galaxy";
-				};
+			options[] = { "clan", "style" };
+			class clan {
+				label = "Clan";
+				values[] = { "Haranverd", "Varen", "Kyram", "Foxx" };
+				class Varen { label = "Varen"; };
+				class Kyram { label = "Kyr'am"; };
+				class Foxx { label = "Foxx"; };
+				class Haranverd { label = "Haranverd"; };
 			};
-		};
-		class TAE_varen_vests {
-			label = "Clan Varen Vests";
-			author = "TAE Aux Mod Team";
-			options[] = { "owner" };
-			class owner {
-				alwaysSelectable = 1;
-				label = "Owner";
-				values[] = { "Standard","Niteowl" };
-				class Standard {
-					label = "Standard";
-				};
-				class Niteowl {
-					label = "Nite Owl";
-				};
-			};
-		};
-		class TAE_haranverd_vests {
-			label = "Clan Haranverd Vests";
-			author = "TAE Aux Mod Team";
-			options[] = { "style" };
 			class style {
 				alwaysSelectable = 1;
 				label = "Style";
-				values[] = { "Traditional", "Niteowl" };
+				values[] = { "Traditional", "Niteowl", "Recon", "Medium" };
+				class Recon { label = "Recon"; };
+				class Medium { label = "Medium"; };
 				class Traditional {
 					label = "Traditional";
 				};
@@ -196,19 +176,7 @@ class XtdGearModels {
 				};
 			};
 		};
-		class TAE_kyram_vests {
-			label = "Clan Kyr'am Vests";
-			author = "TAE Aux Mod Team";
-			options[] = { "style" };
-			class style {
-				alwaysSelectable = 1;
-				label = "Style";
-				values[] = { "Traditional" };
-				class Traditional {
-					label = "Traditional";
-				};
-			};
-		};
+
 		class TAE_rook_vests {
 			label = "Clan Rook Vests";
 			author = "TAE Aux Mod Team";
@@ -216,7 +184,10 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen" };
+				values[] = { "Standard", "Hades", "Vario", "Andora", "Goostivool", "Shen" };
+				class Vario {
+					label = "Vario";
+				};
 				class Standard {
 					label = "Standard";
 				};
@@ -339,38 +310,44 @@ class XtdGearInfos {
 		
 		//Foxx
 		class tae_foxx_armor {
-			model	= "TAE_foxx_vests";
-			owner	= "Standard";
+			model = "TAE_archived_armors";
+			clan = "Foxx";
+			style = "Medium";
 			
 		};
 		class tae_juno_armor {
-			model	= "TAE_foxx_vests";
+			model	= "TAE_freelancer_vests";
 			owner	= "Juno";
 		};
 		class tae_galaxy_armor {
-			model	= "TAE_foxx_vests";
+			model	= "TAE_freelancer_vests";
 			owner	= "Galaxy";
 		};
 
 		// Varen
 		class tae_varen_recon_armor {
-			model	= "TAE_varen_vests";
-			owner	= "Standard";
+			model = "TAE_archived_armors";
+			clan = "Varen";
+			style = "Recon";
 		};
 		class tae_varen_niteowl_armor {
-			model	= "TAE_varen_vests";
-			owner	= "Niteowl";
+			model = "TAE_archived_armors";
+			clan = "Varen";
+			style = "Niteowl";
 		};
 		class tae_haranverd_traditional_armor {
-			model = "TAE_haranverd_vests";
+			model = "TAE_archived_armors";
+			clan = "Haranverd";
 			style = "Traditional";
 		};
 		class tae_haranverd_niteowl_armor {
-			model = "TAE_haranverd_vests";
+			model = "TAE_archived_armors";
+			clan = "Haranverd";
 			style = "Niteowl";
 		};
 		class tae_kyram_armor {
-			model = "TAE_kyram_vests";
+			model = "TAE_archived_armors";
+			clan = "Kyram";
 			style = "Traditional";
 		};
 		class tae_rook_armor {
@@ -380,6 +357,10 @@ class XtdGearInfos {
 		class tae_hades_armor {
 			model	= "TAE_rook_vests";
 			owner	= "Hades";
+		};
+		class tae_vario_armor {
+			model = "TAE_rook_vests";
+			owner = "Vario";
 		};
 		class tae_andora_armor {
 			model	= "TAE_rook_vests";
@@ -1042,6 +1023,21 @@ class CfgWeapons {
 			};
 		};
 	};
+	class tae_vario_armor : tae_armor_war_chief {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Shogun";
+		displayName = "Vario's War Chief Armor";
+		hiddenSelections[] = {"camo1", "camo2"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Vario\WAR_Armor_Vario_co.paa", "TAEGear\data\Vario\WAR_Brace_Vario_co.paa"};
+		hiddenSelectionsMaterials[] = {"TAEGear\data\Vario\WAR_Armor_Vario.rvmat", "TAEGear\data\Vario\WAR_Brace_Vario.rvmat"};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1", "camo2"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Vario\WAR_Armor_Vario_co.paa", "TAEGear\data\Vario\WAR_Brace_Vario_co.paa"};
+			hiddenSelectionsMaterials[] = {"TAEGear\data\Vario\WAR_Armor_Vario.rvmat", "TAEGear\data\Vario\WAR_Brace_Vario.rvmat"};
+		};
+	};
 	class tae_hades_armor : tae_armor_war_chief {
 		scope = 2;
 		scopeArsenal = 2;
@@ -1082,21 +1078,23 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_goostivool_armor : tae_armor_ls_traditional {
+	class tae_goostivool_armor : tae_armor_battle {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Nox";
-		displayName = "Goostivool's Armor";
-		hiddenSelections[] = {"camo1"};
+		displayName = "Goostivool's Battle Armor";
+		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
-			"TAEGear\data\Goostivool\LS_Armor_Goostivool_co.paa"
+			"TAEGear\data\Goostivool\BAT_Armor_Goostivool_co.paa",
+			"TAEGear\data\Goostivool\BAT_Brace_Goostivool_co.paa"
 		};
 
 		class ItemInfo : ItemInfo {
-			hiddenSelections[] = {"camo1"};
+			hiddenSelections[] = {"camo1","camo2"};
 			hiddenSelectionsTextures[] = {
-				"TAEGear\data\Goostivool\LS_Armor_Goostivool_co.paa"
+				"TAEGear\data\Goostivool\BAT_Armor_Goostivool_co.paa",
+				"TAEGear\data\Goostivool\BAT_Brace_Goostivool_co.paa"
 			};
 		};
 	};

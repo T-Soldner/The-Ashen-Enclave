@@ -1,3 +1,5 @@
+#include "arsenal_macros.hpp"
+
 class CfgPatches {
 	class TAEGear_Backpacks {
 		addonRootClass = "TAEGear";
@@ -207,131 +209,35 @@ class XtdGearModels {
 
 class XtdGearInfos {
 	class CfgVehicles {
-		class tae_frenk_JT12 {
-			model = "TAE_custom_Backpacks";
-			owner = "Frenk";
-			LR = "No";
-		};
-		class tae_jimothy_JT12 {
-			model = "TAE_custom_Backpacks";
-			owner = "Jimothy";
-			LR = "No";
-		};
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_frenk_JT12, "Frenk", "No")
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_jimothy_JT12, "Jimothy", "No")
 		//Jetpacks
-		class tae_jetpack_Z6 {
-			model = "TAE_standard_Jetpacks";
-			role = "Z6";
-			lr = "No";
-		};
-		class tae_jetpack_z12 {
-			model = "TAE_standard_Jetpacks";
-			role = "Z12";
-			lr = "No";
-		};
-		class tae_jetpack_JT12 {
-			model = "TAE_standard_Jetpacks";
-			role = "JT12";
-			lr = "No";
-		};
-		class tae_jetpack_JT12_LR {
-			model = "TAE_standard_Jetpacks";
-			role = "JT12";
-			lr = "Yes";
-		};
-		class tae_jetpack_JT13 {
-			model = "TAE_standard_Jetpacks";
-			role = "JT13";
-			lr = "No";
-		};
-		class tae_jetpack_JT13_LR {
-			model = "TAE_standard_Jetpacks";
-			role = "JT13";
-			lr = "Yes";
-		};
-		class tae_jetpack_MSEJT4 {
-			model = "TAE_standard_Jetpacks";
-			role = "MSEJT4";
-			lr = "No";
-		};
-		class tae_jetpack_MSEJT4_LR {
-			model = "TAE_standard_Jetpacks";
-			role = "MSEJT4";
-			lr = "Yes";
-		};
-		class tae_jetpack_Z4 {
-			model = "TAE_standard_Jetpacks";
-			role = "Z4";
-			lr = "No";
-		};
+		TAE_JETPACK_ARSENAL(tae_jetpack_Z6, "Z6", "No")
+		TAE_JETPACK_ARSENAL(tae_jetpack_z12, "Z12", "No")
+		TAE_JETPACK_ARSENAL(tae_jetpack_JT12, "JT12", "No")
+		TAE_JETPACK_ARSENAL(tae_jetpack_JT12_LR, "JT12", "Yes")
+		TAE_JETPACK_ARSENAL(tae_jetpack_JT13, "JT13", "No")
+		TAE_JETPACK_ARSENAL(tae_jetpack_JT13_LR, "JT13", "Yes")
+		TAE_JETPACK_ARSENAL(tae_jetpack_MSEJT4, "MSEJT4", "No")
+		TAE_JETPACK_ARSENAL(tae_jetpack_MSEJT4_LR, "MSEJT4", "Yes")
+		TAE_JETPACK_ARSENAL(tae_jetpack_Z4, "Z4", "No")
 		
 		//Backpacks
-		class tae_modular_pack {
-			model = "TAE_standard_Backpacks";
-			role = "Standard";
-			Sex = "Male";
-		};
-		class tae_modular_pack_female {
-			model = "TAE_standard_Backpacks";
-			role = "Standard";
-			Sex = "Female";
-		};
-		class tae_modular_pack_lr {
-			model = "TAE_standard_Backpacks";
-			role = "Communications";
-			Sex = "Male";
-		};
-		class tae_modular_pack_lr_female {
-			model = "TAE_standard_Backpacks";
-			role = "Communications";
-			Sex = "Female";
-		};
-		class tae_modular_pack_engi {
-			model = "TAE_standard_Backpacks";
-			role = "Engineer";
-			Sex = "Male";
-		};
-		class tae_modular_pack_engi_female {
-			model = "TAE_standard_Backpacks";
-			role = "Engineer";
-			Sex = "Female";
-		};
+		TAE_BACKPACK_ARSENAL(tae_modular_pack, "Standard", "Male")
+		TAE_BACKPACK_ARSENAL(tae_modular_pack_female, "Standard", "Female")
+		TAE_BACKPACK_ARSENAL(tae_modular_pack_lr, "Communications", "Male")
+		TAE_BACKPACK_ARSENAL(tae_modular_pack_lr_female, "Communications", "Female")
+		TAE_BACKPACK_ARSENAL(tae_modular_pack_engi, "Engineer", "Male")
+		TAE_BACKPACK_ARSENAL(tae_modular_pack_engi_female, "Engineer", "Female")
 
 		//Custom Backpacks
-		class tae_hondo_JT13 {
-			model = "TAE_custom_Backpacks";
-			owner = "Hondo";
-			LR = "No";
-		};
-		class tae_hondo_JT13_LR {
-			model = "TAE_custom_Backpacks";
-			owner = "Hondo";
-			LR = "Yes";
-		};
-		class tae_stasik_JT12 {
-			model = "TAE_custom_Backpacks";
-			owner = "Stasik";
-			LR = "No";
-		};
-		class tae_stasik_JT12_LR {
-			model = "TAE_custom_Backpacks";
-			owner = "Stasik";
-			LR = "Yes";
-		};
-		class tae_edonn_JT13_LR {
-			model = "TAE_custom_Backpacks";
-			owner = "Edonn";
-			LR = "Yes";
-		};
-		class tae_edonn_JT13 {
-			model = "TAE_custom_Backpacks";
-			owner = "Edonn";
-			LR = "No";
-		};
-		class tae_nova_Z6 {
-			model = "TAE_custom_Backpacks";
-			owner = "Nova";
-			LR = "No";
-		};
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_hondo_JT13, "Hondo", "No")
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_hondo_JT13_LR, "Hondo", "Yes")
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_stasik_JT12, "Stasik", "No")
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_stasik_JT12_LR, "Stasik", "Yes")
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_edonn_JT13_LR, "Edonn", "Yes")
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_edonn_JT13, "Edonn", "No")
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_nova_Z6, "Nova", "No")
 
 	};
 };
@@ -359,9 +265,9 @@ class CfgVehicles {
 		hiddenselectionstextures[] = {"knd_jetpacks\data\jt13\camo1_co.paa"};
 		maximumload = 160;
 		jen_jetpacks_core_acceleration = 4;
-		jen_jetpacks_core_drag = 4.8;
-		jen_jetpacks_core_fuelCoef = 5;
-		jen_jetpacks_core_heatCoef = 3;
+		jen_jetpacks_core_drag = 4.5;
+		jen_jetpacks_core_fuelCoef = 3.5;
+		jen_jetpacks_core_heatCoef = 2.2;
 		jen_jetpacks_core_coolCoef = 1.5;
 		jen_jetpacks_core_ascensionCoef = 1.3;
 		jen_jetpacks_core_jumpCoef = 1.2;
@@ -392,8 +298,8 @@ class CfgVehicles {
 		maximumload = 240;
 		jen_jetpacks_core_acceleration = 2.5;
 		jen_jetpacks_core_drag = 5;
-		jen_jetpacks_core_fuelCoef = 3;
-		jen_jetpacks_core_heatCoef = 2;
+		jen_jetpacks_core_fuelCoef = 2.5;
+		jen_jetpacks_core_heatCoef = 1.8;
 		jen_jetpacks_core_coolCoef = 1;
 		jen_jetpacks_core_ascensionCoef = 1.1;
 		jen_jetpacks_core_jumpCoef = 1;
@@ -426,11 +332,11 @@ class CfgVehicles {
 		};
 		maximumload = 320;
 		mass = 60;
-		jen_jetpacks_core_acceleration = 1.9;
+		jen_jetpacks_core_acceleration = 1.71;
 		jen_jetpacks_core_drag = 5.5;
 		jen_jetpacks_core_fuelCoef = 1.25;
 		jen_jetpacks_core_heatCoef = 0.75;
-		jen_jetpacks_core_coolCoef = 1.5;
+		jen_jetpacks_core_coolCoef = 0.5;
 		jen_jetpacks_core_ascensionCoef = 0.9;
 		jen_jetpacks_core_jumpCoef = 1;
 		jen_jetpacks_core_fuelCapacity = 220;
@@ -491,7 +397,7 @@ class CfgVehicles {
 		hiddenselections[] = {"rocket","pack"};
 		hiddenselectionstextures[] = {"\knd_jetpacks\data\PV\rocket_co.paa","\knd_jetpacks\data\PV\pack_co.paa"};
 		maximumload = 256;
-		jen_jetpacks_core_acceleration = 1.6;
+		jen_jetpacks_core_acceleration = 1.44;
 		jen_jetpacks_core_drag = 6;
 		jen_jetpacks_core_fuelCoef = 1.5;
 		jen_jetpacks_core_heatCoef = 1;
@@ -516,6 +422,14 @@ class CfgVehicles {
 		scope = 2;
 		maximumload = 400;
 		mass = 60;
+	};
+	class tae_modular_pack_at_aa: tae_modular_pack {
+		scope = 1;
+		scopeArsenal = 0;
+		class TransportMagazines {
+			class AT { magazine = "JMSLLTE_HH12_AT_Mag"; count = 3; };
+			class AA { magazine = "JMSLLTE_HH12_AA_Mag"; count = 1; };
+		};
 	};
 	class tae_modular_pack_grenadier : tae_modular_pack {
 		scope = 1;

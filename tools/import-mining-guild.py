@@ -120,7 +120,7 @@ NAMES = [
 
 def generate(data, unique, source):
     root = Path(__file__).resolve().parents[1]
-    out = root / 'TAEMiningGuild'
+    out = root / 'TAEUnits/MiningGuild'
     out.mkdir(exist_ok=True)
     header = Parser(source.with_name('header.sqe').read_text(encoding='utf-8-sig')).node()
     variants = list(unique.values())
@@ -134,7 +134,7 @@ def generate(data, unique, source):
              'requiredAddons[]=' + literal(deps) + ';', 'units[]=' + literal(classes) + '; weapons[]={}; }; };',
              'class CfgFactionClasses { class TAE_Faction_MiningGuild { displayName="[TAE] Mining Guild"; side=0; priority=2; }; };',
              'class CfgEditorCategories { class TAE_EdCat_MiningGuild { displayName="[TAE] Mining Guild"; }; };',
-             'class CfgFunctions { class TAE { class MiningGuild { file="TAEMiningGuild\\functions"; class initMiningGuild {}; }; }; };',
+             'class CfgFunctions { class TAE { class MiningGuild { file="TAEUnits\\MiningGuild\\functions"; class initMiningGuild {}; }; }; };',
              'class CfgVehicles {']
     for base in dict.fromkeys(v['type'] for v in variants):
         lines.append(f'class {base};')

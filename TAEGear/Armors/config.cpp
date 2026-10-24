@@ -1,3 +1,5 @@
+#include "protection.hpp"
+
 class CfgPatches {
 	class TAEGear_Armors {
 		addonRootClass = "TAEGear";
@@ -47,56 +49,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest {
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm {
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen {
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis {
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms {
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands {
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs {
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 	class tae_armor_medium : tgf_armour_medium_armour {
@@ -112,56 +65,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest {
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm {
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen {
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis {
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms {
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands {
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs {
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 	class tae_armor_recon : tgf_armour_super_light_armour {
@@ -177,56 +81,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest {
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm {
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen {
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis {
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms {
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands {
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs {
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 	class tae_armor_heavy : tgf_armour_heavy_armour {
@@ -241,56 +96,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest {
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm {
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen {
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis {
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms {
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands {
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs {
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 	class tae_armor_battle : tgf_armour_battle_armour {
@@ -305,56 +111,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest {
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm {
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen {
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis {
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms {
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands {
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs {
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 	class tae_armor_war_chief : tgf_armour_war_chief_armour {
@@ -369,56 +126,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest {
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm {
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen {
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis {
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms {
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands {
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs {
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 	class tae_armor_arbiter : tgf_armour_arbiter_armour {
@@ -433,56 +141,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest {
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm {
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen {
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis {
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms {
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands {
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs {
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 	class tae_armor_ls_traditional : ls_mandalorianVest_standard {
@@ -497,56 +156,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest {
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm {
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen {
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis {
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms {
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands {
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs {
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 	class tae_nite_owl_armor : tgf_armour_nite_owl_armour {
@@ -561,63 +171,7 @@ class CfgWeapons {
 			mass = 120;
 			passThrough = 0.3;
 			modelSides[] = { 6 };
-			class HitpointsprotectionInfo {
-				class Neck {
-					hitPointName = "HitNeck";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Chest
-				{
-					hitPointName = "HitChest";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Diaphragm
-				{
-					hitPointName = "HitDiaphragm";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Abdomen
-				{
-					hitPointName = "HitAbdomen";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Pelvis
-				{
-					hitPointName = "HitPelvis";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Arms
-				{
-					hitPointName = "HitArms";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Hands
-				{
-					hitPointName = "HitHands";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-				class Legs
-				{
-					hitPointName = "HitLegs";
-					armor = 10;
-					explosionshielding = 10;
-					passThrough = 0.3;
-				};
-			};
+			TAE_ARMOR_PROTECTION
 		};
 	};
 };

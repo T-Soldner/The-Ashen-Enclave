@@ -4,19 +4,25 @@ class CfgPatches {
 		author = "TAE Mod Team";
 		url = "https://discord.gg/9zgGp5QSW7";
 		requiredVersion = 1.60;
-		requiredAddons[] = { "IDA_INDEP", "mti_armoury_weapons_hpb" };
+		requiredAddons[] = { "IDA_INDEP", "mti_armoury_weapons_hpb", "3AS_Equipment", "mti_armoury_explosives_compat", "knd_amban" };
 		units[] = {};
 		weapons[] = {
 			"tae_TargetingScope_FP2",
 			"tae_IQA11a",
 			"tae_Galaar90a",
-			"tae_HPB14"
+			"tae_HPB14",
+			"tae_Amban"
 		};
 		skipWhenMissingDependencies = 1;
 	};
 };
 
 class CfgAmmo {
+	class 3AS_Detpack;
+	class TAE_DetPack_Ammo: 3AS_Detpack {
+		defaultMagazine = "TAE_DetPack";
+		ace_explosives_magazine = "TAE_DetPack";
+	};
 	class mti_armoury_ammo_hpb_base;
 	class mti_armoury_ammo_hpb_scatter;
 	class mti_armoury_ammo_Shotgun_Sub_HP;
@@ -45,6 +51,26 @@ class CfgAmmo {
 };
 
 class CfgMagazines {
+	class knd_mag_amban;
+	class tae_mag_Amban: knd_mag_amban {
+		author = "House Kandosii";
+		dlc = "The Ashen Enclave AUX Mod";
+		displayName = "[TAE] Amban Energy Pack";
+		mass = 12.5;
+	};
+	class 3AS_DetPack {
+		class ACE_Triggers;
+	};
+	class TAE_DetPack: 3AS_DetPack {
+		displayName = "[TAE] Detonator Pack";
+		ammo = "TAE_DetPack_Ammo";
+		class ACE_Triggers: ACE_Triggers {
+			SupportedTriggers[] = {"Timer", "Command", "3AS_Transmitter", "mti_explosives_clacker"};
+			class mti_explosives_clacker {
+				FuseTime = 0.5;
+			};
+		};
+	};
 	class mti_armoury_mag_HPB;
 	class mti_armoury_mag_hpb_underbarrel;
 
@@ -68,8 +94,35 @@ class CfgMagazines {
 };
 
 class CowsSlot;
+class PointerSlot;
 
 class CfgWeapons {
+	class knd_amban_F;
+	class knd_amban_old_F: knd_amban_F {
+		class WeaponSlotsInfo;
+	};
+	class tae_Amban: knd_amban_old_F {
+		author = "House Kandosii";
+		dlc = "The Ashen Enclave AUX Mod";
+		displayName = "[TAE] Amban Phase-Pulse Rifle";
+		baseWeapon = "tae_Amban";
+		scope = 2;
+		scopeArsenal = 2;
+		muzzles[] = {"this"};
+		magazines[] = {"tae_mag_Amban"};
+		magazineWell[] = {};
+		delete knd_stunmuzzle;
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class PointerSlot: PointerSlot {
+				compatibleItems[] = {"mti_armoury_weapons_core_Flashlight_nomodel"};
+			};
+			// Replace the inherited bipod slot without inheriting its compatibility list.
+			class UnderBarrelSlot {
+				linkProxy = "";
+				class compatibleItems {};
+			};
+		};
+	};
 	class InventoryOpticsItem_Base_F;
 	class WeaponSlotsInfo;
 
