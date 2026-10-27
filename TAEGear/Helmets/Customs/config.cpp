@@ -25,6 +25,7 @@ class CfgPatches {
 			"tae_edonn_helmet",
 			"tae_dark_grey_rangefinder",
 			"tae_nox_helmet",
+			"tae_trimm_helmet",
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
 			"tae_frenk_helmet",
@@ -42,7 +43,6 @@ class CfgPatches {
 			"tae_haranverd_niteowl_helmet",
 			"tae_kyram_helmet",
 			"tae_dark_red_rangefinder",
-			"tae_foxx_rangefinder",
 			"tae_juno_rangefinder",
 			"tae_rook_helmet",
 			"tae_hades_helmet",
@@ -105,7 +105,8 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Edonn","Nox","Juno","Galaxy","Valeria","Nova" };
+				values[] = { "Hondo","Edonn","Nox","Juno","Galaxy","Valeria","Nova","Trimm" };
+				class Trimm { label = "Trimm"; };
 				class Juno { label = "Juno"; };
 				class Galaxy { label = "Galaxy"; };
 				class Valeria { label = "Valeria"; };
@@ -244,7 +245,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "LSGrey", "DarkGrey", "Jimothy", "DarkRed", "Foxx", "Juno" };
+				values[] = { "LSGrey", "DarkGrey", "Jimothy", "DarkRed", "Juno" };
 				class Juno { label = "Juno"; };
 
 				class LSGrey {
@@ -258,9 +259,6 @@ class XtdGearModels {
 				};
 				class DarkRed {
 					label = "Dark Red";
-				};
-				class Foxx {
-					label = "Foxx";
 				};
 			};
 		};
@@ -345,6 +343,10 @@ class XtdGearInfos {
 			model = "TAE_freelancer_helmets";
 			owner = "Nox";
 		};
+		class tae_trimm_helmet {
+			model = "TAE_freelancer_helmets";
+			owner = "Trimm";
+		};
 
 		// Clan Acklay
 		class tae_acklay_helmet {
@@ -393,10 +395,6 @@ class XtdGearInfos {
 			model = "TAE_archived_helmets";
 			clan = "Foxx";
 			style = "Traditional";
-		};
-		class tae_foxx_rangefinder {
-			model = "TAE_nvgs";
-			owner = "Foxx";
 		};
 		class tae_juno_rangefinder {
 			model = "TAE_nvgs";
@@ -895,6 +893,25 @@ class CfgWeapons {
 	};
 	
 	// Nox
+	class tae_trimm_helmet: tae_helmet_warlord {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Jimothy";
+		displayName = "Trimm's Warlord Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Trimm\WARL_Helmet_Trimm.paa",
+			"TAEGear\Data\Trimm\WARL_Visor_Trimm.paa"
+		};
+		class ItemInfo: ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Trimm\WARL_Helmet_Trimm.paa",
+				"TAEGear\Data\Trimm\WARL_Visor_Trimm.paa"
+			};
+		};
+	};
 	class tae_nox_helmet : tae_helmet_warlord {
 		scope = 2;
 		scopeArsenal = 2;
@@ -1052,30 +1069,22 @@ class CfgWeapons {
 			};
 		};
 	};
-	class tae_foxx_rangefinder : tgf_nvg_rangefinder_r {
+	class tae_juno_rangefinder : tgf_nvg_rangefinder_r {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "Juno";
-		displayName = "Clan Foxx Rangefinder";
+		displayName = "Juno's Rangefinder";
 		model = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		hiddenSelections[] = {"camo1"};
-		hiddenSelectionsTextures[] = {"TAEGear\data\Juno\TRAD_Rangefinder_Foxx_co.paa"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Juno\Rangefinder_Juno_co.paa"};
 		picture = "\z\tgf\addons\nvg\rangefinder_r\data\mando_range.paa";
 
 		class ItemInfo: ItemInfo {
 			uniformModel = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_on_r.p3d";
 			hiddenSelections[] = {"camo1"};
-			hiddenSelectionsTextures[] = {"TAEGear\data\Juno\TRAD_Rangefinder_Foxx_co.paa"};
-			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
-		};
-	};
-	class tae_juno_rangefinder: tae_foxx_rangefinder {
-		author = "Juno";
-		displayName = "Juno's Rangefinder";
-		hiddenSelectionsTextures[] = {"TAEGear\data\Juno\Rangefinder_Juno_co.paa"};
-		class ItemInfo: ItemInfo {
 			hiddenSelectionsTextures[] = {"TAEGear\data\Juno\Rangefinder_Juno_co.paa"};
+			modelOff = "\z\tgf\addons\nvg\rangefinder_r\rangefinder_off_r.p3d";
 		};
 	};
 	class tae_juno_helmet : tae_helmet_arbiter {

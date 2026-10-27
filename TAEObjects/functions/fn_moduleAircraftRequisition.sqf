@@ -14,13 +14,8 @@ if (isServer) then {
         // Keep a shared server-created anchor for spawning, service checks and JIP.
         private _radius = (_logic getVariable ["Radius", 30]) max 5;
         private _distance = (_logic getVariable ["TAE_spawnDistance", 40]) max (_radius + 6);
-        private _heading = getDir _terminal;
-        private _position = getPosATL _terminal;
-        _position set [0, (_position # 0) + sin _heading * _distance];
-        _position set [1, (_position # 1) + cos _heading * _distance];
-        _pad = createVehicle ["Land_HelipadEmpty_F", _position, [], 0, "CAN_COLLIDE"];
-        _pad setPosATL _position;
-        _pad setDir ((_heading + (_logic getVariable ["TAE_spawnFacing", 0])) mod 360);
+        _pad = createVehicle ["Land_HelipadEmpty_F", [0,0,0], [], 0, "CAN_COLLIDE"];
+        [_terminal, _pad, _distance, _logic getVariable ["TAE_spawnFacing", 0]] call TAE_fnc_positionTerminalSpawnPad;
         _logic setVariable ["TAE_generatedAircraftPad", _pad];
         _logic addEventHandler ["Deleted", {
             deleteVehicle ((_this # 0) getVariable ["TAE_generatedAircraftPad", objNull]);

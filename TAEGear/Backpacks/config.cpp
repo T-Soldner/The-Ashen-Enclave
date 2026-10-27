@@ -20,6 +20,7 @@ class CfgPatches {
 			"tae_stasik_JT12",
 			"tae_jimothy_JT12",
 			"tae_frenk_JT12",
+			"tae_hades_JT12",
 			"tae_stasik_JT12_LR",
 			"tae_edonn_JT13_LR",
 			"tae_edonn_JT13",
@@ -168,7 +169,8 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo", "Stasik", "Edonn", "Nova", "Jimothy", "Frenk" };
+				values[] = { "Hondo", "Stasik", "Edonn", "Nova", "Jimothy", "Frenk", "Hades" };
+				class Hades { label = "Hades"; };
 				class Frenk { label = "Frenk"; };
 				class Jimothy { label = "Jimothy"; };
 
@@ -210,6 +212,7 @@ class XtdGearModels {
 class XtdGearInfos {
 	class CfgVehicles {
 		TAE_CUSTOM_BACKPACK_ARSENAL(tae_frenk_JT12, "Frenk", "No")
+		TAE_CUSTOM_BACKPACK_ARSENAL(tae_hades_JT12, "Hades", "No")
 		TAE_CUSTOM_BACKPACK_ARSENAL(tae_jimothy_JT12, "Jimothy", "No")
 		//Jetpacks
 		TAE_JETPACK_ARSENAL(tae_jetpack_Z6, "Z6", "No")
@@ -531,6 +534,18 @@ class CfgVehicles {
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\Frenk\JT12_Rocket_Frenk.paa",
 			"TAEGear\data\Frenk\JT12_Pack_Frenk.paa"
+		};
+	};
+	class tae_hades_JT12: tae_jetpack_JT12 {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Kandosii Mod Devs and Edonn";
+		displayName = "Hades' JT-12 Jetpack";
+		descriptionShort = "Hades' JT-12 Jetpack";
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Hades\JT12_Rocket_Hades.paa",
+			"TAEGear\data\Hades\JT12_Pack_Hades.paa"
 		};
 	};
 	class tae_jimothy_JT12 : tae_jetpack_JT12 {

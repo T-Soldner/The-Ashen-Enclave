@@ -131,6 +131,8 @@ class CfgFunctions {
 			class initGroundTerminal {};
 			class getGroundVehicleClasses {};
 			class groundVehicleRequest {};
+			class positionTerminalSpawnPad {};
+			class spawnTerminalVehicle {};
 			class isQualifiedAircraftPilot {};
 			class initAircraftRequisition { postInit = 1; };
 			class aircraftRequisitionRequest {};
@@ -729,7 +731,7 @@ class CfgVehicles {
                 };
 
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnGalaxyArmor, "Put On Galaxy's Armor")
-                    statement = "[_player,'tae_galaxy_armor','tae_galaxy_helmet','tae_foxx_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                    statement = "[_player,'tae_galaxy_armor','tae_galaxy_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
 
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnValeriaArmor, "Put On Valeria's Armor")
