@@ -184,7 +184,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Hades", "Vario", "Andora", "Goostivool", "Shen" };
+				values[] = { "Standard", "Hades", "Vario", "Andora", "Goostivool", "Shen", "keira" };
 				class Vario {
 					label = "Vario";
 				};
@@ -202,6 +202,9 @@ class XtdGearModels {
 				};
 				class Shen {
 					label = "Shen";
+				};
+				class keira {
+					label = "keira";
 				};
 			};
 		};
@@ -373,6 +376,10 @@ class XtdGearInfos {
 		class tae_shen_armor {
 			model	= "TAE_rook_vests";
 			owner	= "Shen";
+		};
+		class tae_keira_armor {
+			model	= "TAE_rook_vests";
+			owner	= "keira";
 		};
 	};
 };
@@ -1115,6 +1122,35 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Shen\ARB_Armor_Shen_co.paa",
 				"TAEGear\data\Shen\ARB_Brace_Shen_co.paa"
+			};
+		};
+	};
+
+	class tae_keira_armor : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "keira";
+		displayName = "keira's half-Rook armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\keira\NITE_Armor_keira_co.paa",
+			"TAEGear\data\keira\NITE_Brace_keira_co.paa"
+		};
+		hiddenSelectionsMaterials[] = {
+			"TAEGear\data\keira\NITE_Armor_keira.rvmat",
+			"TAEGear\data\keira\NITE_Brace_keira.rvmat"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\keira\NITE_Armor_keira_co.paa",
+				"TAEGear\data\keira\NITE_Brace_keira_co.paa"
+			};
+			hiddenSelectionsMaterials[] = {
+				"TAEGear\data\keira\NITE_Armor_keira.rvmat",
+				"TAEGear\data\keira\NITE_Brace_keira.rvmat"
 			};
 		};
 	};

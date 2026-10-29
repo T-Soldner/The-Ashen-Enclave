@@ -214,7 +214,6 @@ class XtdGearModels {
 			options[] = { "owner" };
 
 			class owner {
-				class Keira { label = "Kiera"; };
 				alwaysSelectable = 1;
 				label = "Owner";
 				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen", "Vario", "Keira" };
@@ -236,6 +235,9 @@ class XtdGearModels {
 				};
 				class Vario {
 					label = "Vario";
+				};
+				class Keira {
+					label = "keira";
 				};
 			};
 		};
@@ -1202,8 +1204,8 @@ class CfgWeapons {
 		scope=2;
 		scopeArsenal=2;
 		scopeCurator=2;
-		author="Keira";
-		displayName="Kiera's Helmet";
+		author="keira";
+		displayName="keira's tinkered helmet";
     	ls_common_hideHead = 1;
 		hiddenSelections[]=
 		{
