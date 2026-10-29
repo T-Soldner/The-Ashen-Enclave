@@ -649,6 +649,10 @@ class CfgVehicles {
                     statement = "[_player,'tae_rook_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
 
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnRookNiteowlArmor, "Put On Rook's Niteowl Armor")
+                    statement = "[_player,'tae_rook_niteowl_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+                };
+
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHadesArmor, "Put On Hades' Armor")
                     statement = "[_player,'tae_hades_armor','tae_hades_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
@@ -668,8 +672,9 @@ class CfgVehicles {
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnShenArmor, "Put On Shen's Armor")
                     statement = "[_player,'tae_shen_armor','tae_shen_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
-				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnKeiraArmor, "Put On Kiera's Armor")
-                    statement = "[_player,'tae_varen_niteowl_armor','tae_keira_helmet','tae_dark_red_rangefinder','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnKeiraArmor, "Put On Keira's Armor")
+                    statement = "[_player,'tae_keira_armor','tae_keira_helmet','tae_dark_grey_rangefinder','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
                 };
 			};
 		};

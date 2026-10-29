@@ -36,11 +36,13 @@ class CfgPatches {
 			"tae_haranverd_niteowl_armor",
 			"tae_kyram_armor",
 			"tae_rook_armor",
+			"tae_rook_niteowl_armor",
 			"tae_hades_armor",
 			"tae_vario_armor",
 			"tae_andora_armor",
 			"tae_goostivool_armor",
-			"tae_shen_armor"
+			"tae_shen_armor",
+			"tae_keira_armor"
 		};
 	};
 };
@@ -184,15 +186,18 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Standard", "Hades", "Vario", "Andora", "Goostivool", "Shen" };
-				class Vario {
-					label = "Vario";
-				};
+				values[] = { "Standard", "Niteowl", "Hades", "Vario", "Andora", "Goostivool", "Shen", "keira" };
 				class Standard {
 					label = "Standard";
 				};
+				class Niteowl {
+					label = "Niteowl";
+				};
 				class Hades {
 					label = "Hades";
+				};
+				class Vario {
+					label = "Vario";
 				};
 				class Andora {
 					label = "Andora";
@@ -202,6 +207,9 @@ class XtdGearModels {
 				};
 				class Shen {
 					label = "Shen";
+				};
+				class keira {
+					label = "keira";
 				};
 			};
 		};
@@ -350,9 +358,14 @@ class XtdGearInfos {
 			clan = "Kyram";
 			style = "Traditional";
 		};
+
 		class tae_rook_armor {
 			model	= "TAE_rook_vests";
 			owner	= "Standard";
+		};
+		class tae_rook_niteowl_armor {
+			model = "TAE_rook_vests";
+			owner = "Niteowl"
 		};
 		class tae_hades_armor {
 			model	= "TAE_rook_vests";
@@ -373,6 +386,10 @@ class XtdGearInfos {
 		class tae_shen_armor {
 			model	= "TAE_rook_vests";
 			owner	= "Shen";
+		};
+		class tae_keira_armor {
+			model	= "TAE_rook_vests";
+			owner	= "keira";
 		};
 	};
 };
@@ -921,7 +938,7 @@ class CfgWeapons {
 		scope = 2;
 		scopeArsenal = 2;
 		scopeCurator = 2;
-		author = "Valeria";
+		author = "keira";
 		displayName = "Clan Varen Nite Owl Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
@@ -1002,6 +1019,7 @@ class CfgWeapons {
 			};
 		};
 	};
+	
 	// Clan Rook
 	class tae_rook_armor : tae_armor_battle {
 		scope = 2;
@@ -1115,6 +1133,54 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Shen\ARB_Armor_Shen_co.paa",
 				"TAEGear\data\Shen\ARB_Brace_Shen_co.paa"
+			};
+		};
+	};
+	class tae_keira_armor : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "keira";
+		displayName = "keira's half-Rook armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\keira\NITE_Armor_keira_co.paa",
+			"TAEGear\data\keira\NITE_Brace_keira_co.paa"
+		};
+		hiddenSelectionsMaterials[] = {
+			"TAEGear\data\keira\NITE_Armor_keira.rvmat",
+			"TAEGear\data\keira\NITE_Brace_keira.rvmat"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\keira\NITE_Armor_keira_co.paa",
+				"TAEGear\data\keira\NITE_Brace_keira_co.paa"
+			};
+			hiddenSelectionsMaterials[] = {
+				"TAEGear\data\keira\NITE_Armor_keira.rvmat",
+				"TAEGear\data\keira\NITE_Brace_keira.rvmat"
+			};
+		};
+	};
+	class tae_rook_niteowl_armor : tae_nite_owl_armor {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "keira";
+		displayName = "Clan Rook Nite Owl Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Rook\NITE_Armor_Rook_co.paa",
+			"TAEGear\data\Rook\NITE_Brace_Rook_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Rook\NITE_Armor_Rook_co.paa",
+				"TAEGear\data\Rook\NITE_Brace_Rook_co.paa"
 			};
 		};
 	};

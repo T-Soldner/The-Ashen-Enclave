@@ -26,6 +26,7 @@ class CfgPatches {
 			"tae_dark_grey_rangefinder",
 			"tae_nox_helmet",
 			"tae_trimm_helmet",
+			"tae_samantha_helmet",
 			"tae_jimothy_helmet",
 			"tae_jimothy_rangefinder",
 			"tae_frenk_helmet",
@@ -105,7 +106,8 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Edonn","Nox","Juno","Galaxy","Valeria","Nova","Trimm" };
+				values[] = { "Hondo","Edonn","Nox","Juno","Galaxy","Valeria","Nova","Trimm","Samantha" };
+				class Samantha { label = "Samantha"; };
 				class Trimm { label = "Trimm"; };
 				class Juno { label = "Juno"; };
 				class Galaxy { label = "Galaxy"; };
@@ -212,7 +214,6 @@ class XtdGearModels {
 			options[] = { "owner" };
 
 			class owner {
-				class Keira { label = "Kiera"; };
 				alwaysSelectable = 1;
 				label = "Owner";
 				values[] = { "Standard", "Hades", "Andora", "Goostivool", "Shen", "Vario", "Keira" };
@@ -234,6 +235,9 @@ class XtdGearModels {
 				};
 				class Vario {
 					label = "Vario";
+				};
+				class Keira {
+					label = "keira";
 				};
 			};
 		};
@@ -346,6 +350,10 @@ class XtdGearInfos {
 		class tae_trimm_helmet {
 			model = "TAE_freelancer_helmets";
 			owner = "Trimm";
+		};
+		class tae_samantha_helmet {
+			model = "TAE_freelancer_helmets";
+			owner = "Samantha";
 		};
 
 		// Clan Acklay
@@ -892,7 +900,6 @@ class CfgWeapons {
 		};
 	};
 	
-	// Nox
 	class tae_trimm_helmet: tae_helmet_warlord {
 		scope = 2;
 		scopeArsenal = 2;
@@ -909,6 +916,33 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Trimm\WARL_Helmet_Trimm.paa",
 				"TAEGear\Data\Trimm\WARL_Visor_Trimm.paa"
+			};
+		};
+	};
+	class tae_samantha_helmet: tae_helmet_nite_owl {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "keira";
+		displayName = "Samantha's Nite Owl Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Samantha\NITE_Helmet_Samantha_co.paa",
+			"TAEGear\Data\Trimm\WARL_Visor_Trimm.paa"
+		};
+		hiddenSelectionsMaterials[] = {
+			"TAEGear\data\Samantha\NITE_Helmet_Samantha.rvmat",
+			"z\tgf\addons\helmets\nite_owl\data\camo2.rvmat"
+		};
+		class ItemInfo: ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Samantha\NITE_Helmet_Samantha_co.paa",
+				"TAEGear\Data\Trimm\WARL_Visor_Trimm.paa"
+			};
+			hiddenSelectionsMaterials[] = {
+				"TAEGear\data\Samantha\NITE_Helmet_Samantha.rvmat",
+				"z\tgf\addons\helmets\nite_owl\data\camo2.rvmat"
 			};
 		};
 	};
@@ -1170,8 +1204,8 @@ class CfgWeapons {
 		scope=2;
 		scopeArsenal=2;
 		scopeCurator=2;
-		author="Keira";
-		displayName="Kiera's Helmet";
+		author="keira";
+		displayName="keira's tinkered helmet";
     	ls_common_hideHead = 1;
 		hiddenSelections[]=
 		{
