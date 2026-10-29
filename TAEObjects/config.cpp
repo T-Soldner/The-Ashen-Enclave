@@ -649,6 +649,10 @@ class CfgVehicles {
                     statement = "[_player,'tae_rook_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
 
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnRookNiteowlArmor, "Put On Rook's Niteowl Armor")
+                    statement = "[_player,'tae_rook_niteowl_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+                };
+
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHadesArmor, "Put On Hades' Armor")
                     statement = "[_player,'tae_hades_armor','tae_hades_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
