@@ -7,6 +7,7 @@
   armor to the arsenal, with wearable options and Keira's texture credits.
 - Updated Keira's helmet textures and corrected capitalization in her gear menus.
 - Updated Galaxy's armor, bracers and helmet textures.
+- Updated Stasik's armor, bracers and helmet textures, previously pushed to dev.
 - Fixed terminal spawning height: most vehicles spawn one metre above the
   terminal's level; Kom'rk variants spawn two metres above it.
 - Fixed Kom'rk cargo-bay access and crate handling. Fit the optional cargo bay,
@@ -27,3 +28,4 @@ These are source changes, not confirmation of a Workshop upload or server update
 The attendance service and its server-only addon deploy separately from the main
 mod. Existing data and credentials must be preserved. Backup task installation
 requires the Windows account password; it remains pending on the live server.
+Local test-builder updates and the reusable gear checker are included in source.
