@@ -10,6 +10,10 @@ private _near = (nearestObjects [_pad, ["Air"], _radius, true]) select {alive _x
 if (count _near != 1 || {_near # 0 != _vehicle}) exitWith {["The selected aircraft must be the only intact aircraft on the pad."] call _notify;};
 if (_pad getVariable ["TAE_aircraftBusy", false] || {_vehicle getVariable ["TAE_repairBusy", false]}) exitWith {["Pad or aircraft is busy."] call _notify;};
 if (crew _vehicle isNotEqualTo [] || {isEngineOn _vehicle} || {vectorMagnitude velocity _vehicle > 0.5}) exitWith {["Empty the aircraft, stop it and shut down the engine first."] call _notify;};
+if (_vehicle isKindOf "TAE_KomrkFighter_Transport" && {
+    (((getAllPylonsInfo _vehicle) param [0, []]) param [3, ""]) != "knd_vehicles_komrk_cargoBayPylon" ||
+    {_vehicle animationSourcePhase "bay.1" < 0.99}
+}) exitWith {["Fit Cargo Bay to the Kom'rk's center pylon, open the bay, then exit the aircraft before loading crates."] call _notify;};
 if (isClass (configOf _vehicle >> "VehicleTransport" >> "Carrier")) exitWith {
     [_logic, _pad, _actor, _radius, _vehicle, _counts, _classes] call TAE_fnc_aircraftViVCrateRequest;
 };

@@ -237,7 +237,7 @@ class XtdGearModels {
 					label = "Vario";
 				};
 				class Keira {
-					label = "keira";
+					label = "Keira";
 				};
 			};
 		};
@@ -1205,7 +1205,7 @@ class CfgWeapons {
 		scopeArsenal=2;
 		scopeCurator=2;
 		author="keira";
-		displayName="keira's tinkered helmet";
+		displayName="Keira's Tinkered Helmet";
     	ls_common_hideHead = 1;
 		hiddenSelections[]=
 		{

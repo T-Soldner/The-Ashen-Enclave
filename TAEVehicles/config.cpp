@@ -1215,13 +1215,14 @@ class CfgVehicles {
 			class knd_resupply_medical { numberOf = 0; };
 			class knd_resupply_demo { numberOf = 0; };
 			class knd_resupply_mortar { numberOf = 0; };
-			class TAE_Ammo_Crate { numberOf = 1; };
-			class TAE_AT_Crate { numberOf = 1; };
-			class TAE_Demo_Crate { numberOf = 1; };
-			class TAE_GL_Crate { numberOf = 1; };
-			class TAE_Medical_Crate { numberOf = 1; };
-			class TAE_Mortar_Crate { numberOf = 1; };
-			class TAE_JetpackFuel_Crate { numberOf = 1; };
+			// Cargo Bay is optional; use the terminal to load crates after fitting it.
+			class TAE_Ammo_Crate { numberOf = 0; };
+			class TAE_AT_Crate { numberOf = 0; };
+			class TAE_Demo_Crate { numberOf = 0; };
+			class TAE_GL_Crate { numberOf = 0; };
+			class TAE_Medical_Crate { numberOf = 0; };
+			class TAE_Mortar_Crate { numberOf = 0; };
+			class TAE_JetpackFuel_Crate { numberOf = 0; };
 		};
 		class TransportItems {
 			class _xx_knd_bacta { name = "knd_bacta"; count = 0; };
@@ -1595,7 +1596,7 @@ class CfgVehicles {
 				source = "user";
 				radius = 5;
 				onlyForPlayer = 1;
-				condition = "((player == currentPilot this) AND (alive this) AND ((this animationSourcePhase ""bay.1"") isEqualTo 0) AND ((this animationSourcePhase ""pylonIsEmpty.1"") isEqualTo 1))";
+				condition = "player == currentPilot this && {alive this} && {this animationSourcePhase 'bay.1' == 0} && {this animationSourcePhase 'pylonIsEmpty.1' == 1 || {(((getAllPylonsInfo this) param [0, []]) param [3, '']) == 'knd_vehicles_komrk_cargoBayPylon'}}";
 				statement = "['knd_komrk_bay',[this,true]] call CBA_fnc_globalEvent;";
 				position = "";
 			};
@@ -1605,13 +1606,14 @@ class CfgVehicles {
 				source = "user";
 				radius = 5;
 				onlyForPlayer = 1;
-				condition = "((player == currentPilot this) AND (alive this) AND ((this animationSourcePhase ""bay.1"") isEqualTo 1) AND ((this animationSourcePhase ""pylonIsEmpty.1"") isEqualTo 1))";
+				condition = "player == currentPilot this && {alive this} && {this animationSourcePhase 'bay.1' == 1} && {this animationSourcePhase 'pylonIsEmpty.1' == 1 || {(((getAllPylonsInfo this) param [0, []]) param [3, '']) == 'knd_vehicles_komrk_cargoBayPylon'}}";
 				statement = "['knd_komrk_bay',[this,false]] call CBA_fnc_globalEvent;";
 				position = "";
 			};
 
 			class throwPeopleOut: CloseDoor {
 				displayName = "Eject Passengers";
+				condition = "((player == currentPilot this) AND (alive this) AND ((this animationSourcePhase ""bay.1"") isEqualTo 1) AND ((this animationSourcePhase ""pylonIsEmpty.1"") isEqualTo 1))";
 				statement = "this call knd_fnc_ejectCargoBay; ['knd_komrk_bay',[this,false]] call CBA_fnc_globalEvent;";
 			};
 		};

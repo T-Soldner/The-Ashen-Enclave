@@ -209,7 +209,7 @@ class XtdGearModels {
 					label = "Shen";
 				};
 				class keira {
-					label = "keira";
+					label = "Keira";
 				};
 			};
 		};
@@ -1140,7 +1140,7 @@ class CfgWeapons {
 		scopeArsenal = 2;
 		scopeCurator = 2;
 		author = "keira";
-		displayName = "keira's half-Rook armor";
+		displayName = "Keira's Half-Rook Armor";
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {
 			"TAEGear\data\keira\NITE_Armor_keira_co.paa",
