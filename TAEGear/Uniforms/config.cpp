@@ -493,7 +493,7 @@ class CfgWeapons {
     };
     class tae_uniform_dark_red_seal: tae_uniform_red_seal {
         TAE_UNIFORM_SUITPACK
-        author = "Edonn";
+        author = "keira";
         displayName = "TAE Mandalorian Undersuit with Seal (Dark Red)";
         TAE_UNIFORM_ITEM("tae_uniform_unit_dark_red_seal")
     };
@@ -545,7 +545,7 @@ class CfgWeapons {
     };
     class tae_uniform_dark_red_female: tgf_undersuit_uniform_red_female {
         TAE_UNIFORM_SUITPACK
-        author = "Edonn";
+        author = "keira";
         displayName = "TAE Female Mandalorian Undersuit with Seal (Dark Red)";
         CBRN_protectionLevel = "4 + 8";
         ACE_GForceCoef = 0.9;
