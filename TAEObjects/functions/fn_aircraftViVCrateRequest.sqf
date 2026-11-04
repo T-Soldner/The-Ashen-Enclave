@@ -17,6 +17,10 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
     private _ready = {
         !isNull _logic && {!isNull _pad} && {alive _vehicle} && {local _vehicle} &&
         {crew _vehicle isEqualTo []} && {!isEngineOn _vehicle} && {vectorMagnitude velocity _vehicle <= 0.5} &&
+        {!(_vehicle isKindOf "TAE_KomrkFighter_Transport") || {
+            (((getAllPylonsInfo _vehicle) param [0, []]) param [3, ""]) == "knd_vehicles_komrk_cargoBayPylon" &&
+            {_vehicle animationSourcePhase "bay.1" >= 0.99}
+        }} &&
         {_vehicle distance2D _pad <= _radius} && {abs ((getPosASL _vehicle # 2) - (getPosASL _pad # 2)) < 15} &&
         {(_loaded - (getVehicleCargo _vehicle)) isEqualTo []} && {((getVehicleCargo _vehicle) - _loaded) isEqualTo []}
     };
@@ -24,6 +28,7 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
     waitUntil {sleep 0.25; !(call _ready) || {diag_tickTime >= _end}};
     private _message = "Crate swap interrupted; cargo was not changed.";
     if (call _ready) then {
+        if (_vehicle isKindOf "TAE_KomrkFighter_Transport") then {_vehicle enableVehicleCargo true;};
         private _old = _loaded select {typeOf _x in _classes};
         private _states = _old apply {[_x, isObjectHidden _x, simulationEnabled _x]};
         private _new = [];

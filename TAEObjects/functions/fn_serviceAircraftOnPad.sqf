@@ -21,6 +21,7 @@ if (_operation == "pylon") then {
         {
             if !(_x isEqualType [] && {count _x == 2} && {(_x # 0) isEqualType 0} && {(_x # 1) isEqualType ""}) exitWith {_validPylon = false;};
             _x params ["_index", "_magazine"];
+            if (_vehicle isKindOf "TAE_KomrkFighter_Transport" && {_index == 1} && {getVehicleCargo _vehicle isNotEqualTo []} && {_magazine != "knd_vehicles_komrk_cargoBayPylon"}) exitWith {_validPylon = false;};
             if (_index in _indices || {_pylons findIf {(_x # 0) == _index} < 0} || {_magazine != "" && {!(_magazine in (_vehicle getCompatiblePylonMagazines _index))}}) exitWith {_validPylon = false;};
             _indices pushBack _index;
         } forEach _changes;
@@ -142,6 +143,8 @@ _vehicle setVariable ["TAE_repairBusy", true, true];
                 private _pylons = getAllPylonsInfo _vehicle;
                 private _row = _pylons findIf {(_x # 0) == _index};
                 if (_row < 0) exitWith {_completed = false;};
+                if (_magazine == ((_pylons # _row) # 3)) then {continue;};
+                if (_vehicle isKindOf "TAE_KomrkFighter_Transport" && {_index == 1} && {getVehicleCargo _vehicle isNotEqualTo []} && {_magazine != "knd_vehicles_komrk_cargoBayPylon"}) exitWith {_completed = false;};
                 if (_row >= 0 && {_magazine == "" || {_magazine in (_vehicle getCompatiblePylonMagazines _index)}}) then {
                     private _pylon = _pylons # _row;
                     private _oldWeapon = getText (configFile >> "CfgMagazines" >> (_pylon # 3) >> "pylonWeapon");

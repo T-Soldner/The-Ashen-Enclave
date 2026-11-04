@@ -649,6 +649,10 @@ class CfgVehicles {
                     statement = "[_player,'tae_rook_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
 
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnRookNiteowlArmor, "Put On Rook's Niteowl Armor")
+                    statement = "[_player,'tae_rook_niteowl_armor','tae_rook_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
+                };
+
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnHadesArmor, "Put On Hades' Armor")
                     statement = "[_player,'tae_hades_armor','tae_hades_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
@@ -668,8 +672,9 @@ class CfgVehicles {
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnShenArmor, "Put On Shen's Armor")
                     statement = "[_player,'tae_shen_armor','tae_shen_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
-				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnKeiraArmor, "Put On Kiera's Armor")
-                    statement = "[_player,'tae_varen_niteowl_armor','tae_keira_helmet','tae_dark_red_rangefinder','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
+
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnKeiraArmor, "Put On Keira's Armor")
+                    statement = "[_player,'tae_keira_armor','tae_keira_helmet','tae_dark_grey_rangefinder','ls_glasses_scarf','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
                 };
 			};
 		};
@@ -697,42 +702,38 @@ class CfgVehicles {
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnRecruitArmor, "Put On Mandalorian Recruit's Armor")
                     statement = "[_player,'tae_karr_armor_medium_mr','tae_karr_helmet_mr','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
-
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnApprenticeArmor, "Put On Mandalorian Apprentice's Armor")
                     statement = "[_player,'tae_karr_armor_medium_ma','tae_karr_helmet_ma','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
-
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnMandalorianArmor, "Put On Mandalorian's Armor")
                     statement = "[_player,'tae_karr_armor_medium_mm','tae_karr_helmet_mm','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
-
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnVeteranArmor, "Put On Mandalorian Veteran's Armor")
                     statement = "[_player,'tae_karr_armor_medium_mv','tae_karr_helmet_mv','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
 
+
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlRecruitArmor, "Put On Nite Owl Recruit's Armor")
                     statement = "[_player,'tae_karr_armor_niteowl_mr','tae_karr_helmet_niteowl_mr','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
                 };
-
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlApprenticeArmor, "Put On Nite Owl Apprentice's Armor")
                     statement = "[_player,'tae_karr_armor_niteowl_ma','tae_karr_helmet_niteowl_ma','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
                 };
-
-
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlMandalorianArmor, "Put On Nite Owl's Armor")
                     statement = "[_player,'tae_karr_armor_niteowl_mm','tae_karr_helmet_niteowl_mm','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
                 };
-
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNiteOwlVeteranArmor, "Put On Nite Owl Veteran's Armor")
                     statement = "[_player,'tae_karr_armor_niteowl_mv','tae_karr_helmet_niteowl_mv','tgf_nvg_nite_owl_rangefinder','','tae_uniform_grey_female'] call TAE_fnc_applyWearableLoadout";
                 };
+
+
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnJunoArmor, "Put On Juno's Armor")
                     statement = "[_player,'tae_juno_armor','tae_juno_helmet','tae_juno_rangefinder','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
-
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnGalaxyArmor, "Put On Galaxy's Armor")
                     statement = "[_player,'tae_galaxy_armor','tae_galaxy_helmet','tgf_nvg_rangefinder_r','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
                 };
+
 
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnValeriaArmor, "Put On Valeria's Armor")
                     statement = "[_player,'tae_varen_niteowl_armor','tae_valeria_helmet','tae_dark_red_rangefinder','','tae_uniform_dark_red_female'] call TAE_fnc_applyWearableLoadout";
@@ -741,8 +742,16 @@ class CfgVehicles {
                 TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNovaArmor, "Put On Nova's Armor")
                     statement = "[_player,'tae_karr_armor_niteowl_ma','tae_nova_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_white_female'] call TAE_fnc_applyWearableLoadout";
                 };
+
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnNoxArmor, "Put On Nox's Armor")
                     statement = "[_player,'tae_nox_armor','tae_nox_helmet','','','tae_uniform_grey_seal'] call TAE_fnc_applyWearableLoadout";
+                };
+
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnTrimmArmor, "Put On Trimm Kell's Armor")
+                    statement = "[_player,'tae_karr_armor_medium_ma','tae_trimm_helmet','tgf_nvg_boba','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
+                };
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnSamanthaArmor, "Put On Samantha Kell's Armor")
+                    statement = "[_player,'tae_karr_armor_niteowl_ma','tae_samantha_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
                 };
 			};
 		};

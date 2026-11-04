@@ -1,0 +1,12 @@
+__pycache__/
+*.sqlite3
+*.sqlite3-*
+*.rpt
+*.pbo
+secrets/
+google-service-account.json
+tae-attendance-*.json
+.env
+.env.*
+discord-token*
+/service/finalized/
