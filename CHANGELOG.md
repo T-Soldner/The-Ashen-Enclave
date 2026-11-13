@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.5.0 - November 13, 2026
+
+- Added the OPFOR House Karr Imposters faction with the same infantry roles and
+  teams as House Karr, all wearing veteran armor and helmets with dark-red undersuits.
+- Updated the Quartermaster guide: Rising Phoenix lists the three non-missile
+  jetpacks, and Lancer lists the three missile-capable jetpacks.
+- Removed the RPS-6 from the AT/AA guide because it is available to everyone.
+- Clarified that HE drones require both SUAS and Grenadier.
+
 ## 1.3.4.2 - November 4, 2026
 
 ### Mod

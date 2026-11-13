@@ -38,6 +38,11 @@ class CfgPatches {
 			"JMSLLTE_vehair_Awing"
 		};
 		units[] = {
+			"TAE_Unit_Imposter_Veteran", "TAE_Unit_Imposter_RisingPhoenix",
+			"TAE_Unit_Imposter_Engineer", "TAE_Unit_Imposter_Medic",
+			"TAE_Unit_Imposter_Marksman", "TAE_Unit_Imposter_AT_AA",
+			"TAE_Unit_Imposter_Grenadier", "TAE_Unit_Imposter_CQC_Specialist",
+			"TAE_Unit_Imposter_Heavy_Weapons", "TAE_Unit_Imposter_Sniper",
 			"TAE_Unit_Veteran",
 			"TAE_Unit_RisingPhoenix",
 			"TAE_Unit_Engineer",
@@ -88,6 +93,11 @@ class CfgPatches {
 };
 
 class CfgFactionClasses {
+	class TAE_Faction_HouseKarr_Imposters {
+		displayName = "[TAE] House Karr Imposters";
+		side = 0;
+		priority = 2;
+	};
 	#include "faction_sides_CfgFactionClasses.hpp"
 	class TAE_Faction_HouseKarr {
 		displayName = "[TAE] House Karr";
@@ -3654,6 +3664,8 @@ class CfgVehicles {
 			"ACE_painkillers"
 		};
 	};
+	#include "imposters_units.hpp"
+
 	class TAE_Unit_BSC_Base: TAE_Unit_HitPoint_Base {
 		scope = 0;
 		scopeCurator = 0;
@@ -4671,6 +4683,7 @@ class CfgGroups {
 		#include "faction_sides_groups_West.hpp"
 	};
 	class East {
+		#include "imposters_groups.hpp"
 		#include "faction_sides_groups_East.hpp"
 		name = "OPFOR";
 
