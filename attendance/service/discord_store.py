@@ -16,6 +16,7 @@ import application_roles
 import onboarding
 import clan_training
 import link_queue
+import name_review
 
 
 def steam_identity(value):
@@ -71,6 +72,7 @@ class Store:
             sheets_sync.initialize(db)
             membership.initialize(db)
             link_queue.initialize(db)
+            name_review.initialize(db)
         finally:
             db.close()
 

@@ -165,6 +165,16 @@ class WorkflowTests(unittest.IsolatedAsyncioTestCase):
         with self.assertRaises(ValueError):
             await self.workflow.run(DAY, "main", now=NOW)
 
+    async def test_recap_names_member_and_explains_rank_mismatch(self):
+        self.events()
+        self.transport.current["nickname"] = "[MR] Character"
+        await self.workflow.run(DAY, "main", now=NOW)
+        recap = next(call[1] for call in self.transport.calls if isinstance(call, tuple) and call[0] == "recap")
+        self.assertIn("Promotion review needed (1)", recap)
+        self.assertIn("[MR] Character: Discord role is Foundling ([FD])", recap)
+        self.assertIn("/tae-admin review", recap)
+        self.assertNotIn("apply", self.transport.calls)
+
     async def test_check_failure_preserves_roles_and_reports_review(self):
         self.events()
         self.transport.check_fails = True

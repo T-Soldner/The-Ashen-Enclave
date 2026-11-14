@@ -3,9 +3,7 @@ import datetime as dt
 import hashlib
 import re
 
-from attendance import UTC, eastern_offset
-
-DATE = r"(?:\d{4}-\d{1,2}-\d{1,2}|\d{1,2}/\d{1,2}(?:/\d{4})?)"
+from attendance import UTC, DATE_HELP, DATE_PATTERN, eastern_offset, parse_date
 
 
 def acknowledgement(outcome):
@@ -49,31 +47,19 @@ def parse_message(content, created_utc, author_id):
         return result
     result["member"] = mentions[0]
     duration = fields.get("duration", "")
-    dates = re.fullmatch(fr"\s*({DATE})(?:\s*(?:to|through|[-\u2013\u2014])\s*({DATE}))?\s*", duration, re.I)
+    dates = re.fullmatch(fr"\s*({DATE_PATTERN})(?:\s*(?:to|through|[-\u2013\u2014])\s*({DATE_PATTERN}))?\s*", duration, re.I)
     if not dates:
-        result["detail"] = "Duration needs a date or inclusive date range; use MM/DD/YYYY or YYYY-MM-DD."
+        result["detail"] = "Duration needs a date or inclusive date range. " + DATE_HELP
         return result
     local_day = (created_utc + dt.timedelta(hours=eastern_offset(created_utc))).date()
 
-    def read_date(value):
-        if "-" in value:
-            year, month, day = map(int, value.split("-"))
-        else:
-            pieces = list(map(int, value.split("/")))
-            month, day = pieces[:2]
-            year = pieces[2] if len(pieces) == 3 else local_day.year
-        date = dt.date(year, month, day)
-        if value.count("/") == 1 and abs((date - local_day).days) > 183:
-            raise ValueError("Year is ambiguous; include a four-digit year.")
-        return date
-
     try:
-        start = read_date(dates[1])
-        end = read_date(dates[2]) if dates[2] else start
+        start = parse_date(dates[1], local_day)
+        end = parse_date(dates[2], local_day) if dates[2] else start
         if end < start or (end - start).days > 366:
             raise ValueError("Use an ordered range no longer than 367 days; include years across New Year.")
     except ValueError:
-        result["detail"] = "Invalid or ambiguous dates. Include four-digit years and an ordered range of at most 367 days."
+        result["detail"] = "Invalid or ambiguous dates. Include explicit years and an ordered range of at most 367 days. " + DATE_HELP
         return result
     result.update(start=start.isoformat(), end=end.isoformat())
     if str(author_id) != result["member"]:

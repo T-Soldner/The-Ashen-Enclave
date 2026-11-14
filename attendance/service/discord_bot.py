@@ -1,5 +1,6 @@
 """Discord attendance/application bot. Writes and live promotions require explicit flags."""
 import argparse
+from attendance import DATE_HELP, parse_date
 import asyncio
 import datetime as dt
 import getpass
@@ -25,6 +26,10 @@ import clan_tracker
 import personnel_ui
 import clan_training as personnel_policy
 import link_queue_ui
+import name_review
+import rank_review
+import personnel_sheets
+import sync_feedback
 
 
 def arrange_commands(app_commands, public, staff):
@@ -166,6 +171,7 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
             self.link_task = None
 
         async def setup_hook(self):
+            self.add_view(transport.name_review_factory())
             self.add_view(self.personnel_review_factory())
             if enable_link_queue:
                 self.add_view(link_review())
@@ -228,6 +234,12 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
                                 continue
                             try:
                                 await workflow.run(day, key.split(":")[1])
+                            except finalization.ReviewRequired as error:
+                                session_label = "Main operation" if key.endswith(":main") else "Fun operation"
+                                await workflow.send_once("recap", f"{key}:held",
+                                    f"{key} needs staff review: {error} No attendance credits awarded yet. "
+                                    f"Run /tae-maintenance recap with day: {day} and session: {session_label}. "
+                                    "For pending LOAs, run /tae-maintenance loa-list.")
                             except Exception:
                                 if key not in reported:
                                     print(f"Automatic finalization held for {key}; use workflow-status/preview and resolve evidence, LOAs or permissions.", flush=True)
@@ -236,32 +248,15 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
                     print("Automatic operation check failed; no blind retry of reserved external actions.", flush=True)
                 await asyncio.sleep(300)
 
-        async def reconcile_loa_history(self):
-            # Before live processing, reconcile offline edits/deletions and old LOAs.
-            # Refuse an incomplete scan instead of assuming an unseen post does not exist.
-            async with self.loa_lock:
-                channel = await self.fetch_channel(loa_channel_id)
-                posts = [message async for message in channel.history(limit=1001)]
-                if len(posts) > 1000:
-                    raise ValueError("LOA history exceeds the safe scan limit; staff must reconcile history before live finalization.")
-                inputs = [(message.id, message.author.id, message.content, message.created_at)
-                          for message in posts if not message.author.bot]
-                seen = {str(message.id) for message in posts}
-                def reconcile(db):
-                    for mid, author, content, created in inputs:
-                        loa.save(db, mid, guild_id, loa_channel_id, author, content, created)
-                    known = db.execute("SELECT message_id FROM loa_messages WHERE guild_id=? AND channel_id=? AND status!='cancelled'",
-                                       (str(guild_id), str(loa_channel_id))).fetchall()
-                    for (mid,) in known:
-                        if mid not in seen:
-                            loa.cancel(db, mid)
-                await asyncio.to_thread(store.run, reconcile)
-
-        async def process_loa(self, channel_id, message_id):
+        async def process_loa(self, channel_id, message_id, tracked_only=False):
             if not loa_channel_id or channel_id != loa_channel_id:
                 return "LOA listener is disabled or this is a different channel."
             # Fetch the latest version rather than trusting an old queued edit payload.
             async with self.loa_lock:
+                if tracked_only and not await asyncio.to_thread(store.run, lambda db: db.execute(
+                        "SELECT 1 FROM loa_messages WHERE message_id=? AND guild_id=? AND channel_id=?",
+                        (str(message_id), str(guild_id), str(channel_id))).fetchone()):
+                    return "Untracked older post; use loa-refresh to import it explicitly."
                 try:
                     channel = await self.fetch_channel(channel_id)
                     message = await channel.fetch_message(message_id)
@@ -285,15 +280,15 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
             if not message.author.bot and message.channel.id == loa_channel_id:
                 await self.safe_loa(message.channel.id, message.id)
 
-        async def safe_loa(self, channel_id, message_id):
+        async def safe_loa(self, channel_id, message_id, tracked_only=False):
             try:
-                await self.process_loa(channel_id, message_id)
+                await self.process_loa(channel_id, message_id, tracked_only)
             except Exception:
                 print("LOA processing failed; staff should refresh/review the source post. No exception contents or reasons printed.", flush=True)
 
         async def on_raw_message_edit(self, payload):
             if payload.guild_id == guild_id and payload.channel_id == loa_channel_id and "content" in payload.data:
-                await self.safe_loa(payload.channel_id, payload.message_id)
+                await self.safe_loa(payload.channel_id, payload.message_id, tracked_only=True)
 
         async def on_raw_message_delete(self, payload):
             if payload.guild_id == guild_id and payload.channel_id == loa_channel_id:
@@ -308,9 +303,8 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
 
     client = Client()
     transport = Transport(discord, client, guild_id, bot_spam_channel_id, protected_rank_role_ids)
-    if enable_live_workflow:
-        transport.reconcile_loas = client.reconcile_loa_history
     workflow = finalization.Workflow(store, transport, guild_id, enable_live_workflow, protected_rank_role_ids)
+    transport.name_review_factory = name_review.panel_factory(discord, workflow)
     workflow.automatic_absence_alerts = allow_absence_posts
     sheet_lock = threading.Lock()
 
@@ -324,11 +318,39 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
 
     if enable_sheet_writes:
         async def export_after_operation():
-            result = await asyncio.to_thread(sheet_action, lambda db, google: sheets_sync.export(db, google, guild_id, enabled=True), True)
+            return await sync_feedback.run_step('Discord name lookup', export_with_names)
+
+        async def export_with_names():
+            people = await workflow.db(lambda db: db.execute('SELECT discord_id FROM members WHERE active=1').fetchall())
+            names = {}
+            for (who,) in people:
+                names[who] = (await transport.member(who))['nickname']
+            step = sync_feedback.run_step
+            await step('Sheet names', lambda: asyncio.to_thread(sheet_action, lambda db, google: sheets_sync.refresh_names(db, google, names), True))
+            result = await step('Attendance export', lambda: asyncio.to_thread(sheet_action, lambda db, google: sheets_sync.export(db, google, guild_id, enabled=True), True))
             if enable_roster_scan:
-                await refresh_clans()
+                await step('Clan grouping', refresh_clans)
+                if enable_clan_training:
+                    await step('Unit Roster', refresh_unit_roster)
+                    result += ' Unit Roster refreshed.'
             return result
         workflow.sheet_export = export_after_operation
+
+    async def refresh_unit_roster():
+        server = client.get_guild(guild_id)
+        if server is None:
+            raise ValueError('Discord server unavailable; no roster cells overwritten.')
+        roster = [{'id': str(member.id), 'name': member.display_name,
+                   'roles': {role.id for role in member.roles}, 'bot': member.bot}
+                  async for member in server.fetch_members(limit=None)]
+        if not roster:
+            raise ValueError('Empty Discord roster; no roster cells overwritten.')
+
+        def refresh_roster(db, google):
+            plans = personnel_sheets.prepare(db, google, guild_id, roster)
+            return personnel_sheets.apply(db, google, [plan for plan in plans if plan['kind'] == 'roster'])
+
+        return await asyncio.to_thread(sheet_action, refresh_roster, True)
 
     async def refresh_clans():
         server = client.get_guild(guild_id)
@@ -361,7 +383,13 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
             try:
                 await refresh_clans()
             except Exception:
-                result += " Clan display refresh pending; run sheet-sync after checking Discord access."
+                result += " Clan display refresh pending; run /tae-maintenance sheets sync confirm:True after checking Discord access."
+            if enable_clan_training:
+                try:
+                    await sync_feedback.run_step('Unit Roster', refresh_unit_roster)
+                    result += ' Unit Roster refreshed.'
+                except Exception:
+                    result += ' Unit Roster refresh pending. Run /tae-maintenance roster-sync to preview; do not repeat acceptance.'
         return result
 
     application_panel_class = application_ui.configure(discord, app_commands, client, store, guild_id, staff, applications_review_channel_id, enable_application_roles,
@@ -545,10 +573,17 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
     async def recap(interaction: discord.Interaction, day: str, session: str = "main"):
         await interaction.response.defer(ephemeral=True, thinking=True)
         try:
-            date = dt.date.fromisoformat(day)
-            text = await asyncio.to_thread(store.run, lambda db: absence.recap_preview(db, date, session))
+            date = parse_date(day)
+            display_names = {}
+            people = await workflow.db(lambda db: db.execute('SELECT discord_id FROM members WHERE active=1').fetchall())
+            for (who,) in people:
+                try:
+                    display_names[who] = (await transport.member(who))['nickname']
+                except Exception:
+                    pass
+            text = await asyncio.to_thread(store.run, lambda db: absence.recap_preview(db, date, session, display_names=display_names))
         except ValueError:
-            await interaction.followup.send("Use a Saturday date in YYYY-MM-DD format and select main or fun.", ephemeral=True)
+            await interaction.followup.send("Choose a Saturday and select Main operation or Fun operation. " + DATE_HELP, ephemeral=True)
             return
         except Exception:
             await interaction.followup.send("Unable to build recap; ask staff to check the local database.", ephemeral=True)
@@ -587,7 +622,7 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
     async def finalize_op(interaction: discord.Interaction, day: str, session: str = "main", reviewed_evidence: bool = False):
         await interaction.response.defer(ephemeral=True, thinking=True)
         try:
-            text = await workflow.run(dt.date.fromisoformat(day), session, reviewed_evidence)
+            text = await workflow.run(parse_date(day), session, reviewed_evidence)
         except ValueError as error:
             text = str(error)
         except Exception:
@@ -654,14 +689,11 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
             return
         await interaction.response.defer(ephemeral=True,thinking=True)
         try:
-            result = await asyncio.to_thread(sheet_action,lambda db,google: sheets_sync.export(db,google,guild_id,enabled=True),True)
-            if enable_roster_scan:
-                try:
-                    result += " " + await refresh_clans()
-                except Exception:
-                    result += " Attendance export completed, but clan grouping refresh was not confirmed. Check Server Members Intent and the helper tab."
-        except Exception:
-            result = "Sheet export was not confirmed. Inspect sheet-preview and export receipts before retrying."
+            if workflow.sheet_export is None:
+                raise ValueError('Sheet writes disabled.')
+            result = await workflow.sheet_export()
+        except Exception as error:
+            result = sync_feedback.instructions(error)
         await interaction.followup.send(result,ephemeral=True,allowed_mentions=discord.AllowedMentions.none())
 
     @staff.command(name="roster-check", description="Compare House Karr members and linked attendance without changing anything")
@@ -735,7 +767,47 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
             await interaction.response.send_message(text, ephemeral=True)
 
     maintenance = arrange_commands(app_commands, public, staff)
+
+    @app_commands.command(name='review', description='Audit Discord rank roles and nickname prefixes; optionally review one member')
+    @app_commands.checks.has_permissions(administrator=True)
+    async def review_ranks(interaction: discord.Interaction, member: discord.Member = None):
+        await interaction.response.defer(ephemeral=True)
+        rows = await workflow.db(lambda db: finalization.ledger_totals(db, guild_id))
+        if member is not None:
+            rows = [row for row in rows if row[0] == str(member.id)]
+        if not rows:
+            await interaction.followup.send('No active linked members found for this review.', ephemeral=True)
+            return
+        lines = ['Discord rank/name review - no automatic changes',
+                 'Uses starting totals plus finalized attendance. Select a member to approve their eligible rank and nickname; never automatically demotes.',
+                 'Character names cannot be verified automatically. Choose a member to approve or correct their nickname.']
+        view = None
+        for who, saved, baseline, credited in rows:
+            try:
+                current = await transport.member(who)
+                lines.append(f"{current['nickname']} ({who}): {rank_review.inspect(current, baseline, credited)}")
+                if member is not None and workflow.enabled:
+                    try:
+                        correction = rank_review.correction(current, baseline, credited)
+                        proposed = correction['nickname']
+                        view = transport.name_review_factory.decision('manual-name-review', who, current, proposed, interaction.user.id, correction)
+                        lines.append('Proposed rank: ' + correction['target'] + '. Suggested nickname: ' + proposed +
+                            '. Approve correction updates BOTH rank role and nickname. Attendance totals and unrelated roles remain unchanged. No historical promotion announcement is sent.')
+                    except ValueError as error:
+                        lines.append(str(error))
+            except Exception:
+                lines.append(f'{saved} ({who}): Discord lookup failed; no changes made.')
+        text = '\n'.join(lines)
+        options = {'view': view} if view is not None else {}
+        if len(text) <= 1900:
+            await interaction.followup.send(discord.utils.escape_markdown(text), ephemeral=True,
+                allowed_mentions=discord.AllowedMentions.none(), **options)
+        else:
+            await interaction.followup.send('Rank/name review attached. No roles or nicknames changed.', ephemeral=True,
+                file=discord.File(io.BytesIO(text.encode('utf-8')), filename='rank-name-review.txt'),
+                allowed_mentions=discord.AllowedMentions.none(), **options)
     staff.add_command(app_commands.command(name="help", description="Privately show staff commands available to your roles and recovery guidance")(staff_help))
+    staff.add_command(review_ranks)
     client.tree.add_command(public, guild=guild)
     client.tree.add_command(staff, guild=guild)
     client.tree.add_command(maintenance, guild=guild)

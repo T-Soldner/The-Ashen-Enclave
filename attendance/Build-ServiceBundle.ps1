@@ -26,7 +26,7 @@ $runtime = @(
     'absence.py', 'application_ui.py', 'application_roles.py', 'applications.py', 'attendance.py',
     'clan_tracker.py', 'clan_training.py', 'personnel_workflow.py', 'personnel_sheets.py', 'personnel_ui.py',
     'legacy_training.py',
-    'link_queue.py', 'link_queue_ui.py',
+    'link_queue.py', 'link_queue_ui.py', 'name_review.py', 'rank_review.py', 'sync_feedback.py',
     'collector.py', 'discord_bot.py', 'discord_store.py', 'discord_transport.py',
     'finalization.py', 'loa.py', 'membership.py', 'onboarding.py', 'promotions.py', 'sheets_read_test.py', 'sheets_sync.py',
     'background_worker.py', 'Install-Background.ps1', 'Manage-Background.ps1',

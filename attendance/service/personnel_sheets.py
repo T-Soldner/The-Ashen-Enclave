@@ -6,6 +6,7 @@ import re
 from urllib.parse import quote
 
 import clan_training as policy
+import promotions
 from sheets_read_test import BASE, SPREADSHEET_ID, get_json
 from attendance import UTC
 
@@ -81,9 +82,20 @@ def roster_cells(members,values):
                 raise ValueError("Multiple members hold a protected leadership role; review before roster writes.")
             leadership[leader] = member["name"]
         else:
+            if destination == 'freelancers':
+                ranks = [rank for rank in promotions.RANKS if rank['role'] in member['roles']]
+                if len(ranks) > 1:
+                    raise ValueError('Freelancer has conflicting rank roles; reconcile Discord before writing the roster.')
+                member = dict(member, rank_order=-ranks[0]['ops'] if ranks else 1)
+                if ranks:
+                    character = re.sub(r'^\s*\[[^\]]+\]\s*', '', member['name']).strip()
+                    member['name'] = f"[{ranks[0]['prefix']}] {character}"
             buckets[destination].append(member)
-    for entries in buckets.values():
-        entries.sort(key=lambda entry:(policy.LEADER not in entry["roles"],policy.SECOND not in entry["roles"],entry["name"].casefold(),str(entry["id"])))
+    for key, entries in buckets.items():
+        if key == 'freelancers':
+            entries.sort(key=lambda entry:(entry['rank_order'],normalize(entry['name']),str(entry['id'])))
+        else:
+            entries.sort(key=lambda entry:(policy.LEADER not in entry["roles"],policy.SECOND not in entry["roles"],entry["name"].casefold(),str(entry["id"])))
     flight = buckets["shyyyo"]
     flight_leaders = [entry for entry in flight if policy.LEADER in entry["roles"]]
     if len(flight_leaders) > 1:
@@ -222,6 +234,13 @@ def apply(db,google,plans,initialize=False):
                 raise ValueError("Managed Sheet cells were manually changed; reconcile before overwriting.")
     # Both plans are validated before either one is written.
     requests = [request for plan in plans for request in plan["requests"]]
+    # Google rejects an empty batchUpdate; the freshly read cells already verify this no-op.
+    if not requests and all(plan['before'] == plan['after'] for plan in plans):
+        with db:
+            for plan in plans:
+                db.execute("INSERT OR REPLACE INTO personnel_sheet_state VALUES (?,'complete',?)",
+                    (plan['kind'], json.dumps(plan)))
+        return 'Unit Roster already current; no Google write needed.'
     with db:
         for plan in plans:
             db.execute("INSERT OR REPLACE INTO personnel_sheet_state VALUES (?,'sending',?)",(plan["kind"],json.dumps(plan)))

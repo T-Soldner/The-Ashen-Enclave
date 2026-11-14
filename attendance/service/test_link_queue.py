@@ -150,6 +150,25 @@ class QueueTests(unittest.TestCase):
         self.assertEqual(self.db.execute("SELECT count(*) FROM events").fetchone()[0],0)
         self.assertEqual(ingest(self.db,path),0)
 
+    def test_old_addon_steam_only_evidence_enters_queue_without_guessing_identity(self):
+        with self.db:
+            self.db.execute("DELETE FROM detected_links")
+            self.db.execute("DELETE FROM observed_players")
+            self.db.execute("INSERT INTO events VALUES ('old-addon',1,'2026-11-07T19:00:00+00:00','PRESENCE',?,'test.rpt')",(json.dumps([STEAM,STEAM]),))
+        self.assertEqual(queue.discover(self.db),[(STEAM,"Name unavailable - detected in attendance logs")])
+        self.assertEqual(queue.suggestions(self.db,STEAM,[self.member]),[])
+        self.assertEqual(self.db.execute("SELECT count(*) FROM members").fetchone()[0],0)
+        queue.discover(self.db)
+        self.assertEqual(self.db.execute("SELECT count(*) FROM detected_links").fetchone()[0],1)
+
+    def test_old_evidence_does_not_requeue_linked_or_archived_people(self):
+        with self.db:
+            self.db.execute("DELETE FROM detected_links")
+            self.db.execute("DELETE FROM observed_players")
+            self.db.execute("INSERT INTO members (steam_id,discord_id,active) VALUES (?,?,0)",(STEAM,DID))
+            self.db.execute("INSERT INTO events VALUES ('old-addon',1,'2026-11-07T19:00:00+00:00','JOIN',?,'test.rpt')",(json.dumps([STEAM]),))
+        self.assertEqual(queue.discover(self.db),[])
+
     def test_malformed_names_not_ingested(self):
         path = Path(self.temp.name)/"server.rpt"
         path.write_text(f'12:30:00 "TAE_IDENTITY_V1|{STEAM}|10|END"\n',encoding="utf-8")

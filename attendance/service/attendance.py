@@ -6,6 +6,42 @@ from collections import defaultdict
 
 UTC = dt.timezone.utc
 MAX_GAP = 90
+MONTHS = ('January February March April May June July August September October November December').lower().split()
+MONTH = r'[A-Za-z]{3,9}'
+YEAR = r'(?:[0-9]{4}|[0-9]{2})'
+DATE_PATTERN = rf'(?:\d{{4}}-\d{{1,2}}-\d{{1,2}}|\d{{1,2}}/\d{{1,2}}(?:/{YEAR})?|{MONTH}\s+\d{{1,2}},?\s+{YEAR}|\d{{1,2}}\s+{MONTH}\s+{YEAR})'
+DATE_HELP = 'Use YYYY-MM-DD, MM/DD/YYYY, MM/DD/YY, or a written date like Nov 14, 26. Two-digit years mean 2000-2099.'
+
+
+def expand_year(value):
+    return int(value) + (2000 if len(value) == 2 else 0)
+
+
+def parse_date(value, reference=None):
+    """Parse user input without guessing the order of numeric dates."""
+    value = value.strip()
+    if not re.fullmatch(DATE_PATTERN, value):
+        raise ValueError(DATE_HELP)
+    try:
+        if '-' in value:
+            year, month, day = map(int, value.split('-'))
+        elif '/' in value:
+            month_text, day_text, *years = value.split('/')
+            month, day = int(month_text), int(day_text)
+            if not years and reference is None:
+                raise ValueError
+            year = expand_year(years[0]) if years else reference.year
+            date = dt.date(year, month, day)
+            if not years and abs((date - reference).days) > 183:
+                raise ValueError
+        else:
+            first, second, year = value.lower().replace(',', '').split()
+            day, name = (first, second) if first.isdigit() else (second, first)
+            month = next((i for i, full in enumerate(MONTHS, 1) if name in (full, full[:3])), 0)
+            year, day = expand_year(year), int(day)
+        return dt.date(year, month, day)
+    except ValueError:
+        raise ValueError('Invalid or ambiguous date. ' + DATE_HELP) from None
 
 
 def eastern_offset(utc):
@@ -124,7 +160,7 @@ def report(db, start_day, end_day, now=None):
     if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='loa_messages'").fetchone():
         excuses = db.execute("SELECT member_id,start_date,end_date FROM loa_messages WHERE status='accepted'").fetchall()
     for uid, discord, name, baseline, since in members:
-        recent = [op for op in operations if op["closed"] and uid in op["seconds"]][-4:]
+        recent = [op for op in operations if op["closed"] and uid in op["seconds"]]
         earned = sum(op["closed"] and op["seconds"].get(uid, 0) > 300 for op in operations)
         # Actual attendance wins over an overlapping LOA, without cancelling other excused dates.
         results.append({"name": name, "steam_id": uid, "discord_id": discord,
@@ -135,6 +171,8 @@ def report(db, start_day, end_day, now=None):
                                            "excused" if any(member == discord and start <= op["operation"][:10] <= end
                                                             for member, start, end in excuses) else "review-no-credit"),
                                        "confirmed_seconds": op["seconds"][uid]} for op in recent]})
+        results[-1]['operation_history'] = results[-1]['last_four']
+        results[-1]['last_four'] = [op for op in results[-1]['operation_history'] if op['operation'].endswith(':main')][-4:]
     return {"mode": "PREVIEW ONLY", "from": str(start_day), "through": str(end_day),
             "warnings": warnings, "members": results,
             "operations": operations,

@@ -37,7 +37,8 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(parsed["start"], "2026-11-07")
 
     def test_inclusive_ranges(self):
-        for duration in ("11/07-11/14", "11/07/2026 to 11/14/2026", "2026-11-07 through 2026-11-14"):
+        for duration in ("11/07-11/14", "11/07/2026 to 11/14/2026", "2026-11-07 through 2026-11-14",
+                         "Nov 7, 2026 to 14 November 2026", "11/07/26 to 14 Nov 26"):
             with self.subTest(duration=duration):
                 parsed = parse_message(message(duration), POSTED, DID)
                 self.assertEqual((parsed["start"], parsed["end"]), ("2026-11-07", "2026-11-14"))
@@ -49,7 +50,7 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(parsed["end"], "2027-01-02")
 
     def test_ambiguous_or_invalid_dates(self):
-        for duration in ("next weekend", "02/30/2026", "11/14-11/07", "01/01", "11/07/26"):
+        for duration in ("next weekend", "02/30/26", "11/14-11/07", "01/01", "11/07/026"):
             self.assertTrue(parse_message(message(duration), POSTED, DID)["detail"])
 
     def test_no_name_guessing(self):
@@ -149,7 +150,8 @@ class WorkflowTests(unittest.TestCase):
         output = self.store.run(lambda db: report(db, dt.date(2026,11,7), dt.date(2026,11,7), dt.datetime(2026,11,9,tzinfo=UTC)))
         member = next(row for row in output["members"] if row["discord_id"] == DID)
         self.assertEqual(member["earned_in_report_range"], 1)
-        self.assertEqual([op["status"] for op in member["last_four"]], ["attended", "excused"])
+        self.assertEqual([op["status"] for op in member["operation_history"]], ["attended", "excused"])
+        self.assertEqual([op['status'] for op in member['last_four']], ['attended'])
         self.assertEqual(self.store.run(lambda db: db.execute("SELECT status,end_date FROM loa_messages").fetchone()), ("accepted", "2026-11-14"))
 
 

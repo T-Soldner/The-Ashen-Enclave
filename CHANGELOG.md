@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.5.1 - November 14, 2026
+
+- Added the Amban Phase-Pulse Rifle and its energy pack to the restricted arsenal
+  and listed the rifle under Sniper in the Quartermaster guide.
+- Removed firing overpressure from the House Karr PK-V5 Mass Driver,
+  Multipurpose, and AA variants. The MLRS and Siege Mortar are unchanged.
+
 ## 1.3.5.0 - November 13, 2026
 
 - Added the OPFOR House Karr Imposters faction with the same infantry roles and

@@ -8,7 +8,7 @@ class Transport:
         self.guild_id, self.recap_channel_id = guild_id, recap_channel_id
         self.protected_roles = protected_roles
         self.channels = {}
-        self.reconcile_loas = None
+        self.name_review_factory = None
 
     def guild(self):
         guild = self.client.get_guild(self.guild_id)
@@ -37,6 +37,20 @@ class Transport:
                 raise ValueError("Bot needs View Channel and Send Messages in announcements and bot-spam.")
             self.channels[kind] = channel
         self.channels['absence'] = self.channels['recap']
+        self.channels['name-review'] = self.channels['recap']
+
+    async def rename(self, discord_id, previous, nickname):
+        current = await self.member(discord_id)
+        if current != previous or current['protected']:
+            raise ValueError('Member changed or is protected.')
+        me = await self.guild().fetch_member(self.client.user.id)
+        member = await self.guild().fetch_member(int(discord_id))
+        if member.top_role >= me.top_role or not me.guild_permissions.manage_nicknames:
+            raise ValueError('Nickname permissions/hierarchy prevent this edit.')
+        await member.edit(nick=nickname, reason='TAE administrator-approved name correction')
+        after = await self.member(discord_id)
+        if after['nickname'] != nickname or set(after['roles']) != set(previous['roles']):
+            raise ValueError('Nickname edit could not be verified.')
 
     async def member(self, discord_id):
         guild = self.guild()
@@ -86,5 +100,6 @@ class Transport:
         else:
             mentions = self.discord.AllowedMentions.none()
             text = self.discord.utils.escape_mentions(self.discord.utils.escape_markdown(text))
-        message = await channel.send(text, allowed_mentions=mentions)
+        options = {'view': self.name_review_factory()} if kind == 'name-review' and self.name_review_factory else {}
+        message = await channel.send(text, allowed_mentions=mentions, **options)
         return message.id

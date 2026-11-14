@@ -39,6 +39,8 @@ def preview(db, now=None):
     for member in data["members"]:
         history = []
         for op in data["operations"]:
+            if not op['operation'].endswith(':main'):
+                continue
             if not op["closed"] or member["steam_id"] not in op["seconds"]:
                 continue
             day = op["operation"][:10]
@@ -93,7 +95,7 @@ def finish(db, guild_id, discord_id, episode, message_id=None):
 
 def ledger_candidates(db, guild_id):
     """Only finalized misses count; current LOAs and gaps suppress automatic alerts."""
-    operations = [r[0] for r in db.execute("SELECT operation FROM finalized_operations WHERE guild_id=? ORDER BY substr(operation,1,10),CASE WHEN operation LIKE '%:fun' THEN 1 ELSE 0 END",(str(guild_id),))]
+    operations = [r[0] for r in db.execute("SELECT operation FROM finalized_operations WHERE guild_id=? AND operation LIKE '%:main' ORDER BY operation",(str(guild_id),))]
     result = []
     for steam,did,name,since in db.execute("SELECT steam_id,discord_id,display_name,tracking_since FROM members WHERE active=1"):
         if not did or not since:
@@ -139,7 +141,7 @@ def format_preview(data):
     return "\n".join(lines)
 
 
-def recap_preview(db, day, session="main", now=None):
+def recap_preview(db, day, session="main", now=None, display_names=None):
     now = now or dt.datetime.now(UTC)
     if session not in ("main", "fun"):
         raise ValueError("Choose main or fun.")
@@ -150,12 +152,12 @@ def recap_preview(db, day, session="main", now=None):
     operation = next((op for op in data["operations"] if op["operation"] == identifier), None)
     if not operation:
         return f"PREVIEW ONLY - {identifier}\nNo qualifying tracked operation recorded. No recap should be posted."
-    names = [member["name"] for member in data["members"] if operation["seconds"].get(member["steam_id"], 0) > 300]
+    names = [(display_names or {}).get(member['discord_id'], member["name"]) for member in data["members"] if operation["seconds"].get(member["steam_id"], 0) > 300]
     lines = [f"PREVIEW ONLY - {day} {'Main operation' if session == 'main' else 'Fun operation'} (Eastern)",
              "Window complete: " + ("yes" if operation["closed"] else "no; attendance can still change"),
              f"Attended ({len(names)} linked members):"]
     lines += ["- " + name for name in names]
-    lines += ["Promotions: not enabled; no ranks have been changed by this bot.",
+    lines += ["This preview does not apply or report promotion results; use workflow-status for live processing.",
               f"Evidence warnings: {len(data['warnings'])}. This recap has not been finalized or posted.",
               "Unlinked players are not included. Attendance does not grant credit until the window closes."]
     return "\n".join(lines)

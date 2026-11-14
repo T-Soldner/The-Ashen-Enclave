@@ -30,6 +30,16 @@ def discover(db):
         db.execute("""INSERT OR IGNORE INTO detected_links (steam_id,name)
             SELECT r.steam_id,'Registration request' FROM link_requests r
             WHERE r.status='pending' AND NOT EXISTS (SELECT 1 FROM members m WHERE m.steam_id=r.steam_id)""")
+        # Older server addons recorded Steam IDs without the newer name marker.
+        # Queue those IDs for explicit staff identity selection, never name guessing.
+        known = {r[0] for r in db.execute("SELECT steam_id FROM members")}
+        seen = set()
+        for (uids,) in db.execute("SELECT uids FROM events WHERE kind IN ('JOIN','PRESENCE')"):
+            for steam in json.loads(uids):
+                if isinstance(steam,str) and re.fullmatch(r'[0-9]{17}',steam) and steam not in known:
+                    seen.add(steam)
+        db.executemany("INSERT OR IGNORE INTO detected_links (steam_id,name) VALUES (?,?)",
+                       [(steam,"Name unavailable - detected in attendance logs") for steam in sorted(seen)])
     return db.execute("SELECT steam_id,name FROM detected_links WHERE state='pending' AND delivery='pending' LIMIT 5").fetchall()
 
 

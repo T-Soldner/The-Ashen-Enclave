@@ -55,7 +55,8 @@ def plan(db, discord_id, nickname, role_ids, role_names=(), protected_role_ids=(
     if prefix and prefix[1].upper() not in {rank["prefix"] for rank in RANKS}:
         return {**result, "reason": "Unrecognized nickname prefix: do not overwrite it automatically."}
     if prefix and prefix[1].upper() != RANKS[current[0]]["prefix"]:
-        return {**result, "reason": "Nickname prefix and progression role disagree; staff review required."}
+        rank = RANKS[current[0]]
+        return {**result, "reason": f"Discord role is {rank['name']} ([{rank['prefix']}]), but the nickname starts with [{prefix[1]}]."}
     day = (now + dt.timedelta(hours=eastern_offset(now))).date()
     since = dt.date.fromisoformat(member[2])
     earned = 0

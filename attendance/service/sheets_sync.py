@@ -114,11 +114,26 @@ class Google:
         return row
 
     def add_member(self, row, label):
+        if not self.writable:
+            raise ValueError("Sheet writes disabled.")
         if row != self.new_member_row():
             raise ValueError("Tracker changed during onboarding. No write repeated; inspect receipt.")
         snapshot = self.snapshot()
-        tab = "'" + snapshot["tab"].replace("'", "''") + "'"
-        self.write([{"range":f"{tab}!A{row}:B{row}","values":[[label,0]]}])
+        def row_range(index):
+            return {"sheetId": TRACKER_ID, "startRowIndex": index - 1, "endRowIndex": index,
+                    "startColumnIndex": 0, "endColumnIndex": 2}
+
+        requests = []
+        if any(entry["row"] == row - 1 for entry in snapshot["entries"]):
+            requests.append({"copyPaste": {"source": row_range(row - 1), "destination": row_range(row),
+                                           "pasteType": "PASTE_FORMAT"}})
+        requests.append({"updateCells": {"range": row_range(row), "fields": "userEnteredValue",
+            "rows": [{"values": [{"userEnteredValue": {"stringValue": label}},
+                                 {"userEnteredValue": {"numberValue": 0}}]}]}})
+        response = self.session.post(BASE + SPREADSHEET_ID + ":batchUpdate", json={"requests": requests},
+                                     timeout=30, allow_redirects=False)
+        if response.status_code != 200:
+            raise ValueError("New tracker row write was not confirmed. Inspect receipt before retrying.")
         entry = next((entry for entry in self.snapshot()["entries"] if entry["row"] == row),None)
         if not entry or entry["name"] != label or str(entry["ops"]) != "0":
             raise ValueError("New tracker row could not be verified. Inspect receipt before retrying.")
@@ -208,7 +223,7 @@ def prepare(db, google, guild_id):
         if current != desired:
             title = snapshot["tab"].replace("'", "''")
             changes.append({"range": f"'{title}'!B{row}", "values": [[desired]]})
-        recent = db.execute("SELECT operation,status FROM operation_credits WHERE guild_id=? AND steam_id=? ORDER BY substr(operation,1,10) DESC, CASE WHEN operation LIKE '%:fun' THEN 1 ELSE 0 END DESC LIMIT 4", (str(guild_id), steam)).fetchall()
+        recent = db.execute("SELECT operation,status FROM operation_credits WHERE guild_id=? AND steam_id=? AND operation LIKE '%:main' ORDER BY operation DESC LIMIT 4", (str(guild_id), steam)).fetchall()
         statuses = [f"{op}: {status}" for op, status in recent]
         values = [label] + statuses + [""] * (4 - len(statuses)) + [f"{sum(status in ('attended','excused') for _,status in recent)}/{len(recent)}"]
         if history is not None:
@@ -221,6 +236,61 @@ def prepare(db, google, guild_id):
     unmapped = db.execute("SELECT count(*) FROM members m WHERE active=1 AND NOT EXISTS (SELECT 1 FROM sheet_bindings b WHERE b.steam_id=m.steam_id)").fetchone()[0]
     return {"changes": changes, "targets": targets, "description": descriptions,
             "history_ready": history is not None, "unmapped": unmapped}
+
+
+def refresh_names(db, google, names):
+    """Rename explicitly bound labels only; verify before advancing identity guards."""
+    if db.execute("SELECT 1 FROM sheet_exports WHERE state IN ('sending','uncertain') LIMIT 1").fetchone():
+        raise ValueError('Resolve the uncertain sheet export before refreshing names.')
+    snapshot = google.snapshot()
+    history = google.history()
+    entries = {entry['row']: entry for entry in snapshot['entries']}
+    bindings = db.execute('''SELECT b.steam_id,b.sheet_row,b.expected_name,m.discord_id
+        FROM sheet_bindings b JOIN members m ON m.steam_id=b.steam_id WHERE m.active=1''').fetchall()
+    changes, renamed = [], []
+    desired = [names.get(who, label) for _, _, label, who in bindings]
+    if len(desired) != len(set(desired)):
+        raise ValueError('Duplicate display names require staff review before sheet renaming.')
+    for steam, row, label, who in bindings:
+        new = names.get(who, label)
+        if new == label:
+            continue
+        source = entries.get(row)
+        if not new.strip() or not source or source['name'] != label or row in snapshot['formula_rows']:
+            raise ValueError('Sheet name changed or is a formula; refusing to overwrite it.')
+        title = snapshot['tab'].replace("'", "''")
+        changes.append({'range': f"'{title}'!A{row}", 'values': [[new]]})
+        old_history = history[row-1] if history is not None and row <= len(history) else []
+        if old_history and old_history[0] not in ('', label):
+            raise ValueError('History label differs; inspect before renaming.')
+        if old_history and old_history[0] == label:
+            changes.append({'range': f"'{HISTORY_TITLE}'!A{row}", 'values': [[new]]})
+        renamed.append((steam, row, new, who))
+    if not changes:
+        return
+    with db:
+        job = db.execute("INSERT INTO sheet_exports (state,payload) VALUES ('sending',?)", (json.dumps(changes),)).lastrowid
+    try:
+        google.write(changes)
+        after = {entry['row']: entry['name'] for entry in google.snapshot()['entries']}
+        after_history = google.history()
+        for _, row, new, _ in renamed:
+            if after.get(row) != new:
+                raise ValueError('Sheet label read-back differs.')
+        for change in changes:
+            if change['range'].startswith(f"'{HISTORY_TITLE}'!"):
+                row = int(change['range'].split('!A')[1])
+                if not after_history or after_history[row-1][0] != change['values'][0][0]:
+                    raise ValueError('History label read-back differs.')
+    except BaseException:
+        with db:
+            db.execute("UPDATE sheet_exports SET state='uncertain' WHERE id=?", (job,))
+        raise
+    with db:
+        for steam, _, new, who in renamed:
+            db.execute('UPDATE sheet_bindings SET expected_name=? WHERE steam_id=?', (new, steam))
+            db.execute('UPDATE members SET display_name=? WHERE discord_id=? AND active=1', (new, who))
+        db.execute("UPDATE sheet_exports SET state='sent' WHERE id=?", (job,))
 
 
 def export(db, google, guild_id, enabled=False):

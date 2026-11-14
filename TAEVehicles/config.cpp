@@ -13,6 +13,7 @@ class CfgPatches {
 			"knd_vehicles_imperial",
 			"JMSLLTE_vehgr_LIUV",
 			"pkv5_vehicles",
+			"pkv5_weapons",
 			"TAEObjects",
 			"TAEUnits_HouseKarr",
 			"mti_armoury_vehicles_weapons",
@@ -84,6 +85,37 @@ class CfgFunctions {
 
 class CfgWeapons {
 	class CannonCore;
+	class PKV5_Cannon_105mm_Laser;
+	class PKV5_Autocannon_25mm_Laser;
+	class TAE_PKV5_MultiAutocannon: PKV5_Autocannon_25mm_Laser {
+		ace_overpressure_priority = 2;
+		ace_overpressure_range = 0;
+		ace_overpressure_damage = 0;
+	};
+	class PKV5_ConcussionATGM;
+	class TAE_PKV5_MultiATGM: PKV5_ConcussionATGM {
+		ace_overpressure_priority = 2;
+		ace_overpressure_range = 0;
+		ace_overpressure_damage = 0;
+	};
+	class PKV5_FlakCannon_35mm_Quad;
+	class TAE_PKV5_AAFlak: PKV5_FlakCannon_35mm_Quad {
+		ace_overpressure_priority = 2;
+		ace_overpressure_range = 0;
+		ace_overpressure_damage = 0;
+	};
+	class PKV5_AA_MissilePod;
+	class TAE_PKV5_AAMissiles: PKV5_AA_MissilePod {
+		ace_overpressure_priority = 2;
+		ace_overpressure_range = 0;
+		ace_overpressure_damage = 0;
+	};
+	class TAE_PKV5_MassDriver_105mm: PKV5_Cannon_105mm_Laser {
+		// Select this weapon's zero values over inherited magazine or ammo values.
+		ace_overpressure_priority = 2;
+		ace_overpressure_range = 0;
+		ace_overpressure_damage = 0;
+	};
 	class mti_armoury_weapon_Z95_Heavy_Cannon;
 	class TAE_Z98_Heavy_Cannon: mti_armoury_weapon_Z95_Heavy_Cannon {
 		// Permit vehicle use without changing the upstream cannon or its ballistics.
@@ -592,7 +624,11 @@ class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
-	class B_PKV5_MMTS_Cannon_F;
+	class B_PKV5_MMTS_Cannon_F {
+		class Turrets {
+			class MainTurret;
+		};
+	};
 	class TAE_PKV5_Cannon: B_PKV5_MMTS_Cannon_F {
 		scope = 2;
 		scopeCurator = 2;
@@ -604,6 +640,11 @@ class CfgVehicles {
 		crew = "TAE_Unit_Engineer";
 		typicalCargo[] = {"TAE_Unit_Engineer"};
 		hiddenSelectionsTextures[] = {"\TAEVehicles\data\pkv5\chassis_co.paa", "\TAEVehicles\data\pkv5\turret_cannon_co.paa"};
+		class Turrets: Turrets {
+			class MainTurret: MainTurret {
+				weapons[] = {"TAE_PKV5_MassDriver_105mm", "Laserdesignator_mounted", "SmokeLauncher"};
+			};
+		};
 		hiddenSelectionsMaterials[] = {"\z\pkv5\addons\vehicles\data\republic_nologo\chassis.rvmat", "\z\pkv5\addons\vehicles\data\republic_nologo\turret_cannon.rvmat"};
 		textureList[] = {"TAE_HouseKarr", 1};
 		class TextureSources {
@@ -615,8 +656,17 @@ class CfgVehicles {
 			};
 		};
 	};
-	class B_PKV5_MMTS_Multi_F;
+	class B_PKV5_MMTS_Multi_F {
+		class Turrets {
+			class MainTurret;
+		};
+	};
 	class TAE_PKV5_Multi: B_PKV5_MMTS_Multi_F {
+		class Turrets: Turrets {
+			class MainTurret: MainTurret {
+				weapons[] = {"TAE_PKV5_MultiAutocannon", "TAE_PKV5_MultiATGM", "Laserdesignator_mounted", "SmokeLauncher"};
+			};
+		};
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr PK-V5/M (Multi-Purpose)";
@@ -684,8 +734,17 @@ class CfgVehicles {
 			};
 		};
 	};
-	class B_PKV5_MMTS_AA_F;
+	class B_PKV5_MMTS_AA_F {
+		class Turrets {
+			class MainTurret;
+		};
+	};
 	class TAE_PKV5_AA: B_PKV5_MMTS_AA_F {
+		class Turrets: Turrets {
+			class MainTurret: MainTurret {
+				weapons[] = {"TAE_PKV5_AAFlak", "TAE_PKV5_AAMissiles", "Laserdesignator_mounted", "SmokeLauncher"};
+			};
+		};
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr PK-V5/A (Anti-Air)";

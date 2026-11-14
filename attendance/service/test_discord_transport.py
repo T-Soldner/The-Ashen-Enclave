@@ -104,6 +104,25 @@ class TransportTests(unittest.IsolatedAsyncioTestCase):
             await self.transport.preflight()
         self.assertEqual(self.member.calls, [])
 
+    async def test_name_correction_does_not_change_roles(self):
+        before = await self.transport.member(DID)
+        await self.transport.rename(str(DID), before, '[FD] Correct Name')
+        self.assertEqual(self.member.calls, [('nick', '[FD] Correct Name')])
+
+    async def test_name_correction_rejects_stale_snapshot(self):
+        before = await self.transport.member(DID)
+        self.member.display_name = 'New Name'
+        with self.assertRaises(ValueError):
+            await self.transport.rename(str(DID), before, '[FD] Correct Name')
+        self.assertEqual(self.member.calls, [])
+
+    async def test_name_correction_rejects_protected_member(self):
+        self.member.roles.append(self.guild.roles[1477486340080799946])
+        before = await self.transport.member(DID)
+        with self.assertRaises(ValueError):
+            await self.transport.rename(str(DID), before, '[RM] Correct Name')
+        self.assertEqual(self.member.calls, [])
+
     async def test_high_role_blocks_changes(self):
         self.member.roles.append(Role(333, 20))
         before = await self.transport.member(DID)

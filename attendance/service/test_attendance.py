@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from attendance import UTC, evidence, link, report, seconds_in, windows
+from attendance import UTC, evidence, link, parse_date, report, seconds_in, windows
 from collector import connect
 
 UID = "76561198000000001"
@@ -45,6 +45,25 @@ class AttendanceTests(unittest.TestCase):
         self.assertEqual(windows(dt.date(2027, 3, 20))[0][1].hour, 18)
         self.assertEqual(windows(SATURDAY)[1][2].date(), dt.date(2026, 11, 8))
         self.assertEqual(windows(dt.date(2026, 11, 2)), [])
+
+    def test_user_date_formats(self):
+        for value in ('2026-11-07', '11/7/2026', 'Nov 7, 2026', '7 November 2026', '11/7/26', 'Nov 7, 26', '7 November 26'):
+            self.assertEqual(parse_date(value), SATURDAY)
+        self.assertEqual(parse_date('11/7/99').year, 2099)
+        self.assertEqual(parse_date('11/7/0007').year, 7)
+        for value in ('7/11', '14/11/2026', 'Nov 31, 2026', 'tomorrow'):
+            with self.assertRaises(ValueError):
+                parse_date(value)
+
+    def test_fun_credit_increases_total_but_not_last_four(self):
+        for session, base in [('main', '2026-11-07T19:00:00+00:00'), ('fun', '2026-11-08T00:00:00+00:00')]:
+            for minute in range(7):
+                self.add(minute, session=session, base=base)
+            self.add(6, 'END', [], session=session, base=base)
+        member = self.preview()['members'][0]
+        self.assertEqual(member['earned_in_report_range'], 2)
+        self.assertEqual([op['operation'] for op in member['last_four']], ['2026-11-07:main'])
+        self.assertEqual(len(member['operation_history']), 2)
 
     def test_strict_five_minute_threshold(self):
         for minute in range(6):

@@ -58,13 +58,14 @@ class HelpTests(unittest.TestCase):
         self.before = sum(len(g.commands) for g in groups.values()) - 1
         self.maintenance = arrange_commands(SimpleNamespace(Group=Group), self.public, self.staff)
         self.staff.add_command(Group("help"))
+        self.staff.add_command(Group('review'))  # Registered after rearranging the full staff group.
 
     def text(self, **kwargs):
         return "\n".join(command_help(self.public, self.staff, maintenance=self.maintenance, **kwargs))
 
     def test_exact_member_and_staff_surface(self):
         self.assertEqual({c.name for c in self.public.commands}, {"help", "status", "register", "clan-apply"})
-        self.assertEqual({c.name for c in self.staff.commands}, {"help", "health", "member", "training", "transfer"})
+        self.assertEqual({c.name for c in self.staff.commands}, {"help", "health", "member", "training", "transfer", "review"})
         training = next(c for c in self.staff.commands if c.name == "training")
         self.assertEqual({c.name for c in training.commands}, {"edit", "status"})
 
@@ -73,7 +74,7 @@ class HelpTests(unittest.TestCase):
             self.assertLessEqual(len(group.commands), 25)
             return sum(leaves(c) if c.commands else 1 for c in group.commands)
         total = sum(leaves(g) for g in (self.public, self.staff, self.maintenance))
-        self.assertEqual(total, self.before + 1)
+        self.assertEqual(total, self.before + 2)
         recovery = {c.name: c for c in self.maintenance.commands}
         self.assertEqual({c.name for c in recovery["links"].commands}, {"pending", "approve", "reject"})
         self.assertEqual({c.name for c in recovery["sheets"].commands}, {"bind", "preview", "init", "sync"})

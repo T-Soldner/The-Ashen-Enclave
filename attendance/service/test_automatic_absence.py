@@ -21,7 +21,7 @@ class AutomaticAbsenceTests(unittest.IsolatedAsyncioTestCase):
         self.transport = FakeTransport()
         self.workflow = Workflow(self.store,self.transport,GUILD,enabled=True)
         self.workflow.automatic_absence_alerts = True
-        self.operations = ['2026-11-07:main','2026-11-07:fun','2026-11-14:main','2026-11-14:fun']
+        self.operations = ['2026-11-07:main','2026-11-14:main','2026-11-21:main','2026-11-28:main']
         def seed(db):
             with db:
                 for op in self.operations:
@@ -62,7 +62,7 @@ class AutomaticAbsenceTests(unittest.IsolatedAsyncioTestCase):
         for status in ('accepted','pending'):
             def save(db):
                 with db:
-                    db.execute("INSERT OR REPLACE INTO loa_messages VALUES ('loa',?,'channel',?,?, '2026-11-14','2026-11-14',?,'','hash','now')",(str(GUILD),DID,DID,status))
+                    db.execute("INSERT OR REPLACE INTO loa_messages VALUES ('loa',?,'channel',?,?, '2026-11-28','2026-11-28',?,'','hash','now')",(str(GUILD),DID,DID,status))
             self.store.run(save)
             await self.workflow.post_absence_alerts()
         self.assertEqual(self.transport.calls,[])
@@ -77,3 +77,23 @@ class AutomaticAbsenceTests(unittest.IsolatedAsyncioTestCase):
         self.store.run(archive)
         await self.workflow.post_absence_alerts()
         self.assertEqual(self.transport.calls,[])
+
+    async def test_attended_fun_op_does_not_reset_main_absence_streak(self):
+        def seed(db):
+            with db:
+                db.execute("INSERT INTO finalized_operations VALUES (?,?,'now','hash','')", (str(GUILD),'2026-11-28:fun'))
+                db.execute("INSERT INTO operation_credits VALUES (?,?,?,?,?,'attended',360)",
+                    (str(GUILD),'2026-11-28:fun',UID,DID,'Character'))
+        self.store.run(seed)
+        await self.workflow.post_absence_alerts()
+        self.assertEqual(len(self.transport.calls), 1)
+
+    async def test_two_main_and_two_fun_misses_do_not_trigger_alert(self):
+        def change(db):
+            with db:
+                for day in ('2026-11-21','2026-11-28'):
+                    db.execute('UPDATE finalized_operations SET operation=? WHERE operation=?', (day+':fun',day+':main'))
+                    db.execute('UPDATE operation_credits SET operation=? WHERE operation=?', (day+':fun',day+':main'))
+        self.store.run(change)
+        await self.workflow.post_absence_alerts()
+        self.assertEqual(self.transport.calls, [])

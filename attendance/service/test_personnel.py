@@ -448,6 +448,20 @@ class SheetTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             sheets.require_preview(db,GUILD,"trainer",plans)
 
+    def test_current_roster_skips_empty_google_batch_and_recovers_receipt(self):
+        db = sqlite3.connect(':memory:')
+        self.addCleanup(db.close)
+        policy.initialize(db)
+        plan = {'kind':'roster','before':{'7,7':'Hondo'},'after':{'7,7':'Hondo'},'requests':[]}
+        previous = dict(plan, before={'7,7':'old'})
+        db.execute("INSERT INTO personnel_sheet_state VALUES ('roster','uncertain',?)", (json.dumps(previous),))
+        db.commit()
+        calls = []
+        google = SimpleNamespace(writable=True, session=SimpleNamespace(post=lambda *a, **k: calls.append(k)))
+        self.assertIn('already current', sheets.apply(db, google, [plan]))
+        self.assertEqual(calls, [])
+        self.assertEqual(db.execute('SELECT state FROM personnel_sheet_state').fetchone()[0], 'complete')
+
     def test_atomic_sheet_batch_and_verified_receipts(self):
         db = sqlite3.connect(":memory:")
         self.addCleanup(db.close)
@@ -506,6 +520,19 @@ class SheetTests(unittest.TestCase):
                 rows = (35, 38, 39, 40) if clan == "shyyyo" else (12, 13, 14, 15)
                 self.assertEqual([desired[(row, column)] for row in rows],
                                  ["Zulu Leader", "Zulu Second", "Alpha Member", "Beta Member"])
+
+    def test_freelancers_sorted_by_rank_then_character_name(self):
+        import promotions
+        members = [dict(id=str(index), name=name,
+                   roles={policy.HOUSE, policy.FREELANCER, promotions.RANKS[rank]['role']} | extra, bot=False)
+                   for index, (rank, name, extra) in enumerate([
+                       (0, 'Foundling', {policy.LEADER}), (1, '[FD] Darro', set()),
+                       (4, 'Zulu', set()), (2, 'Apprentice', set()),
+                       (3, 'Mandalorian', set()), (4, 'Alpha', set())])]
+        desired = sheets.roster_cells(members, roster_values())
+        self.assertEqual([desired[(row,14)] for row in range(4,10)],
+            ['[MV] Alpha', '[MV] Zulu', '[MM] Mandalorian', '[MA] Apprentice', '[MR] Darro', '[FD] Foundling'])
+        self.assertEqual(members[1]['name'], '[FD] Darro')
 
     def test_wrong_layout_capacity_and_multi_clan_refused(self):
         values = roster_values()

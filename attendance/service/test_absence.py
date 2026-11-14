@@ -14,7 +14,7 @@ UID = "76561198000000001"
 PRESENT = "76561198000000002"
 DID = "248567812203872257"
 OTHER = "123456789012345678"
-NOW = dt.datetime(2026, 11, 23, tzinfo=UTC)
+NOW = dt.datetime(2026, 12, 7, tzinfo=UTC)
 
 
 class AbsenceTests(unittest.TestCase):
@@ -43,9 +43,8 @@ class AbsenceTests(unittest.TestCase):
         self.store.run(action)
 
     def four(self):
-        for day in ("2026-11-07", "2026-11-14"):
-            for kind in ("main", "fun"):
-                self.operation(day, kind)
+        for day in ('2026-11-07', '2026-11-14', '2026-11-21', '2026-11-28'):
+            self.operation(day)
 
     def member(self):
         return next(row for row in self.store.run(lambda db: absence.preview(db, NOW))["members"] if row["discord_id"] == DID)
@@ -68,7 +67,7 @@ class AbsenceTests(unittest.TestCase):
     def test_loa_breaks_streak_without_adding_attended_total(self):
         self.four()
         self.store.run(lambda db: loa.save(db, "555555555555555555", "1", "2", DID,
-            f"Name: <@{DID}>\nDuration: 11/14/2026", NOW))
+            f"Name: <@{DID}>\nDuration: 11/28/2026", NOW))
         row = self.member()
         self.assertEqual(row["consecutive_misses"], 0)
         self.assertEqual(row["last_four"][-1]["status"], "excused")
@@ -77,20 +76,20 @@ class AbsenceTests(unittest.TestCase):
     def test_pending_loa_holds_result(self):
         self.four()
         self.store.run(lambda db: loa.save(db, "555555555555555555", "1", "2", OTHER,
-            f"Name: <@{DID}>\nDuration: 11/14/2026", NOW))
+            f"Name: <@{DID}>\nDuration: 11/28/2026", NOW))
         self.assertFalse(self.member()["eligible"])
         self.assertEqual(self.member()["last_four"][-1]["status"], "review")
 
     def test_attending_resets_streak(self):
         self.four()
-        self.operation("2026-11-21", target_attends=True)
+        self.operation("2026-12-05", target_attends=True)
         self.assertEqual(self.member()["consecutive_misses"], 0)
 
     def test_alert_receipt_survives_rechecks_and_fifth_miss(self):
         self.four()
         row = self.store.run(lambda db: absence.reserve(db, "guild", DID, NOW))
         self.store.run(lambda db: absence.finish(db, "guild", DID, row["episode"], "message"))
-        self.operation("2026-11-21")
+        self.operation("2026-12-05")
         with self.assertRaises(ValueError):
             self.store.run(lambda db: absence.reserve(db, "guild", DID, NOW))
         state = self.store.run(lambda db: db.execute("SELECT state FROM absence_alerts").fetchone()[0])
@@ -116,7 +115,13 @@ class AbsenceTests(unittest.TestCase):
         self.assertIn("Attended (2 linked members)", text)
         self.assertIn("- Missing", text)
         self.assertIn("- Present", text)
-        self.assertIn("Promotions: not enabled", text)
+        self.assertIn("This preview does not apply or report promotion results", text)
+
+    def test_recap_uses_current_discord_name_when_supplied(self):
+        self.operation('2026-11-07', target_attends=True)
+        text = self.store.run(lambda db: absence.recap_preview(db, dt.date(2026,11,7), now=NOW,
+            display_names={DID: '[MR] Correct Name'}))
+        self.assertIn('- [MR] Correct Name', text)
 
     def test_empty_recap_is_not_an_operation(self):
         text = self.store.run(lambda db: absence.recap_preview(db, dt.date(2026,11,7), now=NOW))

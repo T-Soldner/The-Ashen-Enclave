@@ -36,6 +36,10 @@ def initialize(db):
     """)
 
 
+class ReviewRequired(ValueError):
+    """A qualifying operation is held for a staff decision."""
+
+
 def finalize(db, guild_id, day, session, now=None, reviewed_evidence=False):
     now = now or dt.datetime.now(UTC)
     if session not in ("main", "fun") or day.weekday() != 5:
@@ -54,15 +58,15 @@ def finalize(db, guild_id, day, session, now=None, reviewed_evidence=False):
             raise ValueError("No linked member qualified; this window is not an operation.")
         pending = db.execute("SELECT 1 FROM loa_messages WHERE status='pending' AND (start_date IS NULL OR end_date IS NULL OR (start_date<=? AND end_date>=?)) LIMIT 1", (str(day), str(day))).fetchone()
         if pending:
-            raise ValueError("Resolve relevant pending LOAs before finalization.")
+            raise ReviewRequired("Resolve relevant pending LOAs before finalization.")
         coverage = complete_coverage(db, begin, end)
         if (data["warnings"] or not coverage) and not reviewed_evidence:
-            raise ValueError("Incomplete evidence/coverage. Credits remain in preview; staff must review before explicit finalization.")
+            raise ReviewRequired("Incomplete evidence/coverage. Credits remain in preview; staff must review before explicit finalization.")
         snapshot = []
         for member in data["members"]:
             if member["steam_id"] not in operation["seconds"]:
                 continue
-            op = next(item for item in member["last_four"] if item["operation"] == identifier)
+            op = next(item for item in member["operation_history"] if item["operation"] == identifier)
             status = op["status"]
             if status == "review-no-credit":
                 status = "missed" if coverage and not data["warnings"] else "review"
@@ -149,7 +153,7 @@ class Workflow:
             old = json.loads(payload)
             await self.send_once("promotion", f"{discord_id}:{role}", old["announcement"], discord_id)
         if plan["state"] != "proposed":
-            return plan["state"]
+            return plan["reason"] if plan["state"] == "review" else plan["state"]
         await self.transport.check_promotion(current, plan)
         def reserve(db):
             with db:
@@ -177,8 +181,6 @@ class Workflow:
             raise ValueError("Live workflow disabled. Start with --enable-live-workflow only after permission checks and testing.")
         async with self.lock:
             await self.transport.preflight()
-            if self.transport.reconcile_loas is not None:
-                await self.transport.reconcile_loas()
             operation = await self.db(lambda db: finalize(db, self.guild_id, day, session, now, reviewed_evidence))
             rows = await self.db(lambda db: db.execute("SELECT discord_id,name FROM operation_credits WHERE guild_id=? AND operation=? AND status='attended' ORDER BY name",
                                                       (self.guild_id, operation)).fetchall())
@@ -187,19 +189,27 @@ class Workflow:
                 try:
                     outcome = await self.process_member(operation, discord_id)
                     if outcome not in ("protected", "unchanged", "applied", "inactive"):
-                        problems.append(f"{name}: {outcome}")
+                        problems.append((discord_id, outcome))
                 except Exception:
-                    problems.append(f"{name}: promotion/announcement needs staff review")
+                    problems.append((discord_id, "Discord promotion or announcement could not be verified. Check /tae-maintenance workflow-status before retrying."))
             applied = await self.db(lambda db: db.execute("SELECT discord_id,plan_json FROM promotion_jobs WHERE guild_id=? AND operation=? AND state='applied'", (self.guild_id, operation)).fetchall())
             names = dict(rows)
+            # Display current Discord names without rewriting immutable attendance evidence.
+            for who, _ in rows:
+                try:
+                    names[who] = (await self.transport.member(who))['nickname']
+                except Exception:
+                    pass
             lines = [f"Operation complete: {operation} (Eastern)", f"Attended ({len(rows)}):"]
-            lines += ["- " + name for _, name in rows]
+            lines += ["- " + names[who] for who, _ in rows]
             lines.append("Promotions completed:")
             lines += ["- " + names.get(who, who) + ": " + json.loads(payload)["target"] for who, payload in applied]
             if not applied:
                 lines.append("None.")
             if problems:
-                lines.append(f"Staff review required for {len(problems)} promotion/announcement results.")
+                lines.append(f"Promotion review needed ({len(problems)}):")
+                lines += [f"- {names[who]}: {reason}" for who, reason in problems]
+                lines.append("To inspect a member, run /tae-admin review and select them in the member field.")
             page = ""
             pages = []
             for line in lines:
@@ -210,6 +220,11 @@ class Workflow:
             pages.append(page)
             for index, text in enumerate(pages):
                 await self.send_once("recap", f"{operation}:{index}", text)
+            if getattr(self.transport, 'name_review_factory', None):
+                await self.send_once('name-review', operation,
+                    f'Rank/name review for {operation}: admins can approve or deny attendance-based rank and nickname corrections, or fix a specific attendee. '
+                    'No changes occur until approved; appointed ranks remain protected. '
+                    'Corrections preserve attendance totals and unrelated roles; historical corrections do not send promotion announcements.')
             await self.post_absence_alerts()
             sheet_status = ""
             if self.sheet_export is not None:

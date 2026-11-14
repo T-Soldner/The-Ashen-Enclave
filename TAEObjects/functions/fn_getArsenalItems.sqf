@@ -2,6 +2,8 @@
 	"3AS_A280_F",
 	"3AS_A280_GL",
 	"IDA_773Firepuncher",
+	"tae_Amban",
+	"tae_mag_Amban",
 	"3AS_DLT19",
 	"3AS_DLT19X",
 	"3AS_DP23_F",
