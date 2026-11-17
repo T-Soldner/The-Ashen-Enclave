@@ -6,6 +6,18 @@ import re
 from attendance import UTC, DATE_HELP, DATE_PATTERN, eastern_offset, parse_date
 
 
+def list_entries(db, guild_id, pending_only=False, day=None, limit=10, offset=0):
+    query = "SELECT message_id,member_id,start_date,end_date,status FROM loa_messages WHERE guild_id=?"
+    params = [str(guild_id)]
+    if pending_only or day is not None:
+        query += " AND status='pending'"
+    if day is not None:
+        query += " AND (start_date IS NULL OR end_date IS NULL OR (start_date<=? AND end_date>=?))"
+        params.extend((day.isoformat(), day.isoformat()))
+    return db.execute(query + " ORDER BY updated_utc DESC, message_id DESC LIMIT ? OFFSET ?",
+                      (*params, limit, offset)).fetchall()
+
+
 def acknowledgement(outcome):
     if outcome["status"] == "accepted":
         start, end = outcome["start"], outcome["end"]

@@ -86,6 +86,34 @@ class WorkflowTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(self.transport.calls, [])
         self.assertEqual(self.rows("operation_credits"), [])
 
+    async def test_old_and_fun_session_warnings_do_not_block_main(self):
+        self.events()
+        def insert(db):
+            with db:
+                for session, stamp in (
+                    ("last-week", "2026-10-31T19:00:00+00:00"),
+                    ("fun", windows(DAY)[1][1].isoformat()),
+                ):
+                    db.execute("INSERT INTO events VALUES (?,?,?,?,?,?)",
+                               (session, 1, stamp, "PRESENCE", "[]", "other"))
+        self.store.run(insert)
+        await self.workflow.run(DAY, "main", now=NOW)
+        self.assertEqual(len(self.rows("finalized_operations")), 1)
+
+    async def test_overlapping_unclosed_session_still_requires_review(self):
+        self.events()
+        def insert(db):
+            with db:
+                start = windows(DAY)[0][1]
+                for sequence, offset in enumerate((-1, 1), 1):
+                    stamp = (start + dt.timedelta(minutes=offset)).isoformat()
+                    db.execute("INSERT INTO events VALUES (?,?,?,?,?,?)",
+                               ("overlap", sequence, stamp, "PRESENCE", "[]", "other"))
+        self.store.run(insert)
+        with self.assertRaisesRegex(ValueError, "overlap has no closing record"):
+            await self.workflow.run(DAY, "main", now=NOW)
+        self.assertEqual(self.rows("finalized_operations"), [])
+
     async def test_full_success_and_repeat_are_idempotent(self):
         self.events()
         await self.workflow.run(DAY, "main", now=NOW)
@@ -162,8 +190,28 @@ class WorkflowTests(unittest.IsolatedAsyncioTestCase):
         import loa
         self.store.run(lambda db: loa.save(db, "555555555555555555", GUILD, "2", "123456789012345679",
             f"Name: <@{DID}>\nDuration: 11/07/2026", NOW))
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, "Blocking message IDs: 555555555555555555"):
             await self.workflow.run(DAY, "main", now=NOW)
+
+    async def test_blocker_listing_filters_and_pages_pending_rows(self):
+        import loa
+
+        def check(db):
+            records = [(str(i), str(GUILD), "pending", None) for i in range(1, 13)]
+            records += [("accepted", str(GUILD), "accepted", None),
+                        ("other-date", str(GUILD), "pending", "2026-11-14"),
+                        ("other-guild", "other", "pending", None)]
+            with db:
+                db.executemany("INSERT INTO loa_messages VALUES (?,?, 'channel','author','member',?,?,?,'','digest','now')",
+                               [(mid, guild, date, date, status) for mid, guild, status, date in records])
+            first = loa.list_entries(db, GUILD, day=DAY)
+            second = loa.list_entries(db, GUILD, day=DAY, offset=10)
+            self.assertEqual((len(first), len(second)), (10, 2))
+            self.assertEqual({row[0] for row in first + second}, {str(i) for i in range(1, 13)})
+            pending = loa.list_entries(db, GUILD, pending_only=True, limit=20)
+            self.assertEqual(len(pending), 13)
+
+        self.store.run(check)
 
     async def test_recap_names_member_and_explains_rank_mismatch(self):
         self.events()

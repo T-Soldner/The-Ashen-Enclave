@@ -15,12 +15,23 @@ def initialize(db):
 
 
 def complete_coverage(db, begin, end):
+    return not coverage_issue(db, begin, end)
+
+
+def coverage_issue(db, begin, end):
     stamps = [dt.datetime.fromisoformat(row[0]) for row in db.execute(
         "SELECT utc FROM events WHERE kind='PRESENCE' ORDER BY utc")]
     stamps = sorted(set(stamp for stamp in stamps if begin <= stamp <= end))
-    return bool(stamps) and (stamps[0] - begin).total_seconds() <= 90 and (
-        end - stamps[-1]).total_seconds() <= 90 and all(
-        (right - left).total_seconds() <= 90 for left, right in zip(stamps, stamps[1:]))
+    if not stamps:
+        return "No presence records inside the operation window."
+    if (stamps[0] - begin).total_seconds() > 90:
+        return f"Presence coverage started late at {stamps[0]:%H:%M:%S} UTC."
+    if (end - stamps[-1]).total_seconds() > 90:
+        return f"Presence coverage ended early at {stamps[-1]:%H:%M:%S} UTC."
+    for left, right in zip(stamps, stamps[1:]):
+        if (right - left).total_seconds() > 90:
+            return f"Presence coverage gap from {left:%H:%M:%S} to {right:%H:%M:%S} UTC."
+    return None
 
 
 def preview(db, now=None):
@@ -56,7 +67,7 @@ def preview(db, now=None):
                                        for who, first, last in pending)
                 if op["operation"] not in coverage:
                     coverage[op["operation"]] = complete_coverage(db, begin, end)
-                status = "review" if (data["warnings"] or needs_loa_review or not coverage[op["operation"]]
+                status = "review" if (op["warnings"] or needs_loa_review or not coverage[op["operation"]]
                                       or now < end + dt.timedelta(minutes=15)) else "missed"
             history.append({"operation": op["operation"], "status": status})
         streak = []
@@ -157,7 +168,14 @@ def recap_preview(db, day, session="main", now=None, display_names=None):
              "Window complete: " + ("yes" if operation["closed"] else "no; attendance can still change"),
              f"Attended ({len(names)} linked members):"]
     lines += ["- " + name for name in names]
+    warnings = operation["warnings"]
+    if operation["closed"]:
+        begin, end = next((start, finish) for key, start, finish in windows(day) if key == identifier)
+        issue = coverage_issue(db, begin, end)
+        if issue:
+            warnings = [*warnings, issue]
     lines += ["This preview does not apply or report promotion results; use workflow-status for live processing.",
-              f"Evidence warnings: {len(data['warnings'])}. This recap has not been finalized or posted.",
+              f"Evidence warnings: {len(warnings)}. This recap has not been finalized or posted.",
+              *("- " + warning for warning in warnings),
               "Unlinked players are not included. Attendance does not grant credit until the window closes."]
     return "\n".join(lines)

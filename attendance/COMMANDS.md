@@ -52,6 +52,7 @@ These recovery commands remain available for exceptional cases:
 - `/tae-maintenance application-panel`: create/recover the public Apply panel.
 - `/tae-maintenance application-pending|application-review|application-role-check`: application recovery.
 - `/tae-maintenance loa-refresh|loa-list|loa-review`: inspect/correct LOA processing.
+- Use `/tae-maintenance loa-list pending_only:True` for the pending queue or `/tae-maintenance loa-list day:2026-11-21` for blockers on a specific date. Use `page:2` for the next page when prompted. Hold notices include the first ten blocking message IDs.
 - `/tae-maintenance missed|absence-post`: inspect/explicitly post absence alerts.
 - `/tae-admin review [member]`: audit Discord rank roles and nickname prefixes against starting totals plus finalized attendance. Omit member for everyone. Selecting one member offers private approve/deny/correct controls in live mode: approval updates BOTH the eligible rank role and nickname. Attendance totals and unrelated roles stay unchanged. Never demotes; missing/conflicting roles and uncertain earlier edits need manual review. Appointed ranks stay protected. Historical corrections do not send promotion announcements.
 - Last-four attendance and four-consecutive-miss alerts use MAIN operations only. Fun operations still add attended credits to lifetime totals and promotion eligibility, but neither add to nor reset the main-operation absence streak. Accepted LOAs continue to excuse main operations without increasing attended totals. Existing finalized credits are preserved.

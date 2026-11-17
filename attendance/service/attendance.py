@@ -69,13 +69,17 @@ def windows(day):
     return result
 
 
-def evidence(db):
+def _evidence(db):
     intervals = defaultdict(list)
-    warnings = set()
+    warnings = []
     sessions = defaultdict(list)
-    for session, sequence, stamp, kind, uids in db.execute(
-            "SELECT session,sequence,utc,kind,uids FROM events ORDER BY session,sequence"):
-        sessions[session].append((sequence, dt.datetime.fromisoformat(stamp), kind, json.loads(uids)))
+    sources = {}
+    for session, sequence, stamp, kind, uids, source in db.execute(
+            "SELECT session,sequence,utc,kind,uids,source FROM events ORDER BY session,sequence"):
+        stamp = dt.datetime.fromisoformat(stamp)
+        sessions[session].append((sequence, stamp, kind, json.loads(uids)))
+        first, last = sources.get(source, (stamp, stamp))
+        sources[source] = min(first, stamp), max(last, stamp)
     for session, events in sessions.items():
         anchors = {}
         previous_sequence = None
@@ -83,7 +87,7 @@ def evidence(db):
         ended = False
         for sequence, stamp, kind, uids in events:
             if previous_sequence is not None and (sequence != previous_sequence + 1 or stamp < previous_time):
-                warnings.add(f"Missing/out-of-order records in session {session}")
+                warnings.append((f"Missing/out-of-order records in session {session}", previous_time, stamp))
                 anchors.clear()
             previous_sequence, previous_time = sequence, stamp
             ended = kind == "END"
@@ -98,7 +102,7 @@ def evidence(db):
                         if 0 <= seconds <= MAX_GAP:
                             intervals[uid].append((anchors[uid], stamp))
                         else:
-                            warnings.add(f"Unconfirmed presence gap in session {session}")
+                            warnings.append((f"Unconfirmed presence gap in session {session}", anchors[uid], stamp))
                 if kind == "PRESENCE":
                     anchors = {uid: stamp for uid in uids}
                 elif kind == "LEAVE":
@@ -107,10 +111,31 @@ def evidence(db):
                 elif kind == "END":
                     anchors.clear()
         if not ended:
-            warnings.add(f"Session {session} has no closing record (live or interrupted)")
-    if db.execute("SELECT count(*) FROM rejected_events").fetchone()[0]:
-        warnings.add("Quarantined records require review")
-    return intervals, sorted(warnings)
+            stamps = [event[1] for event in events]
+            warnings.append((f"Session {session} has no closing record (live or interrupted)", min(stamps), max(stamps)))
+    for source, line in db.execute("SELECT source,raw_line FROM rejected_events"):
+        # The timestamp may still be valid even if the rest of the record was rejected.
+        try:
+            stamp_text = line.split("TAE_ATTENDANCE_V1|", 1)[1].split("|")[2]
+            year, month, day, hour, minute, second, millis = map(int, stamp_text.split(","))
+            stamp = dt.datetime(year, month, day, hour, minute, second, millis * 1000, tzinfo=UTC)
+            first, last = stamp, stamp
+        except (IndexError, ValueError, OverflowError):
+            first, last = sources.get(source, (None, None))
+        warnings.append(("Quarantined records require review", first, last))
+    return intervals, warnings
+
+
+def warning_messages(warnings, begin=None, end=None):
+    return sorted({message for message, first, last in warnings
+                   if begin is None or first is None or
+                   (min(first, last) <= end and max(first, last) >= begin)})
+
+
+def evidence(db):
+    """Return all warnings for diagnostics, independent of any operation window."""
+    intervals, warnings = _evidence(db)
+    return intervals, warning_messages(warnings)
 
 
 def seconds_in(intervals, start, end):
@@ -144,7 +169,7 @@ def report(db, start_day, end_day, now=None):
     now = now or dt.datetime.now(UTC)
     if start_day > end_day or (end_day - start_day).days > 366:
         raise ValueError("Use an ordered range of at most 367 days")
-    intervals, warnings = evidence(db)
+    intervals, warnings = _evidence(db)
     members = db.execute("SELECT steam_id,discord_id,display_name,baseline_ops,tracking_since FROM members WHERE active=1 ORDER BY display_name").fetchall()
     operations = []
     day = start_day
@@ -153,7 +178,8 @@ def report(db, start_day, end_day, now=None):
             seconds = {uid: seconds_in(intervals.get(uid, []), begin, end)
                        for uid, _, _, _, since in members if since and day.isoformat() >= since}
             if any(value > 300 for value in seconds.values()):
-                operations.append({"operation": identifier, "closed": end <= now, "seconds": seconds})
+                operations.append({"operation": identifier, "closed": end <= now, "seconds": seconds,
+                                   "warnings": warning_messages(warnings, begin, end)})
         day += dt.timedelta(days=1)
     results = []
     excuses = []
@@ -174,6 +200,6 @@ def report(db, start_day, end_day, now=None):
         results[-1]['operation_history'] = results[-1]['last_four']
         results[-1]['last_four'] = [op for op in results[-1]['operation_history'] if op['operation'].endswith(':main')][-4:]
     return {"mode": "PREVIEW ONLY", "from": str(start_day), "through": str(end_day),
-            "warnings": warnings, "members": results,
+            "warnings": sorted({warning for op in operations for warning in op["warnings"]}), "members": results,
             "operations": operations,
             "note": "Range counts are not lifetime totals. Accepted LOAs excuse recent results without adding credit. Final absence decisions and rank changes are disabled."}

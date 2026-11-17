@@ -509,12 +509,22 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
             text = "Unable to refresh LOA. Check message ID, channel configuration, Message Content intent and Read Message History permission."
         await interaction.followup.send(text[:1950], ephemeral=True, allowed_mentions=discord.AllowedMentions.none())
 
-    @staff.command(name="loa-list", description="Show up to 10 stored LOAs, most recently updated first")
+    @staff.command(name="loa-list", description="List stored LOAs; filter by pending status or operation date")
     @app_commands.checks.has_permissions(administrator=True)
-    async def loa_list(interaction: discord.Interaction):
+    async def loa_list(interaction: discord.Interaction, pending_only: bool = False, day: str = None, page: int = 1):
         def display():
-            rows = store.run(lambda db: db.execute("SELECT message_id,member_id,start_date,end_date,status FROM loa_messages ORDER BY updated_utc DESC LIMIT 10").fetchall())
-            return "\n".join(" | ".join(str(field or "?") for field in row) for row in rows) if rows else "No stored LOAs."
+            if not 1 <= page <= 100000:
+                raise ValueError("Page must be between 1 and 100000.")
+            date = parse_date(day) if day is not None else None
+            rows = store.run(lambda db: loa.list_entries(db, guild_id, pending_only, date, 11, (page - 1) * 10))
+            if not rows:
+                return "No matching LOAs on this page."
+            lines = [f"LOAs (page {page}): message ID | member ID | start | end | status"]
+            lines.extend(" | ".join(str(field or "?") for field in row) for row in rows[:10])
+            if len(rows) > 10:
+                filters = f" day:{date.isoformat()}" if date else " pending_only:True" if pending_only else ""
+                lines.append(f"Next page: /tae-maintenance loa-list{filters} page:{page + 1}")
+            return "\n".join(lines)
         await execute(interaction, display)
 
     @staff.command(name="loa-review", description="Accept or reject a pending, completely parsed LOA")

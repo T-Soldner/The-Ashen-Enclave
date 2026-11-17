@@ -5,9 +5,10 @@ import hashlib
 import json
 
 from attendance import UTC, report, windows
-from absence import complete_coverage
+from absence import coverage_issue
 import promotions
 import absence
+import loa
 
 
 def initialize(db):
@@ -56,12 +57,18 @@ def finalize(db, guild_id, day, session, now=None, reviewed_evidence=False):
         operation = next((op for op in data["operations"] if op["operation"] == identifier), None)
         if not operation:
             raise ValueError("No linked member qualified; this window is not an operation.")
-        pending = db.execute("SELECT 1 FROM loa_messages WHERE status='pending' AND (start_date IS NULL OR end_date IS NULL OR (start_date<=? AND end_date>=?)) LIMIT 1", (str(day), str(day))).fetchone()
+        pending = loa.list_entries(db, guild_id, day=day, limit=11)
         if pending:
-            raise ReviewRequired("Resolve relevant pending LOAs before finalization.")
-        coverage = complete_coverage(db, begin, end)
-        if (data["warnings"] or not coverage) and not reviewed_evidence:
-            raise ReviewRequired("Incomplete evidence/coverage. Credits remain in preview; staff must review before explicit finalization.")
+            ids = ", ".join(row[0] for row in pending[:10])
+            more = " (more on page 2)" if len(pending) > 10 else ""
+            raise ReviewRequired(f"Resolve relevant pending LOAs before finalization. "
+                                 f"Blocking message IDs: {ids}{more}. Run /tae-maintenance loa-list "
+                                 f"day:{day.isoformat()} to inspect them.")
+        issue = coverage_issue(db, begin, end)
+        warnings = operation["warnings"]
+        if (warnings or issue) and not reviewed_evidence:
+            detail = issue or warnings[0]
+            raise ReviewRequired(f"Incomplete evidence/coverage: {detail} Credits remain in preview; staff must review before explicit finalization.")
         snapshot = []
         for member in data["members"]:
             if member["steam_id"] not in operation["seconds"]:
@@ -69,11 +76,11 @@ def finalize(db, guild_id, day, session, now=None, reviewed_evidence=False):
             op = next(item for item in member["operation_history"] if item["operation"] == identifier)
             status = op["status"]
             if status == "review-no-credit":
-                status = "missed" if coverage and not data["warnings"] else "review"
+                status = "missed" if not issue and not warnings else "review"
             snapshot.append((str(guild_id), identifier, member["steam_id"], member["discord_id"],
                              member["name"], status, op["confirmed_seconds"]))
         digest = hashlib.sha256(json.dumps(snapshot, sort_keys=True).encode()).hexdigest()
-        note = "Staff reviewed incomplete evidence; uncertain absences remain review." if data["warnings"] or not coverage else ""
+        note = "Staff reviewed incomplete evidence; uncertain absences remain review." if warnings or issue else ""
         db.execute("INSERT INTO finalized_operations VALUES (?,?,?,?,?)", (str(guild_id), identifier, now.isoformat(), digest, note))
         db.executemany("INSERT INTO operation_credits VALUES (?,?,?,?,?,?,?)", snapshot)
     return identifier
