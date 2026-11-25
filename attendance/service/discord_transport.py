@@ -93,13 +93,16 @@ class Transport:
             raise ValueError("Could not verify the entire promotion; do not announce success.")
 
     async def send(self, kind, text, mention_id=None):
-        channel = self.channels[kind]
+        channel = self.channels["planning" if kind == "planning-ping" else kind]
         if mention_id:
             mentions = self.discord.AllowedMentions(everyone=False, roles=False,
                 users=[self.discord.Object(id=int(mention_id))], replied_user=False)
         else:
             mentions = self.discord.AllowedMentions.none()
             text = self.discord.utils.escape_mentions(self.discord.utils.escape_markdown(text))
+            if kind == "planning-ping":
+                text = "@everyone\n" + text
+                mentions = self.discord.AllowedMentions(everyone=True, roles=False, users=False, replied_user=False)
         options = {'view': self.name_review_factory()} if kind == 'name-review' and self.name_review_factory else {}
         message = await channel.send(text, allowed_mentions=mentions, **options)
         return message.id

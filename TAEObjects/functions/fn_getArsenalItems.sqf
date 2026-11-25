@@ -702,6 +702,7 @@
 	"tae_varen_helmet",
 	"tae_dark_red_rangefinder",
 	"tae_foxx_helmet",
+	"tae_fade_helmet",
 	"tae_modular_pack_engi_female",
 	"tae_modular_pack_engi",
 	"tae_modular_pack_lr_female",

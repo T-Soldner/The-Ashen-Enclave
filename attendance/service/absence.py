@@ -1,7 +1,7 @@
 """Conservative absence previews and durable, staff-triggered alert receipts."""
 import datetime as dt
 
-from attendance import UTC, report, windows
+from attendance import UTC, holiday_dates, report, windows
 
 
 def initialize(db):
@@ -50,7 +50,7 @@ def preview(db, now=None):
     for member in data["members"]:
         history = []
         for op in data["operations"]:
-            if not op['operation'].endswith(':main'):
+            if op["holiday"] or not op['operation'].endswith(':main'):
                 continue
             if not op["closed"] or member["steam_id"] not in op["seconds"]:
                 continue
@@ -106,7 +106,10 @@ def finish(db, guild_id, discord_id, episode, message_id=None):
 
 def ledger_candidates(db, guild_id):
     """Only finalized misses count; current LOAs and gaps suppress automatic alerts."""
-    operations = [r[0] for r in db.execute("SELECT operation FROM finalized_operations WHERE guild_id=? AND operation LIKE '%:main' ORDER BY operation",(str(guild_id),))]
+    operations = [r[0] for r in db.execute("""SELECT operation FROM finalized_operations
+        WHERE guild_id=? AND operation LIKE '%:main' AND NOT EXISTS (
+            SELECT 1 FROM attendance_holidays WHERE day=substr(operation,1,10))
+        ORDER BY operation""",(str(guild_id),))]
     result = []
     for steam,did,name,since in db.execute("SELECT steam_id,discord_id,display_name,tracking_since FROM members WHERE active=1"):
         if not did or not since:
@@ -152,22 +155,26 @@ def format_preview(data):
     return "\n".join(lines)
 
 
-def recap_preview(db, day, session="main", now=None, display_names=None):
+def recap_preview(db, day, session="main", now=None, display_names=None, scheduled=False):
     now = now or dt.datetime.now(UTC)
     if session not in ("main", "fun"):
         raise ValueError("Choose main or fun.")
     if day.weekday() != 5:
         raise ValueError("Automatic operation recaps apply to Saturdays only.")
+    holiday = bool(holiday_dates(db, day, day))
     data = report(db, day, day, now)
     identifier = f"{day}:{session}"
     operation = next((op for op in data["operations"] if op["operation"] == identifier), None)
     if not operation:
-        return f"PREVIEW ONLY - {identifier}\nNo qualifying tracked operation recorded. No recap should be posted."
+        status = "No qualifying tracked operation recorded yet." if scheduled else "No qualifying tracked operation recorded. No recap should be posted."
+        return f"PREVIEW ONLY - {identifier}\n{status}" + (" Holiday: no misses count." if holiday else "")
     names = [(display_names or {}).get(member['discord_id'], member["name"]) for member in data["members"] if operation["seconds"].get(member["steam_id"], 0) > 300]
     lines = [f"PREVIEW ONLY - {day} {'Main operation' if session == 'main' else 'Fun operation'} (Eastern)",
              "Window complete: " + ("yes" if operation["closed"] else "no; attendance can still change"),
              f"Attended ({len(names)} linked members):"]
     lines += ["- " + name for name in names]
+    if holiday:
+        lines.append("Holiday: qualifying attendees can earn credit; nobody receives a miss.")
     warnings = operation["warnings"]
     if operation["closed"]:
         begin, end = next((start, finish) for key, start, finish in windows(day) if key == identifier)
@@ -175,7 +182,8 @@ def recap_preview(db, day, session="main", now=None, display_names=None):
         if issue:
             warnings = [*warnings, issue]
     lines += ["This preview does not apply or report promotion results; use workflow-status for live processing.",
-              f"Evidence warnings: {len(warnings)}. This recap has not been finalized or posted.",
+              f"Evidence warnings: {len(warnings)}. " + ("This preview does not finalize attendance." if scheduled else
+                  "This recap has not been finalized or posted."),
               *("- " + warning for warning in warnings),
               "Unlinked players are not included. Attendance does not grant credit until the window closes."]
     return "\n".join(lines)

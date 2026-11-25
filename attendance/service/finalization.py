@@ -4,7 +4,7 @@ import datetime as dt
 import hashlib
 import json
 
-from attendance import UTC, report, windows
+from attendance import UTC, holiday_dates, report, windows
 from absence import coverage_issue
 import promotions
 import absence
@@ -13,6 +13,9 @@ import loa
 
 def initialize(db):
     db.executescript("""
+        CREATE TABLE IF NOT EXISTS attendance_holidays (
+            day TEXT PRIMARY KEY, marked_by TEXT NOT NULL
+        );
         CREATE TABLE IF NOT EXISTS finalized_operations (
             guild_id TEXT NOT NULL, operation TEXT NOT NULL, finalized_utc TEXT NOT NULL,
             evidence_hash TEXT NOT NULL, review_note TEXT NOT NULL,
@@ -41,6 +44,19 @@ class ReviewRequired(ValueError):
     """A qualifying operation is held for a staff decision."""
 
 
+def set_holiday(db, day, actor_id, enabled=True):
+    with db:
+        db.execute("BEGIN IMMEDIATE")
+        if db.execute("SELECT 1 FROM finalized_operations WHERE operation IN (?, ?)",
+                      (f"{day}:main", f"{day}:fun")).fetchone():
+            raise ValueError("That date already has finalized attendance. No credits or records were changed.")
+        if enabled:
+            return db.execute("INSERT OR IGNORE INTO attendance_holidays VALUES (?, ?)",
+                              (day.isoformat(), str(actor_id))).rowcount == 1
+        else:
+            return db.execute("DELETE FROM attendance_holidays WHERE day=?", (day.isoformat(),)).rowcount == 1
+
+
 def finalize(db, guild_id, day, session, now=None, reviewed_evidence=False):
     now = now or dt.datetime.now(UTC)
     if session not in ("main", "fun") or day.weekday() != 5:
@@ -51,13 +67,14 @@ def finalize(db, guild_id, day, session, now=None, reviewed_evidence=False):
         raise ValueError("Wait until 15 minutes after the operation window ends.")
     with db:
         db.execute("BEGIN IMMEDIATE")
+        holiday = bool(holiday_dates(db, day, day))
         if db.execute("SELECT 1 FROM finalized_operations WHERE guild_id=? AND operation=?", (str(guild_id), identifier)).fetchone():
             return identifier
         data = report(db, day, day, now)
         operation = next((op for op in data["operations"] if op["operation"] == identifier), None)
         if not operation:
             raise ValueError("No linked member qualified; this window is not an operation.")
-        pending = loa.list_entries(db, guild_id, day=day, limit=11)
+        pending = [] if holiday else loa.list_entries(db, guild_id, day=day, limit=11)
         if pending:
             ids = ", ".join(row[0] for row in pending[:10])
             more = " (more on page 2)" if len(pending) > 10 else ""
@@ -121,6 +138,50 @@ class Workflow:
 
     async def db(self, callback):
         return await asyncio.to_thread(self.store.run, callback)
+
+    async def scheduled_preview(self, kind, day, now):
+        if await self.db(lambda db: holiday_dates(db, day, day)):
+            return
+        key = f"{day}:main"
+        primary = "planning-ping" if kind == "planning" else "recap-preview"
+        if await self.db(lambda db: db.execute(
+                "SELECT 1 FROM workflow_posts WHERE guild_id=? AND kind=? AND post_key=?",
+                (self.guild_id, primary, f"{key}:0")).fetchone()):
+            return
+        if kind == "planning":
+            lines = [f"Expected promotions - {day} Main operation (Eastern)",
+                     "Conditional on qualifying attendance and final staff checks. No Discord ranks changed."]
+            thresholds = {rank["ops"] for rank in promotions.RANKS[1:]}
+            skipped = 0
+            candidates = []
+            for who, _, baseline, earned in await self.db(lambda db: ledger_totals(db, self.guild_id)):
+                if baseline + earned + 1 not in thresholds:
+                    continue
+                try:
+                    current = await self.transport.member(who)
+                except Exception:
+                    skipped += 1
+                    continue
+                if current["protected"]:
+                    continue
+                plan = await self.db(lambda db: promotions.plan(
+                    db, who, current["nickname"], current["roles"], current["role_names"],
+                    self.protected_roles, now=now, credited_ops=earned + 1))
+                if plan["state"] == "proposed":
+                    candidates.append(f"- {current['nickname']} -> {plan['target']} ({plan['total_ops']} ops)")
+            lines.extend(candidates or ["No automatic promotions forecast."])
+            if skipped:
+                lines.append(f"Could not verify Discord roles for {skipped} possible candidate(s).")
+        else:
+            lines = (await self.db(lambda db: absence.recap_preview(
+                db, day, now=now, scheduled=True))).splitlines()
+        pages = [""]
+        for line in lines:
+            if len(pages[-1]) + len(line) + 1 > 1500:
+                pages.append("Preview (continued)\n")
+            pages[-1] += line + "\n"
+        for index, text in enumerate(pages):
+            await self.send_once(primary if index == 0 else kind, f"{key}:{index}", text)
 
     async def send_once(self, kind, key, text, mention_id=None):
         def reserve(db):

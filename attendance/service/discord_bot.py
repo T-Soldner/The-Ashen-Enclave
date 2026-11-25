@@ -1,6 +1,6 @@
 """Discord attendance/application bot. Writes and live promotions require explicit flags."""
 import argparse
-from attendance import DATE_HELP, parse_date
+from attendance import DATE_HELP, eastern_offset, parse_date
 import asyncio
 import datetime as dt
 import getpass
@@ -153,7 +153,18 @@ def pending_pages(blocks, limit=1900):
     yield page
 
 
-def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bot_spam_channel_id=None, allow_absence_posts=False, protected_rank_role_ids=(), enable_live_workflow=False, auto_from=None, sheets_credentials=None, enable_sheet_writes=False, applications_review_channel_id=None, enable_application_roles=False, enable_roster_scan=False, enable_auto_onboarding=False, enable_clan_training=False, enable_link_queue=False):
+def scheduled_preview_slot(now):
+    eastern = now + dt.timedelta(hours=eastern_offset(now))
+    if eastern.weekday() != 5:
+        return None
+    if eastern.hour == 16:
+        return eastern.date(), "planning"
+    if eastern.hour == 17:
+        return eastern.date(), "recap-preview"
+    return None
+
+
+def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bot_spam_channel_id=None, allow_absence_posts=False, protected_rank_role_ids=(), enable_live_workflow=False, auto_from=None, sheets_credentials=None, enable_sheet_writes=False, applications_review_channel_id=None, enable_application_roles=False, enable_roster_scan=False, enable_auto_onboarding=False, enable_clan_training=False, enable_link_queue=False, enable_scheduled_recap=False, operation_planning_channel_id=None):
     guild = discord.Object(id=guild_id)
 
     class Client(discord.Client):
@@ -168,6 +179,7 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
             self.tree = app_commands.CommandTree(self)
             self.loa_lock = asyncio.Lock()
             self.automatic_task = None
+            self.preview_task = None
             self.link_task = None
 
         async def setup_hook(self):
@@ -186,10 +198,18 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
                 channel = await self.fetch_channel(bot_spam_channel_id)
                 if not isinstance(channel, discord.TextChannel) or channel.guild.id != guild_id:
                     raise ValueError("Bot-spam channel must be in the configured server.")
+                transport.channels["recap-preview"] = channel
+            if operation_planning_channel_id:
+                channel = await self.fetch_channel(operation_planning_channel_id)
+                if not isinstance(channel, discord.TextChannel) or channel.guild.id != guild_id:
+                    raise ValueError("Operation-planning channel must be a text channel in the configured server.")
+                transport.channels["planning"] = channel
             await self.tree.sync(guild=guild)
             print("Attendance commands registered for the configured server. " + ("LIVE workflow enabled." if enable_live_workflow else "PREVIEW mode."), flush=True)
             if enable_live_workflow and auto_from:
                 self.automatic_task = asyncio.create_task(self.automatic_operations())
+                if enable_scheduled_recap or operation_planning_channel_id:
+                    self.preview_task = asyncio.create_task(self.automatic_previews())
             if enable_link_queue:
                 self.link_task = asyncio.create_task(link_poll())
 
@@ -206,13 +226,28 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
                     await self.link_task
                 except asyncio.CancelledError:
                     pass
-            if self.automatic_task:
-                self.automatic_task.cancel()
-                try:
-                    await self.automatic_task
-                except asyncio.CancelledError:
-                    pass
+            for task in (self.automatic_task, self.preview_task):
+                if task:
+                    task.cancel()
+                    try:
+                        await task
+                    except asyncio.CancelledError:
+                        pass
             await super().close()
+
+        async def automatic_previews(self):
+            await self.wait_until_ready()
+            while not self.is_closed():
+                now = dt.datetime.now(dt.timezone.utc)
+                slot = scheduled_preview_slot(now)
+                if slot:
+                    day, kind = slot
+                    if day >= auto_from and (operation_planning_channel_id if kind == "planning" else enable_scheduled_recap):
+                        try:
+                            await workflow.scheduled_preview(kind, day, now)
+                        except Exception as error:
+                            print(f"Scheduled {kind} failed for {day} ({type(error).__name__}); check channel permissions and workflow-status.", flush=True)
+                await asyncio.sleep(60)
 
         async def automatic_operations(self):
             await self.wait_until_ready()
@@ -626,6 +661,33 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
         await interaction.followup.send(discord.utils.escape_mentions(discord.utils.escape_markdown(text))[:1950],
                                         ephemeral=True, allowed_mentions=discord.AllowedMentions.none())
 
+    @app_commands.command(name="tae-holiday", description="Mark or unmark an Eastern date as a holiday (attendance optional)")
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.checks.has_permissions(administrator=True)
+    async def holiday(interaction: discord.Interaction, day: str, enabled: bool = True):
+        await interaction.response.defer(ephemeral=True, thinking=True)
+        try:
+            date = parse_date(day)
+            changed = await workflow.db(lambda db: finalization.set_holiday(db, date, interaction.user.id, enabled))
+            text = (f"{date} (Eastern) is marked as a holiday. Attendance earns credit, but nobody gets a miss."
+                    if enabled else f"Holiday cleared for {date} (Eastern). Normal attendance processing can resume.")
+            if enabled and changed:
+                if not loa_channel_id:
+                    text += " No LOA channel is configured; notify players manually."
+                else:
+                    try:
+                        channel = await client.fetch_channel(loa_channel_id)
+                        await channel.send(
+                            f"Attendance holiday: {date} (Eastern). Attending counts for credit, but missing an operation won't count against you. "
+                            "You do not need to submit an LOA for this date.",
+                            allowed_mentions=discord.AllowedMentions.none())
+                        text += f" Notice posted in <#{loa_channel_id}>."
+                    except discord.HTTPException:
+                        text += " The LOA notice could not be confirmed. Check the channel and notify players if needed."
+        except ValueError as error:
+            text = str(error)
+        await interaction.followup.send(text, ephemeral=True)
+
     @staff.command(name="finalize", description="LIVE opt-in: finalize a completed op, process promotions and post its recap")
     @app_commands.checks.has_permissions(administrator=True)
     @app_commands.choices(session=[app_commands.Choice(name="Main operation", value="main"), app_commands.Choice(name="Fun operation", value="fun")])
@@ -821,6 +883,7 @@ def build_client(discord, app_commands, store, guild_id, loa_channel_id=None, bo
     client.tree.add_command(public, guild=guild)
     client.tree.add_command(staff, guild=guild)
     client.tree.add_command(maintenance, guild=guild)
+    client.tree.add_command(holiday, guild=guild)
     return client
 
 
@@ -834,6 +897,8 @@ def main():
     parser.add_argument("--protected-rank-role-id", action="append", type=int, default=[], help="Appointed rank role to protect; repeat for each role")
     parser.add_argument("--enable-live-workflow", action="store_true", help="Explicitly enable real role/nickname changes, announcements and recaps")
     parser.add_argument("--auto-from", type=dt.date.fromisoformat, help="Opt-in automatic finalization from this Eastern date; requires live workflow")
+    parser.add_argument("--enable-scheduled-recap", action="store_true", help="Post a Saturday 5 PM Eastern Main operation preview to bot-spam; requires --auto-from")
+    parser.add_argument("--operation-planning-channel-id", type=int, help="Post and ping @everyone for the Saturday 4 PM Eastern promotion forecast in this channel; requires --auto-from")
     parser.add_argument("--sheets-credentials", type=Path, help="Path to private Google service-account key; read-only unless separately enabled")
     parser.add_argument("--enable-sheet-writes", action="store_true", help="Explicitly enable finalized exports to Google; requires Editor sharing")
     parser.add_argument("--applications-review-channel-id", type=int, help="Enable the Apply panel workflow; destination must be staff-only")
@@ -864,6 +929,12 @@ def main():
         parser.error("Live workflow requires the configured TAE guild, LOA channel and bot-spam channel")
     if args.auto_from and not args.enable_live_workflow:
         parser.error("--auto-from requires --enable-live-workflow")
+    if (args.enable_scheduled_recap or args.operation_planning_channel_id is not None) and not args.auto_from:
+        parser.error("Scheduled operation previews require --auto-from")
+    if args.operation_planning_channel_id is not None and (
+            not 10**16 <= args.operation_planning_channel_id < 10**20 or
+            args.operation_planning_channel_id in {args.bot_spam_channel_id, args.loa_channel_id, promotions.ANNOUNCEMENTS_CHANNEL}):
+        parser.error("Use a valid, separate operation-planning channel ID.")
     if args.enable_sheet_writes and not args.sheets_credentials:
         parser.error("--enable-sheet-writes requires --sheets-credentials")
     if args.sheets_credentials and not args.sheets_credentials.is_file():
@@ -885,7 +956,8 @@ def main():
         client = build_client(discord, app_commands, store, args.guild_id, args.loa_channel_id,
                               args.bot_spam_channel_id, args.allow_absence_posts, args.protected_rank_role_id,
                               args.enable_live_workflow, args.auto_from, args.sheets_credentials,
-                              args.enable_sheet_writes, args.applications_review_channel_id,args.enable_application_roles,args.enable_roster_scan,args.enable_auto_onboarding,args.enable_clan_training,args.enable_link_queue)
+                              args.enable_sheet_writes, args.applications_review_channel_id,args.enable_application_roles,args.enable_roster_scan,args.enable_auto_onboarding,args.enable_clan_training,args.enable_link_queue,
+                              args.enable_scheduled_recap, args.operation_planning_channel_id)
     except ValueError as error:
         detail = str(error).replace(os.environ.get("TAE_DISCORD_TOKEN") or "\x00", "[REDACTED]")
         parser.exit(1, "Discord command construction failed: " + detail[:500] + "\nNo Discord connection made; do not reset the database or credentials.\n")

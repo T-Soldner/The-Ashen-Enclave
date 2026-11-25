@@ -61,6 +61,7 @@ These recovery commands remain available for exceptional cases:
 - A qualifying operation held for LOA or evidence review gets one automatic notice in bot-spam. Finalized recaps are posted separately.
 - Finalized operations post a **Review ranks and names** button in bot-spam with the same attendance-based per-person approval. WC/RM remain protected. Failed/uncertain edits require receipt review, not blind retry. Existing recap messages are not rewritten; new recaps/previews use current Discord names.
 - `/tae-maintenance finalize|workflow-status|live-check`: operation workflow recovery/checks.
+- `/tae-holiday day:2026-11-28` (administrators only): make both Eastern operation windows optional. Qualifying attendees earn credit; no misses, last-four entries, or scheduled previews. Use `enabled:False` to clear it before finalization. Dates with finalized attendance cannot be changed.
 - `/tae-maintenance archive-member`: explicit member deactivation with preserved history.
 
 The `|` above means choose one subcommand, not text to type literally.

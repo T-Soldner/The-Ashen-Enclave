@@ -53,7 +53,16 @@ confirming it saves identity mappings ONLY, not qualifications or roles.
 Keep this flag OFF until the read-only personnel-check and deployment review pass.
 First roster-sync writes require the same trainer's fresh, unchanged preview.
 Legacy Specializations stays intact; new records use a separate Training Tracker.
-Keep existing live attendance/auto-from flags unchanged. Full rollout instructions
+Keep existing live attendance/auto-from flags unchanged. To enable the Saturday
+previews, add "--enable-scheduled-recap", "--operation-planning-channel-id",
+"1477486341691408487" to bot_args. The bot needs View Channel and Send Messages in
+both channels and Mention Everyone in operation-planning. The 4 PM Eastern
+forecast assumes one qualifying Main operation credit; the 5 PM Eastern
+bot-spam recap is a preview only. Neither changes ranks or grants credit. The
+normal finalization, role updates and promotion announcements remain separate.
+The bot can catch up within the scheduled hour, but won't send stale pings.
+
+Full rollout instructions
 are in attendance\CLANS_AND_TRAINING.md in the development repository.
 
 BACKGROUND RUNNING (WINDOWS TASK SCHEDULER)

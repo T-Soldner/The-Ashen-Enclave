@@ -624,9 +624,18 @@ class DefaultVehicleSystemsDisplayManagerLeft;
 class DefaultVehicleSystemsDisplayManagerRight;
 
 class CfgVehicles {
-	class B_PKV5_MMTS_Cannon_F {
+	class Tank;
+	class Tank_F: Tank {
 		class Turrets {
 			class MainTurret;
+		};
+	};
+	class MBT_01_base_F: Tank_F {};
+	class PKV5_MMTS_Base_F: MBT_01_base_F {};
+	class PKV5_MMTS_Cannon_base_F: PKV5_MMTS_Base_F {};
+	class B_PKV5_MMTS_Cannon_F: PKV5_MMTS_Cannon_base_F {
+		class Turrets: Turrets {
+			class MainTurret: MainTurret {};
 		};
 	};
 	class TAE_PKV5_Cannon: B_PKV5_MMTS_Cannon_F {
@@ -656,9 +665,10 @@ class CfgVehicles {
 			};
 		};
 	};
-	class B_PKV5_MMTS_Multi_F {
-		class Turrets {
-			class MainTurret;
+	class PKV5_MMTS_Multi_base_F: PKV5_MMTS_Base_F {};
+	class B_PKV5_MMTS_Multi_F: PKV5_MMTS_Multi_base_F {
+		class Turrets: Turrets {
+			class MainTurret: MainTurret {};
 		};
 	};
 	class TAE_PKV5_Multi: B_PKV5_MMTS_Multi_F {
@@ -734,9 +744,10 @@ class CfgVehicles {
 			};
 		};
 	};
-	class B_PKV5_MMTS_AA_F {
-		class Turrets {
-			class MainTurret;
+	class PKV5_MMTS_AA_base_F: PKV5_MMTS_Base_F {};
+	class B_PKV5_MMTS_AA_F: PKV5_MMTS_AA_base_F {
+		class Turrets: Turrets {
+			class MainTurret: MainTurret {};
 		};
 	};
 	class TAE_PKV5_AA: B_PKV5_MMTS_AA_F {

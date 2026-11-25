@@ -22,10 +22,16 @@ TAE_fnc_queueHelmetHeadRestore = {
 	private _restore = {
 		params ["_unit"];
 		if (isNull _unit || {!local _unit} || {!alive _unit}) exitWith {};
-		if (getNumber (configFile >> "CfgWeapons" >> headgear _unit >> "ls_common_hideHead") == 1) exitWith {};
-		if (toLower (face _unit) != "ls_hidehead") exitWith {};
-		// Holograms intentionally use an invisible face even without these helmets.
+		// Holograms manage their own invisible face.
 		if ((([_unit] call ls_common_fnc_getBiology) select 0) == "hologram") exitWith {};
+		private _hidden = toLower (face _unit) == "ls_hidehead";
+		if (getNumber (configFile >> "CfgWeapons" >> headgear _unit >> "ls_common_hideHead") == 1) exitWith {
+			if (!_hidden) then {
+				[_unit] call TAE_fnc_rememberHelmetFace;
+				[_unit, true] call ls_common_fnc_hideHead;
+			};
+		};
+		if (!_hidden) exitWith {};
 		private _savedFace = _unit getVariable ["TAE_helmetVisibleFace", ""];
 		if (_savedFace == "" || {toLower _savedFace == "ls_hidehead"}) exitWith {};
 		_unit setVariable ["ls_common_oldFace", _savedFace, true];
@@ -59,12 +65,14 @@ TAE_fnc_queueHelmetHeadRestore = {
 	[_unit] call TAE_fnc_queueHelmetHeadRestore;
 }] call CBA_fnc_addEventHandler;
 
-// Recover missed scripted removals, initial loadouts and locality transfers.
+// Recover missed scripted equips/removals, initial loadouts and locality transfers.
 [{
 	{
 		if (local _x && {alive _x}) then {
 			[_x] call TAE_fnc_rememberHelmetFace;
-			if (toLower (face _x) == "ls_hidehead" && {getNumber (configFile >> "CfgWeapons" >> headgear _x >> "ls_common_hideHead") != 1}) then {
+			private _hidden = toLower (face _x) == "ls_hidehead";
+			private _shouldHide = getNumber (configFile >> "CfgWeapons" >> headgear _x >> "ls_common_hideHead") == 1;
+			if (_hidden != _shouldHide && {(([_x] call ls_common_fnc_getBiology) select 0) != "hologram"}) then {
 				[_x] call TAE_fnc_queueHelmetHeadRestore;
 			};
 		};

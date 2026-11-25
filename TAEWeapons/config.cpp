@@ -58,7 +58,8 @@ class CfgMagazines {
 		displayName = "[TAE] Amban Energy Pack";
 		mass = 12.5;
 	};
-	class 3AS_DetPack {
+	class SatchelCharge_Remote_Mag;
+	class 3AS_DetPack: SatchelCharge_Remote_Mag {
 		class ACE_Triggers;
 	};
 	class TAE_DetPack: 3AS_DetPack {

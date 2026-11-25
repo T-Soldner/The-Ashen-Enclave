@@ -5,10 +5,11 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from attendance import UTC, link, windows
+from attendance import UTC, link, report, windows
 from collector import connect
 from discord_store import Store
-from finalization import Workflow, finalize, ledger_totals
+from discord_bot import scheduled_preview_slot
+from finalization import Workflow, finalize, ledger_totals, set_holiday
 import promotions
 
 DID = "123456789012345678"
@@ -85,6 +86,49 @@ class WorkflowTests(unittest.IsolatedAsyncioTestCase):
             await self.workflow.run(DAY, "main", now=NOW)
         self.assertEqual(self.transport.calls, [])
         self.assertEqual(self.rows("operation_credits"), [])
+
+    async def test_holiday_awards_credit_without_misses_and_can_be_cleared(self):
+        self.events()
+        self.store.run(lambda db: link(db, "76561198000000002", "123456789012345679", "Absent", DAY.isoformat(), 0))
+        self.assertTrue(self.store.run(lambda db: set_holiday(db, DAY, DID)))
+        self.assertFalse(self.store.run(lambda db: set_holiday(db, DAY, DID)))
+        preview = self.store.run(lambda db: report(db, DAY, DAY, NOW))
+        self.assertEqual(set(preview["operations"][0]["seconds"]), {UID})
+        self.assertTrue(all(not member["last_four"] for member in preview["members"]))
+        for kind in ("planning", "recap-preview"):
+            await self.workflow.scheduled_preview(kind, DAY, NOW)
+        self.assertEqual(self.transport.calls, [])
+        self.assertEqual(self.rows("operation_credits"), [])
+        self.assertTrue(self.store.run(lambda db: set_holiday(db, DAY, DID, enabled=False)))
+        self.store.run(lambda db: set_holiday(db, DAY, DID))
+        self.store.run(lambda db: finalize(db, GUILD, DAY, "main", NOW))
+        self.assertEqual([(row[3], row[5]) for row in self.rows("operation_credits")], [(DID, "attended")])
+        self.assertIn((DID, "Character", 0, 1), self.store.run(lambda db: ledger_totals(db, GUILD)))
+        with self.assertRaisesRegex(ValueError, "already has finalized attendance"):
+            self.store.run(lambda db: set_holiday(db, DAY, DID, enabled=False))
+
+    def test_preview_slots_follow_eastern_daylight_time(self):
+        for day, utc_hour in ((DAY, 21), (dt.date(2026, 7, 4), 20)):
+            start = dt.datetime.combine(day, dt.time(utc_hour), UTC)
+            self.assertIsNone(scheduled_preview_slot(start - dt.timedelta(minutes=1)))
+            self.assertEqual(scheduled_preview_slot(start), (day, "planning"))
+            self.assertEqual(scheduled_preview_slot(start + dt.timedelta(hours=1)), (day, "recap-preview"))
+            self.assertIsNone(scheduled_preview_slot(start + dt.timedelta(hours=2)))
+            self.assertIsNone(scheduled_preview_slot(start + dt.timedelta(days=1)))
+
+    async def test_previews_are_read_only_and_deduplicated(self):
+        planning = windows(DAY)[0][2] - dt.timedelta(hours=1)
+        self.events()
+        for workflow in (self.workflow, Workflow(self.store, self.transport, GUILD, enabled=True)):
+            await workflow.scheduled_preview("planning", DAY, planning)
+            await workflow.scheduled_preview("recap-preview", DAY, planning + dt.timedelta(hours=1))
+        forecast, recap = self.transport.calls
+        self.assertEqual(forecast[0], "planning-ping")
+        self.assertIn("[FD] Character -> Mandalorian Recruit (1 ops)", forecast[1])
+        self.assertEqual(recap[0], "recap-preview")
+        self.assertIn("Attended (1 linked members)", recap[1])
+        for table in ("operation_credits", "promotion_jobs", "finalized_operations"):
+            self.assertEqual(self.rows(table), [])
 
     async def test_old_and_fun_session_warnings_do_not_block_main(self):
         self.events()

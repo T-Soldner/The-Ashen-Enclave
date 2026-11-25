@@ -34,6 +34,7 @@ class CfgPatches {
 			"tae_stasik_helmet",
 			"tae_bingo_helmet",
 			"tae_foxx_helmet",
+			"tae_fade_helmet",
 			"tae_juno_helmet",
 			"tae_galaxy_helmet",
 			"tae_varen_helmet",
@@ -106,7 +107,8 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo","Edonn","Nox","Juno","Galaxy","Valeria","Nova","Trimm","Samantha" };
+				values[] = { "Hondo","Edonn","Nox","Juno","Galaxy","Valeria","Nova","Trimm","Samantha","Fade" };
+				class Fade { label = "Fade"; };
 				class Samantha { label = "Samantha"; };
 				class Trimm { label = "Trimm"; };
 				class Juno { label = "Juno"; };
@@ -327,6 +329,10 @@ class XtdGearInfos {
 		};
 
 		// Freelancer
+		class tae_fade_helmet {
+			model = "TAE_freelancer_helmets";
+			owner = "Fade";
+		};
 		class tae_hondo_helmet {
 			model = "TAE_freelancer_helmets";
 			owner = "Hondo";
@@ -739,6 +745,21 @@ class CfgWeapons {
 				"TAEGear\data\Hondo\BM_Helmet_Hondo_co.paa",
 				"\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"
 			};
+		};
+	};
+	class tae_fade_helmet : tae_helmet_battle_master {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Shogun";
+		displayName = "Fade's Battle Master Helmet";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Fade\BM_Helmet_Fade_co.paa", "\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"};
+		hiddenSelectionsMaterials[] = {"TAEGear\data\Fade\BM_Helmet_Fade.rvmat", "\z\tgf\addons\helmets\battle_master\data\camo2.rvmat"};
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Fade\BM_Helmet_Fade_co.paa", "\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"};
+			hiddenSelectionsMaterials[] = {"TAEGear\data\Fade\BM_Helmet_Fade.rvmat", "\z\tgf\addons\helmets\battle_master\data\camo2.rvmat"};
 		};
 	};
 	class tae_nova_helmet : tae_helmet_ls_armorer {

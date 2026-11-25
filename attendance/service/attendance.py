@@ -165,6 +165,14 @@ def link(db, steam_id, discord_id, name, since, baseline):
                    (steam_id, discord_id, name.strip(), baseline, since))
 
 
+def holiday_dates(db, start_day, end_day):
+    if not db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='attendance_holidays'").fetchone():
+        return set()
+    return {dt.date.fromisoformat(row[0]) for row in db.execute(
+        "SELECT day FROM attendance_holidays WHERE day BETWEEN ? AND ?",
+        (start_day.isoformat(), end_day.isoformat()))}
+
+
 def report(db, start_day, end_day, now=None):
     now = now or dt.datetime.now(UTC)
     if start_day > end_day or (end_day - start_day).days > 366:
@@ -172,13 +180,17 @@ def report(db, start_day, end_day, now=None):
     intervals, warnings = _evidence(db)
     members = db.execute("SELECT steam_id,discord_id,display_name,baseline_ops,tracking_since FROM members WHERE active=1 ORDER BY display_name").fetchall()
     operations = []
+    holidays = holiday_dates(db, start_day, end_day)
     day = start_day
     while day <= end_day:
         for identifier, begin, end in windows(day):
             seconds = {uid: seconds_in(intervals.get(uid, []), begin, end)
                        for uid, _, _, _, since in members if since and day.isoformat() >= since}
+            if day in holidays:
+                seconds = {uid: value for uid, value in seconds.items() if value > 300}
             if any(value > 300 for value in seconds.values()):
                 operations.append({"operation": identifier, "closed": end <= now, "seconds": seconds,
+                                   "holiday": day in holidays,
                                    "warnings": warning_messages(warnings, begin, end)})
         day += dt.timedelta(days=1)
     results = []
@@ -198,7 +210,8 @@ def report(db, start_day, end_day, now=None):
                                                             for member, start, end in excuses) else "review-no-credit"),
                                        "confirmed_seconds": op["seconds"][uid]} for op in recent]})
         results[-1]['operation_history'] = results[-1]['last_four']
-        results[-1]['last_four'] = [op for op in results[-1]['operation_history'] if op['operation'].endswith(':main')][-4:]
+        results[-1]['last_four'] = [entry for entry, op in zip(results[-1]['operation_history'], recent)
+                                   if entry['operation'].endswith(':main') and not op['holiday']][-4:]
     return {"mode": "PREVIEW ONLY", "from": str(start_day), "through": str(end_day),
             "warnings": sorted({warning for op in operations for warning in op["warnings"]}), "members": results,
             "operations": operations,

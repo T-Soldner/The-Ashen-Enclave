@@ -223,7 +223,10 @@ def prepare(db, google, guild_id):
         if current != desired:
             title = snapshot["tab"].replace("'", "''")
             changes.append({"range": f"'{title}'!B{row}", "values": [[desired]]})
-        recent = db.execute("SELECT operation,status FROM operation_credits WHERE guild_id=? AND steam_id=? AND operation LIKE '%:main' ORDER BY operation DESC LIMIT 4", (str(guild_id), steam)).fetchall()
+        recent = db.execute("""SELECT operation,status FROM operation_credits
+            WHERE guild_id=? AND steam_id=? AND operation LIKE '%:main' AND NOT EXISTS (
+                SELECT 1 FROM attendance_holidays WHERE day=substr(operation,1,10))
+            ORDER BY operation DESC LIMIT 4""", (str(guild_id), steam)).fetchall()
         statuses = [f"{op}: {status}" for op, status in recent]
         values = [label] + statuses + [""] * (4 - len(statuses)) + [f"{sum(status in ('attended','excused') for _,status in recent)}/{len(recent)}"]
         if history is not None:
