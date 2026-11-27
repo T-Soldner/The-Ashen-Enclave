@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.3.5.3 - November 27, 2026
+
+- Added Shogun's custom visor to Fade's Battle Master helmet.
+- Added a Freelancer wearable preset for Fade with his helmet, black undersuit,
+  and Mandalorian Apprentice vest.
+- Enabled datalink by default on House Karr aircraft so pilots can share contacts
+  and friendly positions.
+
+## 1.3.5.2 - November 25, 2026
+
+- Added Fade's Battle Master helmet to the restricted Arsenal. Textures by Shogun.
+- Fixed hair showing through Nite Owl helmets equipped from saved Arsenal loadouts.
+- Restored the TAE Detonator Pack to the restricted Arsenal.
+- Restored the House Karr PK-V5 Mass Driver, Multi-Purpose, and Anti-Air variants
+  to Zeus.
+
 ## 1.3.5.1 - November 14, 2026
 
 - Added the Amban Phase-Pulse Rifle and its energy pack to the restricted arsenal

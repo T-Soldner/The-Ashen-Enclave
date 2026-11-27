@@ -27,8 +27,19 @@
   addition, including alternate ammunition and underbarrel launchers. Also check
   demolition/anti-tank crate coverage when the addition includes GL or AT ammunition.
 
+# Local Mod Builds
+
+- After changing files that ship in a PBO, check whether Arma 3 is running.
+  If it is closed, rebuild and sign only the affected PBOs and install them
+  with their matching signatures in the local mod's Addons folder:
+  `D:\SteamLibrary\steamapps\common\Arma 3\@The Ashen Enclave\Addons`.
+  If the game is running, leave the installed files alone and report what
+  needs rebuilding. Do not automatically publish to Workshop or the server.
+
 # Patch and Release Notes
 
+- After every merge into main, include player-facing patch notes for the mod in
+  the merge summary. Keep attendance bot changes out of the mod patch notes.
 - Write straightforward, player-friendly notes that curious users can understand.
   Lead with what was added, changed or fixed and its effect in game.
 - Use plain language and short bullets. Avoid internal jargon, implementation

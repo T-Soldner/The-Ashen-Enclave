@@ -754,12 +754,12 @@ class CfgWeapons {
 		author = "Shogun";
 		displayName = "Fade's Battle Master Helmet";
 		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {"TAEGear\data\Fade\BM_Helmet_Fade_co.paa", "\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"};
-		hiddenSelectionsMaterials[] = {"TAEGear\data\Fade\BM_Helmet_Fade.rvmat", "\z\tgf\addons\helmets\battle_master\data\camo2.rvmat"};
+		hiddenSelectionsTextures[] = {"TAEGear\data\Fade\BM_Helmet_Fade_co.paa", "TAEGear\data\Fade\BM_Visor_Fade_co.paa"};
+		hiddenSelectionsMaterials[] = {"TAEGear\data\Fade\BM_Helmet_Fade.rvmat", "TAEGear\data\Fade\BM_Visor_Fade.rvmat"};
 		class ItemInfo : ItemInfo {
 			hiddenSelections[] = {"camo1","camo2"};
-			hiddenSelectionsTextures[] = {"TAEGear\data\Fade\BM_Helmet_Fade_co.paa", "\z\tgf\addons\helmets\battle_master\data\camo2_co.paa"};
-			hiddenSelectionsMaterials[] = {"TAEGear\data\Fade\BM_Helmet_Fade.rvmat", "\z\tgf\addons\helmets\battle_master\data\camo2.rvmat"};
+			hiddenSelectionsTextures[] = {"TAEGear\data\Fade\BM_Helmet_Fade_co.paa", "TAEGear\data\Fade\BM_Visor_Fade_co.paa"};
+			hiddenSelectionsMaterials[] = {"TAEGear\data\Fade\BM_Helmet_Fade.rvmat", "TAEGear\data\Fade\BM_Visor_Fade.rvmat"};
 		};
 	};
 	class tae_nova_helmet : tae_helmet_ls_armorer {
