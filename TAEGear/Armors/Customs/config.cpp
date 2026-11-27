@@ -42,7 +42,8 @@ class CfgPatches {
 			"tae_andora_armor",
 			"tae_goostivool_armor",
 			"tae_shen_armor",
-			"tae_keira_armor"
+			"tae_keira_armor",
+			"tae_trimm_armor"
 		};
 	};
 };
@@ -93,7 +94,7 @@ class XtdGearModels {
 			class owner {
 				alwaysSelectable = 1;
 				label = "Owner";
-				values[] = { "Hondo", "Edonn", "Nox", "Juno", "Galaxy" };
+				values[] = { "Hondo", "Edonn", "Nox", "Juno", "Galaxy", "Trimm" };
 				class Juno { label = "Juno"; };
 				class Galaxy { label = "Galaxy"; };
 				class Hondo {
@@ -104,6 +105,9 @@ class XtdGearModels {
 				};
 				class Nox {
 					label = "Nox";
+				};
+				class Trimm {
+					label = "Trimm";
 				};
 			};
 		};
@@ -291,6 +295,10 @@ class XtdGearInfos {
 		class tae_shyyyo_recon_armor {
 			model	= "TAE_pilot_vests";
 			owner	= "Shyyyo";
+		};
+		class tae_trimm_armor {
+			model	= "TAE_freelancer_vests";
+			owner	= "Trimm";
 		};
 		//Acklay
 		class tae_towi_armor { model = "TAE_acklay_vests"; owner = "Towi"; };
@@ -631,6 +639,28 @@ class CfgWeapons {
 			hiddenSelectionsTextures[] = {
 				"TAEGear\data\Hondo\MED_Armor_Hondo_co.paa",
 				"TAEGear\data\Hondo\MED_Brace_Hondo_co.paa"
+			};
+		};
+	};
+	
+	//Trimm
+	class tae_trimm_armor : tae_armor_traditional {
+		scope = 2;
+		scopeArsenal = 2;
+		scopeCurator = 2;
+		author = "Varen";
+		displayName = "Trimm's Armor";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {
+			"TAEGear\data\Trimm\TRAD_Armor_Trimm_co.paa",
+			"TAEGear\data\Trimm\TRAD_Brace_Trimm_co.paa"
+		};
+
+		class ItemInfo : ItemInfo {
+			hiddenSelections[] = {"camo1","camo2"};
+			hiddenSelectionsTextures[] = {
+				"TAEGear\data\Trimm\TRAD_Armor_Trimm_co.paa",
+				"TAEGear\data\Trimm\TRAD_Brace_Trimm_co.paa"
 			};
 		};
 	};
