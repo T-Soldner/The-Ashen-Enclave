@@ -750,6 +750,9 @@ class CfgVehicles {
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnTrimmArmor, "Put On Trimm Kell's Armor")
                     statement = "[_player,'tae_karr_armor_medium_ma','tae_trimm_helmet','tgf_nvg_boba','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
                 };
+				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnFadeArmor, "Put On Fade's Armor")
+					statement = "[_player,'tae_karr_armor_medium_ma','tae_fade_helmet','','','tae_uniform_black_seal'] call TAE_fnc_applyWearableLoadout";
+				};
 				TAE_WEARABLE_ACTION_BEGIN(TAE_PutOnSamanthaArmor, "Put On Samantha Kell's Armor")
                     statement = "[_player,'tae_karr_armor_niteowl_ma','tae_samantha_helmet','tgf_nvg_nite_owl_rangefinder','','tae_uniform_black_female'] call TAE_fnc_applyWearableLoadout";
                 };

@@ -264,6 +264,7 @@ class CfgWeapons {
 	};
 };
 class SensorTemplateActiveRadar;
+class SensorTemplateDataLink;
 class CfgAmmo {
 	class mti_armoury_ammo_AA_Base_Ammo;
 	class mti_armoury_ammo_AA_Ammo_Light: mti_armoury_ammo_AA_Base_Ammo {
@@ -903,6 +904,9 @@ class CfgVehicles {
 		};
 	};
 	class TAE_VWing: 3AS_Vwing_base {
+		reportRemoteTargets = 1;
+		receiveRemoteTargets = 1;
+		reportOwnPosition = 1;
 		ace_cargo_hasCargo = 0;
 		ace_cargo_space = 0;
 		maximumLoad = 0;
@@ -925,6 +929,7 @@ class CfgVehicles {
 		class Components: Components {
 			class SensorsManagerComponent: SensorsManagerComponent {
 				class Components: Components {
+					class DataLinkSensorComponent: SensorTemplateDataLink {};
 					class ActiveRadarSensorComponent: ActiveRadarSensorComponent {
 						angleRangeHorizontal = 360;
 						angleRangeVertical = 360;
@@ -1092,7 +1097,11 @@ class CfgVehicles {
 	class Helicopter_Base_H;
 	class knd_KomrkFighter_VTOL_Dynamic_F;
 	class knd_vehicles_skycat: Helicopter_Base_H {
-		class Components;
+		class Components {
+			class SensorsManagerComponent {
+				class Components;
+			};
+		};
 	};
 	class ls_vehicle_z98;
 	class Plane_Base_F;
@@ -1119,6 +1128,9 @@ class CfgVehicles {
 	};
 
 	class TAE_Delta7_Interceptor: mti_armoury_vehicles_delta_base {
+		reportRemoteTargets = 1;
+		receiveRemoteTargets = 1;
+		reportOwnPosition = 1;
 		scope = 2;
 		scopeCurator = 2;
 		flaps = 0;
@@ -1198,6 +1210,7 @@ class CfgVehicles {
 		class Components: Components {
 			class SensorsManagerComponent: SensorsManagerComponent {
 				class Components: Components {
+					class DataLinkSensorComponent: SensorTemplateDataLink {};
 					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
 						angleRangeHorizontal = 360;
 						angleRangeVertical = 360;
@@ -1276,6 +1289,9 @@ class CfgVehicles {
 	};
 
 	class TAE_KomrkFighter_Transport: TAE_KomrkFighter_Transport_base {
+		reportRemoteTargets = 1;
+		receiveRemoteTargets = 1;
+		reportOwnPosition = 1;
 		class knd_vehicles_core_vivCargo {
 			class knd_pak_crate { numberOf = 0; };
 			class knd_resupply_jetpack { numberOf = 0; };
@@ -1641,6 +1657,7 @@ class CfgVehicles {
 
 			class SensorsManagerComponent {
 				class Components {
+					class DataLinkSensorComponent: SensorTemplateDataLink {};
 					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
 						class AirTarget {
 							minRange = 0;
@@ -1721,6 +1738,9 @@ class CfgVehicles {
 	};
 
 	class TAE_Skycat_Transport: knd_vehicles_skycat {
+		reportRemoteTargets = 1;
+		receiveRemoteTargets = 1;
+		reportOwnPosition = 1;
 		class knd_vehicles_core_vivCargo {
 			class knd_pak_crate { numberOf = 0; };
 			class knd_resupply_jetpack { numberOf = 0; };
@@ -1795,6 +1815,11 @@ class CfgVehicles {
 		tf_range = 100000;
 
 		class Components: Components {
+			class SensorsManagerComponent: SensorsManagerComponent {
+				class Components: Components {
+					class DataLinkSensorComponent: SensorTemplateDataLink {};
+				};
+			};
 			class TransportCountermeasuresComponent {};
 
 			class TransportPylonsComponent {
@@ -1929,6 +1954,9 @@ class CfgVehicles {
 	};
 
 	class TAE_Z98_Headhunter: TAE_Z98_Headhunter_base {
+		reportRemoteTargets = 1;
+		receiveRemoteTargets = 1;
+		reportOwnPosition = 1;
 		scope = 2;
 		scopeCurator = 2;
 		displayName = "House Karr Z-98 Interceptor";
@@ -2186,6 +2214,7 @@ class CfgVehicles {
 
 			class SensorsManagerComponent {
 				class Components {
+					class DataLinkSensorComponent: SensorTemplateDataLink {};
 					class ActiveRadarSensorComponent: SensorTemplateActiveRadar {
 						// Compensate for small radar signatures and remove look-down clutter filtering.
 						angleRangeHorizontal = 360;
